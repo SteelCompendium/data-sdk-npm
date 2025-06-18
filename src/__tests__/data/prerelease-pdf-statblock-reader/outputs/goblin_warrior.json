@@ -11,8 +11,6 @@
   ],
   "ev": "3",
   "stamina": 15,
-  "immunities": [],
-  "weaknesses": [],
   "speed": "6 (climb)",
   "size": "1S",
   "stability": 0,
@@ -25,7 +23,6 @@
   "traits": [
     {
       "name": "Crafty",
-      "type": "",
       "effects": [
         {
           "effect": "The warrior doesn’t provoke opportunity attacks by moving."

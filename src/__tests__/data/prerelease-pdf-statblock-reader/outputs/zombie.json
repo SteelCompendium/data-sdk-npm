@@ -14,7 +14,6 @@
     "corruption 1",
     "poison 1"
   ],
-  "weaknesses": [],
   "speed": "5",
   "size": "1M",
   "stability": 1,
@@ -27,7 +26,6 @@
   "traits": [
     {
       "name": "Endless Knight",
-      "type": "",
       "effects": [
         {
           "effect": "The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone."

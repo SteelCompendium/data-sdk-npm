@@ -15,7 +15,6 @@
     "Corruption 1",
     "Psychic 1"
   ],
-  "weaknesses": [],
   "speed": "5",
   "size": "1M",
   "stability": 0,
@@ -28,7 +27,6 @@
   "traits": [
     {
       "name": "Shoot the Hostage",
-      "type": "",
       "effects": [
         {
           "effect": "The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage."
@@ -37,7 +35,6 @@
     },
     {
       "name": "Supernatural Insight",
-      "type": "",
       "effects": [
         {
           "effect": "The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural."

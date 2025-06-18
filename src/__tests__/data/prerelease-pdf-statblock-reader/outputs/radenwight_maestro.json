@@ -10,8 +10,6 @@
   ],
   "ev": "12",
   "stamina": 80,
-  "immunities": [],
-  "weaknesses": [],
   "speed": "5 (climb)",
   "size": "1S",
   "stability": 1,
@@ -24,7 +22,6 @@
   "traits": [
     {
       "name": "End Effect",
-      "type": "",
       "effects": [
         {
           "effect": "At the end of their turn, the maestro can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way."

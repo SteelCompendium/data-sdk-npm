@@ -13,7 +13,6 @@
     "Corruption 2",
     "Psychic 2"
   ],
-  "weaknesses": [],
   "speed": "5",
   "size": "1M",
   "stability": 2,
@@ -26,7 +25,6 @@
   "traits": [
     {
       "name": "End Effect",
-      "type": "",
       "effects": [
         {
           "effect": "At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way."
@@ -35,7 +33,6 @@
     },
     {
       "name": "Death Void",
-      "type": "",
       "effects": [
         {
           "effect": "When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage."

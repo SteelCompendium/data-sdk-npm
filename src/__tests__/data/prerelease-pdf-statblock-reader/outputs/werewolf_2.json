@@ -11,8 +11,6 @@
   ],
   "ev": "36",
   "stamina": 200,
-  "immunities": [],
-  "weaknesses": [],
   "speed": "7",
   "size": "1M",
   "stability": 0,
@@ -25,7 +23,6 @@
   "traits": [
     {
       "name": "Solo Monster",
-      "type": "",
       "effects": [
         {
           "name": "Solo Turns",
@@ -39,7 +36,6 @@
     },
     {
       "name": "Shapeshifter",
-      "type": "",
       "effects": [
         {
           "effect": "The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability."
@@ -48,7 +44,6 @@
     },
     {
       "name": "Shared Ferocity",
-      "type": "",
       "effects": [
         {
           "effect": "The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf."
@@ -57,7 +52,6 @@
     },
     {
       "name": "Accursed Rage",
-      "type": "",
       "effects": [
         {
           "effect": "The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite."
@@ -66,7 +60,6 @@
     },
     {
       "name": "Vukenstep",
-      "type": "",
       "effects": [
         {
           "effect": "The werewolf ignores difficult terrain."

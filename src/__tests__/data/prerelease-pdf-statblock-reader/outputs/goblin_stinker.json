@@ -11,8 +11,6 @@
   ],
   "ev": "3",
   "stamina": 10,
-  "immunities": [],
-  "weaknesses": [],
   "speed": "5 (climb)",
   "size": "1S",
   "stability": 0,
@@ -25,7 +23,6 @@
   "traits": [
     {
       "name": "Crafty",
-      "type": "",
       "effects": [
         {
           "effect": "The stinker doesn’t provoke opportunity attacks by moving."

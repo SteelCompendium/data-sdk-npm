@@ -11,8 +11,6 @@
   ],
   "ev": "3",
   "stamina": 15,
-  "immunities": [],
-  "weaknesses": [],
   "speed": "6 (climb)",
   "size": "1S",
   "stability": 0,
@@ -25,7 +23,6 @@
   "traits": [
     {
       "name": "Crafty",
-      "type": "",
       "effects": [
         {
           "effect": "The assassin doesn’t provoke opportunity attacks by moving."
@@ -34,7 +31,6 @@
     },
     {
       "name": "Slip Away",
-      "type": "",
       "effects": [
         {
           "effect": "The assassin can take the Hide maneuver even while observed."
