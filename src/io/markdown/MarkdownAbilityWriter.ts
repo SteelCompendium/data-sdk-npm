@@ -1,6 +1,8 @@
 import { Ability } from "../../model/Ability";
 import { IDataWriter } from "../IDataWriter";
-import { Effect, MundaneEffect, PowerRollEffect } from "../../model/Effect";
+import { Effect } from "../../model/Effect";
+import { MundaneEffect } from "../../model";
+import { PowerRollEffect } from "../../model";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     write(data: Ability): string {
@@ -31,9 +33,9 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             parts.push(`**Distance:** ${data.distance}`);
         }
 
-        if (data.effects && data.effects.length > 0) {
+        if (data.effects && data.effects.effects.length > 0) {
             parts.push('**Effects:**');
-            const effectParts = data.effects.map(effect => this.writeEffect(effect));
+            const effectParts = data.effects.effects.map(effect => this.writeEffect(effect));
             parts.push(effectParts.join('\n'));
         }
 

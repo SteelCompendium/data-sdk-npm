@@ -2,7 +2,7 @@ import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
 import { StatblockDTO } from "../dto";
-import { SteelCompendiumModel } from "./SteelCompendiumModel";
+import { ModelFactory, SteelCompendiumModel } from "./SteelCompendiumModel";
 
 export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     name!: string;
@@ -30,7 +30,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         this.abilities = source.abilities ?? [];
     }
 
-    public static fromSource = (data: any): Statblock => Statblock.fromDTO(new StatblockDTO(data));
+    public static ModelDTOAdapter: ModelFactory<Statblock, StatblockDTO> = (source: Partial<StatblockDTO>) => new StatblockDTO(source).toModel();
 
     public static fromDTO(dto: StatblockDTO): Statblock {
         return new Statblock({
@@ -43,7 +43,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         });
     }
 
-    public toDTO(): any {
+    public toDTO(): Partial<StatblockDTO> {
         const data: Partial<StatblockDTO> = {}
 
         if (this.name !== undefined) data.name = this.name;
@@ -68,7 +68,6 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
             if (this.characteristics.intuition !== undefined) data.intuition = this.characteristics.intuition;
             if (this.characteristics.presence !== undefined) data.presence = this.characteristics.presence;
         }
-
         return data;
     }
 }

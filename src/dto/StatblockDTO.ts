@@ -30,7 +30,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     }
 
     public static fromModel(model: Statblock): StatblockDTO {
-        return model.toDTO();
+        return new StatblockDTO(model.toDTO());
     }
 
     public toModel(): Statblock {

@@ -22,7 +22,7 @@ describe('Ability Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const ability = Ability.read(new YamlReader(Ability.fromDTOData), inputYaml);
+                const ability = Ability.read(new YamlReader(Ability.ModelDTOAdapter), inputYaml);
                 const outputJson = new JsonWriter().write(ability);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
@@ -33,7 +33,7 @@ describe('Ability Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const ability = Ability.read(new JsonReader(Ability.fromDTOData), inputJson);
+                const ability = Ability.read(new JsonReader(Ability.ModelDTOAdapter), inputJson);
                 const outputYaml = new YamlWriter().write(ability);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');

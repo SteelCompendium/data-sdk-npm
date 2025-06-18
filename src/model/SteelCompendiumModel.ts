@@ -18,5 +18,7 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> {
         return this.write(new YamlWriter<this>());
     }
 
-    public abstract toDTO(): D;
+    public abstract toDTO(): Partial<D>;
 }
+
+export type ModelFactory<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> = (source: Partial<T>) => M;

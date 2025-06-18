@@ -5,7 +5,6 @@ import { YamlReader } from '../../io/yaml';
 import { JsonWriter } from '../../io/json';
 import { JsonReader } from '../../io/json';
 import { YamlWriter } from '../../io/yaml';
-import { TraitDTO } from '../../dto';
 
 const testDataDir = path.join(__dirname, 'test-data', 'trait');
 const inputDir = path.join(testDataDir, 'input');
@@ -23,7 +22,7 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.read(new YamlReader(Trait.fromSource), inputYaml);
+                const trait = Trait.read(new YamlReader(Trait.ModelDTOAdapter), inputYaml);
                 const outputJson = new JsonWriter().write(trait);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
@@ -34,7 +33,7 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.read(new JsonReader(Trait.fromSource), inputJson);
+                const trait = Trait.read(new JsonReader(Trait.ModelDTOAdapter), inputJson);
                 const outputYaml = new YamlWriter().write(trait);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');

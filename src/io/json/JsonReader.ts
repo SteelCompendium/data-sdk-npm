@@ -1,18 +1,17 @@
 import { IDataReader } from "../IDataReader";
-import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { ModelFactory as ModelDTOAdapater, SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { SteelCompendiumDTO } from "../../dto";
 
-type ModelFactory<M extends SteelCompendiumModel<any>> = (source: any) => M;
+export class JsonReader<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> extends IDataReader<M> {
+    private adapter: ModelDTOAdapater<M, T>;
 
-export class JsonReader<M extends SteelCompendiumModel<any>> extends IDataReader<M> {
-    private modelFactory: ModelFactory<M>;
-
-    public constructor(modelFactory: ModelFactory<M>) {
+    public constructor(adapter: ModelDTOAdapater<M, T>) {
         super();
-        this.modelFactory = modelFactory;
+        this.adapter = adapter;
     }
 
     public read(source: string): M {
         const data = JSON.parse(source);
-        return this.modelFactory(data);
+        return this.adapter(data);
     }
 } 

@@ -1,6 +1,6 @@
 import { AbilityDTO } from "../dto";
-import { SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
+import { ModelFactory, SteelCompendiumModel } from "./SteelCompendiumModel";
 
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
@@ -19,7 +19,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static fromDTOData = (data: any): Ability => Ability.fromDTO(new AbilityDTO(data));
+    public static ModelDTOAdapter: ModelFactory<Ability, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
 
     public static fromDTO(dto: AbilityDTO): Ability {
         return new Ability({
@@ -28,7 +28,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         });
     }
 
-    public toDTO(): any {
+    public toDTO(): Partial<AbilityDTO> {
         const dto: Partial<AbilityDTO> = {};
         if (this.name !== undefined) dto.name = this.name;
         if (this.cost !== undefined) dto.cost = this.cost;
@@ -39,7 +39,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         if (this.target !== undefined) dto.target = this.target;
         if (this.trigger !== undefined) dto.trigger = this.trigger;
         dto.effects = this.effects.toDTO();
-
         return dto;
     }
 }

@@ -12,7 +12,7 @@ export class TraitDTO extends SteelCompendiumDTO<Trait> {
     }
 
     public static fromModel(model: Trait): TraitDTO {
-        return model.toDTO();
+        return new TraitDTO(model.toDTO());
     }
 
     public toModel(): Trait {

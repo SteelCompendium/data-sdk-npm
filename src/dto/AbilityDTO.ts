@@ -18,7 +18,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     }
 
     public static fromModel(model: Ability): AbilityDTO {
-        return model.toDTO();
+        return new AbilityDTO(model.toDTO());
     }
 
     public toModel(): Ability {
