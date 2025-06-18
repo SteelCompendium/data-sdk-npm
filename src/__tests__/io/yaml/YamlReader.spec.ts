@@ -4,8 +4,8 @@ import { glob } from 'glob';
 import { YamlReader } from '../../../io/yaml';
 import { Statblock } from '../../../model';
 
-const yamlTestPath = path.join(__dirname, '..', '..', 'data', 'dto-yaml');
-const jsonTestPath = path.join(__dirname, '..', '..', 'data', 'dto-json');
+const yamlTestPath = path.join(__dirname, '..', '..', 'data', 'statblock', 'dto-yaml');
+const jsonTestPath = path.join(__dirname, '..', '..', 'data', 'statblock', 'dto-json');
 
 describe('YamlReader', () => {
     const files = glob.sync('*.yaml', { cwd: yamlTestPath });

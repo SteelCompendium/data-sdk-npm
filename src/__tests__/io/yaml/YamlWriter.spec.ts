@@ -6,8 +6,8 @@ import { YamlWriter } from '../../../io/yaml';
 import { Statblock } from '../../../model';
 import { parse } from 'yaml';
 
-const jsonTestPath = path.join(__dirname, '..', '..', 'data', 'dto-json');
-const yamlTestPath = path.join(__dirname, '..', '..', 'data', 'dto-yaml');
+const jsonTestPath = path.join(__dirname, '..', '..', 'data', 'statblock', 'dto-json');
+const yamlTestPath = path.join(__dirname, '..', '..', 'data', 'statblock', 'dto-yaml');
 
 describe('YamlWriter', () => {
     const files = glob.sync('*.json', { cwd: jsonTestPath });
