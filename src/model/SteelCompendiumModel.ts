@@ -1,5 +1,5 @@
 import { SteelCompendiumDTO } from "../dto/SteelCompendiumDTO";
-import { IDataReader, IDataWriter, JsonWriter, YamlWriter } from "../io";
+import { IDataReader, IDataWriter } from "../io";
 
 export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> implements SteelCompendiumPseudoModel {
     public static read<T extends SteelCompendiumModel<any>>(reader: IDataReader<T>, source: string): T {
@@ -10,13 +10,19 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> im
         return writer.write(this);
     }
 
-    // public toJson(): string {
-    //     return this.write(new JsonWriter<this>());
-    // }
+    public toJson(): string {
+        const { JsonWriter } = (require("../io") as {
+            JsonWriter: new <T extends SteelCompendiumModel<any>>() => IDataWriter<T>
+        });
+        return this.write(new JsonWriter<this>());
+    }
 
-    // public toYaml(): string {
-    //     return this.write(new YamlWriter<this>());
-    // }
+    public toYaml(): string {
+        const { YamlWriter } = (require("../io") as {
+            YamlWriter: new <T extends SteelCompendiumModel<any>>() => IDataWriter<T>
+        });
+        return this.write(new YamlWriter<this>());
+    }
 
     public abstract toDTO(): Partial<D>;
 }
