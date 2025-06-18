@@ -18,12 +18,10 @@ export abstract class Effect {
 	public static from(data: any): Effect {
 		if (data.roll) {
 			return PowerRollEffect.from(data);
-		} else if (data.name && data.effect) {
-			return MundaneEffect.from(data);
-		} else if (data.cost && data.effect) {
-			return MundaneEffect.from(data);
 		} else if (typeof data === "string") {
 			return MundaneEffect.nameless(data);
+		} else if (data.effect) {
+			return MundaneEffect.from(data);
 		} else {
 			return MundaneEffect.parseKeyValue(data);
 		}
@@ -37,6 +35,8 @@ export abstract class Effect {
 		return Effect.from(JSON.parse(json));
 	}
 
+	abstract toYaml(): string;
+	abstract toJson(): string;
 	abstract effectType(): string;
 }
 
@@ -95,11 +95,11 @@ export class MundaneEffect extends Effect {
 	static parseKeyValue(data: any) {
 		const key: string = Object.keys(data)[0];
 		const effect: string = data[key];
-		return new MundaneEffect(key, undefined, effect);
+		return new MundaneEffect(effect, key, undefined);
 	}
 
 	static from(data: any) {
-		return new MundaneEffect(data.name, data.cost, data.effect);
+		return new MundaneEffect(data.effect, data.name, data.cost);
 	}
 
 	static nameless(effect: string) {

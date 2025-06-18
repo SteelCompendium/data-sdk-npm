@@ -1,0 +1,16 @@
+indent: 0
+name: "Fireball"
+cost: "2 AP"
+flavor: "A classic."
+keywords: ["fire", "aoe"]
+type: "Spell"
+distance: "100ft"
+target: "10ft radius"
+trigger: ""
+effects:
+  - roll: "3d6"
+    "11 or lower": "5 fire damage"
+    "12-16": "10 fire damage"
+    "17+": "15 fire damage"
+    crit: "20 fire damage"
+  - "On a critical hit, enemies are set on fire."

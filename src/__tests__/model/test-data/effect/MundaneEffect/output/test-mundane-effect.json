@@ -1,0 +1,9 @@
+[
+  {
+    "effect": "A simple effect"
+  },
+  {
+    "name": "Named Effect",
+    "effect": "A named effect"
+  }
+]

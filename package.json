@@ -15,18 +15,19 @@
   },
   "keywords": [],
   "author": "Steel Compendium",
-  "license": "MIT",
+  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^29.5.14",
     "@types/js-yaml": "^4.0.9",
     "@types/node": "^24.0.1",
     "jest": "^30.0.0",
     "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   },
   "dependencies": {
     "ajv": "^8.17.1",
     "js-yaml": "^4.1.0",
-    "yaml": "^2.8.0"
+    "yaml": "^2.4.2"
   }
 }

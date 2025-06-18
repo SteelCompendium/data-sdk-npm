@@ -53,8 +53,8 @@ export class Statblock {
             data.speed,
             data.size,
             data.stability,
-            data.free_strike,
-            data.with_captain,
+            data.free_strike ?? data.freeStrike,
+            data.with_captain ?? data.withCaptain,
             Characteristics.from(data.characteristics),
             data.traits?.map((t: any) => Trait.from(t)) ?? [],
             data.abilities?.map((a: any) => Ability.from(a)) ?? []
