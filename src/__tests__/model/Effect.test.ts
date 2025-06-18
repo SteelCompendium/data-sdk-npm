@@ -33,7 +33,8 @@ describe('Effect Data-Driven Tests', () => {
                         const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
                         const parsed = parse(inputYaml);
                         const effects = Array.isArray(parsed) ? Effects.fromDTO(parsed).effects : [effectFromDTO(parsed)];
-                        const outputJson = JSON.stringify(effects.length > 1 ? effects : effects[0], null, 2);
+                        const dtos = effects.map(e => e.toDTO());
+                        const outputJson = JSON.stringify(dtos.length > 1 ? dtos : dtos[0], null, 2);
                         const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                         const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
                         expect(JSON.parse(outputJson)).toEqual(JSON.parse(expectedJson));
@@ -45,7 +46,8 @@ describe('Effect Data-Driven Tests', () => {
                         const inputJson = fs.readFileSync(inputFilePath, 'utf8');
                         const parsed = JSON.parse(inputJson);
                         const effects = Array.isArray(parsed) ? Effects.fromDTO(parsed).effects : [effectFromDTO(parsed)];
-                        const outputYaml = parse(JSON.stringify(effects.length > 1 ? effects : effects[0]));
+                        const dtos = effects.map(e => e.toDTO());
+                        const outputYaml = parse(JSON.stringify(dtos.length > 1 ? dtos : dtos[0]));
                         const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                         const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');
                         expect(outputYaml).toEqual(parse(expectedYaml));

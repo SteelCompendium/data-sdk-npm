@@ -17,8 +17,13 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
     public static fromSource = (data: any): Trait => Trait.fromDTO(new TraitDTO(data));
 
     public static fromDTO(dto: TraitDTO): Trait {
+        const newDto = { ...dto };
+        if (newDto.name) {
+            newDto.name = newDto.name.trim();
+        }
+
         return new Trait({
-            ...dto,
+            ...newDto,
             effects: Effects.fromDTO(dto.effects),
         });
     }
@@ -27,11 +32,14 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         return reader.read(source);
     }
 
-    public toDTO(): any {
-        return {
-            name: this.name ?? "",
-            type: this.type ?? "",
-            effects: this.effects.toDTO(),
+    public toDTO(): TraitDTO {
+        const dto: Partial<TraitDTO> = {
+            name: this.name,
         };
+
+        if (this.type !== undefined) dto.type = this.type;
+        dto.effects = this.effects.toDTO();
+
+        return new TraitDTO(dto);
     }
 }

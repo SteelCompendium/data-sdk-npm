@@ -1,4 +1,3 @@
-indent: "2"
 name: Minimal Ability
 effects:
   - "Just a simple effect string"

@@ -17,10 +17,11 @@ export class MundaneEffect extends Effect {
 
     // TODO - does this show blank fields if the value is undefined
     public toDTO(): any {
-        return {
+        const dto: any = {
             effect: this.effect,
-            name: this.name,
-            cost: this.cost,
         };
+        if (this.name !== undefined) dto.name = this.name;
+        if (this.cost !== undefined) dto.cost = this.cost;
+        return dto;
     }
 } 

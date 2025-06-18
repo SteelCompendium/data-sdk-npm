@@ -1,4 +1,3 @@
-indent: 2
 name: Minimal Ability
 effects:
   - effect: Just a simple effect string
