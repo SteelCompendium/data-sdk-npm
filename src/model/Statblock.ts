@@ -2,7 +2,7 @@ import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
 
-export class StatblockData {
+export class Statblock {
     name?: string;
     level?: number;
     roles?: string[];
@@ -39,8 +39,8 @@ export class StatblockData {
         this.abilities = abilities;
     }
 
-    public static from(data: any): StatblockData {
-        return new StatblockData(
+    public static from(data: any): Statblock {
+        return new Statblock(
             data.name,
             data.level,
             data.roles ?? [],
