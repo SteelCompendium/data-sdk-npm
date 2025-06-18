@@ -1,3 +1,5 @@
+import { parse, stringify } from 'yaml';
+
 export abstract class Effect {
 	public static allFrom(data: any): Effect[] {
 		if (!data) {
@@ -25,6 +27,14 @@ export abstract class Effect {
 		} else {
 			return MundaneEffect.parseKeyValue(data);
 		}
+	}
+
+	public static fromYaml(yaml: string): Effect {
+		return Effect.from(parse(yaml));
+	}
+
+	public static fromJson(json: string): Effect {
+		return Effect.from(JSON.parse(json));
 	}
 
 	abstract effectType(): string;
@@ -56,6 +66,22 @@ export class PowerRollEffect extends Effect {
 		);
 	}
 
+	public static fromYaml(yaml: string): PowerRollEffect {
+		return PowerRollEffect.from(parse(yaml));
+	}
+
+	public static fromJson(json: string): PowerRollEffect {
+		return PowerRollEffect.from(JSON.parse(json));
+	}
+
+	public toYaml(): string {
+		return stringify(this);
+	}
+
+	public toJson(): string {
+		return JSON.stringify(this);
+	}
+
 	effectType() {
 		return "PowerRollEffect";
 	}
@@ -85,6 +111,22 @@ export class MundaneEffect extends Effect {
 		this.name = name;
 		this.cost = cost;
 		this.effect = effect;
+	}
+
+	public static fromYaml(yaml: string): MundaneEffect {
+		return MundaneEffect.from(parse(yaml));
+	}
+
+	public static fromJson(json: string): MundaneEffect {
+		return MundaneEffect.from(JSON.parse(json));
+	}
+
+	public toYaml(): string {
+		return stringify(this);
+	}
+
+	public toJson(): string {
+		return JSON.stringify(this);
 	}
 
 	effectType() {

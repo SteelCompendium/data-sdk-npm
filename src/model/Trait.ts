@@ -1,4 +1,5 @@
 import { Effect } from "./Effect";
+import { parse, stringify } from 'yaml';
 
 
 export class Trait {
@@ -6,17 +7,33 @@ export class Trait {
     type?: string;
     effects: Effect[];
 
-    constructor(name: string, type?: string, effects?: any) {
-        this.name = name?.trim() ?? '';
-        this.type = type?.trim();
-        this.effects = effects ?? [];
+    constructor(name: string, type: string, effects: Effect[]) {
+        this.name = name;
+        this.type = type;
+        this.effects = effects;
     }
 
-    static from(data: { name?: string; type?: string; effects?: any; }) {
-        const d: any = {};
-        d.name = data.name?.trim() ?? '';
-        d.type = data.type?.trim();
-        d.effects = data.effects ? Effect.allFrom(data.effects) : [];
-        return new Trait(d);
+    static from(data: any): Trait {
+        return new Trait(
+            data.name?.trim() ?? '',
+            data.type?.trim(),
+            data.effects ? Effect.allFrom(data.effects) : []
+        );
+    }
+
+    public static fromYaml(yaml: string): Trait {
+        return Trait.from(parse(yaml));
+    }
+
+    public static fromJson(json: string): Trait {
+        return Trait.from(JSON.parse(json));
+    }
+
+    public toYaml(): string {
+        return stringify(this);
+    }
+
+    public toJson(): string {
+        return JSON.stringify(this);
     }
 }

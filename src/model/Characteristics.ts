@@ -1,3 +1,5 @@
+import { parse, stringify } from 'yaml';
+
 export class Characteristics {
 	might: number;
 	agility: number;
@@ -21,6 +23,22 @@ export class Characteristics {
 			data.intuition ? data.intuition : 0,
 			data.presence ? data.presence : 0,
 		);
+	}
+
+	public static fromYaml(yaml: string): Characteristics {
+		return Characteristics.from(parse(yaml));
+	}
+
+	public static fromJson(json: string): Characteristics {
+		return Characteristics.from(JSON.parse(json));
+	}
+
+	public toYaml(): string {
+		return stringify(this);
+	}
+
+	public toJson(): string {
+		return JSON.stringify(this);
 	}
 
 }

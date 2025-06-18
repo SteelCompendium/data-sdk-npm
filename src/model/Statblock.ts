@@ -1,6 +1,7 @@
 import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
+import { parse, stringify } from 'yaml';
 
 export class Statblock {
     name?: string;
@@ -58,5 +59,21 @@ export class Statblock {
             data.traits?.map((t: any) => Trait.from(t)) ?? [],
             data.abilities?.map((a: any) => Ability.from(a)) ?? []
         );
+    }
+
+    public static fromYaml(yaml: string): Statblock {
+        return Statblock.from(parse(yaml));
+    }
+
+    public static fromJson(json: string): Statblock {
+        return Statblock.from(JSON.parse(json));
+    }
+
+    public toYaml(): string {
+        return stringify(this);
+    }
+
+    public toJson(): string {
+        return JSON.stringify(this);
     }
 }

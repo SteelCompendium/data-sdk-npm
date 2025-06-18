@@ -1,4 +1,5 @@
 import { Effect } from "./Effect";
+import { parse, stringify } from 'yaml';
 
 export class Ability {
     indent?: number;
@@ -38,5 +39,21 @@ export class Ability {
             data.trigger,
             data.effects ? Effect.allFrom(data.effects) : []
         );
+    }
+
+    public static fromYaml(yaml: string): Ability {
+        return Ability.from(parse(yaml));
+    }
+
+    public static fromJson(json: string): Ability {
+        return Ability.from(JSON.parse(json));
+    }
+
+    public toYaml(): string {
+        return stringify(this);
+    }
+
+    public toJson(): string {
+        return JSON.stringify(this);
     }
 }
