@@ -1,30 +1,27 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Trait = void 0;
-const Effect_1 = require("./Effect");
-const yaml_1 = require("yaml");
-class Trait {
-    constructor(name, type, effects) {
-        this.name = name;
-        this.type = type;
-        this.effects = effects;
+const dto_1 = require("../dto");
+const SteelCompendiumModel_1 = require("./SteelCompendiumModel");
+const Effects_1 = require("./Effects");
+class Trait extends SteelCompendiumModel_1.SteelCompendiumModel {
+    constructor(source) {
+        var _a;
+        super();
+        Object.assign(this, source);
+        this.effects = (_a = source.effects) !== null && _a !== void 0 ? _a : new Effects_1.Effects([]);
     }
-    static from(data) {
-        var _a, _b, _c;
-        return new Trait((_b = (_a = data.name) === null || _a === void 0 ? void 0 : _a.trim()) !== null && _b !== void 0 ? _b : '', (_c = data.type) === null || _c === void 0 ? void 0 : _c.trim(), data.effects ? Effect_1.Effect.allFrom(data.effects) : []);
+    static fromDTO(dto) {
+        const newDto = Object.assign({}, dto);
+        if (newDto.name) {
+            newDto.name = newDto.name.trim();
+        }
+        return new Trait(Object.assign(Object.assign({}, newDto), { effects: Effects_1.Effects.fromDTO(dto.effects) }));
     }
-    static fromYaml(yaml) {
-        return Trait.from((0, yaml_1.parse)(yaml));
-    }
-    static fromJson(json) {
-        return Trait.from(JSON.parse(json));
-    }
-    toYaml() {
-        return (0, yaml_1.stringify)(this);
-    }
-    toJson() {
-        return JSON.stringify(this);
+    toDTO() {
+        return dto_1.TraitDTO.partialFromModel(this);
     }
 }
 exports.Trait = Trait;
+Trait.modelDTOAdapter = (source) => new dto_1.TraitDTO(source).toModel();
 //# sourceMappingURL=Trait.js.map

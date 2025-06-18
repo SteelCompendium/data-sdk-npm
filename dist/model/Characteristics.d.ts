@@ -1,13 +1,11 @@
-export declare class Characteristics {
+import { SteelCompendiumPseudoModel } from '.';
+import { StatblockDTO } from '../dto';
+export declare class Characteristics implements SteelCompendiumPseudoModel {
     might: number;
     agility: number;
     reason: number;
     intuition: number;
     presence: number;
     constructor(might: number, agility: number, reason: number, intuition: number, presence: number);
-    static from(data: any): Characteristics;
-    static fromYaml(yaml: string): Characteristics;
-    static fromJson(json: string): Characteristics;
-    toYaml(): string;
-    toJson(): string;
+    static fromStatblockDTO(dto: StatblockDTO): Characteristics;
 }

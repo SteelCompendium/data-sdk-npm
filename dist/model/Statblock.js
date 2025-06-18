@@ -4,42 +4,25 @@ exports.Statblock = void 0;
 const Ability_1 = require("./Ability");
 const Trait_1 = require("./Trait");
 const Characteristics_1 = require("./Characteristics");
-const yaml_1 = require("yaml");
-class Statblock {
-    constructor(name, level, roles, ancestry, ev, stamina, immunities, weaknesses, speed, size, stability, freeStrike, withCaptain, characteristics, traits, abilities) {
-        this.name = name;
-        this.level = level;
-        this.roles = roles;
-        this.ancestry = ancestry;
-        this.ev = ev;
-        this.stamina = stamina;
-        this.immunities = immunities;
-        this.weaknesses = weaknesses;
-        this.speed = speed;
-        this.size = size;
-        this.stability = stability;
-        this.freeStrike = freeStrike;
-        this.withCaptain = withCaptain;
-        this.characteristics = characteristics;
-        this.traits = traits;
-        this.abilities = abilities;
+const dto_1 = require("../dto");
+const SteelCompendiumModel_1 = require("./SteelCompendiumModel");
+class Statblock extends SteelCompendiumModel_1.SteelCompendiumModel {
+    constructor(source) {
+        var _a, _b, _c;
+        super();
+        Object.assign(this, source);
+        this.characteristics = (_a = source.characteristics) !== null && _a !== void 0 ? _a : new Characteristics_1.Characteristics(0, 0, 0, 0, 0);
+        this.traits = (_b = source.traits) !== null && _b !== void 0 ? _b : [];
+        this.abilities = (_c = source.abilities) !== null && _c !== void 0 ? _c : [];
     }
-    static from(data) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        return new Statblock(data.name, data.level, (_a = data.roles) !== null && _a !== void 0 ? _a : [], (_b = data.ancestry) !== null && _b !== void 0 ? _b : [], data.ev, data.stamina, (_c = data.immunities) !== null && _c !== void 0 ? _c : [], (_d = data.weaknesses) !== null && _d !== void 0 ? _d : [], data.speed, data.size, data.stability, data.free_strike, data.with_captain, Characteristics_1.Characteristics.from(data.characteristics), (_f = (_e = data.traits) === null || _e === void 0 ? void 0 : _e.map((t) => Trait_1.Trait.from(t))) !== null && _f !== void 0 ? _f : [], (_h = (_g = data.abilities) === null || _g === void 0 ? void 0 : _g.map((a) => Ability_1.Ability.from(a))) !== null && _h !== void 0 ? _h : []);
+    static fromDTO(dto) {
+        var _a, _b, _c, _d;
+        return new Statblock(Object.assign(Object.assign({}, dto), { freeStrike: dto.free_strike, withCaptain: dto.with_captain, characteristics: new Characteristics_1.Characteristics(dto.might, dto.agility, dto.reason, dto.intuition, dto.presence), traits: (_b = (_a = dto.traits) === null || _a === void 0 ? void 0 : _a.map(t => Trait_1.Trait.fromDTO(t))) !== null && _b !== void 0 ? _b : [], abilities: (_d = (_c = dto.abilities) === null || _c === void 0 ? void 0 : _c.map(a => Ability_1.Ability.fromDTO(a))) !== null && _d !== void 0 ? _d : [] }));
     }
-    static fromYaml(yaml) {
-        return Statblock.from((0, yaml_1.parse)(yaml));
-    }
-    static fromJson(json) {
-        return Statblock.from(JSON.parse(json));
-    }
-    toYaml() {
-        return (0, yaml_1.stringify)(this);
-    }
-    toJson() {
-        return JSON.stringify(this);
+    toDTO() {
+        return dto_1.StatblockDTO.partialFromModel(this);
     }
 }
 exports.Statblock = Statblock;
+Statblock.modelDTOAdapter = (source) => new dto_1.StatblockDTO(source).toModel();
 //# sourceMappingURL=Statblock.js.map

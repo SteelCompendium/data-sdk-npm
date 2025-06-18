@@ -1,12 +1,12 @@
-import { Effect } from "./Effect";
-export declare class Trait {
-    name: string;
+import { TraitDTO } from "../dto";
+import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { Effects } from "./Effects";
+export declare class Trait extends SteelCompendiumModel<TraitDTO> {
+    name?: string;
     type?: string;
-    effects: Effect[];
-    constructor(name: string, type: string, effects: Effect[]);
-    static from(data: any): Trait;
-    static fromYaml(yaml: string): Trait;
-    static fromJson(json: string): Trait;
-    toYaml(): string;
-    toJson(): string;
+    effects: Effects;
+    constructor(source: Partial<Trait>);
+    static modelDTOAdapter: ModelDTOAdapter<Trait, TraitDTO>;
+    static fromDTO(dto: TraitDTO): Trait;
+    toDTO(): Partial<TraitDTO>;
 }
