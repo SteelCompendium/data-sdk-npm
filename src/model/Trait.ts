@@ -22,7 +22,7 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
     }
 
     public static read(reader: IDataReader<TraitDTO, Trait>, source: string): Trait {
-        return reader.parse(source);
+        return reader.parse(source, TraitDTO);
     }
 
     public toDTO(): TraitDTO {

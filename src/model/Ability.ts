@@ -28,7 +28,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     }
 
     public static read(reader: IDataReader<AbilityDTO, Ability>, source: string): Ability {
-        return reader.parse(source);
+        return reader.parse(source, AbilityDTO);
     }
 
     public toDTO(): AbilityDTO {

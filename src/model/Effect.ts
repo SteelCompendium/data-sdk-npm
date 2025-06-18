@@ -17,10 +17,12 @@ export abstract class Effect {
 		}
 	}
 
-	public static read(reader: IDataReader<any, any>, source: string): Effect {
-		return reader.parse(source);
-	}
+	// public static read(reader: IDataReader<any, any>, source: string, ctor: DTOClass<T, M>): Effect {
+	// 	return reader.parse(source, ctor);
+	// }
 
 	abstract effectType(): string;
 	abstract toDTO(): any;
 }
+export { MundaneEffect };
+

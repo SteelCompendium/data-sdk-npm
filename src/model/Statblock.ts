@@ -32,7 +32,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     }
 
     public static read(reader: IDataReader<StatblockDTO, Statblock>, source: string): Statblock {
-        return reader.parse(source);
+        return reader.parse(source, StatblockDTO);
     }
 
     public static fromDTO(dto: StatblockDTO): Statblock {

@@ -13,8 +13,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     flavor?: string;
 
     public constructor(source: Partial<AbilityDTO>) {
-        super();
-        Object.assign(this, source);
+        super(source);
         this.effects = source.effects ?? [];
     }
 

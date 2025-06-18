@@ -7,8 +7,7 @@ export class TraitDTO extends SteelCompendiumDTO<Trait> {
     type?: string;
 
     public constructor(source: Partial<TraitDTO>) {
-        super();
-        Object.assign(this, source);
+        super(source);
         this.effects = source.effects ?? [];
     }
 

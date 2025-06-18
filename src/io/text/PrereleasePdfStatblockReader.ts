@@ -1,12 +1,14 @@
+import { StatblockDTO } from "../../dto";
 import { Ability } from "../../model/Ability";
 import { Effect, MundaneEffect } from "../../model/Effect";
 import { Statblock } from "../../model/Statblock";
 import { Trait } from "../../model/Trait";
-import { IDataReader } from "../IDataReader";
-import { parse } from 'yaml';
+import { DTOClass, IDataReader } from "../IDataReader";
+import { Characteristics } from "../../model";
+import { Effects } from "../../model/Effects";
 
-export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
-    read(text: string): Statblock {
+export class PrereleasePdfStatblockReader implements IDataReader<StatblockDTO, Statblock> {
+    read(text: string, ctor: DTOClass<StatblockDTO, Statblock>): StatblockDTO {
         const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
         let idx = 0;
 
@@ -90,11 +92,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         statblock.size = "";
         statblock.stability = 0;
         statblock.freeStrike = 0;
-        statblock.might = 0;
-        statblock.agility = 0;
-        statblock.reason = 0;
-        statblock.intuition = 0;
-        statblock.presence = 0;
+        statblock.characteristics = new Characteristics(0, 0, 0, 0, 0);
         statblock.ev = statblock.ev || "0";
 
         const statsKeywords = ["Speed", "Size", "Stability", "Free Strike", "Might", "Agility", "Reason", "Intuition", "Presence", "With Captain", "Immunity", "Weakness", "Target", "EV"];
@@ -144,27 +142,27 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
             const mightMatch = /Might\s+([+-−]?\d+)/.exec(line);
             if (mightMatch) {
-                statblock.might = parseInt(mightMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.characteristics.might = parseInt(mightMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const agilityMatch = /Agility\s+([+-−]?\d+)/.exec(line);
             if (agilityMatch) {
-                statblock.agility = parseInt(agilityMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.characteristics.agility = parseInt(agilityMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const reasonMatch = /Reason\s+([+-−]?\d+)/.exec(line);
             if (reasonMatch) {
-                statblock.reason = parseInt(reasonMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.characteristics.reason = parseInt(reasonMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const intuitionMatch = /Intuition\s+([+-−]?\d+)/.exec(line);
             if (intuitionMatch) {
-                statblock.intuition = parseInt(intuitionMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.characteristics.intuition = parseInt(intuitionMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const presenceMatch = /Presence\s+([+-−]?\d+)/.exec(line);
             if (presenceMatch) {
-                statblock.presence = parseInt(presenceMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.characteristics.presence = parseInt(presenceMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const evMatch = /EV\s+(.+)/i.exec(line);
@@ -470,7 +468,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                         flushUnnamedEffect();
                         const effectName = words.slice(0, titleCaseWords).join(" ");
                         const description = words.slice(titleCaseWords).join(" ").trim();
-                        effects.push(new MundaneEffect(description, effectName));
+                        effects.push(new MundaneEffect({ effect: description, name: effectName }));
                     } else {
                         if (effects.length > 0 && typeof effects[effects.length - 1] === "object") {
                             (effects[effects.length - 1] as MundaneEffect).effect += ` ${effectLine}`;
@@ -482,7 +480,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 }
                 flushUnnamedEffect();
 
-                statblock.traits.push(new Trait(traitName, '', effects.map(e => Effect.fromDTO(e))));
+                statblock.traits.push(new Trait({ name: traitName, effects: new Effects(effects.map(e => Effect.fromDTO(e))) }));
                 idx = lookahead;
                 continue;
             }

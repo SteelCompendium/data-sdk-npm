@@ -26,8 +26,9 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     abilities?: AbilityDTO[];
 
     public constructor(source: Partial<StatblockDTO>) {
-        super();
-        Object.assign(this, source);
+        super(source);
+        this.traits = source.traits ?? [];
+        this.abilities = source.abilities ?? [];
     }
 
     public static fromModel(model: Statblock): StatblockDTO {
