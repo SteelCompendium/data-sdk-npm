@@ -20,7 +20,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static fromSource = (data: any): Ability => Ability.fromDTO(new AbilityDTO(data));
+    public static fromDTOData = (data: any): Ability => Ability.fromDTO(new AbilityDTO(data));
 
     public static fromDTO(dto: AbilityDTO): Ability {
         return new Ability({

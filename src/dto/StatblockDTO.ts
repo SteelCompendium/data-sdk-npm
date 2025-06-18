@@ -1,5 +1,3 @@
-import { AbilityDTO } from './AbilityDTO';
-import { TraitDTO } from './TraitDTO';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 import { Statblock } from '../model/Statblock';
 

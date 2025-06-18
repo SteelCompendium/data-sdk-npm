@@ -5,7 +5,6 @@ import { Trait } from "../../model/Trait";
 import { IDataReader } from "../IDataReader";
 import { Characteristics, MundaneEffect, PowerRollEffect } from "../../model";
 import { Effects } from "../../model/Effects";
-import { effectFromDTO } from "../../model/EffectFactory";
 
 export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     read(text: string): Statblock {

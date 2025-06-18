@@ -2,7 +2,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import { parse } from 'yaml';
 import { Effects } from '../../model/Effects';
-import { effectFromDTO } from '../../model/EffectFactory';
+import { effectFromDTO } from '../../model/Effects';
 
 const testDataDir = path.join(__dirname, 'test-data', 'effect');
 

@@ -15,7 +15,6 @@ export class MundaneEffect extends Effect {
         return 'MundaneEffect';
     }
 
-    // TODO - does this show blank fields if the value is undefined
     public toDTO(): any {
         const dto: any = {
             effect: this.effect,

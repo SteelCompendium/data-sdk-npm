@@ -4,7 +4,7 @@ import { SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
 
 export class Trait extends SteelCompendiumModel<TraitDTO> {
-    name!: string;
+    name?: string;
     type?: string;
     effects: Effects;
 
@@ -33,9 +33,8 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
     }
 
     public toDTO(): any {
-        const dto: Partial<TraitDTO> = {
-            name: this.name,
-        };
+        const dto: Partial<TraitDTO> = {};
+        if (this.name !== undefined) dto.name = this.name;
         if (this.type !== undefined) dto.type = this.type;
         dto.effects = this.effects.toDTO();
         return dto;

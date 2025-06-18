@@ -1,7 +1,7 @@
 import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
-import { IDataReader, IDataWriter } from "../io";
+import { IDataReader } from "../io";
 import { StatblockDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
 

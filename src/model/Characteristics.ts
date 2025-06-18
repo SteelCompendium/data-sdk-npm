@@ -15,7 +15,7 @@ export class Characteristics {
 		this.presence = presence;
 	}
 
-	public static fromDTO(dto: StatblockDTO): Characteristics {
+	public static fromStatblockDTO(dto: StatblockDTO): Characteristics {
 		return new Characteristics(
 			dto.might ?? 0,
 			dto.agility ?? 0,
