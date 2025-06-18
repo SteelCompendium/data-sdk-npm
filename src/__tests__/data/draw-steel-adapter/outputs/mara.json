@@ -1,0 +1,96 @@
+{
+    "name": "MARA",
+    "level": 2,
+    "roles": [
+      "ELITE",
+      "CONTROLLER"
+    ],
+    "ancestry": [
+      "Humanoid",
+      "Human",
+      "Rival"
+    ],
+    "ev": "16",
+    "stamina": 60,
+    "speed": "5",
+    "size": "1M",
+    "stability": 1,
+    "free_strike": 5,
+    "might": 0,
+    "agility": 0,
+    "reason": 2,
+    "intuition": 1,
+    "presence": 0,
+    "traits": [
+      {
+        "name": "Determination",
+        "effects": [
+          "If Mara is frightened, slowed, or weakened, she can use a maneuver to end the condition."
+        ]
+      },
+      {
+        "name": "Rivalry",
+        "effects": [
+          "Mara selects one creature within line of effect at the start of an encounter. Both Mara and the creature can add a 1d3 to all power rolls made against each other."
+        ]
+      }
+    ],
+    "abilities": [
+      {
+        "name": "The Writhing Green",
+        "type": "Action",
+        "cost": "Signature",
+        "keywords": [
+          "Green",
+          "Magic",
+          "Ranged",
+          "Strike"
+        ],
+        "distance": "Ranged 10",
+        "target": "Two creatures or objects",
+        "effects": [
+          {
+            "roll": "2d10 + 2",
+            "11 or lower": "7 damage; slide 1",
+            "12-16": "10 damage; slide 2",
+            "17+": "13 damage; slide 3"
+          }
+        ]
+      },
+      {
+        "name": "The Earth Devours",
+        "type": "Action",
+        "cost": "3 Malice",
+        "keywords": [
+          "Area",
+          "Green",
+          "Magic"
+        ],
+        "distance": "3 cube within 10",
+        "target": "All enemies in the cube",
+        "effects": [
+          {
+            "roll": "2d10 + 2",
+            "11 or lower": "3 damage",
+            "12-16": "5 damage; restrained (EoT)",
+            "17+": "8 damage; restrained (save ends)"
+          },
+          "The affected area is difficult terrain for enemies. An enemy has acid weakness 2 while occupying an affected square."
+        ]
+      },
+      {
+        "name": "Jaws of the Void",
+        "type": "Triggered Action",
+        "keywords": [
+          "Magic",
+          "Void"
+        ],
+        "distance": "Self",
+        "target": "Self",
+        "trigger": "Mara takes damage.",
+        "effects": [
+          "Mara teleports 2 squares. Each creature adjacent to her original space takes 2 corruption damage."
+        ]
+      }
+    ]
+  }

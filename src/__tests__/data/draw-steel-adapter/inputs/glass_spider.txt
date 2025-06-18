@@ -1,0 +1,42 @@
+GLASS SPIDER L EVEL 1 ELITE SKIRMISHER
+Construct EV 12
+Stamina 60 Weakness Sonic 5
+ 
+Speed 7 (climb) Size 3 / Stability 2 
+ 
+Free Strike 4 
+Might +2 Agility +1 Reason −4 Intuition +0 Presence −3 
+Bite (Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Melee, Strike, Weapon
+Distance Melee 1 Target One creature or object
+✦ ≤11 7 damage
+★ 12–16 11 damage
+✸ 17+ 14 damage; A<2 bleeding (save ends)
+2 Malice A<3 bleeding (save ends).
+Slashing Leg (Action) ◆ 2d10 + 2
+Keywords Melee, Strike, Weapon
+Distance Melee 1 Target Two creatures or objects
+✦ ≤11 6 damage
+★ 12–16 9 damage
+✸ 17+ 12 damage
+Trample (Action) ◆ 5 Malice
+Keywords — 
+Distance Self Target Self
+Effect The spider shifts up to their speed and makes a Slashing Leg 
+strike against each creature who comes within 1 of the spider
+during the move. The spider makes one power roll against all 
+targets.
+Web (Maneuver) ◆ 2d10 + 2
+Keywords Area, Weapon
+Distance 3 cube within 1 Target All creatures in the cube
+✦ ≤11 A<0 r estrained (save ends)
+★ 12–16 A<1 r estrained (save ends)
+✸ 17+ A<2 r estrained (save ends)
+Distance The affected area is considered difficult terrain for 
+enemies.
+Skitter (Triggered Action)
+Keywords — 
+Distance Self Target Self
+Trigger The spider takes damage. 
+Effect The spider halves the damage, and then shifts 2 squares
+after the triggering effect resolves. 

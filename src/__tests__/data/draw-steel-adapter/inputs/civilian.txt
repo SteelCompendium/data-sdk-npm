@@ -1,0 +1,6 @@
+CIVILIAN 
+Humanoid or Animal 
+Stamina 8 
+Speed 5 Size 1S, 1M, 1L, or 2 / Stability 0 
+Free Strike 1 
+Might 0 Agility 0 Reason 0 Intuition 0 Presence 0
