@@ -1,5 +1,4 @@
 import { Ability } from '../model/Ability';
-import { EffectDTO } from './EffectDTO';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 
 export class AbilityDTO extends SteelCompendiumDTO<Ability> {
@@ -10,7 +9,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     distance?: string;
     target?: string;
     trigger?: string;
-    effects!: EffectDTO[];
+    effects!: any[];
     flavor?: string;
 
     public constructor(source: Partial<AbilityDTO>) {

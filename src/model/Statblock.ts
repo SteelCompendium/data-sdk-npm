@@ -49,6 +49,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         return new StatblockDTO({
             ...this,
             free_strike: this.freeStrike,
+            with_captain: this.withCaptain,
             might: this.characteristics.might,
             agility: this.characteristics.agility,
             reason: this.characteristics.reason,

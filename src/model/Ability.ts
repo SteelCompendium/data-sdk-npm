@@ -1,7 +1,7 @@
-import { Effect } from "./Effect";
-import { IDataReader, IDataWriter } from "../io";
+import { IDataReader } from "../io";
 import { AbilityDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
+import { Effects } from "./Effects";
 
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
@@ -12,18 +12,18 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     distance?: string;
     target?: string;
     trigger?: string;
-    effects: Effect[];
+    effects: Effects;
 
     public constructor(source: Partial<Ability>) {
         super();
         Object.assign(this, source);
-        this.effects = source.effects ?? [];
+        this.effects = source.effects ?? new Effects([]);
     }
 
     public static fromDTO(dto: AbilityDTO): Ability {
         return new Ability({
             ...dto,
-            effects: Effect.allFromDTO(dto.effects),
+            effects: Effects.fromDTO(dto.effects),
         });
     }
 
@@ -34,7 +34,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     public toDTO(): AbilityDTO {
         return new AbilityDTO({
             ...this,
-            effects: this.effects.map(e => e.toDTO()),
+            effects: this.effects.toDTO(),
         });
     }
 }

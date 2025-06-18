@@ -482,7 +482,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 }
                 flushUnnamedEffect();
 
-                statblock.traits.push(new Trait(traitName, '', effects.map(e => Effect.from(e))));
+                statblock.traits.push(new Trait(traitName, '', effects.map(e => Effect.fromDTO(e))));
                 idx = lookahead;
                 continue;
             }

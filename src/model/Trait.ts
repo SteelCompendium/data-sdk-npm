@@ -1,23 +1,23 @@
-import { Effect } from "./Effect";
 import { IDataReader } from "../io";
 import { TraitDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
+import { Effects } from "./Effects";
 
 export class Trait extends SteelCompendiumModel<TraitDTO> {
     name!: string;
     type?: string;
-    effects!: Effect[];
+    effects: Effects;
 
     public constructor(source: Partial<Trait>) {
         super();
         Object.assign(this, source);
-        this.effects = source.effects ?? [];
+        this.effects = source.effects ?? new Effects([]);
     }
 
     public static fromDTO(dto: TraitDTO): Trait {
         return new Trait({
             ...dto,
-            effects: Effect.allFromDTO(dto.effects),
+            effects: Effects.fromDTO(dto.effects),
         });
     }
 
@@ -28,7 +28,7 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
     public toDTO(): TraitDTO {
         return new TraitDTO({
             ...this,
-            effects: this.effects.map(e => e.toDTO()),
+            effects: this.effects.toDTO(),
         });
     }
 }

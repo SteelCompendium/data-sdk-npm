@@ -22,7 +22,7 @@ describe('Statblock Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const statblock = Statblock.read(new YamlReader(Statblock.from), inputYaml);
+                const statblock = Statblock.read(new YamlReader(), inputYaml);
                 const outputJson = new JsonWriter().write(statblock);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
@@ -33,7 +33,7 @@ describe('Statblock Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const statblock = Statblock.read(new JsonReader(Statblock.from), inputJson);
+                const statblock = Statblock.read(new JsonReader(), inputJson);
                 const outputYaml = new YamlWriter().write(statblock);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');

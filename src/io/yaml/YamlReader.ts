@@ -1,16 +1,15 @@
 import { IDataReader } from "../IDataReader";
 import { parse } from 'yaml';
 import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { SteelCompendiumDTO } from "../../dto";
 
-export class YamlReader<T extends SteelCompendiumModel> implements IDataReader<T> {
-    private fromFunction: (data: any) => T;
-
-    constructor(fromFunction: (data: any) => T) {
-        this.fromFunction = fromFunction;
+export class YamlReader<T extends SteelCompendiumDTO<M>, M extends SteelCompendiumModel<T>> extends IDataReader<T, M> {
+    public constructor(private ctor: new (source: any) => T) {
+        super();
     }
 
-    read(source: string): T {
+    public read(source: string): T {
         const data = parse(source);
-        return this.fromFunction(data);
+        return new this.ctor(data);
     }
 } 
