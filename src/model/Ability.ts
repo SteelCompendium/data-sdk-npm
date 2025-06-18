@@ -3,7 +3,7 @@ import { IDataReader, IDataWriter } from "../io";
 import { AbilityDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
 
-export class Ability extends SteelCompendiumModel {
+export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
     cost?: string;
     flavor?: string;
@@ -14,48 +14,27 @@ export class Ability extends SteelCompendiumModel {
     trigger?: string;
     effects: Effect[];
 
-    constructor(name: string, cost: string, flavor: string, keywords: string[], type: string, distance: string, target: string, trigger: string, effects: Effect[]) {
+    public constructor(source: Partial<Ability>) {
         super();
-        this.name = name;
-        this.cost = cost;
-        this.flavor = flavor;
-        this.keywords = keywords;
-        this.type = type;
-        this.distance = distance;
-        this.target = target;
-        this.trigger = trigger;
-        this.effects = effects;
+        Object.assign(this, source);
+        this.effects = source.effects ?? [];
     }
 
     public static fromDTO(dto: AbilityDTO): Ability {
-        return new Ability(
-            dto.name ?? '',
-            dto.cost ?? '',
-            dto.flavor ?? '',
-            dto.keywords ?? [],
-            dto.type ?? '',
-            dto.distance ?? '',
-            dto.target ?? '',
-            dto.trigger ?? '',
-            Effect.allFromDTO(dto.effects) ?? [],
-        );
+        return new Ability({
+            ...dto,
+            effects: Effect.allFromDTO(dto.effects),
+        });
+    }
+
+    public static read(reader: IDataReader<AbilityDTO, Ability>, source: string): Ability {
+        return reader.parse(source);
     }
 
     public toDTO(): AbilityDTO {
-        return {
-            name: this.name!,
-            type: this.type!,
-            cost: this.cost,
-            keywords: this.keywords,
-            distance: this.distance,
-            target: this.target,
-            trigger: this.trigger,
-            flavor: this.flavor,
+        return new AbilityDTO({
+            ...this,
             effects: this.effects.map(e => e.toDTO()),
-        };
-    }
-
-    public static read(reader: IDataReader<Ability>, source: string): Ability {
-        return reader.read(source);
+        });
     }
 }

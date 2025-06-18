@@ -2,7 +2,7 @@ import { IDataReader, IDataWriter } from '../io';
 import { EffectDTO, NamedEffectWithCostDTO, CostedEffectDTO, NamedEffectDTO, PowerRollEffectDTO } from '../dto';
 import { SteelCompendiumModel } from './SteelCompendiumModel';
 
-export abstract class Effect extends SteelCompendiumModel {
+export abstract class Effect extends SteelCompendiumModel<EffectDTO> {
 	public static allFrom(data: any): Effect[] {
 		if (!data) {
 			return [];
