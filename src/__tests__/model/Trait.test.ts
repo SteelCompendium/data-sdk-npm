@@ -1,6 +1,10 @@
 import { Trait } from '../../model/Trait';
 import * as fs from 'fs';
 import * as path from 'path';
+import { YamlReader } from '../../io/yaml';
+import { JsonWriter } from '../../io/json';
+import { JsonReader } from '../../io/json';
+import { YamlWriter } from '../../io/yaml';
 
 const testDataDir = path.join(__dirname, 'test-data', 'trait');
 const inputDir = path.join(testDataDir, 'input');
@@ -18,8 +22,8 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.fromYaml(inputYaml);
-                const outputJson = trait.toJson();
+                const trait = Trait.read(new YamlReader(Trait.from), inputYaml);
+                const outputJson = new JsonWriter().write(trait);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
                 expect(JSON.parse(outputJson)).toEqual(JSON.parse(expectedJson));
@@ -29,8 +33,8 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.fromJson(inputJson);
-                const outputYaml = trait.toYaml();
+                const trait = Trait.read(new JsonReader(Trait.from), inputJson);
+                const outputYaml = new YamlWriter().write(trait);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');
                 expect(outputYaml).toEqual(expectedYaml);

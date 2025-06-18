@@ -1,6 +1,10 @@
 import { Characteristics } from '../../model/Characteristics';
 import * as fs from 'fs';
 import * as path from 'path';
+import { YamlReader } from '../../io/yaml';
+import { JsonWriter } from '../../io/json';
+import { JsonReader } from '../../io/json';
+import { YamlWriter } from '../../io/yaml';
 
 const testDataDir = path.join(__dirname, 'test-data', 'characteristics');
 const inputDir = path.join(testDataDir, 'input');
@@ -18,8 +22,8 @@ describe('Characteristics Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const characteristics = Characteristics.fromYaml(inputYaml);
-                const outputJson = characteristics.toJson();
+                const characteristics = Characteristics.read(new YamlReader(Characteristics.from), inputYaml);
+                const outputJson = new JsonWriter().write(characteristics);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
                 expect(JSON.parse(outputJson)).toEqual(JSON.parse(expectedJson));
@@ -29,8 +33,8 @@ describe('Characteristics Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const characteristics = Characteristics.fromJson(inputJson);
-                const outputYaml = characteristics.toYaml();
+                const characteristics = Characteristics.read(new JsonReader(Characteristics.from), inputJson);
+                const outputYaml = new YamlWriter().write(characteristics);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');
                 expect(outputYaml).toEqual(expectedYaml);
