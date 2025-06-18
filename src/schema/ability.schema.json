@@ -72,7 +72,7 @@
                         "$ref": "#/definitions/costedEffect"
                     },
                     {
-                        "type": "string"
+                        "$ref": "#/definitions/namelessEffect"
                     }
                 ]
             }
@@ -145,6 +145,19 @@
                     "type": "string",
                     "description": "Name of the effect"
                 },
+                "effect": {
+                    "type": "string",
+                    "description": "Description of what the effect does"
+                }
+            },
+            "additionalProperties": false
+        },
+        "namelessEffect": {
+            "type": "object",
+            "required": [
+                "effect"
+            ],
+            "properties": {
                 "effect": {
                     "type": "string",
                     "description": "Description of what the effect does"
