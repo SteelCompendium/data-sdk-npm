@@ -1,4 +1,5 @@
 import { Effect } from './Effect';
+import { effectFromDTO } from './EffectFactory';
 
 export class Effects {
     effects: Effect[];
@@ -14,7 +15,7 @@ export class Effects {
         if (!Array.isArray(data)) {
             throw new Error("Expected effects to be an array");
         }
-        return new Effects(data.map(Effect.fromDTO));
+        return new Effects(data.map(effectFromDTO));
     }
 
     public toDTO(): any[] {

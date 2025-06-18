@@ -1,11 +1,11 @@
-import { StatblockDTO } from "../../dto";
 import { Ability } from "../../model/Ability";
-import { Effect, MundaneEffect } from "../../model/Effect";
+import { Effect } from "../../model/Effect";
 import { Statblock } from "../../model/Statblock";
 import { Trait } from "../../model/Trait";
 import { IDataReader } from "../IDataReader";
-import { Characteristics } from "../../model";
+import { Characteristics, MundaneEffect } from "../../model";
 import { Effects } from "../../model/Effects";
+import { effectFromDTO } from "../../model/EffectFactory";
 
 export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     read(text: string): Statblock {
@@ -480,7 +480,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 }
                 flushUnnamedEffect();
 
-                statblock.traits.push(new Trait({ name: traitName, effects: new Effects(effects.map(e => Effect.fromDTO(e))) }));
+                statblock.traits.push(new Trait({ name: traitName, effects: new Effects(effects.map(e => effectFromDTO(e))) }));
                 idx = lookahead;
                 continue;
             }
