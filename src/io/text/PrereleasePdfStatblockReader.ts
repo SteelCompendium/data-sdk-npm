@@ -356,7 +356,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                                 const rollEffect: any = { roll: lastEffect.effect };
                                 if (current.outcomes && current.outcomes.length > 0) {
                                     current.outcomes.forEach((o: any) => {
-                                        const tierKey = this.mapOutcomeToTierKey(o.symbol, o.threshold);
+                                        const tierKey = this.mapOutcomeToTierKey(o.threshold);
                                         rollEffect[tierKey] = o.description;
                                     });
                                 }
@@ -367,7 +367,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                             const rollEffect: any = { roll: `${current.roll.dice} + ${current.roll.bonus}` };
                             if (current.outcomes && current.outcomes.length > 0) {
                                 current.outcomes.forEach((o: any) => {
-                                    const tierKey = this.mapOutcomeToTierKey(o.symbol, o.threshold);
+                                    const tierKey = this.mapOutcomeToTierKey(o.threshold);
                                     rollEffect[tierKey] = o.description;
                                 });
                             }
@@ -508,7 +508,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     }
 
     // TODO - this is a mess and needs standardization
-    mapOutcomeToTierKey(symbol: string, threshold: string): string {
+    mapOutcomeToTierKey(threshold: string): string {
         if (threshold.includes("≤11") || threshold.includes("11 or lower")) {
             return "t1";
         } else if (threshold.includes("17+") || threshold.includes("17")) {
