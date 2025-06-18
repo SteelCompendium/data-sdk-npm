@@ -33,7 +33,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         return reader.read(source);
     }
 
-    public toDTO(): AbilityDTO {
+    public toDTO(): any {
         const dto: Partial<AbilityDTO> = {};
         if (this.name !== undefined) dto.name = this.name;
         if (this.cost !== undefined) dto.cost = this.cost;
@@ -45,6 +45,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         if (this.trigger !== undefined) dto.trigger = this.trigger;
         dto.effects = this.effects.toDTO();
 
-        return new AbilityDTO(dto);
+        return dto;
     }
 }

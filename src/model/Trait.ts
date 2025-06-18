@@ -32,14 +32,12 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         return reader.read(source);
     }
 
-    public toDTO(): TraitDTO {
+    public toDTO(): any {
         const dto: Partial<TraitDTO> = {
             name: this.name,
         };
-
         if (this.type !== undefined) dto.type = this.type;
         dto.effects = this.effects.toDTO();
-
-        return new TraitDTO(dto);
+        return dto;
     }
 }
