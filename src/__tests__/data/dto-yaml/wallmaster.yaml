@@ -1,0 +1,76 @@
+name: WALLMASTER
+level: 1
+roles:
+  - ELITE
+  - DEFENDER
+ancestry:
+  - Construct
+  - Ruinborn
+ev: "12"
+stamina: 80
+immunities:
+  - holy 1
+weaknesses:
+  - acid 3
+speed: "0"
+size: 1L
+stability: 3
+free_strike: 4
+might: 2
+agility: -5
+reason: -3
+intuition: 2
+presence: -3
+traits:
+  - name: Living Labyrinth
+    effects:
+      - effect: The wallmaster starts combat affixed to a wall. At the start of each round of combat while affixed to a wall, the wallmaster creates a 20 wall of stone within a distance of 10 squares. Any walls created by the wallmaster in the previous round are destroyed or replaced by the new walls.
+abilities:
+  - name: Wall Slam
+    cost: Signature
+    keywords:
+      - Melee
+      - Strike
+      - Weapon
+    type: Action
+    distance: Melee 1 (Special)
+    target: Two creatures or objects
+    effects:
+      - effect: The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.
+      - roll: 2d10 + 2
+        t1: 6 damage
+        t2: 9 damage; A<1 prone
+        t3: 12 damage; A<2 prone can’t stand (EoT)
+      - cost: 3+ Malice
+        effect: The wallmaster chooses an additional wall segment and target for every 3 malice spent.
+  - name: Dead End
+    keywords:
+      - Area
+      - Weapon
+    type: Maneuver
+    distance: Melee 1 (Special)
+    target: 1 creature or object
+    effects:
+      - effect: The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.
+      - roll: 2d10 + 2
+        t1: Push 2
+        t2: Push 4
+        t3: Push 5
+  - name: The Wall Sees All
+    cost: 5 Malice
+    keywords:
+      - Magic
+    type: Maneuver
+    distance: Ranged 10
+    target: Self
+    effects:
+      - effect: The wallmaster teleports to a wall within distance and affixes itself to it.
+  - name: Wall Redirect
+    keywords:
+      - —
+    type: Triggered Action
+    distance: Melee 1
+    target: 1 ally
+    trigger: A creature damages the wall with a strike.
+    effects:
+      - effect: The wall redirects the strike to the target creature and isn’t targeted by the strike.

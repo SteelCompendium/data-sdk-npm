@@ -5,7 +5,6 @@ import { Effects } from '../../model/Effects';
 import { effectFromDTO } from '../../model/Effects';
 
 const testDataDir = path.join(__dirname, 'test-data', 'effect');
-
 const effectTypes = fs.readdirSync(testDataDir);
 
 describe('Effect Data-Driven Tests', () => {

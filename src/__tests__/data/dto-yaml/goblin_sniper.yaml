@@ -1,0 +1,40 @@
+name: GOBLIN SNIPER
+level: 1
+roles:
+  - MINION
+  - ARTILLERY
+ancestry:
+  - Goblin
+  - Humanoid
+ev: 3 for four minions
+stamina: 3
+speed: 5 (climb)
+size: 1S
+stability: 0
+free_strike: 2
+with_captain: Ranged distance +5
+might: -2
+agility: 2
+reason: 0
+intuition: 0
+presence: -1
+traits:
+  - name: Crafty
+    effects:
+      - effect: The sniper doesn’t provoke opportunity attacks by moving.
+abilities:
+  - name: Bow
+    cost: Signature
+    keywords:
+      - Ranged
+      - Strike
+      - Weapon
+    type: Action
+    distance: Ranged 10
+    target: One creature or object per minion
+    effects:
+      - roll: 2d10 + 2
+        t1: 2 damage
+        t2: 4 damage
+        t3: 5 damage
+      - effect: If the sniper doesn’t use a move action this turn, the ability has an edge.

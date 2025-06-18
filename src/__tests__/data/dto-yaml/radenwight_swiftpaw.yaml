@@ -1,0 +1,46 @@
+name: RADENWIGHT SWIFTPAW
+level: 1
+roles:
+  - MINION
+  - HARRIER
+ancestry:
+  - Humanoid
+  - Radenwight
+ev: 3 for four minions
+stamina: 4
+speed: 7 (climb)
+size: 1S
+stability: 0
+free_strike: 1
+with_captain: Edge on strikes
+might: 0
+agility: 2
+reason: 1
+intuition: 0
+presence: -1
+traits: []
+abilities:
+  - name: Rapier Flunge
+    cost: Signature
+    keywords:
+      - Melee
+      - Strike
+      - Weapon
+    type: Action
+    distance: Melee 1
+    target: One creature or object per minion
+    effects:
+      - roll: 2d10 + 2
+        t1: 1 damage; slide 1; shift 1
+        t2: 2 damage; slide 2; shift 2
+        t3: 3 damage; slide 3; shift 3
+  - name: Ready Rodent
+    keywords:
+      - Melee
+      - Weapon
+    type: Triggered Action
+    distance: Melee 1
+    target: One creature
+    trigger: An ally deals damage to the target.
+    effects:
+      - effect: The swiftpaw makes a free strike against the target.

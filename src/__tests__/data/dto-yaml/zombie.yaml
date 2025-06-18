@@ -1,0 +1,55 @@
+name: ZOMBIE
+level: 1
+roles:
+  - HORDE
+  - BRUTE
+ancestry:
+  - Undead
+ev: "3"
+stamina: 20
+immunities:
+  - corruption 1
+  - poison 1
+speed: "5"
+size: 1M
+stability: 1
+free_strike: 2
+might: 2
+agility: 1
+reason: -5
+intuition: -2
+presence: 1
+traits:
+  - name: Endless Knight
+    effects:
+      - effect: The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.
+abilities:
+  - name: Clobber and Clutch
+    cost: Signature
+    keywords:
+      - Melee
+      - Strike
+      - Weapon
+    type: Action
+    distance: Melee 1
+    target: One creature or object
+    effects:
+      - roll: 2d10 + 2
+        t1: 4 damage
+        t2: 6 damage
+        t3: 7 damage; grabbed
+      - effect: A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.
+  - name: Zombie Dust
+    cost: 3 Malice
+    keywords:
+      - Area
+      - Melee
+    type: Maneuver
+    distance: 2 burst
+    target: Each enemy in the burst
+    effects:
+      - effect: The zombie falls prone, expelling a wave of rot and dust.
+      - roll: 2d10 + 2
+        t1: 2 corruption damage
+        t2: 3 corruption damage; M<1 weakened (save ends)
+        t3: 4 corruption damage; M<2 dazed (save ends)

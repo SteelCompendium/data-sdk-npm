@@ -1,0 +1,54 @@
+name: HUMAN BRAWLER
+level: 1
+roles:
+  - PLATOON
+  - BRUTE
+ancestry:
+  - Human
+  - Humanoid
+ev: "6"
+stamina: 40
+immunities:
+  - Corruption 1
+  - Psychic 1
+speed: "5"
+size: 1M
+stability: 0
+free_strike: 4
+might: 2
+agility: 1
+reason: 0
+intuition: 0
+presence: 0
+traits:
+  - name: Shoot the Hostage
+    effects:
+      - effect: The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage.
+  - name: Supernatural Insight
+    effects:
+      - effect: The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
+abilities:
+  - name: Haymaker
+    cost: Signature
+    keywords:
+      - Melee
+      - Strike
+      - Weapon
+    type: Action
+    distance: Melee 1
+    target: One creature or object
+    effects:
+      - roll: 2d10 + 2
+        t1: 6 damage
+        t2: 9 damage
+        t3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
+      - effect: brawler deals an additional 2 damage if the target is already grabbed.
+  - name: Throw
+    cost: 1 Malice
+    keywords:
+      - —
+    type: Maneuver
+    distance: Melee 1
+    target: One creature grabbed by the brawler
+    effects:
+      - effect: Push 5.
