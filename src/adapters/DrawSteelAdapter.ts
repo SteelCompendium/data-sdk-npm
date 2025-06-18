@@ -289,7 +289,7 @@ class DrawSteelAdapter extends BaseAdapter {
 
             ability.effects = current.effects || [];
 
-            statblock.abilities.push(ability as Ability);
+            statblock.abilities!.push(ability as Ability);
             current = null;
         };
 
