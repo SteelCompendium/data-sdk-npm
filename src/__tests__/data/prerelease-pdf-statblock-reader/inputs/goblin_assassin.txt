@@ -1,0 +1,24 @@
+GOBLIN ASSASSIN L EVEL 1 HORDE AMBUSHER
+Goblin, Humanoid EV 3
+Stamina 15 
+Speed 6 (climb) Size 1S / Stability 0 
+ Free Strike 2 
+Might −2 Agility +2 Reason +0 Intuition +0 Presence −2
+Sword Stab (Main Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Melee, Strike, Weapon
+Distance Melee 1 Target One creature or object
+✦ ≤11 4 damage
+★ 12–16 6 damage
+✸ 17+ 7 damage
+Effect This ability deals an additional 2 damage if the assassin has 
+an edge on the power roll.
+Shadow Chains (Main Action) ◆ 2d10 + 2 ◆ 3 Malice
+Keywords Magic, Ranged
+Distance Ranged 10 Target Three creatures
+✦ ≤11 2 corruption damage; A<0 restrained (save ends)
+★ 12–16 4 corruption damage; A<1 restrained (save ends)
+✸ 17+ 5 corruption damage; A<2 restrained (save ends)
+Crafty
+The assassin doesn’t provoke opportunity attacks by moving.
+Slip Away
+The assassin can take the Hide maneuver even while observed.

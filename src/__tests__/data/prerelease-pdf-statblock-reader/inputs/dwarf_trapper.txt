@@ -1,0 +1,23 @@
+DWARF TRAPPER L EVEL 1 PLATOON HARRIER
+Dwarf, Humanoid EV 6 
+Stamina 36 
+Speed 7 Size 1M / Stability 2 
+ Free Strike 3 
+Might 0 Agility +2 Reason 0 Intuition +1 Presence 0 
+Concussive Bolts (Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Charge, Melee, Ranged, Strike, Weapon
+Distance Melee 1 or Ranged 10 Target 1 creature or object 
+✦ ≤11 5 damage; push 2
+★ 12–16 7 damage; push 4
+✸ 17+ 9 damage; push 6
+Effect A target restrained by a dwarf can be pushed by this ability. 
+Steam Powered Snare (Maneuver) ◆ 3 Malice
+Keywords Area, Ranged
+Distance 3 cube within 5 Target All enemies in the cube 
+Effect Each target makes a Might test.
+✸ ≤11 7 damage; restrained (EoT)
+★ 12–16 5 damage; slowed (EoT)
+✦ 17+ No effect
+Effect The snare remains until the end of the encounter. An 
+enemy that moves into an affected square for the first time on 
+their turn must make the test.

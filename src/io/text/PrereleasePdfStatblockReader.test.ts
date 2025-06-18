@@ -5,8 +5,8 @@ import { PrereleasePdfStatblockReader } from "./PrereleasePdfStatblockReader";
 
 describe("PrereleasePdfStatblockReader", () => {
 	const adapter = new PrereleasePdfStatblockReader();
-	const inputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "draw-steel-adapter", "inputs");
-	const outputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "draw-steel-adapter", "outputs");
+	const inputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "prerelease-pdf-statblock-reader", "inputs");
+	const outputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "prerelease-pdf-statblock-reader", "outputs");
 
 	const testFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".txt"));
 
