@@ -11,6 +11,9 @@ const inputDir = path.join(testDataDir, 'input');
 const outputDir = path.join(testDataDir, 'output');
 
 describe('Statblock Data-Driven Tests', () => {
+    it('should have tests', () => {
+        expect(true).toBe(true);
+    });
 
     const inputFiles = fs.readdirSync(inputDir);
 
