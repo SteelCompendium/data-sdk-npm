@@ -235,9 +235,9 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 ability.trigger = current.trigger;
             }
 
-            ability.effects = current.effects || [];
+            ability.effects = new Effects(current.effects || []);
 
-            statblock.abilities!.push(ability as Ability);
+            statblock.abilities!.push(new Ability(ability));
             current = null;
         };
 
@@ -398,7 +398,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 } else {
                     effect.cost = malice[1];
                 }
-                current.effects.push(effect);
+                current.effects.push(new MundaneEffect(effect));
                 idx = lookahead;
                 continue;
             }
@@ -410,7 +410,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 while (lookahead < lines.length && lines[lookahead].trim() && !isNewToken(lines[lookahead])) {
                     effectText += ` ${lines[lookahead++].trim()}`;
                 }
-                current.effects.push(effectText);
+                current.effects.push(new MundaneEffect({ effect: effectText }));
 
                 if (lookahead < lines.length && isNewToken(lines[lookahead]) && !/^Keywords\s+/.test(lines[lookahead]) && !/^Distance\s+/.test(lines[lookahead]) && !/^[✦★✸]/.test(lines[lookahead]) && !/^Effect\s+/.test(lines[lookahead]) && !/^Trigger\s+/.test(lines[lookahead]) && !/^\d+\+?\s+Malice/.test(lines[lookahead])) {
                     pushCurrent();
@@ -435,13 +435,13 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
             if (!current && isNewToken(line)) {
                 const traitName = line.trim();
-                const effects: (string | Effect)[] = [];
+                const effects: Effect[] = [];
                 let lookahead = idx + 1;
                 let currentUnnamedEffectLines: string[] = [];
 
                 const flushUnnamedEffect = () => {
                     if (currentUnnamedEffectLines.length > 0) {
-                        effects.push(currentUnnamedEffectLines.join(" "));
+                        effects.push(new MundaneEffect({ effect: currentUnnamedEffectLines.join(" ") }));
                         currentUnnamedEffectLines = [];
                     }
                 };
@@ -480,7 +480,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 }
                 flushUnnamedEffect();
 
-                statblock.traits.push(new Trait({ name: traitName, effects: new Effects(effects.map(e => effectFromDTO(e))) }));
+                statblock.traits.push(new Trait({ name: traitName, effects: new Effects(effects) }));
                 idx = lookahead;
                 continue;
             }
@@ -495,7 +495,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         }
         pushCurrent();
 
-        return statblock as Statblock;
+        return new Statblock(statblock);
     }
 
     mapActionTypeToAbilityType(category: string): string {

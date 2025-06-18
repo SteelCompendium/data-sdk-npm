@@ -18,7 +18,7 @@ describe("PrereleasePdfStatblockReader", () => {
 			const inputText = fs.readFileSync(inputPath, "utf-8");
 			const expectedOutput = JSON.parse(fs.readFileSync(outputPath, "utf-8"));
 
-			const result = adapter.read(inputText);
+			const result = adapter.read(inputText).toDTO();
 
 			expect(result).toEqual(expectedOutput);
 		});
