@@ -353,8 +353,8 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                     if (lookahead >= lines.length || !/^([✦★✸])\s*/.test(lines[lookahead])) {
                         if (!current.roll && current.effects.length > 0) {
                             const lastEffect = current.effects[current.effects.length - 1];
-                            if (typeof lastEffect === "string" && lastEffect.includes("test")) {
-                                const rollEffect: any = { roll: lastEffect };
+                            if (lastEffect instanceof MundaneEffect && lastEffect.effect.includes("test")) {
+                                const rollEffect: any = { roll: lastEffect.effect };
                                 if (current.outcomes && current.outcomes.length > 0) {
                                     current.outcomes.forEach((o: any) => {
                                         const tierKey = this.mapOutcomeToTierKey(o.symbol, o.threshold);
