@@ -3,9 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.validator = exports.YamlAdapter = exports.MarkdownAdapter = exports.JsonAdapter = exports.DrawSteelAdapter = exports.BaseAdapter = exports.AdapterRegistry = void 0;
+exports.validator = exports.YamlAdapter = exports.MarkdownAdapter = exports.JsonAdapter = exports.DrawSteelAdapter = exports.BaseAdapter = exports.adapterRegistry = void 0;
 const AdapterRegistry_1 = __importDefault(require("./adapters/AdapterRegistry"));
-exports.AdapterRegistry = AdapterRegistry_1.default;
+exports.adapterRegistry = AdapterRegistry_1.default;
 const BaseAdapter_1 = __importDefault(require("./adapters/BaseAdapter"));
 exports.BaseAdapter = BaseAdapter_1.default;
 const DrawSteelAdapter_1 = __importDefault(require("./adapters/DrawSteelAdapter"));

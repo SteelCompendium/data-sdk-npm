@@ -1,4 +1,4 @@
-import AdapterRegistry from "./adapters/AdapterRegistry";
+import adapterRegistry from "./adapters/AdapterRegistry";
 import BaseAdapter from "./adapters/BaseAdapter";
 import DrawSteelAdapter from "./adapters/DrawSteelAdapter";
 import JsonAdapter from "./adapters/JsonAdapter";
@@ -7,7 +7,7 @@ import YamlAdapter from "./adapters/YamlAdapter";
 import validator from "./validation/validator";
 
 export {
-  AdapterRegistry,
+  adapterRegistry,
   BaseAdapter,
   DrawSteelAdapter,
   JsonAdapter,
