@@ -1,6 +1,7 @@
+import { SteelCompendiumPseudoModel } from '.';
 import { StatblockDTO } from '../dto';
 
-export class Characteristics {
+export class Characteristics implements SteelCompendiumPseudoModel {
 	might: number;
 	agility: number;
 	reason: number;

@@ -1,7 +1,7 @@
 import { SteelCompendiumDTO } from "../dto/SteelCompendiumDTO";
 import { IDataReader, IDataWriter, JsonWriter, YamlWriter } from "../io";
 
-export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> {
+export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> implements SteelCompendiumPseudoModel {
     public static read<T extends SteelCompendiumModel<any>>(reader: IDataReader<T>, source: string): T {
         return reader.read(source);
     }
@@ -20,5 +20,7 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> {
 
     public abstract toDTO(): Partial<D>;
 }
+
+export interface SteelCompendiumPseudoModel { }
 
 export type ModelDTOAdapter<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> = (source: Partial<T>) => M;

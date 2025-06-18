@@ -17,6 +17,20 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
         this.effects = source.effects ?? [];
     }
 
+    public static partialFromModel(model: Ability): Partial<AbilityDTO> {
+        const dto: Partial<AbilityDTO> = {};
+        if (model.name !== undefined) dto.name = model.name;
+        if (model.cost !== undefined) dto.cost = model.cost;
+        if (model.flavor !== undefined) dto.flavor = model.flavor;
+        if (model.keywords !== undefined) dto.keywords = model.keywords;
+        if (model.type !== undefined) dto.type = model.type;
+        if (model.distance !== undefined) dto.distance = model.distance;
+        if (model.target !== undefined) dto.target = model.target;
+        if (model.trigger !== undefined) dto.trigger = model.trigger;
+        dto.effects = model.effects.toDTO();
+        return dto;
+    }
+
     public static fromModel(model: Ability): AbilityDTO {
         return new AbilityDTO(model.toDTO());
     }

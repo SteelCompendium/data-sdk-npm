@@ -21,7 +21,6 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         if (newDto.name) {
             newDto.name = newDto.name.trim();
         }
-
         return new Trait({
             ...newDto,
             effects: Effects.fromDTO(dto.effects),
@@ -29,10 +28,6 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
     }
 
     public toDTO(): Partial<TraitDTO> {
-        const dto: Partial<TraitDTO> = {};
-        if (this.name !== undefined) dto.name = this.name;
-        if (this.type !== undefined) dto.type = this.type;
-        dto.effects = this.effects.toDTO();
-        return dto;
+        return TraitDTO.partialFromModel(this);
     }
 }

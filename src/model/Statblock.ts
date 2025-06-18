@@ -44,30 +44,6 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     }
 
     public toDTO(): Partial<StatblockDTO> {
-        const data: Partial<StatblockDTO> = {}
-
-        if (this.name !== undefined) data.name = this.name;
-        if (this.level !== undefined) data.level = this.level;
-        if (this.roles !== undefined) data.roles = this.roles;
-        if (this.ancestry !== undefined) data.ancestry = this.ancestry;
-        if (this.ev !== undefined) data.ev = this.ev;
-        if (this.stamina !== undefined) data.stamina = this.stamina;
-        if (this.immunities !== undefined && this.immunities.length > 0) data.immunities = this.immunities;
-        if (this.weaknesses !== undefined && this.weaknesses.length > 0) data.weaknesses = this.weaknesses;
-        if (this.speed !== undefined) data.speed = this.speed;
-        if (this.size !== undefined) data.size = this.size;
-        if (this.stability !== undefined) data.stability = this.stability;
-        if (this.freeStrike !== undefined) data.free_strike = this.freeStrike;
-        if (this.withCaptain !== undefined) data.with_captain = this.withCaptain;
-        if (this.traits !== undefined) data.traits = this.traits.map(t => t.toDTO());
-        if (this.abilities !== undefined) data.abilities = this.abilities.map(a => a.toDTO());
-        if (this.characteristics !== undefined) {
-            if (this.characteristics.might !== undefined) data.might = this.characteristics.might;
-            if (this.characteristics.agility !== undefined) data.agility = this.characteristics.agility;
-            if (this.characteristics.reason !== undefined) data.reason = this.characteristics.reason;
-            if (this.characteristics.intuition !== undefined) data.intuition = this.characteristics.intuition;
-            if (this.characteristics.presence !== undefined) data.presence = this.characteristics.presence;
-        }
-        return data;
+        return StatblockDTO.partialFromModel(this);
     }
 }

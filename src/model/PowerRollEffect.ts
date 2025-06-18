@@ -33,10 +33,6 @@ export class PowerRollEffect extends Effect {
         return dto;
     }
 
-    // public static read(reader: IDataReader<PowerRollEffect>, source: string): PowerRollEffect {
-    //     return reader.parse(source);
-    // }
-
     effectType() {
         return "PowerRollEffect";
     }

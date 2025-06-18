@@ -29,16 +29,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     }
 
     public toDTO(): Partial<AbilityDTO> {
-        const dto: Partial<AbilityDTO> = {};
-        if (this.name !== undefined) dto.name = this.name;
-        if (this.cost !== undefined) dto.cost = this.cost;
-        if (this.flavor !== undefined) dto.flavor = this.flavor;
-        if (this.keywords !== undefined) dto.keywords = this.keywords;
-        if (this.type !== undefined) dto.type = this.type;
-        if (this.distance !== undefined) dto.distance = this.distance;
-        if (this.target !== undefined) dto.target = this.target;
-        if (this.trigger !== undefined) dto.trigger = this.trigger;
-        dto.effects = this.effects.toDTO();
-        return dto;
+        return AbilityDTO.partialFromModel(this);
     }
 }
