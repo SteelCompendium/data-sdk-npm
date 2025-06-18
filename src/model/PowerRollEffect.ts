@@ -1,6 +1,4 @@
 import { Effect } from './Effect';
-import { PowerRollEffectDTO } from '../dto';
-import { IDataReader } from '../io';
 
 export class PowerRollEffect extends Effect {
     roll?: string;
@@ -28,24 +26,23 @@ export class PowerRollEffect extends Effect {
         );
     }
 
-    public static fromDTO(dto: PowerRollEffectDTO): PowerRollEffect {
-        return PowerRollEffect.from(dto);
+    // public static fromDTO(dto: PowerRollEffectDTO): PowerRollEffect {
+    //     return PowerRollEffect.from(dto);
+    // }
+
+    public toDTO(): any {
+        return {
+            roll: this.roll,
+            '11 or lower': this.t1,
+            '12-16': this.t2,
+            '17+': this.t3,
+            crit: this.crit,
+        }
     }
 
-    public toDTO(): PowerRollEffectDTO {
-        const dto: PowerRollEffectDTO = {
-            roll: this.roll!,
-        };
-        if (this.t1) dto['11 or lower'] = this.t1;
-        if (this.t2) dto['12-16'] = this.t2;
-        if (this.t3) dto['17+'] = this.t3;
-        if (this.crit) dto.crit = this.crit;
-        return dto;
-    }
-
-    public static read(reader: IDataReader<PowerRollEffect, PowerRollEffect>, source: string): PowerRollEffect {
-        return reader.parse(source);
-    }
+    // public static read(reader: IDataReader<PowerRollEffect>, source: string): PowerRollEffect {
+    //     return reader.parse(source);
+    // }
 
     effectType() {
         return "PowerRollEffect";

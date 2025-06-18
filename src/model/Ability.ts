@@ -20,6 +20,8 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
+    public static fromSource = (data: any): Ability => Ability.fromDTO(new AbilityDTO(data));
+
     public static fromDTO(dto: AbilityDTO): Ability {
         return new Ability({
             ...dto,
@@ -27,8 +29,8 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         });
     }
 
-    public static read(reader: IDataReader<AbilityDTO, Ability>, source: string): Ability {
-        return reader.parse(source, AbilityDTO);
+    public static read(reader: IDataReader<Ability>, source: string): Ability {
+        return reader.read(source);
     }
 
     public toDTO(): AbilityDTO {

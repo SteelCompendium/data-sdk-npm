@@ -20,7 +20,7 @@ describe("Update Snapshots", () => {
 
             const result = adapter.read(inputText);
 
-            fs.writeFileSync(outputPath, JSON.stringify(Statblock.from(result), null, 2));
+            fs.writeFileSync(outputPath, JSON.stringify(Statblock.fromSource(result), null, 2));
         });
     });
 }); 

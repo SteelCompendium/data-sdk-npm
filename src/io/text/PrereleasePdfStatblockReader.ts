@@ -3,12 +3,12 @@ import { Ability } from "../../model/Ability";
 import { Effect, MundaneEffect } from "../../model/Effect";
 import { Statblock } from "../../model/Statblock";
 import { Trait } from "../../model/Trait";
-import { DTOClass, IDataReader } from "../IDataReader";
+import { IDataReader } from "../IDataReader";
 import { Characteristics } from "../../model";
 import { Effects } from "../../model/Effects";
 
-export class PrereleasePdfStatblockReader implements IDataReader<StatblockDTO, Statblock> {
-    read(text: string, ctor: DTOClass<StatblockDTO, Statblock>): StatblockDTO {
+export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
+    read(text: string): Statblock {
         const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
         let idx = 0;
 

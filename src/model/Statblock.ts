@@ -31,15 +31,18 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         this.abilities = source.abilities ?? [];
     }
 
-    public static read(reader: IDataReader<StatblockDTO, Statblock>, source: string): Statblock {
-        return reader.parse(source, StatblockDTO);
+    public static read(reader: IDataReader<Statblock>, source: string): Statblock {
+        return reader.read(source);
     }
+
+    public static fromSource = (data: any): Statblock => Statblock.fromDTO(new StatblockDTO(data));
 
     public static fromDTO(dto: StatblockDTO): Statblock {
         return new Statblock({
             ...dto,
             freeStrike: dto.free_strike,
-            characteristics: Characteristics.fromDTO(dto),
+            withCaptain: dto.with_captain,
+            characteristics: new Characteristics(dto.might, dto.agility, dto.reason, dto.intuition, dto.presence),
             traits: dto.traits?.map(t => Trait.fromDTO(t)) ?? [],
             abilities: dto.abilities?.map(a => Ability.fromDTO(a)) ?? [],
         });

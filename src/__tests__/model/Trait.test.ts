@@ -23,8 +23,8 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.yaml' || fileExtension === '.yml') {
             test(`${baseName}.yaml to JSON`, () => {
                 const inputYaml = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.read(new YamlReader(), inputYaml);
-                const outputJson = new JsonWriter().writeModel(trait);
+                const trait = Trait.read(new YamlReader(Trait.fromSource), inputYaml);
+                const outputJson = new JsonWriter().write(trait);
                 const expectedJsonPath = path.join(outputDir, `${baseName}.json`);
                 const expectedJson = fs.readFileSync(expectedJsonPath, 'utf8');
                 expect(JSON.parse(outputJson)).toEqual(JSON.parse(expectedJson));
@@ -34,8 +34,8 @@ describe('Trait Data-Driven Tests', () => {
         if (fileExtension === '.json') {
             test(`${baseName}.json to YAML`, () => {
                 const inputJson = fs.readFileSync(inputFilePath, 'utf8');
-                const trait = Trait.read(new JsonReader(), inputJson);
-                const outputYaml = new YamlWriter().writeModel(trait);
+                const trait = Trait.read(new JsonReader(Trait.fromSource), inputJson);
+                const outputYaml = new YamlWriter().write(trait);
                 const expectedYamlPath = path.join(outputDir, `${baseName}.yaml`);
                 const expectedYaml = fs.readFileSync(expectedYamlPath, 'utf8');
                 expect(outputYaml).toEqual(expectedYaml);
