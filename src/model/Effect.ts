@@ -1,6 +1,7 @@
-import { parse, stringify } from 'yaml';
+import { IDataReader, IDataWriter } from '../io';
+import { SteelCompendiumModel } from './SteelCompendiumModel';
 
-export abstract class Effect {
+export abstract class Effect extends SteelCompendiumModel {
 	public static allFrom(data: any): Effect[] {
 		if (!data) {
 			return [];
@@ -27,16 +28,10 @@ export abstract class Effect {
 		}
 	}
 
-	public static fromYaml(yaml: string): Effect {
-		return Effect.from(parse(yaml));
+	public static read(reader: IDataReader<Effect>, source: string): Effect {
+		return reader.read(source);
 	}
 
-	public static fromJson(json: string): Effect {
-		return Effect.from(JSON.parse(json));
-	}
-
-	abstract toYaml(): string;
-	abstract toJson(): string;
 	abstract effectType(): string;
 }
 
@@ -66,20 +61,8 @@ export class PowerRollEffect extends Effect {
 		);
 	}
 
-	public static fromYaml(yaml: string): PowerRollEffect {
-		return PowerRollEffect.from(parse(yaml));
-	}
-
-	public static fromJson(json: string): PowerRollEffect {
-		return PowerRollEffect.from(JSON.parse(json));
-	}
-
-	public toYaml(): string {
-		return stringify(this);
-	}
-
-	public toJson(): string {
-		return JSON.stringify(this);
+	public static read(reader: IDataReader<PowerRollEffect>, source: string): PowerRollEffect {
+		return reader.read(source);
 	}
 
 	effectType() {
@@ -113,20 +96,8 @@ export class MundaneEffect extends Effect {
 		this.effect = effect;
 	}
 
-	public static fromYaml(yaml: string): MundaneEffect {
-		return MundaneEffect.from(parse(yaml));
-	}
-
-	public static fromJson(json: string): MundaneEffect {
-		return MundaneEffect.from(JSON.parse(json));
-	}
-
-	public toYaml(): string {
-		return stringify(this);
-	}
-
-	public toJson(): string {
-		return JSON.stringify(this);
+	public static read(reader: IDataReader<MundaneEffect>, source: string): MundaneEffect {
+		return reader.read(source);
 	}
 
 	effectType() {

@@ -1,9 +1,10 @@
 import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
-import { parse, stringify } from 'yaml';
+import { IDataReader, IDataWriter } from "../io";
+import { SteelCompendiumModel } from "./SteelCompendiumModel";
 
-export class Statblock {
+export class Statblock extends SteelCompendiumModel {
     name?: string;
     level?: number;
     roles?: string[];
@@ -22,6 +23,7 @@ export class Statblock {
     abilities: Ability[];
 
     constructor(name: string, level: number, roles: string[], ancestry: string[], ev: string, stamina: number, immunities: string[], weaknesses: string[], speed: string, size: string, stability: number, freeStrike: number, withCaptain: string, characteristics: Characteristics, traits: Trait[], abilities: Ability[]) {
+        super();
         this.name = name;
         this.level = level;
         this.roles = roles;
@@ -61,19 +63,7 @@ export class Statblock {
         );
     }
 
-    public static fromYaml(yaml: string): Statblock {
-        return Statblock.from(parse(yaml));
-    }
-
-    public static fromJson(json: string): Statblock {
-        return Statblock.from(JSON.parse(json));
-    }
-
-    public toYaml(): string {
-        return stringify(this);
-    }
-
-    public toJson(): string {
-        return JSON.stringify(this);
+    public static read(reader: IDataReader<Statblock>, source: string): Statblock {
+        return reader.read(source);
     }
 }

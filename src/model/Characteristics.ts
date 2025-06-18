@@ -1,6 +1,7 @@
-import { parse, stringify } from 'yaml';
+import { IDataReader, IDataWriter } from '../io';
+import { SteelCompendiumModel } from './SteelCompendiumModel';
 
-export class Characteristics {
+export class Characteristics extends SteelCompendiumModel {
 	might: number;
 	agility: number;
 	reason: number;
@@ -8,6 +9,7 @@ export class Characteristics {
 	presence: number;
 
 	constructor(might: number, agility: number, reason: number, intuition: number, presence: number) {
+		super();
 		this.might = might;
 		this.agility = agility;
 		this.reason = reason;
@@ -25,20 +27,8 @@ export class Characteristics {
 		);
 	}
 
-	public static fromYaml(yaml: string): Characteristics {
-		return Characteristics.from(parse(yaml));
-	}
-
-	public static fromJson(json: string): Characteristics {
-		return Characteristics.from(JSON.parse(json));
-	}
-
-	public toYaml(): string {
-		return stringify(this);
-	}
-
-	public toJson(): string {
-		return JSON.stringify(this);
+	public static read(reader: IDataReader<Characteristics>, source: string): Characteristics {
+		return reader.read(source);
 	}
 
 }

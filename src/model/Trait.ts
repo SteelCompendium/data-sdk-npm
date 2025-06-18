@@ -1,13 +1,15 @@
 import { Effect } from "./Effect";
-import { parse, stringify } from 'yaml';
+import { IDataReader, IDataWriter } from "../io";
+import { SteelCompendiumModel } from "./SteelCompendiumModel";
 
 
-export class Trait {
+export class Trait extends SteelCompendiumModel {
     name: string;
     type?: string;
     effects: Effect[];
 
     constructor(name: string, type: string, effects: Effect[]) {
+        super();
         this.name = name;
         this.type = type;
         this.effects = effects;
@@ -21,19 +23,7 @@ export class Trait {
         );
     }
 
-    public static fromYaml(yaml: string): Trait {
-        return Trait.from(parse(yaml));
-    }
-
-    public static fromJson(json: string): Trait {
-        return Trait.from(JSON.parse(json));
-    }
-
-    public toYaml(): string {
-        return stringify(this);
-    }
-
-    public toJson(): string {
-        return JSON.stringify(this);
+    public static read(reader: IDataReader<Trait>, source: string): Trait {
+        return reader.read(source);
     }
 }

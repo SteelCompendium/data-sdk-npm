@@ -1,7 +1,8 @@
 import { Effect } from "./Effect";
-import { parse, stringify } from 'yaml';
+import { IDataReader, IDataWriter } from "../io";
+import { SteelCompendiumModel } from "./SteelCompendiumModel";
 
-export class Ability {
+export class Ability extends SteelCompendiumModel {
     indent?: number;
     name?: string;
     cost?: string;
@@ -14,6 +15,7 @@ export class Ability {
     effects: Effect[];
 
     constructor(indent: number, name: string, cost: string, flavor: string, keywords: string[], type: string, distance: string, target: string, trigger: string, effects: Effect[]) {
+        super();
         this.indent = indent;
         this.name = name;
         this.cost = cost;
@@ -41,19 +43,7 @@ export class Ability {
         );
     }
 
-    public static fromYaml(yaml: string): Ability {
-        return Ability.from(parse(yaml));
-    }
-
-    public static fromJson(json: string): Ability {
-        return Ability.from(JSON.parse(json));
-    }
-
-    public toYaml(): string {
-        return stringify(this);
-    }
-
-    public toJson(): string {
-        return JSON.stringify(this);
+    public static read(reader: IDataReader<Ability>, source: string): Ability {
+        return reader.read(source);
     }
 }
