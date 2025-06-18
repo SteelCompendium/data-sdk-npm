@@ -2,7 +2,7 @@ import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
 import { StatblockDTO } from "../dto";
-import { ModelFactory, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 
 export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     name!: string;
@@ -30,7 +30,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         this.abilities = source.abilities ?? [];
     }
 
-    public static ModelDTOAdapter: ModelFactory<Statblock, StatblockDTO> = (source: Partial<StatblockDTO>) => new StatblockDTO(source).toModel();
+    public static modelDTOAdapter: ModelDTOAdapter<Statblock, StatblockDTO> = (source: Partial<StatblockDTO>) => new StatblockDTO(source).toModel();
 
     public static fromDTO(dto: StatblockDTO): Statblock {
         return new Statblock({

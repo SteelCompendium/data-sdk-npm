@@ -1,6 +1,6 @@
 import { AbilityDTO } from "../dto";
 import { Effects } from "./Effects";
-import { ModelFactory, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
@@ -19,7 +19,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static ModelDTOAdapter: ModelFactory<Ability, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
+    public static ModelDTOAdapter: ModelDTOAdapter<Ability, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
 
     public static fromDTO(dto: AbilityDTO): Ability {
         return new Ability({

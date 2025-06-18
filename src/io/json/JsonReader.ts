@@ -1,5 +1,5 @@
 import { IDataReader } from "../IDataReader";
-import { ModelFactory as ModelDTOAdapater, SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { ModelDTOAdapter as ModelDTOAdapater, SteelCompendiumModel } from "../../model/SteelCompendiumModel";
 import { SteelCompendiumDTO } from "../../dto";
 
 export class JsonReader<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> extends IDataReader<M> {

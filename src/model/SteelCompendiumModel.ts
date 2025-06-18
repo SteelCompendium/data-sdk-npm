@@ -10,15 +10,15 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> {
         return writer.write(this);
     }
 
-    public toJson(): string {
-        return this.write(new JsonWriter<this>());
-    }
+    // public toJson(): string {
+    //     return this.write(new JsonWriter<this>());
+    // }
 
-    public toYaml(): string {
-        return this.write(new YamlWriter<this>());
-    }
+    // public toYaml(): string {
+    //     return this.write(new YamlWriter<this>());
+    // }
 
     public abstract toDTO(): Partial<D>;
 }
 
-export type ModelFactory<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> = (source: Partial<T>) => M;
+export type ModelDTOAdapter<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> = (source: Partial<T>) => M;

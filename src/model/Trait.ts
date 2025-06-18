@@ -1,5 +1,5 @@
 import { TraitDTO } from "../dto";
-import { ModelFactory, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
 
 export class Trait extends SteelCompendiumModel<TraitDTO> {
@@ -14,7 +14,7 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static ModelDTOAdapter: ModelFactory<Trait, TraitDTO> = (source: Partial<TraitDTO>) => new TraitDTO(source).toModel();
+    public static modelDTOAdapter: ModelDTOAdapter<Trait, TraitDTO> = (source: Partial<TraitDTO>) => new TraitDTO(source).toModel();
 
     public static fromDTO(dto: TraitDTO): Trait {
         const newDto = { ...dto };
