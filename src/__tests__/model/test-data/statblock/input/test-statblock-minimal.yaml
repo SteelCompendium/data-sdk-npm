@@ -1,0 +1,5 @@
+name: Minimal Creature
+level: 1
+stamina: 10
+characteristics:
+  might: 1
