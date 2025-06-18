@@ -1,19 +1,14 @@
 import { IDataReader } from "../IDataReader";
 import { parse } from 'yaml';
-import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { ModelDTOAdapter, SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { SteelCompendiumDTO } from "../../dto";
 
-type ModelFactory<M extends SteelCompendiumModel<any>> = (source: any) => M;
-
-export class YamlReader<M extends SteelCompendiumModel<any>> extends IDataReader<M> {
-    private modelFactory: ModelFactory<M>;
-
-    public constructor(modelFactory: ModelFactory<M>) {
+export class YamlReader<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> extends IDataReader<M> {
+    public constructor(private adapter: ModelDTOAdapter<M, T>) {
         super();
-        this.modelFactory = modelFactory;
     }
 
     public read(source: string): M {
-        const data = parse(source);
-        return this.modelFactory(data);
+        return this.adapter(parse(source));
     }
 } 

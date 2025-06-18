@@ -4,7 +4,6 @@ import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
 
 export class YamlWriter<M extends SteelCompendiumModel<any>> extends IDataWriter<M> {
     write(data: M): string {
-        const dto = data.toDTO();
-        return stringify(dto);
+        return stringify(data.toDTO());
     }
 } 
