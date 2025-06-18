@@ -1,4 +1,0 @@
-- name: Test With Effect Prop
-  effect: "This is the effect text."
-- cost: "1 Action"
-  effect: "Another effect with a cost."

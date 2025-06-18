@@ -17,7 +17,7 @@ const validator_1 = __importDefault(require("../../validation/validator"));
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 (0, globals_1.describe)("JSONValidator", () => {
-    const dataDir = path_1.default.resolve(__dirname, "../data/draw-steel-adapter/outputs");
+    const dataDir = path_1.default.resolve(__dirname, "../data/statblock/dto-json");
     const filenames = fs_1.default.readdirSync(dataDir).filter(file => file.endsWith(".json"));
     filenames.forEach(filename => {
         (0, globals_1.test)(`should validate ${filename} successfully`, () => __awaiter(void 0, void 0, void 0, function* () {

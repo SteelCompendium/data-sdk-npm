@@ -9,8 +9,8 @@ const path_1 = __importDefault(require("path"));
 const PrereleasePdfStatblockReader_1 = require("../../../io/text/PrereleasePdfStatblockReader");
 (0, globals_1.describe)("PrereleasePdfStatblockReader", () => {
     const adapter = new PrereleasePdfStatblockReader_1.PrereleasePdfStatblockReader();
-    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "prerelease-pdf");
-    const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "dto-json");
+    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "statblock", "prerelease-pdf");
+    const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "statblock", "dto-json");
     const testFiles = fs_1.default.readdirSync(inputsDir).filter(file => file.endsWith(".txt"));
     testFiles.forEach(file => {
         (0, globals_1.it)(`should correctly parse ${file}`, () => {

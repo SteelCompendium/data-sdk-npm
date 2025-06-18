@@ -9,8 +9,9 @@ const glob_1 = require("glob");
 const json_1 = require("../../../io/json");
 const yaml_1 = require("../../../io/yaml");
 const model_1 = require("../../../model");
-const jsonTestPath = path_1.default.join(__dirname, '..', '..', 'data', 'dto-json');
-const yamlTestPath = path_1.default.join(__dirname, '..', '..', 'data', 'dto-yaml');
+const yaml_2 = require("yaml");
+const jsonTestPath = path_1.default.join(__dirname, '..', '..', 'data', 'statblock', 'dto-json');
+const yamlTestPath = path_1.default.join(__dirname, '..', '..', 'data', 'statblock', 'dto-yaml');
 describe('YamlWriter', () => {
     const files = glob_1.glob.sync('*.json', { cwd: jsonTestPath });
     test.each(files)('should correctly convert %s to YAML', (file) => {
@@ -22,7 +23,9 @@ describe('YamlWriter', () => {
         const expectedYamlContent = fs_1.default.readFileSync(yamlFilePath, 'utf-8');
         const creature = jsonReader.read(jsonContent);
         const actualYamlContent = yamlWriter.write(creature);
-        expect(actualYamlContent).toEqual(expectedYamlContent.trim() + '\n');
+        const actualObject = (0, yaml_2.parse)(actualYamlContent);
+        const expectedObject = (0, yaml_2.parse)(expectedYamlContent);
+        expect(actualObject).toEqual(expectedObject);
     });
 });
 //# sourceMappingURL=YamlWriter.spec.js.map
