@@ -12,16 +12,16 @@ export class PowerRollEffect extends Effect {
         Object.assign(this, source);
     }
 
-    // public static fromDTO(dto: PowerRollEffectDTO): PowerRollEffect {
-    //     const data: any = dto;
-    //     return new PowerRollEffect({
-    //         roll: data.roll,
-    //         t1: data.t1 ?? data["tier 1"] ?? data["11 or lower"],
-    //         t2: data.t2 ?? data["tier 2"] ?? data["12-16"],
-    //         t3: data.t3 ?? data["tier 3"] ?? data["17+"],
-    //         crit: data.critical ?? data.crit ?? data["nat 19-20"]
-    //     });
-    // }
+    public static fromDTO(dto: any): PowerRollEffect {
+        const data: any = dto;
+        return new PowerRollEffect({
+            roll: data.roll,
+            t1: data.t1 ?? data["tier 1"] ?? data["11 or lower"],
+            t2: data.t2 ?? data["tier 2"] ?? data["12-16"],
+            t3: data.t3 ?? data["tier 3"] ?? data["17+"],
+            crit: data.critical ?? data.crit ?? data["nat 19-20"]
+        });
+    }
 
     public toDTO(): any {
         const dto: any = {};

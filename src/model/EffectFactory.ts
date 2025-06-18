@@ -4,7 +4,7 @@ import { MundaneEffect } from './MundaneEffect';
 
 export function effectFromDTO(data: any): Effect {
     if (data.roll) {
-        return new PowerRollEffect(data);
+        return PowerRollEffect.fromDTO(data);
     } else if (typeof data === "string") {
         return new MundaneEffect({ effect: data });
     } else if (data.effect) {

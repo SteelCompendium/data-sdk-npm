@@ -508,16 +508,16 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         return "Action";
     }
 
+    // TODO - this is a mess and needs standardization
     mapOutcomeToTierKey(symbol: string, threshold: string): string {
         if (threshold.includes("≤")) {
-            return "11 or lower";
+            return "t1";
         } else if (threshold.includes("+")) {
-            return "17+";
+            return "t3";
         } else if (threshold.includes("–") || threshold.includes("-")) {
-            return threshold.replace("–", "-");
-        }
-        if (/^\d+$/.test(threshold)) {
-            return `${threshold}+`;
+            return "t2";
+        } else if (threshold.includes("crit") || threshold.includes("nat 19-20") || threshold.includes("critical")) {
+            return "crit";
         }
         return threshold;
     }
