@@ -14,17 +14,16 @@
     "Corruption 4",
     "Psychic 4"
   ],
+  "weaknesses": [],
   "speed": "5",
   "size": "1 M",
   "stability": 2,
-  "freeStrike": 5,
-  "characteristics": {
-    "might": 2,
-    "agility": 3,
-    "reason": 2,
-    "intuition": 3,
-    "presence": 2
-  },
+  "free_strike": 5,
+  "might": 2,
+  "agility": 3,
+  "reason": 2,
+  "intuition": 3,
+  "presence": 2,
   "traits": [
     {
       "name": "End Effect",
@@ -48,7 +47,6 @@
   "abilities": [
     {
       "name": "Whip & Magic Longsword",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Magic",
@@ -56,91 +54,102 @@
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 3",
       "target": "Two enemies or objects",
       "effects": [
         {
           "roll": "2d10 + 3",
-          "11 or lower": "8 damage; pull 1",
-          "12-16": "12 damage; pull 2",
-          "17+": "15 damage; pull 3"
+          "t1": "8 damage; pull 1",
+          "t2": "12 damage; pull 2",
+          "t3": "15 damage; pull 3"
         },
-        "A target who is adjacent to the bandit chief after the ability resolves takes 5 corruption damage.",
         {
-          "effect": "The bandit chief targets an additional enemy or object.",
-          "cost": "2 Malice"
+          "effect": "A target who is adjacent to the bandit chief after the ability resolves takes 5 corruption damage."
+        },
+        {
+          "cost": "2 Malice",
+          "effect": "The bandit chief targets an additional enemy or object."
         }
       ]
     },
     {
       "name": "Kneel, Peasant!",
-      "type": "Maneuver",
       "keywords": [
         "Melee",
         "Weapon"
       ],
+      "type": "Maneuver",
       "distance": "Melee 1",
       "target": "One enemy or object",
       "effects": [
         {
           "roll": "2d10 + 3",
-          "11 or lower": "Push 1; M<1 prone",
-          "12-16": "Push 2; M<2 prone",
-          "17+": "Push 4; M<3 prone"
+          "t1": "Push 1; M<1 prone",
+          "t2": "Push 2; M<2 prone",
+          "t3": "Push 4; M<3 prone"
         },
         {
-          "effect": "This ability targets each enemy adjacent to the bandit chief.",
-          "cost": "2 Malice"
+          "cost": "2 Malice",
+          "effect": "This ability targets each enemy adjacent to the bandit chief."
         }
       ]
     },
     {
       "name": "Bloodstones",
-      "type": "Triggered Action",
       "keywords": [
         "Magic"
       ],
+      "type": "Triggered Action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The bandit chief makes a power roll.",
       "effects": [
-        "The bandit chief takes 4 corruption damage and increases the result of the power roll by one tier."
+        {
+          "effect": "The bandit chief takes 4 corruption damage and increases the result of the power roll by one tier."
+        }
       ]
     },
     {
       "name": "Shoot!",
-      "type": "Villain Action 1",
       "keywords": [
         "Area"
       ],
+      "type": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
-        "Each target makes a ranged free strike."
+        {
+          "effect": "Each target makes a ranged free strike."
+        }
       ]
     },
     {
       "name": "Form Up!",
-      "type": "Villain Action 2",
       "keywords": [
         "Area"
       ],
+      "type": "Villain Action 2",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
-        "Each target shifts up to their speed. Until the end of the encounter, the bandit chief and all allies have damage immunity 2 while adjacent to a target."
+        {
+          "effect": "Each target shifts up to their speed. Until the end of the encounter, the bandit chief and all allies have damage immunity 2 while adjacent to a target."
+        }
       ]
     },
     {
       "name": "Lead From the Front",
-      "type": "Villain Action 3",
       "keywords": [
         "—"
       ],
+      "type": "Villain Action 3",
       "distance": "Self",
       "target": "Self",
       "effects": [
-        "Shift 10. During or after this movement, the bandit chief can use their Whip & Magic Longsword against up to four targets. Each ally adjacent to a target can make a free strike against them."
+        {
+          "effect": "Shift 10. During or after this movement, the bandit chief can use their Whip & Magic Longsword against up to four targets. Each ally adjacent to a target can make a free strike against them."
+        }
       ]
     }
   ]

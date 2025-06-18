@@ -10,107 +10,110 @@
   ],
   "ev": "12",
   "stamina": 60,
+  "immunities": [],
   "weaknesses": [
     "Sonic 5"
   ],
   "speed": "7 (climb)",
   "size": "3",
   "stability": 2,
-  "freeStrike": 4,
-  "characteristics": {
-    "might": 2,
-    "agility": 1,
-    "reason": -4,
-    "intuition": 0,
-    "presence": -3
-  },
+  "free_strike": 4,
+  "might": 2,
+  "agility": 1,
+  "reason": -4,
+  "intuition": 0,
+  "presence": -3,
   "traits": [],
   "abilities": [
     {
       "name": "Bite",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "7 damage",
-          "12-16": "11 damage",
-          "17+": "14 damage; A<2 bleeding (save ends)"
+          "t1": "7 damage",
+          "t2": "11 damage",
+          "t3": "14 damage; A<2 bleeding (save ends)"
         },
         {
-          "effect": "A<3 bleeding (save ends).",
-          "cost": "2 Malice"
+          "cost": "2 Malice",
+          "effect": "A<3 bleeding (save ends)."
         }
       ]
     },
     {
       "name": "Slashing Leg",
-      "type": "Action",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "6 damage",
-          "12-16": "9 damage",
-          "17+": "12 damage"
+          "t1": "6 damage",
+          "t2": "9 damage",
+          "t3": "12 damage"
         }
       ]
     },
     {
       "name": "Trample",
-      "type": "Action",
       "cost": "5 Malice",
       "keywords": [
         "—"
       ],
+      "type": "Action",
       "distance": "Self",
       "target": "Self",
       "effects": [
-        "The spider shifts up to their speed and makes a Slashing Leg strike against each creature who comes within 1 of the spider during the move. The spider makes one power roll against all targets."
+        {
+          "effect": "The spider shifts up to their speed and makes a Slashing Leg strike against each creature who comes within 1 of the spider during the move. The spider makes one power roll against all targets."
+        }
       ]
     },
     {
       "name": "Web",
-      "type": "Maneuver",
       "keywords": [
         "Area",
         "Weapon"
       ],
+      "type": "Maneuver",
       "distance": "3 cube within 1",
       "target": "All creatures in the cube",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "A<0 r estrained (save ends)",
-          "12-16": "A<1 r estrained (save ends)",
-          "17+": "A<2 r estrained (save ends)"
+          "t1": "A<0 r estrained (save ends)",
+          "t2": "A<1 r estrained (save ends)",
+          "t3": "A<2 r estrained (save ends)"
         }
       ]
     },
     {
       "name": "Skitter",
-      "type": "Triggered Action",
       "keywords": [
         "—"
       ],
+      "type": "Triggered Action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The spider takes damage.",
       "effects": [
-        "The spider halves the damage, and then shifts 2 squares after the triggering effect resolves."
+        {
+          "effect": "The spider halves the damage, and then shifts 2 squares after the triggering effect resolves."
+        }
       ]
     }
   ]

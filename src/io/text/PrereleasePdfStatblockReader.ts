@@ -1,5 +1,4 @@
 import { Ability } from "../../model/Ability";
-import { Characteristics } from "../../model/Characteristics";
 import { Effect, MundaneEffect } from "../../model/Effect";
 import { Statblock } from "../../model/Statblock";
 import { Trait } from "../../model/Trait";
@@ -90,8 +89,12 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         statblock.speed = "0";
         statblock.size = "";
         statblock.stability = 0;
-        statblock.freeStrike = 0;
-        statblock.characteristics = new Characteristics(0, 0, 0, 0, 0);
+        statblock.free_strike = 0;
+        statblock.might = 0;
+        statblock.agility = 0;
+        statblock.reason = 0;
+        statblock.intuition = 0;
+        statblock.presence = 0;
         statblock.ev = statblock.ev || "0";
 
         const statsKeywords = ["Speed", "Size", "Stability", "Free Strike", "Might", "Agility", "Reason", "Intuition", "Presence", "With Captain", "Immunity", "Weakness", "Target", "EV"];
@@ -131,37 +134,37 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
             const fsMatch = /Free Strike\s+(\d+)/.exec(line);
             if (fsMatch) {
-                statblock.freeStrike = parseInt(fsMatch[1], 10);
+                statblock.free_strike = parseInt(fsMatch[1], 10);
             }
 
             const captainMatch = /With Captain\s+(.+?)(?=\s+Free Strike|$)/.exec(line);
             if (captainMatch) {
-                statblock.withCaptain = captainMatch[1].trim();
+                statblock.with_captain = captainMatch[1].trim();
             }
 
             const mightMatch = /Might\s+([+-−]?\d+)/.exec(line);
             if (mightMatch) {
-                statblock.characteristics.might = parseInt(mightMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.might = parseInt(mightMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const agilityMatch = /Agility\s+([+-−]?\d+)/.exec(line);
             if (agilityMatch) {
-                statblock.characteristics.agility = parseInt(agilityMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.agility = parseInt(agilityMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const reasonMatch = /Reason\s+([+-−]?\d+)/.exec(line);
             if (reasonMatch) {
-                statblock.characteristics.reason = parseInt(reasonMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.reason = parseInt(reasonMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const intuitionMatch = /Intuition\s+([+-−]?\d+)/.exec(line);
             if (intuitionMatch) {
-                statblock.characteristics.intuition = parseInt(intuitionMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.intuition = parseInt(intuitionMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const presenceMatch = /Presence\s+([+-−]?\d+)/.exec(line);
             if (presenceMatch) {
-                statblock.characteristics.presence = parseInt(presenceMatch[1].replace("−", "-").replace("+", ""), 10);
+                statblock.presence = parseInt(presenceMatch[1].replace("−", "-").replace("+", ""), 10);
             }
 
             const evMatch = /EV\s+(.+)/i.exec(line);

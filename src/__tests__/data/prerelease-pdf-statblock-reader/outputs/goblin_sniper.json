@@ -11,18 +11,18 @@
   ],
   "ev": "3 for four minions",
   "stamina": 3,
+  "immunities": [],
+  "weaknesses": [],
   "speed": "5 (climb)",
   "size": "1S",
   "stability": 0,
-  "freeStrike": 2,
-  "characteristics": {
-    "might": -2,
-    "agility": 2,
-    "reason": 0,
-    "intuition": 0,
-    "presence": -1
-  },
-  "withCaptain": "Ranged distance +5",
+  "free_strike": 2,
+  "with_captain": "Ranged distance +5",
+  "might": -2,
+  "agility": 2,
+  "reason": 0,
+  "intuition": 0,
+  "presence": -1,
   "traits": [
     {
       "name": "Crafty",
@@ -37,23 +37,25 @@
   "abilities": [
     {
       "name": "Bow",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Ranged",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Ranged 10",
       "target": "One creature or object per minion",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "2 damage",
-          "12-16": "4 damage",
-          "17+": "5 damage"
+          "t1": "2 damage",
+          "t2": "4 damage",
+          "t3": "5 damage"
         },
-        "If the sniper doesn’t use a move action this turn, the ability has an edge."
+        {
+          "effect": "If the sniper doesn’t use a move action this turn, the ability has an edge."
+        }
       ]
     }
   ]

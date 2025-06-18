@@ -5,19 +5,19 @@
   "ancestry": [
     "Humanoid or Animal"
   ],
+  "ev": "0",
   "stamina": 8,
+  "immunities": [],
+  "weaknesses": [],
   "speed": "5",
   "size": "1S, 1M, 1L, or 2",
   "stability": 0,
-  "freeStrike": 1,
-  "characteristics": {
-    "might": 0,
-    "agility": 0,
-    "reason": 0,
-    "intuition": 0,
-    "presence": 0
-  },
-  "ev": "0",
+  "free_strike": 1,
+  "might": 0,
+  "agility": 0,
+  "reason": 0,
+  "intuition": 0,
+  "presence": 0,
   "traits": [],
   "abilities": []
 }

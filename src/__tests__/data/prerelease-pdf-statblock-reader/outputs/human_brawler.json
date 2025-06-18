@@ -15,17 +15,16 @@
     "Corruption 1",
     "Psychic 1"
   ],
+  "weaknesses": [],
   "speed": "5",
   "size": "1M",
   "stability": 0,
-  "freeStrike": 4,
-  "characteristics": {
-    "might": 2,
-    "agility": 1,
-    "reason": 0,
-    "intuition": 0,
-    "presence": 0
-  },
+  "free_strike": 4,
+  "might": 2,
+  "agility": 1,
+  "reason": 0,
+  "intuition": 0,
+  "presence": 0,
   "traits": [
     {
       "name": "Shoot the Hostage",
@@ -49,36 +48,40 @@
   "abilities": [
     {
       "name": "Haymaker",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "6 damage",
-          "12-16": "9 damage",
-          "17+": "12 damage; M<2 grabbed, target has a bane on escaping the grab"
+          "t1": "6 damage",
+          "t2": "9 damage",
+          "t3": "12 damage; M<2 grabbed, target has a bane on escaping the grab"
         },
-        "brawler deals an additional 2 damage if the target is already grabbed."
+        {
+          "effect": "brawler deals an additional 2 damage if the target is already grabbed."
+        }
       ]
     },
     {
       "name": "Throw",
-      "type": "Maneuver",
       "cost": "1 Malice",
       "keywords": [
         "—"
       ],
+      "type": "Maneuver",
       "distance": "Melee 1",
       "target": "One creature grabbed by the brawler",
       "effects": [
-        "Push 5."
+        {
+          "effect": "Push 5."
+        }
       ]
     }
   ]

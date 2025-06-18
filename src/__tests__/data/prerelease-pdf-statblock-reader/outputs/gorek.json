@@ -12,17 +12,17 @@
   ],
   "ev": "16",
   "stamina": 100,
+  "immunities": [],
+  "weaknesses": [],
   "speed": "5",
   "size": "1M",
   "stability": 2,
-  "freeStrike": 5,
-  "characteristics": {
-    "might": 2,
-    "agility": 1,
-    "reason": 0,
-    "intuition": 0,
-    "presence": 0
-  },
+  "free_strike": 5,
+  "might": 2,
+  "agility": 1,
+  "reason": 0,
+  "intuition": 0,
+  "presence": 0,
   "traits": [
     {
       "name": "Overwhelm",
@@ -55,47 +55,49 @@
   "abilities": [
     {
       "name": "Brutal Impact",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
         {
           "roll": "2D10 + 2",
-          "11 or lower": "7 damage; push 1",
-          "12-16": "11 damage; push 2",
-          "17+": "14 damage; push 3"
+          "t1": "7 damage; push 1",
+          "t2": "11 damage; push 2",
+          "t3": "14 damage; push 3"
         },
         {
-          "effect": "Each target is M<1 slowed (save ends).",
-          "cost": "2 Malice"
+          "cost": "2 Malice",
+          "effect": "Each target is M<1 slowed (save ends)."
         }
       ]
     },
     {
       "name": "Let’s Tussle",
-      "type": "Action",
       "cost": "2 Malice",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "One creature the fury’s size or smaller",
       "effects": [
         {
           "roll": "2D10 + 2",
-          "11 or lower": "8 damage; M<0 grabbed",
-          "12-16": "13 damage; M<1 grabbed",
-          "17+": "16 damage; M<2 grabbed"
+          "t1": "8 damage; M<0 grabbed",
+          "t2": "13 damage; M<1 grabbed",
+          "t3": "16 damage; M<2 grabbed"
         },
-        "Gorek has an edge on strikes against a grabbed creature."
+        {
+          "effect": "Gorek has an edge on strikes against a grabbed creature."
+        }
       ]
     }
   ]

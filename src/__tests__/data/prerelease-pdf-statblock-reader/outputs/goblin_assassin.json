@@ -11,17 +11,17 @@
   ],
   "ev": "3",
   "stamina": 15,
+  "immunities": [],
+  "weaknesses": [],
   "speed": "6 (climb)",
   "size": "1S",
   "stability": 0,
-  "freeStrike": 2,
-  "characteristics": {
-    "might": -2,
-    "agility": 2,
-    "reason": 0,
-    "intuition": 0,
-    "presence": -2
-  },
+  "free_strike": 2,
+  "might": -2,
+  "agility": 2,
+  "reason": 0,
+  "intuition": 0,
+  "presence": -2,
   "traits": [
     {
       "name": "Crafty",
@@ -45,41 +45,43 @@
   "abilities": [
     {
       "name": "Sword Stab",
-      "type": "Action",
       "cost": "Signature",
       "keywords": [
         "Melee",
         "Strike",
         "Weapon"
       ],
+      "type": "Action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "4 damage",
-          "12-16": "6 damage",
-          "17+": "7 damage"
+          "t1": "4 damage",
+          "t2": "6 damage",
+          "t3": "7 damage"
         },
-        "This ability deals an additional 2 damage if the assassin has an edge on the power roll."
+        {
+          "effect": "This ability deals an additional 2 damage if the assassin has an edge on the power roll."
+        }
       ]
     },
     {
       "name": "Shadow Chains",
-      "type": "Action",
       "cost": "3 Malice",
       "keywords": [
         "Magic",
         "Ranged"
       ],
+      "type": "Action",
       "distance": "Ranged 10",
       "target": "Three creatures",
       "effects": [
         {
           "roll": "2d10 + 2",
-          "11 or lower": "2 corruption damage; A<0 restrained (save ends)",
-          "12-16": "4 corruption damage; A<1 restrained (save ends)",
-          "17+": "5 corruption damage; A<2 restrained (save ends)"
+          "t1": "2 corruption damage; A<0 restrained (save ends)",
+          "t2": "4 corruption damage; A<1 restrained (save ends)",
+          "t3": "5 corruption damage; A<2 restrained (save ends)"
         }
       ]
     }
