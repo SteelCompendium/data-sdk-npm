@@ -3,7 +3,7 @@ import { Effect } from "../../model/Effect";
 import { Statblock } from "../../model/Statblock";
 import { Trait } from "../../model/Trait";
 import { IDataReader } from "../IDataReader";
-import { Characteristics, MundaneEffect } from "../../model";
+import { Characteristics, MundaneEffect, PowerRollEffect } from "../../model";
 import { Effects } from "../../model/Effects";
 import { effectFromDTO } from "../../model/EffectFactory";
 
@@ -361,7 +361,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                                         rollEffect[tierKey] = o.description;
                                     });
                                 }
-                                current.effects[current.effects.length - 1] = rollEffect;
+                                current.effects[current.effects.length - 1] = new PowerRollEffect(rollEffect);
                                 current.outcomes = [];
                             }
                         } else if (current.roll) {
@@ -372,7 +372,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                                     rollEffect[tierKey] = o.description;
                                 });
                             }
-                            current.effects.push(rollEffect);
+                            current.effects.push(new PowerRollEffect(rollEffect));
                             current.outcomes = [];
                         }
                     }

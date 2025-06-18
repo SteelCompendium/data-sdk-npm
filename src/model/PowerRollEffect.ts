@@ -7,24 +7,20 @@ export class PowerRollEffect extends Effect {
     t3?: string;
     crit?: string;
 
-    constructor(roll: string, t1: string, t2: string, t3: string, crit: string) {
+    public constructor(source: Partial<PowerRollEffect>) {
         super();
-        this.roll = roll;
-        this.t1 = t1;
-        this.t2 = t2;
-        this.t3 = t3;
-        this.crit = crit;
+        Object.assign(this, source);
     }
 
-    public static from(data: any): PowerRollEffect {
-        return new PowerRollEffect(
-            data.roll,
-            data.t1 ?? data["tier 1"] ?? data["11 or lower"],
-            data.t2 ?? data["tier 2"] ?? data["12-16"],
-            data.t3 ?? data["tier 3"] ?? data["17+"],
-            data.critical ?? data.crit ?? data["nat 19-20"]
-        );
-    }
+    // public static from(data: any): PowerRollEffect {
+    //     return new PowerRollEffect(
+    //         data.roll,
+    //         data.t1 ?? data["tier 1"] ?? data["11 or lower"],
+    //         data.t2 ?? data["tier 2"] ?? data["12-16"],
+    //         data.t3 ?? data["tier 3"] ?? data["17+"],
+    //         data.critical ?? data.crit ?? data["nat 19-20"]
+    //     );
+    // }
 
     // public static fromDTO(dto: PowerRollEffectDTO): PowerRollEffect {
     //     return PowerRollEffect.from(dto);
