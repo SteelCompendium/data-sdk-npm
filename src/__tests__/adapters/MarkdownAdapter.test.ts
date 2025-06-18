@@ -1,14 +1,14 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import JsonAdapter from "./JsonAdapter";
-import MarkdownAdapter from "./MarkdownAdapter";
+import JsonAdapter from "../../adapters/JsonAdapter";
+import MarkdownAdapter from "../../adapters/MarkdownAdapter";
 
 const jsonAdapter = new JsonAdapter();
 const markdownAdapter = new MarkdownAdapter();
 
-const inputsDir = path.join(__dirname, "../__tests__/data/markdown-adapter/inputs");
-const outputsDir = path.join(__dirname, "../__tests__/data/markdown-adapter/outputs");
+const inputsDir = path.join(__dirname, "..", "data", "markdown-adapter", "inputs");
+const outputsDir = path.join(__dirname, "..", "data", "markdown-adapter", "outputs");
 
 describe("MarkdownAdapter", () => {
 	const testFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".json"));

@@ -1,10 +1,10 @@
 import { describe, expect, test } from "@jest/globals";
-import validator from "./validator";
+import validator from "../../validation/validator";
 import fs from "fs";
 import path from "path";
 
 describe("JSONValidator", () => {
-    const dataDir = path.resolve(__dirname, "../__tests__/data/draw-steel-adapter/outputs");
+    const dataDir = path.resolve(__dirname, "../data/draw-steel-adapter/outputs");
     const filenames = fs.readdirSync(dataDir).filter(file => file.endsWith(".json"));
 
     filenames.forEach(filename => {

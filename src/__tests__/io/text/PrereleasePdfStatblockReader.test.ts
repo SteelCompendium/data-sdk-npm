@@ -1,12 +1,12 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import { PrereleasePdfStatblockReader } from "./PrereleasePdfStatblockReader";
+import { PrereleasePdfStatblockReader } from "../../../io/text/PrereleasePdfStatblockReader";
 
 describe("PrereleasePdfStatblockReader", () => {
 	const adapter = new PrereleasePdfStatblockReader();
-	const inputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "prerelease-pdf-statblock-reader", "inputs");
-	const outputsDir = path.join(__dirname, "..", "..", "__tests__", "data", "prerelease-pdf-statblock-reader", "outputs");
+	const inputsDir = path.join(__dirname, "..", "..", "data", "prerelease-pdf-statblock-reader", "inputs");
+	const outputsDir = path.join(__dirname, "..", "..", "data", "prerelease-pdf-statblock-reader", "outputs");
 
 	const testFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".txt"));
 

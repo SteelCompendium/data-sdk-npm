@@ -14,4 +14,5 @@ export class JsonWriter<M extends SteelCompendiumModel<any>> extends IDataWriter
 
         return JSON.stringify(cleanDTO, null, 2);
     }
-} 
+
+}
