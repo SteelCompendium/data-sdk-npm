@@ -1,7 +1,6 @@
-import { IDataReader, IDataWriter } from '../io';
-import { SteelCompendiumModel } from './SteelCompendiumModel';
+import { StatblockDTO } from '../dto';
 
-export class Characteristics extends SteelCompendiumModel {
+export class Characteristics {
 	might: number;
 	agility: number;
 	reason: number;
@@ -9,7 +8,6 @@ export class Characteristics extends SteelCompendiumModel {
 	presence: number;
 
 	constructor(might: number, agility: number, reason: number, intuition: number, presence: number) {
-		super();
 		this.might = might;
 		this.agility = agility;
 		this.reason = reason;
@@ -17,18 +15,13 @@ export class Characteristics extends SteelCompendiumModel {
 		this.presence = presence;
 	}
 
-	public static from(data: any): Characteristics {
+	public static fromDTO(dto: StatblockDTO): Characteristics {
 		return new Characteristics(
-			data.might ? data.might : 0,
-			data.agility ? data.agility : 0,
-			data.reason ? data.reason : 0,
-			data.intuition ? data.intuition : 0,
-			data.presence ? data.presence : 0,
+			dto.might ?? 0,
+			dto.agility ?? 0,
+			dto.reason ?? 0,
+			dto.intuition ?? 0,
+			dto.presence ?? 0,
 		);
 	}
-
-	public static read(reader: IDataReader<Characteristics>, source: string): Characteristics {
-		return reader.read(source);
-	}
-
 }

@@ -1,15 +1,10 @@
 import { IDataReader } from "../IDataReader";
 import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
+import { SteelCompendiumDTO } from "../../dto/SteelCompendiumDTO";
 
-export class JsonReader<T extends SteelCompendiumModel> implements IDataReader<T> {
-    private fromFunction: (data: any) => T;
-
-    constructor(fromFunction: (data: any) => T) {
-        this.fromFunction = fromFunction;
-    }
-
-    read(source: string): T {
+export class JsonReader<T extends SteelCompendiumDTO<M>, M extends SteelCompendiumModel> extends IDataReader<T, M> {
+    public read(source: string): T {
         const data = JSON.parse(source);
-        return this.fromFunction(data);
+        return data as T;
     }
 } 

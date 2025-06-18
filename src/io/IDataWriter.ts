@@ -1,5 +1,11 @@
+import { SteelCompendiumDTO } from "../dto/SteelCompendiumDTO";
 import { SteelCompendiumModel } from "../model/SteelCompendiumModel";
 
-export interface IDataWriter<T extends SteelCompendiumModel> {
-    write(data: T): string;
+export abstract class IDataWriter<T extends SteelCompendiumDTO<M>, M extends SteelCompendiumModel> {
+    public abstract write(data: T): string;
+
+    writeModel(data: M): string {
+        const dto = data.toDTO() as T;
+        return this.write(dto);
+    }
 } 

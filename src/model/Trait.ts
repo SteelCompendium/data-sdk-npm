@@ -1,7 +1,7 @@
 import { Effect } from "./Effect";
-import { IDataReader, IDataWriter } from "../io";
+import { IDataReader } from "../io";
+import { TraitDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
-
 
 export class Trait extends SteelCompendiumModel {
     name: string;
@@ -15,12 +15,20 @@ export class Trait extends SteelCompendiumModel {
         this.effects = effects;
     }
 
-    static from(data: any): Trait {
+    public static fromDTO(dto: TraitDTO): Trait {
         return new Trait(
-            data.name?.trim() ?? '',
-            data.type?.trim(),
-            data.effects ? Effect.allFrom(data.effects) : []
+            dto.name?.trim() ?? '',
+            dto.type?.trim() ?? '',
+            dto.effects ? Effect.allFromDTO(dto.effects) : []
         );
+    }
+
+    public toDTO(): TraitDTO {
+        return {
+            name: this.name!,
+            type: this.type,
+            effects: this.effects.map(e => e.toDTO()),
+        };
     }
 
     public static read(reader: IDataReader<Trait>, source: string): Trait {
