@@ -1,5 +1,4 @@
 import { Ability } from '../model/Ability';
-import { Effect } from '../model/Effect';
 import { EffectDTO } from './EffectDTO';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 
