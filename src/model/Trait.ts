@@ -1,4 +1,3 @@
-import { IDataReader } from "../io";
 import { TraitDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
@@ -26,10 +25,6 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
             ...newDto,
             effects: Effects.fromDTO(dto.effects),
         });
-    }
-
-    public static read(reader: IDataReader<Trait>, source: string): Trait {
-        return reader.read(source);
     }
 
     public toDTO(): any {

@@ -1,4 +1,3 @@
-import { IDataReader } from "../io";
 import { AbilityDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
@@ -27,10 +26,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
             ...dto,
             effects: Effects.fromDTO(dto.effects),
         });
-    }
-
-    public static read(reader: IDataReader<Ability>, source: string): Ability {
-        return reader.read(source);
     }
 
     public toDTO(): any {

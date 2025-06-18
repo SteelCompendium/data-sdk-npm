@@ -1,7 +1,6 @@
 import { Ability } from "./Ability";
 import { Trait } from "./Trait";
 import { Characteristics } from "./Characteristics";
-import { IDataReader } from "../io";
 import { StatblockDTO } from "../dto";
 import { SteelCompendiumModel } from "./SteelCompendiumModel";
 
@@ -29,10 +28,6 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
         this.characteristics = source.characteristics ?? new Characteristics(0, 0, 0, 0, 0);
         this.traits = source.traits ?? [];
         this.abilities = source.abilities ?? [];
-    }
-
-    public static read(reader: IDataReader<Statblock>, source: string): Statblock {
-        return reader.read(source);
     }
 
     public static fromSource = (data: any): Statblock => Statblock.fromDTO(new StatblockDTO(data));
