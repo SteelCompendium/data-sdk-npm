@@ -49,8 +49,18 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     }
 
     public toDTO(): StatblockDTO {
-        return new StatblockDTO({
-            ...this,
+        const data = {
+            name: this.name,
+            level: this.level,
+            roles: this.roles,
+            ancestry: this.ancestry,
+            ev: this.ev,
+            stamina: this.stamina,
+            immunities: this.immunities,
+            weaknesses: this.weaknesses,
+            speed: this.speed,
+            size: this.size,
+            stability: this.stability,
             free_strike: this.freeStrike,
             with_captain: this.withCaptain,
             might: this.characteristics.might,
@@ -60,6 +70,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
             presence: this.characteristics.presence,
             traits: this.traits.map(t => t.toDTO()),
             abilities: this.abilities.map(a => a.toDTO()),
-        });
+        };
+        return new StatblockDTO(data);
     }
 }

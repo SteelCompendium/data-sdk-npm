@@ -22,8 +22,8 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     immunities?: string[];
     weaknesses?: string[];
     with_captain?: string;
-    traits?: TraitDTO[];
-    abilities?: AbilityDTO[];
+    traits?: any[];
+    abilities?: any[];
 
     public constructor(source: Partial<StatblockDTO>) {
         super(source);

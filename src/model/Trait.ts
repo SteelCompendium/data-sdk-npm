@@ -27,10 +27,11 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         return reader.read(source);
     }
 
-    public toDTO(): TraitDTO {
-        return new TraitDTO({
-            ...this,
+    public toDTO(): any {
+        return {
+            name: this.name ?? "",
+            type: this.type ?? "",
             effects: this.effects.toDTO(),
-        });
+        };
     }
 }

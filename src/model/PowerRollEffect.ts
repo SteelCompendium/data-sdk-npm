@@ -29,9 +29,9 @@ export class PowerRollEffect extends Effect {
     public toDTO(): any {
         return {
             roll: this.roll,
-            '11 or lower': this.t1,
-            '12-16': this.t2,
-            '17+': this.t3,
+            't1': this.t1,
+            't2': this.t2,
+            't3': this.t3,
             crit: this.crit,
         }
     }
