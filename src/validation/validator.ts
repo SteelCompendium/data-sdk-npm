@@ -11,13 +11,20 @@ class Validator {
         this.ajv.addSchema(statblockSchema, "statblock.schema.json");
     }
 
-    validateJSON(data: string | object): { valid: boolean; errors: ErrorObject[] | null | undefined } {
+    async validateJSON(data: string | object): Promise<{ valid: boolean; errors: ErrorObject[] | null | undefined }> {
         let jsonData;
         if (typeof data === "string") {
             try {
                 jsonData = JSON.parse(data);
             } catch (e: any) {
-                return { valid: false, errors: [{ keyword: "parsing", message: e.message, dataPath: "", schemaPath: "" }] };
+                const error: ErrorObject = {
+                    keyword: 'parsing',
+                    instancePath: '',
+                    schemaPath: '',
+                    params: {},
+                    message: e.message,
+                };
+                return { valid: false, errors: [error] };
             }
         } else {
             jsonData = data;
@@ -27,13 +34,13 @@ class Validator {
         if (!validate) {
             throw new Error("Could not find statblock schema");
         }
-        const valid = validate(jsonData);
-        return { valid, errors: validate.errors };
+        const valid = await Promise.resolve(validate(jsonData));
+        return { valid: valid as boolean, errors: validate.errors };
     }
 
     formatErrors(errors: ErrorObject[]): string {
         return errors
-            .map(error => `${error.dataPath} ${error.message}`)
+            .map(error => `${error.instancePath} ${error.message}`)
             .join("\\n");
     }
 }

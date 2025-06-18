@@ -41,7 +41,7 @@ class AdapterRegistry {
         return formats;
     }
 
-    convert(text: string, sourceFormat: string, targetFormat: string): string {
+    async convert(text: string, sourceFormat: string, targetFormat: string): Promise<string> {
         const sourceAdapter = this.getAdapter(sourceFormat);
         const targetAdapter = this.getAdapter(targetFormat);
 
@@ -54,7 +54,7 @@ class AdapterRegistry {
         // If the target format is JSON, validate it against the schema
         if (targetFormat.toLowerCase().includes("json") || this.isJSONFormat(result)) {
             try {
-                const validationResult = validator.validateJSON(result);
+                const validationResult = await validator.validateJSON(result);
                 if (validationResult.errors && !validationResult.valid) {
                     const errorMessages = validator.formatErrors(validationResult.errors);
                     // eslint-disable-next-line no-console

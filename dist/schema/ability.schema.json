@@ -1,0 +1,156 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Draw Steel Ability",
+    "type": "object",
+    "required": [
+        "name",
+        "type",
+        "effects"
+    ],
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The title or description of the ability"
+        },
+        "type": {
+            "type": "string",
+            "description": "Ability type (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+        },
+        "cost": {
+            "type": "string",
+            "description": "Cost to use the ability (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
+        },
+        "keywords": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Keywords associated with the ability (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
+        },
+        "distance": {
+            "type": "string",
+            "description": "Distance or area (e.g., \"Ranged 5\", \"2 burst\", \"Melee 1\")"
+        },
+        "target": {
+            "type": "string",
+            "description": "Who or what is targeted (e.g., \"All enemies\", \"One creature\", \"Self\")"
+        },
+        "trigger": {
+            "type": "string",
+            "description": "Trigger condition for triggered actions"
+        },
+        "effects": {
+            "$ref": "#/definitions/effectsArray"
+        },
+        "flavor": {
+            "type": "string",
+            "description": "Flavor text of the ability"
+        },
+        "indent": {
+            "type": "integer",
+            "description": "Left-margin indentation for nested lists"
+        }
+    },
+    "additionalProperties": false,
+    "definitions": {
+        "effectsArray": {
+            "type": "array",
+            "minItems": 1,
+            "description": "List of effects (flexible formats)",
+            "items": {
+                "oneOf": [
+                    {
+                        "$ref": "#/definitions/powerRollEffect"
+                    },
+                    {
+                        "$ref": "#/definitions/namedEffectWithCost"
+                    },
+                    {
+                        "$ref": "#/definitions/namedEffect"
+                    },
+                    {
+                        "$ref": "#/definitions/costedEffect"
+                    },
+                    {
+                        "type": "string"
+                    }
+                ]
+            }
+        },
+        "powerRollEffect": {
+            "type": "object",
+            "required": [
+                "roll"
+            ],
+            "properties": {
+                "roll": {
+                    "type": "string",
+                    "description": "Power Roll expression (e.g., \"2d10 + 3\")"
+                }
+            },
+            "additionalProperties": {
+                "type": "string",
+                "description": "Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.)"
+            }
+        },
+        "namedEffectWithCost": {
+            "type": "object",
+            "required": [
+                "name",
+                "cost",
+                "effect"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the effect"
+                },
+                "cost": {
+                    "type": "string",
+                    "description": "Cost to trigger this effect"
+                },
+                "effect": {
+                    "type": "string",
+                    "description": "Description of what the effect does"
+                }
+            },
+            "additionalProperties": false
+        },
+        "costedEffect": {
+            "type": "object",
+            "required": [
+                "cost",
+                "effect"
+            ],
+            "properties": {
+                "cost": {
+                    "type": "string",
+                    "description": "Cost to trigger this effect"
+                },
+                "effect": {
+                    "type": "string",
+                    "description": "Description of what the effect does"
+                }
+            },
+            "additionalProperties": false
+        },
+        "namedEffect": {
+            "type": "object",
+            "required": [
+                "name",
+                "effect"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the effect"
+                },
+                "effect": {
+                    "type": "string",
+                    "description": "Description of what the effect does"
+                }
+            },
+            "additionalProperties": false
+        }
+    }
+}
