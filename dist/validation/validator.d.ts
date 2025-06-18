@@ -2,9 +2,11 @@ import { ErrorObject } from "ajv";
 declare class Validator {
     private ajv;
     constructor();
-    validateJSON(data: string | object): Promise<{
+    getAvailableSchemas(): string[];
+    validateJSON(data: string | object, schemaName?: string): Promise<{
         valid: boolean;
         errors: ErrorObject[] | null | undefined;
+        data?: any;
     }>;
     formatErrors(errors: ErrorObject[]): string;
 }

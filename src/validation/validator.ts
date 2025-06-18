@@ -11,7 +11,13 @@ class Validator {
         this.ajv.addSchema(statblockSchema, "statblock.schema.json");
     }
 
-    async validateJSON(data: string | object): Promise<{ valid: boolean; errors: ErrorObject[] | null | undefined }> {
+    getAvailableSchemas(): string[] {
+        // Ajv does not provide a direct way to list added schema keys.
+        // We will return the names we used to add them.
+        return ["statblock.schema.json", "ability.schema.json"];
+    }
+
+    async validateJSON(data: string | object, schemaName: string = "statblock.schema.json"): Promise<{ valid: boolean; errors: ErrorObject[] | null | undefined, data?: any }> {
         let jsonData;
         if (typeof data === "string") {
             try {
@@ -30,12 +36,15 @@ class Validator {
             jsonData = data;
         }
 
-        const validate = this.ajv.getSchema("statblock.schema.json");
+        const validate = this.ajv.getSchema(schemaName);
         if (!validate) {
-            throw new Error("Could not find statblock schema");
+            throw new Error(`Could not find schema: ${schemaName}`);
         }
         const valid = await Promise.resolve(validate(jsonData));
-        return { valid: valid as boolean, errors: validate.errors };
+        if (valid) {
+            return { valid: true, errors: null, data: jsonData };
+        }
+        return { valid: false, errors: validate.errors };
     }
 
     formatErrors(errors: ErrorObject[]): string {
