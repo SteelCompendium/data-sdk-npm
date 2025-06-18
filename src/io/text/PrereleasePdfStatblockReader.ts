@@ -89,7 +89,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         statblock.speed = "0";
         statblock.size = "";
         statblock.stability = 0;
-        statblock.free_strike = 0;
+        statblock.freeStrike = 0;
         statblock.might = 0;
         statblock.agility = 0;
         statblock.reason = 0;
@@ -134,12 +134,12 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
             const fsMatch = /Free Strike\s+(\d+)/.exec(line);
             if (fsMatch) {
-                statblock.free_strike = parseInt(fsMatch[1], 10);
+                statblock.freeStrike = parseInt(fsMatch[1], 10);
             }
 
             const captainMatch = /With Captain\s+(.+?)(?=\s+Free Strike|$)/.exec(line);
             if (captainMatch) {
-                statblock.with_captain = captainMatch[1].trim();
+                statblock.withCaptain = captainMatch[1].trim();
             }
 
             const mightMatch = /Might\s+([+-−]?\d+)/.exec(line);
