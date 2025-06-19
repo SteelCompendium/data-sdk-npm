@@ -1,0 +1,24 @@
+{
+    "name": "Unquiet Ground",
+    "type": "Main Action",
+    "effects": [
+        {
+            "roll": "Power Roll + Reason",
+            "t1": "2 damage",
+            "t2": "5 damage",
+            "t3": "7 damage"
+        },
+        {
+            "effect": "The ground beneath the area is difficult terrain for enemies."
+        }
+    ],
+    "keywords": [
+        "Area",
+        "Earth",
+        "Magic",
+        "Ranged Main"
+    ],
+    "distance": "2 cube within 10",
+    "target": "Each enemy in the area",
+    "flavor": "A sudden storm of detritus assaults your foes and leaves them struggling to move."
+}

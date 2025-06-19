@@ -1,0 +1,11 @@
+RAY OF AGONIZING SELF-R EFLECTION
+You inflict pain and doubt in equal measure.
+Magic, Ranged, Strike, Void Main action
+Distance: Ranged 10 Target: One creature or object
+Power Roll + Reason:
+• 11 or lower: 2 + R corruption damage; R < weak, slowed 
+(save ends)
+• 12–16: 4 + R corruption damage; R < average, slowed 
+(save ends)
+• 17+: 6 + R corruption damage; R < strong, slowed (save 
+ends)
