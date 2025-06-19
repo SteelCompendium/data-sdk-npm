@@ -19,5 +19,5 @@ class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     }
 }
 exports.Ability = Ability;
-Ability.ModelDTOAdapter = (source) => new dto_1.AbilityDTO(source).toModel();
+Ability.modelDTOAdapter = (source) => new dto_1.AbilityDTO(source).toModel();
 //# sourceMappingURL=Ability.js.map

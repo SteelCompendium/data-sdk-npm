@@ -12,7 +12,7 @@ export declare class Ability extends SteelCompendiumModel<AbilityDTO> {
     trigger?: string;
     effects: Effects;
     constructor(source: Partial<Ability>);
-    static ModelDTOAdapter: ModelDTOAdapter<Ability, AbilityDTO>;
+    static modelDTOAdapter: ModelDTOAdapter<Ability, AbilityDTO>;
     static fromDTO(dto: AbilityDTO): Ability;
     toDTO(): Partial<AbilityDTO>;
 }
