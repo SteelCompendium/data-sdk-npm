@@ -157,17 +157,19 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     if (Object.keys(tiers).length > 0) {
                         effects.push(new PowerRollEffect({ roll, ...tiers }));
                     } else {
-                        const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
+                        const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
                         effects.push(new MundaneEffect({ effect: blockText }));
                     }
                 } else {
-                    const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
+                    const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
                     const namedMatch = blockText.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
 
                     if (namedMatch && !/distance|target|keywords/i.test(namedMatch[1])) {
                         const name = namedMatch[1].trim();
-                        if (/\d/.test(name) || /^[A-Z]/.test(name)) {
-                            effects.push(new MundaneEffect({ name: name, effect: namedMatch[2].trim() }));
+                        const effect = namedMatch[2].trim();
+                        // Heuristic to decide if it's a real named effect
+                        if ((name.split(' ').length <= 3 && /^[A-Z]/.test(name)) || /\d/.test(name)) {
+                            effects.push(new MundaneEffect({ name, effect }));
                         } else {
                             effects.push(new MundaneEffect({ effect: blockText }));
                         }
@@ -202,11 +204,12 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
             if (match) {
-                const name = match[1];
-                if (/\d/.test(name) || /^[A-Z]/.test(name)) {
-                    if (/distance|target|keywords|trigger/i.test(name)) {
-                        return false;
-                    }
+                const name = match[1].trim();
+                if (/distance|target|keywords|trigger/i.test(name)) {
+                    return false;
+                }
+                // Heuristic to decide if it's a real named effect
+                if ((name.split(' ').length <= 3 && /^[A-Z]/.test(name)) || /\d/.test(name)) {
                     return true;
                 }
             }
