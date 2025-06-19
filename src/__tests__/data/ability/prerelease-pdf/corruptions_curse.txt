@@ -1,0 +1,12 @@
+C ORRUPTION ’S C URSE (5 PIETY)
+Cursed by you, your enemy takes more damage from your
+allies.
+Magic, Ranged, Strike Main action
+Distance: Ranged 10 Target: One creature or object
+Power Roll + Intuition:
+• 11 or lower: 3 + I corruption damage; M < weak, damage
+weakness 5 (save ends)
+• 12–16: 6 + I corruption damage; M < average, damage
+weakness 5 (save ends)
+• 17+: 9 + I corruption damage; M < strong, damage
+weakness 5 (save ends)
