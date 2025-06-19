@@ -16,7 +16,7 @@
         "Area",
         "Earth",
         "Magic",
-        "Ranged Main"
+        "Ranged"
     ],
     "distance": "2 cube within 10",
     "target": "Each enemy in the area",
