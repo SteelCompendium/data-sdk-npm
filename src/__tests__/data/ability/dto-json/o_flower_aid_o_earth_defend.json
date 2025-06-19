@@ -3,7 +3,7 @@
     "type": "Maneuver",
     "effects": [
         {
-            "effect": "Until the start of your next turn, the area gains the following effects:\n• Once at the start of your turn as a free maneuver, you and each ally in the area can spend any number of Recoveries. Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.\n• The area is difficult terrain for enemies.\n•Each enemy who enters the area for the first time in a combat round or starts their turn there takes damage equal to your Reason score."
+            "effect": "Until the start of your next turn, the area gains the following effects:\n• Once at the start of your turn as a free maneuver, you and each ally in the area can spend any number of Recoveries. Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.\n• The area is difficult terrain for enemies.\n• Each enemy who enters the area for the first time in a combat round or starts their turn there takes damage equal to your Reason score."
         },
         {
             "name": "Persistent 1",
