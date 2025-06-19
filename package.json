@@ -8,6 +8,11 @@
     "dist/",
     "src/"
   ],
+  "exports": {
+    ".": "./dist/index.js",
+    "./model": "./dist/model/index.js",
+    "./dto": "./dist/dto/index.js"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",

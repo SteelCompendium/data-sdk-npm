@@ -19,6 +19,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.validator = void 0;
 __exportStar(require("./io"), exports);
+__exportStar(require("./model"), exports);
+__exportStar(require("./dto"), exports);
 var validator_1 = require("./validation/validator");
 Object.defineProperty(exports, "validator", { enumerable: true, get: function () { return __importDefault(validator_1).default; } });
 //# sourceMappingURL=index.js.map
