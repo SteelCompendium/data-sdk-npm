@@ -162,19 +162,16 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     }
                 } else {
                     const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
-                    const namedMatch = blockText.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
+                    const effectParts = blockText.split(/(?=[A-Z][a-zA-Z\s\d]*\s\d*:)/);
 
-                    if (namedMatch && !/distance|target|keywords/i.test(namedMatch[1])) {
-                        const name = namedMatch[1].trim();
-                        const effect = namedMatch[2].trim();
-                        // Heuristic to decide if it's a real named effect
-                        if ((name.split(' ').length <= 3 && /^[A-Z]/.test(name)) || /\d/.test(name)) {
-                            effects.push(new MundaneEffect({ name, effect }));
+                    for (const part of effectParts) {
+                        if (!part.trim()) continue;
+                        const namedMatch = part.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
+                        if (namedMatch) {
+                            effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
                         } else {
-                            effects.push(new MundaneEffect({ effect: blockText }));
+                            effects.push(new MundaneEffect({ effect: part.trim() }));
                         }
-                    } else {
-                        effects.push(new MundaneEffect({ effect: blockText }));
                     }
                 }
             }
@@ -200,7 +197,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
         if (line.startsWith('•')) return false;
 
-        const namedEffectRegex = /^([a-zA-Z0-9\s\d-]+):\s*(.*)/;
+        const namedEffectRegex = /^([A-Z][a-zA-Z\s\d]*\s\d*):\s*(.*)/;
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
             if (match) {
@@ -208,10 +205,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 if (/distance|target|keywords|trigger/i.test(name)) {
                     return false;
                 }
-                // Heuristic to decide if it's a real named effect
-                if ((name.split(' ').length <= 3 && /^[A-Z]/.test(name)) || /\d/.test(name)) {
-                    return true;
-                }
+                return true;
             }
         }
 
