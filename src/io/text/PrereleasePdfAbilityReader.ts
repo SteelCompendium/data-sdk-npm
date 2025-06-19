@@ -14,7 +14,11 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         const firstLine = lines.shift() || '';
         const costMatch = firstLine.match(/\((.*)\)/);
         if (costMatch) {
-            abilityData.cost = costMatch[1].trim();
+            let cost = costMatch[1].trim();
+            cost = cost.replace(/(?<![’'])\b([B-HJ-NP-Z])\s+/g, '$1');
+            cost = cost.replace(/\s+(?=[’'])/g, "");
+            cost = cost.replace(/(-[a-zA-Z])\s+/g, '$1');
+            abilityData.cost = cost;
             let name = firstLine.replace(costMatch[0], '').trim();
             name = name.replace(/(?<![’'])\b([B-HJ-NP-Z])\s+/g, '$1');
             name = name.replace(/\s+(?=[’'])/g, "");
