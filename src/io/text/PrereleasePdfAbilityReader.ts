@@ -65,7 +65,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             }
         }
 
-        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1', 'Triggered'];
+        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1', 'Free Triggered', 'Triggered'];
 
         const flavorLines: string[] = [];
         const actualPropertyLines: string[] = [];
