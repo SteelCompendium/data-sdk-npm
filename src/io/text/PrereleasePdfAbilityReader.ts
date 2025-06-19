@@ -193,12 +193,12 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 } else {
                     const blockTextWithHeader = this.joinAndFormatEffectLines(group);
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
-                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z\s\d'-]*:\s)/);
+                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z0-9\s'-+]*:\s)/);
 
                     const parsedEffects: { name?: string, effect: string }[] = [];
                     for (const part of effectParts) {
                         if (!part.trim()) continue;
-                        const namedMatch = part.match(/^([A-Z][a-zA-Z\s\d'-]*):\s*([\s\S]*)/);
+                        const namedMatch = part.match(/^([A-Z][a-zA-Z0-9\s'-+]*):\s*([\s\S]*)/);
                         if (namedMatch) {
                             parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
                         } else {
@@ -262,7 +262,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
         if (line.startsWith('•')) return false;
 
-        const namedEffectRegex = /^([A-Z][a-zA-Z\s'-]+(?: \d+)?):\s*(.*)/;
+        const namedEffectRegex = /^([A-Z][a-zA-Z0-9\s'-+]+):\s*(.*)/;
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
             if (match) {
@@ -271,7 +271,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     return false;
                 }
                 if (/Persistent \d+/.test(name)) return true;
-                if (/Spend \d+ \w+/.test(name)) return true;
+                if (/Spend \d+\+? \w+/.test(name)) return true;
                 return true;
             }
         }

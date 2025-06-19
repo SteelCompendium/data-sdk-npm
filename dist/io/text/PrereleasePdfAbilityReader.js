@@ -15,10 +15,16 @@ class PrereleasePdfAbilityReader {
         const costMatch = firstLine.match(/\((.*)\)/);
         if (costMatch) {
             abilityData.cost = costMatch[1].trim();
-            abilityData.name = firstLine.replace(costMatch[0], '').trim();
+            let name = firstLine.replace(costMatch[0], '').trim();
+            name = name.replace(/\b([B-HJ-NP-Z])\s+/g, '$1');
+            name = name.replace(/(-[a-zA-Z])\s+/g, '$1');
+            abilityData.name = name;
         }
         else {
-            abilityData.name = firstLine.trim();
+            let name = firstLine.trim();
+            name = name.replace(/\b([B-HJ-NP-Z])\s+/g, '$1');
+            name = name.replace(/(-[a-zA-Z])\s+/g, '$1');
+            abilityData.name = name;
         }
         let inEffectSection = false;
         const propertyLines = [];
@@ -57,24 +63,52 @@ class PrereleasePdfAbilityReader {
                 propertyLines.push(line);
             }
         }
-        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1'];
-        const flavor = [];
+        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1', 'Triggered'];
+        const flavorLines = [];
+        const actualPropertyLines = [];
+        let flavorDone = false;
         for (const line of propertyLines) {
-            let isProperty = false;
+            const parts = line.split(/,/).map(p => p.trim()).filter(p => p);
+            const likelyKeywordLine = parts.length > 1 && !line.includes(':') && line.length < 80 && parts.every(p => p.split(' ').length < 4);
+            const isPropertyMarker = /^(Distance:|Target:|Trigger:|Keywords:)/i.test(line);
+            if (!flavorDone && !isPropertyMarker && !likelyKeywordLine) {
+                flavorLines.push(line);
+            }
+            else {
+                flavorDone = true;
+                actualPropertyLines.push(line);
+            }
+        }
+        if (flavorLines.length > 0)
+            abilityData.flavor = flavorLines.join(' ');
+        let capturingTrigger = false;
+        for (const line of actualPropertyLines) {
+            const triggerMatch = line.match(/Trigger:\s*(.*)/i);
             const distanceMatch = line.match(/Distance:\s*(.*?)(?:\s*Target:|$)/i);
+            const targetMatch = line.match(/Target:\s*(.*)/i);
+            if (capturingTrigger) {
+                if (distanceMatch || targetMatch || /Keywords:/i.test(line) || triggerMatch) {
+                    capturingTrigger = false;
+                }
+                else {
+                    abilityData.trigger = ((abilityData.trigger || '') + ' ' + line.trim()).trim();
+                    continue;
+                }
+            }
+            if (triggerMatch) {
+                abilityData.trigger = triggerMatch[1].trim();
+                capturingTrigger = true;
+            }
             if (distanceMatch && distanceMatch[1]) {
                 abilityData.distance = distanceMatch[1].trim();
-                isProperty = true;
             }
-            const targetMatch = line.match(/Target:\s*(.*)/i);
             if (targetMatch && targetMatch[1]) {
                 abilityData.target = targetMatch[1].trim();
-                isProperty = true;
             }
             const keywords = [];
             const foundTypes = [];
-            const parts = line.split(',').map(p => p.trim());
-            const likelyKeywordLine = parts.length > 1 && parts.every(p => p.split(' ').length < 5);
+            const parts = line.split(/,/).map(p => p.trim()).filter(p => p);
+            const likelyKeywordLine = parts.length > 1 && !line.includes(':') && line.length < 80 && parts.every(p => p.split(' ').length < 4);
             if (likelyKeywordLine) {
                 parts.forEach(part => {
                     let typeFound = false;
@@ -85,7 +119,6 @@ class PrereleasePdfAbilityReader {
                             if (remaining)
                                 keywords.push(remaining);
                             typeFound = true;
-                            isProperty = true;
                             break;
                         }
                     }
@@ -97,16 +130,10 @@ class PrereleasePdfAbilityReader {
                 abilityData.type = foundTypes.join(', ');
                 abilityData.keywords = (abilityData.keywords || []).concat(keywords.filter(k => k));
             }
-            else if (likelyKeywordLine) {
+            else if (likelyKeywordLine && keywords.length > 0) {
                 abilityData.keywords = (abilityData.keywords || []).concat(keywords.filter(k => k));
-                isProperty = true;
-            }
-            if (!isProperty) {
-                flavor.push(line);
             }
         }
-        if (flavor.length > 0)
-            abilityData.flavor = flavor.join(' ');
         if (effectLines.length > 0) {
             const effectGroups = this.groupEffectLines(effectLines);
             for (const group of effectGroups) {
@@ -156,17 +183,42 @@ class PrereleasePdfAbilityReader {
                 else {
                     const blockTextWithHeader = this.joinAndFormatEffectLines(group);
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
-                    const effectParts = blockText.split(/(?=[A-Z][a-zA-Z\s\d]*\s\d*:)/);
+                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z\s\d'-]*:\s)/);
+                    const parsedEffects = [];
                     for (const part of effectParts) {
                         if (!part.trim())
                             continue;
-                        const namedMatch = part.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
+                        const namedMatch = part.match(/^([A-Z][a-zA-Z\s\d'-]*):\s*([\s\S]*)/);
                         if (namedMatch) {
-                            effects.push(new model_1.MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
+                            parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
                         }
                         else {
-                            effects.push(new model_1.MundaneEffect({ effect: part.trim() }));
+                            parsedEffects.push({ effect: part.trim() });
                         }
+                    }
+                    // Merge logic for incorrectly split "Spend" effects
+                    if (parsedEffects.length > 0) {
+                        const finalEffects = [];
+                        for (let i = 0; i < parsedEffects.length; i++) {
+                            const current = parsedEffects[i];
+                            if (!current.name && current.effect.startsWith('Spend ') && i + 1 < parsedEffects.length) {
+                                const next = parsedEffects[i + 1];
+                                if (next.name) {
+                                    finalEffects.push(new model_1.MundaneEffect({
+                                        name: `${current.effect} ${next.name}`,
+                                        effect: next.effect
+                                    }));
+                                    i++; // consumed next element
+                                }
+                                else {
+                                    finalEffects.push(new model_1.MundaneEffect(current));
+                                }
+                            }
+                            else {
+                                finalEffects.push(new model_1.MundaneEffect(current));
+                            }
+                        }
+                        effects.push(...finalEffects);
                     }
                 }
             }
@@ -190,9 +242,15 @@ class PrereleasePdfAbilityReader {
         if (powerRollTierRegex.test(line)) {
             return false; // Tiers are never a new effect, they are part of a power roll
         }
+        const previousLineIsTier = previousLine.trim().startsWith('•');
+        const isCapitalized = /^[A-Z]/.test(line);
+        const previousLineIsShort = previousLine.length < 80;
+        if (previousLineIsTier && isCapitalized && previousLineIsShort) {
+            return true;
+        }
         if (line.startsWith('•'))
             return false;
-        const namedEffectRegex = /^([A-Z][a-zA-Z\s\d]*\s\d*):\s*(.*)/;
+        const namedEffectRegex = /^([A-Z][a-zA-Z\s'-]+(?: \d+)?):\s*(.*)/;
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
             if (match) {
@@ -201,6 +259,8 @@ class PrereleasePdfAbilityReader {
                     return false;
                 }
                 if (/Persistent \d+/.test(name))
+                    return true;
+                if (/Spend \d+ \w+/.test(name))
                     return true;
                 return true;
             }
@@ -222,7 +282,7 @@ class PrereleasePdfAbilityReader {
             }
             else {
                 // Special handling for tiers to ensure they group with a preceding Power Roll line
-                if (isTier && currentGroup.length > 0 && !currentGroup.some(l => l.toLowerCase().startsWith('power roll') || /^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
+                if (isTier && currentGroup.length > 0 && !currentGroup.some(l => l.toLowerCase().startsWith('power roll') || /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
                     if (currentGroup.length > 0)
                         groups.push(currentGroup);
                     currentGroup = [line];
