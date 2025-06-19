@@ -193,11 +193,11 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 } else {
                     const blockTextWithHeader = this.joinAndFormatEffectLines(group);
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
-                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z'-]+(?: \d+)?:\s)/);
+                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z\s\d'-]*:\s)/);
 
                     for (const part of effectParts) {
                         if (!part.trim()) continue;
-                        const namedMatch = part.match(/^([A-Z][a-zA-Z\s'-]+(?: \d+)?):\s*([\s\S]*)/);
+                        const namedMatch = part.match(/^([A-Z][a-zA-Z\s\d'-]*):\s*([\s\S]*)/);
                         if (namedMatch) {
                             effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
                         } else {
@@ -247,7 +247,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     return false;
                 }
                 if (/Persistent \d+/.test(name)) return true;
-                if (/Spend \d+ Piety/.test(name)) return true;
+                if (/Spend \d+ \w+/.test(name)) return true;
                 return true;
             }
         }
