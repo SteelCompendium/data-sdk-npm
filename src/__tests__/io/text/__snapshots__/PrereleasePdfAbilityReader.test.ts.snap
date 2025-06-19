@@ -1,0 +1,223 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PrereleasePdfAbilityReader should correctly parse distance_is_only_memory.txt 1`] = `
+{
+  "effects": [
+    {
+      "effect": "Each time you finish a respite, you can open a two-way portal that leads to any place you have previously been. You and your allies can pass through the portal, which remains open for 1 hour or until you dismiss it as a main action.",
+    },
+  ],
+  "name": "DISTANCE IS ONLY MEMORY",
+  "type": "Unknown",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse instantaneous_excavation.txt 1`] = `
+{
+  "cost": "5 ESSENCE",
+  "effects": [
+    {
+      "effect": "Distance: Ranged 10 Target: Special",
+    },
+    {
+      "roll": "Power Roll + Reason",
+    },
+    {
+      "effect": "11 or lower: The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.",
+    },
+    {
+      "effect": "12–16: The target falls into the hole.",
+    },
+    {
+      "effect": "17+: The target falls into the hole and can’t reduce the height of the fall.",
+    },
+    {
+      "effect": "Persistent 1: At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.",
+    },
+  ],
+  "flavor": "The surface of the world around you opens up to swallow foes.",
+  "keywords": [
+    "Earth",
+    "Magic",
+    "Ranged",
+  ],
+  "name": "INSTANTANEOUS EXCAVATION",
+  "type": "Maneuver",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse o_flower_aid_o_earth_defend.txt 1`] = `
+{
+  "cost": "5 ESSENCE",
+  "effects": [
+    {
+      "effect": "Distance: 3 cube within 10 Target: Special",
+    },
+    {
+      "effect": "Until the start of your next turn, the area gains the following effects:",
+    },
+    {
+      "effect": "Once at the start of your turn as a free maneuver, you and each ally in the area can spend any number of Recoveries. Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.",
+    },
+    {
+      "effect": "The area is difficult terrain for enemies.",
+    },
+    {
+      "effect": "Each enemy who enters the area for the first time in a combat round or starts their turn there takes damage equal to your Reason score.",
+    },
+    {
+      "effect": "Persistent 1: The area remains until the start of your next turn. As a maneuver, you can move the area up to 5 squares. This ability ends if the area is ever not within your line of effect.",
+    },
+  ],
+  "flavor": "Revitalizing plants and jagged stones grow, helping allies and hindering foes.",
+  "keywords": [
+    "Area",
+    "Earth",
+    "Green",
+    "Magic",
+    "Ranged",
+  ],
+  "name": "O FLOWER AID, O EARTH DEFEND",
+  "type": "Maneuver",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse ray_of_agonizing_self_reflection.txt 1`] = `
+{
+  "effects": [
+    {
+      "roll": "Power Roll + Reason",
+    },
+    {
+      "effect": "11 or lower: 2 + R corruption damage; R < weak, slowed (save ends)",
+    },
+    {
+      "effect": "12–16: 4 + R corruption damage; R < average, slowed (save ends)",
+    },
+    {
+      "effect": "17+: 6 + R corruption damage; R < strong, slowed (save ends)",
+    },
+  ],
+  "flavor": "You inflict pain and doubt in equal measure.",
+  "keywords": [
+    "Magic",
+    "Ranged",
+    "Strike",
+    "Void Main",
+  ],
+  "name": "RAY OF AGONIZING SELF-R EFLECTION",
+  "type": "Action",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse there_is_no_space_between.txt 1`] = `
+{
+  "effects": [
+    {
+      "effect": "Distance: Ranged 10 Target: Special",
+    },
+    {
+      "effect": "You open two size 1 portals in unoccupied spaces within distance, which last until you move beyond distance from any portal, end the effect as a maneuver, or are dying. Each portal must be placed at a height of no more than 1 square above the ground. When you or any ally touch a portal, that creature can choose to be instantly teleported to an unoccupied space of their choice adjacent to the other portal. If an enemy is force moved into a portal, their forced movement ends and they emerge from the other portal in an unoccupied space chosen by the creature who force moved them. At the start of each of your turns while the portals are active, you can open a new portal connected to the others. If three or more portals are present, you and your allies choose which portal to emerge from when entering a portal, and a creature who force moves an enemy into a portal chooses that enemy’s destination portal.",
+    },
+  ],
+  "flavor": "Knowledge of the mystery reveals that two spaces are the same space.",
+  "keywords": [
+    "Magic",
+    "Ranged",
+    "Void",
+  ],
+  "name": "THERE IS NO SPACE BETWEEN",
+  "type": "Maneuver",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse translated_through_flame.txt 1`] = `
+{
+  "cost": "5 ESSENCE",
+  "effects": [
+    {
+      "effect": "Distance: Ranged 10 Target: Self or one ally",
+    },
+    {
+      "roll": "Power Roll + Reason",
+    },
+    {
+      "effect": "11 or lower: 3 fire damage",
+    },
+    {
+      "effect": "12–16: 5 fire damage",
+    },
+    {
+      "effect": "17+: 8 fire damage",
+    },
+  ],
+  "flavor": "Your ally disappears, then reappears in a burst of fire.",
+  "keywords": [
+    "Fire",
+    "Magic",
+    "Ranged",
+    "Void Main",
+  ],
+  "name": "TRANSLATED THROUGH FLAME",
+  "type": "Action",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse unquiet_ground.txt 1`] = `
+{
+  "effects": [
+    {
+      "roll": "Power Roll + Reason",
+    },
+    {
+      "effect": "11 or lower: 2 damage",
+    },
+    {
+      "effect": "12–16: 5 damage",
+    },
+    {
+      "effect": "17+: 7 damage",
+    },
+    {
+      "effect": "The ground beneath the area is difficult terrain for enemies.",
+    },
+  ],
+  "flavor": "A sudden storm of detritus assaults your foes and leaves them struggling to move.",
+  "keywords": [
+    "Area",
+    "Earth",
+    "Magic",
+    "Ranged Main",
+  ],
+  "name": "UNQUIET GROUND",
+  "type": "Action",
+}
+`;
+
+exports[`PrereleasePdfAbilityReader should correctly parse viscious_fire.txt 1`] = `
+{
+  "effects": [
+    {
+      "roll": "Power Roll + Reason",
+    },
+    {
+      "effect": "11 or lower: 2 + R fire damage; push 2",
+    },
+    {
+      "effect": "12–16: 5 + R fire damage; push 3",
+    },
+    {
+      "effect": "17+: 7 + R fire damage; push 4",
+    },
+  ],
+  "flavor": "A jet of heavy fire erupts where you strike.",
+  "keywords": [
+    "Fire",
+    "Magic",
+    "Ranged",
+    "Strike Main",
+  ],
+  "name": "VISCOUS FIRE",
+  "type": "Action",
+}
+`;
