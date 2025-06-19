@@ -204,6 +204,14 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             return false; // Tiers are never a new effect, they are part of a power roll
         }
 
+        const previousLineIsTier = previousLine.trim().startsWith('•');
+        const isCapitalized = /^[A-Z]/.test(line);
+        const previousLineIsShort = previousLine.length < 80;
+
+        if (previousLineIsTier && isCapitalized && previousLineIsShort) {
+            return true;
+        }
+
         if (line.startsWith('•')) return false;
 
         const namedEffectRegex = /^([A-Z][a-zA-Z\s\d]*\s\d*):\s*(.*)/;
