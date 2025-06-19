@@ -98,7 +98,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
         while (idx < lines.length) {
             const line = lines[idx];
-            const abilityHeaderRe = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Villain Action\s*\d+)\s*\)/;
+            const abilityHeaderRe = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Triggered|Villain Action\s*\d+)\s*\)/;
             if (abilityHeaderRe.test(line)) {
                 break;
             }
@@ -190,7 +190,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
         const isNewToken = (line: string): boolean => {
             if (!line.trim()) return true; // blank line
-            if (/^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Villain Action\s*\d+)\s*\)/.test(line)) return true;
+            if (/^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Triggered|Villain Action\s*\d+)\s*\)/.test(line)) return true;
             if (/^Keywords\s+/.test(line)) return true;
             if (/^Distance\s+/.test(line)) return true;
             if (/^[✦★✸]/.test(line)) return true;
@@ -201,7 +201,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
             const words = line.split(" ");
             const isTitleCased = words.every(w => articles.includes(w.toLowerCase()) || (w.length > 0 && /^[A-Z]/.test(w)));
             if (isTitleCased) {
-                const m = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Villain Action\s*\d+)\s*\)/.exec(line);
+                const m = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Triggered|Villain Action\s*\d+)\s*\)/.exec(line);
                 return !m;
             }
             return false;
@@ -248,7 +248,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 continue;
             }
 
-            const headerRe = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Villain Action\s*\d+)\s*\)(?:\s*◆\s*(.+))?$/;
+            const headerRe = /^(.+?)\s+\(\s*(Main Action|Action|Maneuver|Free Triggered Action|Triggered Action|Triggered|Villain Action\s*\d+)\s*\)(?:\s*◆\s*(.+))?$/;
             const m = headerRe.exec(line);
             if (m) {
                 pushCurrent();
@@ -502,7 +502,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         if (category === "Action") return "Action";
         if (category === "Maneuver") return "Maneuver";
         if (category === "Triggered Action") return "Triggered Action";
-        if (category === "Free Triggered Action") return "Triggered Action";
+        if (category === "Free Triggered Action") return "Free Triggered Action";
         if (category.startsWith("Villain Action")) return category;
         return "Action";
     }

@@ -55,7 +55,7 @@ abilities:
       - Magic
       - Melee
       - Ranged
-    type: Triggered Action
+    type: Free Triggered Action
     distance: Ranged 5
     target: One creature
     trigger: The target deals damage to an ally or takes damage from an ally.
