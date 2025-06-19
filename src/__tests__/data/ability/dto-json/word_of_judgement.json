@@ -14,7 +14,8 @@
             "effect": "The power roll takes a bane against the target."
         },
         {
-            "Spend 1 Piety": "The power roll has a double bane against the target."
+            "name": "Spend 1 Piety",
+            "effect": "The power roll has a double bane against the target."
         }
     ]
 }

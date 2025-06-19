@@ -195,14 +195,38 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
                     const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z\s\d'-]*:\s)/);
 
+                    const parsedEffects: { name?: string, effect: string }[] = [];
                     for (const part of effectParts) {
                         if (!part.trim()) continue;
                         const namedMatch = part.match(/^([A-Z][a-zA-Z\s\d'-]*):\s*([\s\S]*)/);
                         if (namedMatch) {
-                            effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
+                            parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
                         } else {
-                            effects.push(new MundaneEffect({ effect: part.trim() }));
+                            parsedEffects.push({ effect: part.trim() });
                         }
+                    }
+
+                    // Merge logic for incorrectly split "Spend" effects
+                    if (parsedEffects.length > 0) {
+                        const finalEffects: MundaneEffect[] = [];
+                        for (let i = 0; i < parsedEffects.length; i++) {
+                            const current = parsedEffects[i];
+                            if (!current.name && current.effect.startsWith('Spend ') && i + 1 < parsedEffects.length) {
+                                const next = parsedEffects[i + 1];
+                                if (next.name) {
+                                    finalEffects.push(new MundaneEffect({
+                                        name: `${current.effect} ${next.name}`,
+                                        effect: next.effect
+                                    }));
+                                    i++; // consumed next element
+                                } else {
+                                    finalEffects.push(new MundaneEffect(current));
+                                }
+                            } else {
+                                finalEffects.push(new MundaneEffect(current));
+                            }
+                        }
+                        effects.push(...finalEffects);
                     }
                 }
             }
@@ -269,7 +293,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 currentGroup = [line];
             } else {
                 // Special handling for tiers to ensure they group with a preceding Power Roll line
-                if (isTier && currentGroup.length > 0 && !currentGroup.some(l => l.toLowerCase().startsWith('power roll') || /^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
+                if (isTier && currentGroup.length > 0 && !currentGroup.some(l => l.toLowerCase().startsWith('power roll') || /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
                     if (currentGroup.length > 0) groups.push(currentGroup);
                     currentGroup = [line];
                 } else {
