@@ -63,27 +63,59 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             }
         }
 
-        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1'];
-        const flavor: string[] = [];
-        for (const line of propertyLines) {
-            let isProperty = false;
+        const types = ['Main Action', 'Action', 'Maneuver', 'Triggered Action', 'Free Triggered Action', 'Villain Action 1', 'Triggered'];
 
+        const flavorLines: string[] = [];
+        const actualPropertyLines: string[] = [];
+        let flavorDone = false;
+
+        for (const line of propertyLines) {
+            const parts = line.split(/,/).map(p => p.trim()).filter(p => p);
+            const likelyKeywordLine = parts.length > 1 && !line.includes(':') && line.length < 80 && parts.every(p => p.split(' ').length < 4);
+            const isPropertyMarker = /^(Distance:|Target:|Trigger:|Keywords:)/i.test(line);
+
+            if (!flavorDone && !isPropertyMarker && !likelyKeywordLine) {
+                flavorLines.push(line);
+            } else {
+                flavorDone = true;
+                actualPropertyLines.push(line);
+            }
+        }
+
+        if (flavorLines.length > 0) abilityData.flavor = flavorLines.join(' ');
+
+        let capturingTrigger = false;
+        for (const line of actualPropertyLines) {
+            const triggerMatch = line.match(/Trigger:\s*(.*)/i);
             const distanceMatch = line.match(/Distance:\s*(.*?)(?:\s*Target:|$)/i);
-            if (distanceMatch && distanceMatch[1]) {
-                abilityData.distance = distanceMatch[1].trim();
-                isProperty = true;
+            const targetMatch = line.match(/Target:\s*(.*)/i);
+
+            if (capturingTrigger) {
+                if (distanceMatch || targetMatch || /Keywords:/i.test(line) || triggerMatch) {
+                    capturingTrigger = false;
+                } else {
+                    abilityData.trigger = ((abilityData.trigger || '') + ' ' + line.trim()).trim();
+                    continue;
+                }
             }
 
-            const targetMatch = line.match(/Target:\s*(.*)/i);
+            if (triggerMatch) {
+                abilityData.trigger = triggerMatch[1].trim();
+                capturingTrigger = true;
+            }
+
+            if (distanceMatch && distanceMatch[1]) {
+                abilityData.distance = distanceMatch[1].trim();
+            }
+
             if (targetMatch && targetMatch[1]) {
                 abilityData.target = targetMatch[1].trim();
-                isProperty = true;
             }
 
             const keywords: string[] = [];
             const foundTypes: string[] = [];
-            const parts = line.split(',').map(p => p.trim());
-            const likelyKeywordLine = parts.length > 1 && parts.every(p => p.split(' ').length < 5);
+            const parts = line.split(/,/).map(p => p.trim()).filter(p => p);
+            const likelyKeywordLine = parts.length > 1 && !line.includes(':') && line.length < 80 && parts.every(p => p.split(' ').length < 4);
 
             if (likelyKeywordLine) {
                 parts.forEach(part => {
@@ -94,7 +126,6 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                             const remaining = part.replace(new RegExp(type, 'i'), '').trim();
                             if (remaining) keywords.push(remaining);
                             typeFound = true;
-                            isProperty = true;
                             break;
                         }
                     }
@@ -105,17 +136,10 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             if (foundTypes.length > 0) {
                 abilityData.type = foundTypes.join(', ');
                 abilityData.keywords = (abilityData.keywords || []).concat(keywords.filter(k => k));
-            } else if (likelyKeywordLine) {
+            } else if (likelyKeywordLine && keywords.length > 0) {
                 abilityData.keywords = (abilityData.keywords || []).concat(keywords.filter(k => k));
-                isProperty = true;
-            }
-
-            if (!isProperty) {
-                flavor.push(line);
             }
         }
-
-        if (flavor.length > 0) abilityData.flavor = flavor.join(' ');
 
         if (effectLines.length > 0) {
             const effectGroups = this.groupEffectLines(effectLines);
@@ -169,11 +193,11 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 } else {
                     const blockTextWithHeader = this.joinAndFormatEffectLines(group);
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
-                    const effectParts = blockText.split(/(?=[A-Z][a-zA-Z\s\d]*\s\d*:)/);
+                    const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z'-]+(?: \d+)?:\s)/);
 
                     for (const part of effectParts) {
                         if (!part.trim()) continue;
-                        const namedMatch = part.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
+                        const namedMatch = part.match(/^([A-Z][a-zA-Z\s'-]+(?: \d+)?):\s*([\s\S]*)/);
                         if (namedMatch) {
                             effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
                         } else {
@@ -214,7 +238,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
         if (line.startsWith('•')) return false;
 
-        const namedEffectRegex = /^([A-Z][a-zA-Z\s\d]*\s\d*):\s*(.*)/;
+        const namedEffectRegex = /^([A-Z][a-zA-Z\s'-]+(?: \d+)?):\s*(.*)/;
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
             if (match) {
@@ -223,6 +247,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     return false;
                 }
                 if (/Persistent \d+/.test(name)) return true;
+                if (/Spend \d+ Piety/.test(name)) return true;
                 return true;
             }
         }

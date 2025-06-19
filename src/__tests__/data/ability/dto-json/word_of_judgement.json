@@ -1,0 +1,20 @@
+{
+    "name": "WORD OF JUDGMENT",
+    "flavor": "Your holy word saps an attacking enemy’s strength.",
+    "type": "Triggered",
+    "keywords": [
+        "Magic",
+        "Ranged"
+    ],
+    "trigger": "The target would take damage from an ability that uses a power roll.",
+    "distance": "Ranged 10",
+    "target": "One ally",
+    "effects": [
+        {
+            "effect": "The power roll takes a bane against the target."
+        },
+        {
+            "Spend 1 Piety": "The power roll has a double bane against the target."
+        }
+    ]
+}
