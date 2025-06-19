@@ -35,7 +35,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 inEffectSection = true;
             } else {
                 const namedEffectMatch = line.match(/^([a-zA-Z0-9\s]+):\s(.+)/);
-                const powerRollTierMatch = line.match(/^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i)
+                const powerRollTierMatch = line.match(/^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i)
                 if (powerRollTierMatch) {
                     inEffectSection = true;
                 }
@@ -84,10 +84,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     let typeFound = false;
                     for (const type of types) {
                         if (part.toLowerCase().includes(type.toLowerCase())) {
-                            let mappedType = type;
-                            if (type === 'Main Action') mappedType = 'Action';
-                            if (type === 'Free Triggered Action') mappedType = 'Triggered Action';
-                            foundTypes.push(mappedType);
+                            foundTypes.push(type);
                             const remaining = part.replace(new RegExp(type, 'i'), '').trim();
                             if (remaining) keywords.push(remaining);
                             typeFound = true;
@@ -117,15 +114,15 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         if (effectLines.length > 0) {
             const effectGroups = this.groupEffectLines(effectLines);
             for (const group of effectGroups) {
-                const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
+                const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
                 const firstLine = group[0];
 
-                if (firstLine.toLowerCase().startsWith('power roll') || group.some(l => /^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
+                if (firstLine.toLowerCase().startsWith('power roll') || group.some(l => /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
                     const rollMatch = blockText.match(/(Power Roll\s*\+\s*[a-zA-Z]+)/i);
                     const roll = rollMatch ? rollMatch[1] : '';
                     const tiers: { [key: string]: string } = {};
 
-                    const tierRegex = /((?:(?:\d+-\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?)):?\s*([\s\S]*?)(?=(?:\d+-\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?|$)/gi;
+                    const tierRegex = /((?:(?:\d+-\d+)|(?:\d+–\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?)):?\s*([\s\S]*?)(?=^(?:(?:\d+-\d+)|(?:\d+–\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?):|Effect:|Trigger:|$)/gim;
                     let match;
 
                     let textToParse = blockText;
@@ -142,17 +139,24 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
                     if (Object.keys(tiers).length > 0) {
                         effects.push(new PowerRollEffect({ roll, ...tiers }));
-                    } else {
-                        effects.push(new MundaneEffect({ effect: blockText }));
+                    } else if (roll) {
+                        // case where power roll is present but no tiers are found, treat as mundane effect
+                        effects.push(new MundaneEffect({ effect: textToParse.trim() }));
                     }
-                } else if (firstLine.startsWith('•')) {
-                    effects.push(new MundaneEffect({ effect: blockText.replace(/•/g, '').trim() }));
+                } else if (blockText.includes('•')) {
+                    const noBullets = blockText.replace(/•/g, '').trim();
+                    const namedMatch = noBullets.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
+                    if (namedMatch && !/distance|target/i.test(namedMatch[1])) {
+                        effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
+                    } else {
+                        effects.push(new MundaneEffect({ effect: noBullets }));
+                    }
                 } else {
                     const namedMatch = blockText.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
                     if (namedMatch && !/distance|target/i.test(namedMatch[1])) {
-                        effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim().replace(/•/g, '').trim() }));
+                        effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
                     } else {
-                        effects.push(new MundaneEffect({ effect: blockText.replace(/•/g, '').trim() }));
+                        effects.push(new MundaneEffect({ effect: blockText }));
                     }
                 }
             }
@@ -163,10 +167,6 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             delete abilityData.flavor;
         }
 
-        if (!abilityData.type && (abilityData.cost || abilityData.distance || abilityData.target || effects.length > 0)) {
-            abilityData.type = 'Unknown';
-        }
-
         const finalAbility = new Ability(abilityData);
         finalAbility.effects = new Effects(effects);
         return finalAbility;
@@ -175,11 +175,9 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
     private isNewEffect(line: string, previousLine: string): boolean {
         if (line.toLowerCase().startsWith('power roll')) return true;
 
-        const powerRollTierRegex = /^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i;
+        const powerRollTierRegex = /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i;
         if (powerRollTierRegex.test(line)) {
-            const prevIsPowerRoll = previousLine.toLowerCase().startsWith('power roll');
-            const prevIsTier = powerRollTierRegex.test(previousLine);
-            return !prevIsPowerRoll && !prevIsTier;
+            return false; // Tiers are never a new effect, they are part of a power roll
         }
 
         if (line.startsWith('•')) return false;
@@ -203,14 +201,22 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
         for (let i = 0; i < lines.length; i++) {
             const line = lines[i];
+            const isTier = /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(line);
+
             if (i > 0 && this.isNewEffect(line, lines[i - 1])) {
-                groups.push(currentGroup);
+                if (currentGroup.length > 0) groups.push(currentGroup);
                 currentGroup = [line];
             } else {
-                currentGroup.push(line);
+                // Special handling for tiers to ensure they group with a preceding Power Roll line
+                if (isTier && currentGroup.length > 0 && !currentGroup.some(l => l.toLowerCase().startsWith('power roll') || /^((\d+-\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
+                    if (currentGroup.length > 0) groups.push(currentGroup);
+                    currentGroup = [line];
+                } else {
+                    currentGroup.push(line);
+                }
             }
         }
-        groups.push(currentGroup);
+        if (currentGroup.length > 0) groups.push(currentGroup);
         return groups;
     }
 
