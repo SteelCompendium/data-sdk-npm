@@ -114,47 +114,63 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         if (effectLines.length > 0) {
             const effectGroups = this.groupEffectLines(effectLines);
             for (const group of effectGroups) {
-                const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
                 const firstLine = group[0];
 
                 if (firstLine.toLowerCase().startsWith('power roll') || group.some(l => /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i.test(l))) {
-                    const rollMatch = blockText.match(/(Power Roll\s*\+\s*[a-zA-Z]+)/i);
-                    const roll = rollMatch ? rollMatch[1] : '';
+                    const rollMatch = group.find(l => /power roll/i.test(l));
+                    const roll = rollMatch ? rollMatch.trim().replace(/:$/, '') : '';
                     const tiers: { [key: string]: string } = {};
 
-                    const tierRegex = /((?:(?:\d+-\d+)|(?:\d+–\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?)):?\s*([\s\S]*?)(?=^(?:(?:\d+-\d+)|(?:\d+–\d+)|(?:\d+\s+or\s+lower)|(?:\d+\s+or\s+higher)|(?:\d+\+)|crit(?:ical)?):|Effect:|Trigger:|$)/gim;
-                    let match;
+                    const tierIdentifier = /^((\d+-\d+)|(\d+–\d+)|(\d+\s+or\s+lower)|(\d+\s+or\s+higher)|(\d+\+)|crit(?:ical)?)/i;
 
-                    let textToParse = blockText;
-                    if (roll) {
-                        textToParse = textToParse.replace(roll, '');
-                    }
+                    let currentTierKey: string | null = null;
+                    let currentTierLines: string[] = [];
 
-                    while ((match = tierRegex.exec(textToParse)) !== null) {
-                        const key = this.mapOutcomeToTierKey(match[1].trim());
-                        if (key) {
-                            tiers[key] = match[2].trim().replace(/•/g, '').trim();
+                    const flushTier = () => {
+                        if (currentTierKey) {
+                            tiers[currentTierKey] = currentTierLines.join(' ').trim();
+                        }
+                        currentTierLines = [];
+                        currentTierKey = null;
+                    };
+
+                    for (const line of group) {
+                        if (/power roll/i.test(line)) continue;
+
+                        const parts = line.split('•').map(p => p.trim()).filter(Boolean);
+                        for (const part of parts) {
+                            const tierMatch = part.match(tierIdentifier);
+                            if (tierMatch) {
+                                flushTier();
+                                currentTierKey = this.mapOutcomeToTierKey(tierMatch[1].trim());
+                                const restOfPart = part.substring(tierMatch[0].length).replace(/^:/, '').trim();
+                                if (restOfPart) {
+                                    currentTierLines.push(restOfPart);
+                                }
+                            } else if (currentTierKey) {
+                                currentTierLines.push(part);
+                            }
                         }
                     }
+                    flushTier();
 
                     if (Object.keys(tiers).length > 0) {
                         effects.push(new PowerRollEffect({ roll, ...tiers }));
-                    } else if (roll) {
-                        // case where power roll is present but no tiers are found, treat as mundane effect
-                        effects.push(new MundaneEffect({ effect: textToParse.trim() }));
-                    }
-                } else if (blockText.includes('•')) {
-                    const noBullets = blockText.replace(/•/g, '').trim();
-                    const namedMatch = noBullets.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
-                    if (namedMatch && !/distance|target/i.test(namedMatch[1])) {
-                        effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
                     } else {
-                        effects.push(new MundaneEffect({ effect: noBullets }));
+                        const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
+                        effects.push(new MundaneEffect({ effect: blockText }));
                     }
                 } else {
+                    const blockText = group.join('\n').replace(/^(Effect|Trigger):/i, '').trim();
                     const namedMatch = blockText.match(/^([a-zA-Z0-9\s\d-]+):\s*([\s\S]*)/);
-                    if (namedMatch && !/distance|target/i.test(namedMatch[1])) {
-                        effects.push(new MundaneEffect({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() }));
+
+                    if (namedMatch && !/distance|target|keywords/i.test(namedMatch[1])) {
+                        const name = namedMatch[1].trim();
+                        if (/\d/.test(name) || /^[A-Z]/.test(name)) {
+                            effects.push(new MundaneEffect({ name: name, effect: namedMatch[2].trim() }));
+                        } else {
+                            effects.push(new MundaneEffect({ effect: blockText }));
+                        }
                     } else {
                         effects.push(new MundaneEffect({ effect: blockText }));
                     }
@@ -185,10 +201,15 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         const namedEffectRegex = /^([a-zA-Z0-9\s\d-]+):\s*(.*)/;
         if (namedEffectRegex.test(line)) {
             const match = line.match(namedEffectRegex);
-            if (match && /distance|target|keywords|trigger/i.test(match[1])) {
-                return false;
+            if (match) {
+                const name = match[1];
+                if (/\d/.test(name) || /^[A-Z]/.test(name)) {
+                    if (/distance|target|keywords|trigger/i.test(name)) {
+                        return false;
+                    }
+                    return true;
+                }
             }
-            return true;
         }
 
         return false;
