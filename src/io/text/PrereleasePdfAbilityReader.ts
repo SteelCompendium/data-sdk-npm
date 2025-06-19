@@ -128,7 +128,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
                     const flushTier = () => {
                         if (currentTierKey) {
-                            tiers[currentTierKey] = currentTierLines.join(' ').trim();
+                            tiers[currentTierKey] = this.joinAndFormatEffectLines(currentTierLines);
                         }
                         currentTierLines = [];
                         currentTierKey = null;
@@ -157,11 +157,12 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     if (Object.keys(tiers).length > 0) {
                         effects.push(new PowerRollEffect({ roll, ...tiers }));
                     } else {
-                        const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
+                        const blockText = this.joinAndFormatEffectLines(group).replace(/^(Effect|Trigger):/i, '').trim();
                         effects.push(new MundaneEffect({ effect: blockText }));
                     }
                 } else {
-                    const blockText = group.join(' ').replace(/^(Effect|Trigger):/i, '').trim();
+                    const blockTextWithHeader = this.joinAndFormatEffectLines(group);
+                    const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
                     const effectParts = blockText.split(/(?=[A-Z][a-zA-Z\s\d]*\s\d*:)/);
 
                     for (const part of effectParts) {
@@ -189,6 +190,8 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
     private isNewEffect(line: string, previousLine: string): boolean {
         if (line.toLowerCase().startsWith('power roll')) return true;
+        if (line.toLowerCase().startsWith('effect:')) return true;
+        if (line.toLowerCase().startsWith('trigger:')) return true;
 
         const powerRollTierRegex = /^((\d+-\d+)|(\d+–\d+)|(\d+ or lower)|(\d+ or higher)|(\d+\+)|crit|critical)/i;
         if (powerRollTierRegex.test(line)) {
@@ -205,6 +208,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 if (/distance|target|keywords|trigger/i.test(name)) {
                     return false;
                 }
+                if (/Persistent \d+/.test(name)) return true;
                 return true;
             }
         }
@@ -236,6 +240,12 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         }
         if (currentGroup.length > 0) groups.push(currentGroup);
         return groups;
+    }
+
+    private joinAndFormatEffectLines(lines: string[]): string {
+        if (!lines || lines.length === 0) return '';
+        // Join with spaces, but handle bullet points by putting them on a new line.
+        return lines.join(' ').replace(/\s*•/g, '\n•').trim();
     }
 
     private mapOutcomeToTierKey(threshold: string): string {
