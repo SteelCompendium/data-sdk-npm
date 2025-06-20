@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { SteelCompendiumIdentifier, SteelCompendiumFormat } from '../..';
+import { SteelCompendiumIdentifier, SteelCompendiumFormat, Ability, Statblock } from '../..';
 
 describe('SteelCompendiumIdentifier', () => {
     const dataDir = path.join(__dirname, '../../__tests__/data');
@@ -28,14 +28,19 @@ describe('SteelCompendiumIdentifier', () => {
             return SteelCompendiumFormat.Yaml;
         }
         if (filePath.includes('prerelease-pdf')) {
-            if (filePath.includes('ability')) {
-                return SteelCompendiumFormat.PrereleasePdfAbilityText;
-            }
-            if (filePath.includes('statblock')) {
-                return SteelCompendiumFormat.PrereleasePdfStatblockText;
-            }
+            return SteelCompendiumFormat.PrereleasePdfText;
         }
         return SteelCompendiumFormat.Unknown;
+    };
+
+    const getExpectedModel = (filePath: string): typeof Ability | typeof Statblock | null => {
+        if (filePath.includes('ability')) {
+            return Ability;
+        }
+        if (filePath.includes('statblock')) {
+            return Statblock;
+        }
+        return null;
     };
 
     const allFiles = getTestFiles(dataDir);
@@ -45,11 +50,16 @@ describe('SteelCompendiumIdentifier', () => {
         if (expectedFormat === SteelCompendiumFormat.Unknown) {
             return;
         }
+        const expectedModel = getExpectedModel(file);
+        if (expectedModel === null) {
+            return;
+        }
 
-        it(`should identify ${path.relative(dataDir, file)} as ${expectedFormat}`, () => {
+        it(`should identify ${path.relative(dataDir, file)} as ${expectedFormat} and model ${expectedModel.name}`, () => {
             const content = fs.readFileSync(file, 'utf-8');
             const result = SteelCompendiumIdentifier.identify(content);
             expect(result.format).toBe(expectedFormat);
+            expect(result.model).toBe(expectedModel);
         });
     });
 
@@ -57,5 +67,6 @@ describe('SteelCompendiumIdentifier', () => {
         const content = 'this is not a valid format';
         const result = SteelCompendiumIdentifier.identify(content);
         expect(result.format).toBe(SteelCompendiumFormat.Unknown);
+        expect(result.model).toBeNull();
     });
 }); 

@@ -8,13 +8,13 @@ import { Ability, Statblock } from '../model';
 export enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
-    PrereleasePdfAbilityText = "prerelease-pdf-ability-text",
-    PrereleasePdfStatblockText = "prerelease-pdf-statblock-text",
+    PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown",
 }
 
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
+    model: typeof Ability | typeof Statblock | null;
     getReader(): IDataReader<Ability | Statblock>;
 }
 
@@ -27,12 +27,14 @@ export class SteelCompendiumIdentifier {
                 if (modelType === Ability) {
                     return {
                         format: SteelCompendiumFormat.Json,
+                        model: Ability,
                         getReader: () => new JsonReader(Ability.modelDTOAdapter)
                     };
                 }
                 if (modelType === Statblock) {
                     return {
                         format: SteelCompendiumFormat.Json,
+                        model: Statblock,
                         getReader: () => new JsonReader(Statblock.modelDTOAdapter)
                     };
                 }
@@ -48,12 +50,14 @@ export class SteelCompendiumIdentifier {
                 if (modelType === Ability) {
                     return {
                         format: SteelCompendiumFormat.Yaml,
+                        model: Ability,
                         getReader: () => new YamlReader(Ability.modelDTOAdapter)
                     };
                 }
                 if (modelType === Statblock) {
                     return {
                         format: SteelCompendiumFormat.Yaml,
+                        model: Statblock,
                         getReader: () => new YamlReader(Statblock.modelDTOAdapter)
                     };
                 }
@@ -64,20 +68,23 @@ export class SteelCompendiumIdentifier {
 
         if (this.isStatblock(source)) {
             return {
-                format: SteelCompendiumFormat.PrereleasePdfStatblockText,
+                format: SteelCompendiumFormat.PrereleasePdfText,
+                model: Statblock,
                 getReader: () => new PrereleasePdfStatblockReader(),
             };
         }
 
         if (this.isAbility(source)) {
             return {
-                format: SteelCompendiumFormat.PrereleasePdfAbilityText,
+                format: SteelCompendiumFormat.PrereleasePdfText,
+                model: Ability,
                 getReader: () => new PrereleasePdfAbilityReader(),
             };
         }
 
         return {
             format: SteelCompendiumFormat.Unknown,
+            model: null,
             getReader: () => {
                 throw new Error("Unknown format, cannot provide a reader.");
             }
