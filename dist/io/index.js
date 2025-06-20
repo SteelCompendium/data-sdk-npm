@@ -20,4 +20,6 @@ __exportStar(require("./yaml"), exports);
 __exportStar(require("./json"), exports);
 __exportStar(require("./markdown"), exports);
 __exportStar(require("./text"), exports);
+__exportStar(require("./SteelCompendiumIdentifier"), exports);
+__exportStar(require("./AutoDataReader"), exports);
 //# sourceMappingURL=index.js.map
