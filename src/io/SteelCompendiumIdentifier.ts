@@ -87,10 +87,10 @@ export class SteelCompendiumIdentifier {
             /reason\s+[+-−]?\d+/i,
             /intuition\s+[+-−]?\d+/i,
             /presence\s+[+-−]?\d+/i,
-            /speed\s+/i,
-            /size\s+/i,
         ];
-        return statblockKeywords.some(keyword => keyword.test(text));
+        const scoreLine = /might\s+[+-−]?\d+.*agility\s+[+-−]?\d+.*reason\s+[+-−]?\d+.*intuition\s+[+-−]?\d+.*presence\s+[+-−]?\d+/i;
+
+        return statblockKeywords.filter(keyword => keyword.test(text)).length > 3 || scoreLine.test(text);
     }
 
     private static isAbility(text: string): boolean {
@@ -99,11 +99,17 @@ export class SteelCompendiumIdentifier {
             /power roll/i,
             /distance:/i,
             /target:/i,
-            /\(main action\)|\(action\)|\(maneuver\)|\(triggered action\)|\(free triggered action\)/i,
+            /\((main action|action|maneuver|triggered action|free triggered action)\)/i,
+            /\(\d+ piety\)/i,
         ];
-        const statblockKeywords = [/level\s+\d+/i, /stamina\s+\d+/i];
 
-        if (statblockKeywords.some(keyword => keyword.test(text))) {
+        const lines = text.split('\n').map(l => l.trim());
+        const isAllUpperCase = (s: string) => s.length > 1 && s === s.toUpperCase() && s.toLowerCase() !== s.toUpperCase();
+        if (lines.some(isAllUpperCase)) {
+            return true;
+        }
+
+        if (this.isStatblock(text)) {
             return false;
         }
 
