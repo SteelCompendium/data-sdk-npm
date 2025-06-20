@@ -17,7 +17,6 @@ The root object represents a complete ability with the following properties:
 | `trigger` | string | No | Trigger condition for triggered actions |
 | `effects` | Effect[] | Yes | List of effects (flexible formats) |
 | `flavor` | string | No | Flavor text of the ability |
-| `indent` | integer | No | Left-margin indentation for nested lists |
 
 ## Effect Types
 
@@ -78,13 +77,13 @@ Example:
 }
 ```
 
-### Named Effect
+### Named or Nameless Effect
 
-An effect that has a name but no cost.
+An effect with an optional name, but no cost.
 
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
-| `name` | string | Yes | Name of the effect |
+| `name` | string | No | Name of the effect |
 | `effect` | string | Yes | Description of what the effect does |
 
 Example:
@@ -93,15 +92,6 @@ Example:
   "name": "Solo Performance",
   "effect": "Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled."
 }
-```
-
-### String Effect
-
-A simple string effect with no additional properties.
-
-Example:
-```json
-"Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round."
 ```
 
 ## Example
@@ -119,7 +109,9 @@ Example:
       "12-16": "6 sonic damage; slide 3; shift 3",
       "17+": "8 sonic damage; slide 5; shift 5"
     },
-    "Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round."
+    { 
+      "effect": "Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round"
+    }
   ],
   "distance": "5 burst",
   "target": "All enemies in the burst"
