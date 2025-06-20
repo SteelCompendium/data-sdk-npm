@@ -36,7 +36,6 @@ A trait represents a special characteristic or feature of the creature.
 | Property | Type | Required | Description |
 |----------|------|----------|-------------|
 | `name` | string | Yes | The name of the trait |
-| `type` | string | No | Optional action-type of the trait (e.g., Maneuver) |
 | `effects` | Effect[] | Yes | List of effects of the trait. See Ability schema for Effect types. |
 
 ## Example
