@@ -1,0 +1,26 @@
+GOBLIN B ATTLEBORN L EVEL 2 HORDE B RUTE
+Goblin, Humanoid, Mystic Goblin EV 4
+Stamina 25
+Speed 6 (climb) Size 1L / Stability 2
+Free Strike 5
+Might +2 Agility +1 Reason +0 Intuition +1 Presence +0
+Spear Charge (Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Charge, Melee, Strike, Weapon
+Distance Melee 1 Target One creature or object
+✦ ≤11 5 damage
+★ 12–16 6 damage
+✸ 17+ 8 damage; prone; the battleborn continues charging
+up to their speed or until they can make a free strike
+against another creature or object
+Battle Flurry (Action) ◆ 2d10 + 2 ◆ 3 Malice
+Keywords Area, Melee, Weapon
+Distance 1 Burst Target Each creature and object in the burst
+✦ ≤11 3 damage; M<0 bleeding (save ends)
+★ 12–16 4 damage; M<1 bleeding (save ends)
+✸ 17+ 5 damage; M<2 bleeding (save ends)
+Cunning
+The battleborn doesn’t provoke opportunity attacks from enemies
+by moving. Whenever the battleborn is adjacent to an enemy and
+willingly moves to a space no longer adjacent to that enemy, the
+battleborn can make an opportunity attack against them as a
+triggered action.

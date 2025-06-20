@@ -7,10 +7,10 @@ class PrereleasePdfStatblockExtractor {
         this.statblockReader = new PrereleasePdfStatblockReader_1.PrereleasePdfStatblockReader();
     }
     extract(text) {
-        const statblocks = this.extractStatblockText(text);
+        const statblocks = this.extractText(text);
         return statblocks.map(this.statblockReader.read);
     }
-    extractStatblockText(text) {
+    extractText(text) {
         const lines = text.split(/\r?\n/);
         const statblockStarts = [];
         const statblockHeaderRegex = /l\s?evel\s+\d+[^\+]/i;

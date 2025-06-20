@@ -194,7 +194,7 @@ class PrereleasePdfStatblockReader {
                 return;
             const ability = {
                 name: current.name,
-                type: this.mapActionTypeToAbilityType(current.category),
+                type: PrereleasePdfStatblockReader.mapActionTypeToAbilityType(current.category),
             };
             if (current.cost) {
                 ability.cost = current.cost;
@@ -317,7 +317,7 @@ class PrereleasePdfStatblockReader {
                                 const rollEffect = { roll: lastEffect.effect };
                                 if (current.outcomes && current.outcomes.length > 0) {
                                     current.outcomes.forEach((o) => {
-                                        const tierKey = this.mapOutcomeToTierKey(o.threshold);
+                                        const tierKey = PrereleasePdfStatblockReader.mapOutcomeToTierKey(o.threshold);
                                         rollEffect[tierKey] = o.description;
                                     });
                                 }
@@ -329,7 +329,7 @@ class PrereleasePdfStatblockReader {
                             const rollEffect = { roll: `${current.roll.dice} + ${current.roll.bonus}` };
                             if (current.outcomes && current.outcomes.length > 0) {
                                 current.outcomes.forEach((o) => {
-                                    const tierKey = this.mapOutcomeToTierKey(o.threshold);
+                                    const tierKey = PrereleasePdfStatblockReader.mapOutcomeToTierKey(o.threshold);
                                     rollEffect[tierKey] = o.description;
                                 });
                             }
@@ -449,7 +449,7 @@ class PrereleasePdfStatblockReader {
         pushCurrent();
         return new Statblock_1.Statblock(statblock);
     }
-    mapActionTypeToAbilityType(category) {
+    static mapActionTypeToAbilityType(category) {
         if (category === "Main Action")
             return "Action";
         if (category === "Action")
@@ -465,7 +465,7 @@ class PrereleasePdfStatblockReader {
         return "Action";
     }
     // TODO - this is a mess and needs standardization
-    mapOutcomeToTierKey(threshold) {
+    static mapOutcomeToTierKey(threshold) {
         if (threshold.includes("≤11") || threshold.includes("11 or lower")) {
             return "t1";
         }
@@ -479,9 +479,6 @@ class PrereleasePdfStatblockReader {
             return "crit";
         }
         return threshold;
-    }
-    format(statblock) {
-        return JSON.stringify(statblock, null, 2);
     }
 }
 exports.PrereleasePdfStatblockReader = PrereleasePdfStatblockReader;

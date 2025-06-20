@@ -6,9 +6,15 @@ import { IDataReader } from "../IDataReader";
 import { Characteristics, MundaneEffect, PowerRollEffect } from "../../model";
 import { Effects } from "../../model/Effects";
 
+function cleanupOcrArtifacts(text: string): string {
+    // collapse single letters that are separated by a space which is a common OCR artifact
+    return text.replace(/\b([A-Z])\s+([A-Z]+)\b/g, '$1$2');
+}
+
 export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     read(text: string): Statblock {
-        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
+        const cleanedText = cleanupOcrArtifacts(text);
+        const lines = cleanedText.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
         let idx = 0;
 
         // skip any leading blank lines
@@ -213,7 +219,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
 
             const ability: Partial<Ability> = {
                 name: current.name,
-                type: this.mapActionTypeToAbilityType(current.category),
+                type: PrereleasePdfStatblockReader.mapActionTypeToAbilityType(current.category),
             };
 
             if (current.cost) {
@@ -356,7 +362,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                                 const rollEffect: any = { roll: lastEffect.effect };
                                 if (current.outcomes && current.outcomes.length > 0) {
                                     current.outcomes.forEach((o: any) => {
-                                        const tierKey = this.mapOutcomeToTierKey(o.threshold);
+                                        const tierKey = PrereleasePdfStatblockReader.mapOutcomeToTierKey(o.threshold);
                                         rollEffect[tierKey] = o.description;
                                     });
                                 }
@@ -367,7 +373,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                             const rollEffect: any = { roll: `${current.roll.dice} + ${current.roll.bonus}` };
                             if (current.outcomes && current.outcomes.length > 0) {
                                 current.outcomes.forEach((o: any) => {
-                                    const tierKey = this.mapOutcomeToTierKey(o.threshold);
+                                    const tierKey = PrereleasePdfStatblockReader.mapOutcomeToTierKey(o.threshold);
                                     rollEffect[tierKey] = o.description;
                                 });
                             }
@@ -497,7 +503,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         return new Statblock(statblock);
     }
 
-    mapActionTypeToAbilityType(category: string): string {
+    private static mapActionTypeToAbilityType(category: string): string {
         if (category === "Main Action") return "Action";
         if (category === "Action") return "Action";
         if (category === "Maneuver") return "Maneuver";
@@ -508,7 +514,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     }
 
     // TODO - this is a mess and needs standardization
-    mapOutcomeToTierKey(threshold: string): string {
+    private static mapOutcomeToTierKey(threshold: string): string {
         if (threshold.includes("≤11") || threshold.includes("11 or lower")) {
             return "t1";
         } else if (threshold.includes("17+") || threshold.includes("17")) {
@@ -519,9 +525,5 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
             return "crit";
         }
         return threshold;
-    }
-
-    format(statblock: Statblock): string {
-        return JSON.stringify(statblock, null, 2);
     }
 }

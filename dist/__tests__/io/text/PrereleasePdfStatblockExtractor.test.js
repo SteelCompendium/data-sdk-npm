@@ -39,7 +39,7 @@ const path = __importStar(require("path"));
 describe("PrereleasePdfStatblockExtractor", () => {
     it("should extract the statblocks from the road to broadhurst prerelease pdf text", () => {
         const text = fs.readFileSync(path.join(__dirname, "../../data/pdf/prerelease-pdf/road_to_broadhurst.txt"), "utf-8");
-        const statblocks = new PrereleasePdfStatblockExtractor_1.PrereleasePdfStatblockExtractor().extractStatblockText(text);
+        const statblocks = new PrereleasePdfStatblockExtractor_1.PrereleasePdfStatblockExtractor().extractText(text);
         expect(statblocks).toHaveLength(8);
         const names = statblocks.map((s) => s.split("\n")[0]);
         expect(names).toEqual([
@@ -55,7 +55,7 @@ describe("PrereleasePdfStatblockExtractor", () => {
     });
     it("should extract the statblocks from the delian tomb encounters prerelease pdf text", () => {
         const text = fs.readFileSync(path.join(__dirname, "../../data/pdf/prerelease-pdf/delian_tomb_encounters.txt"), "utf-8");
-        const statblocks = new PrereleasePdfStatblockExtractor_1.PrereleasePdfStatblockExtractor().extractStatblockText(text);
+        const statblocks = new PrereleasePdfStatblockExtractor_1.PrereleasePdfStatblockExtractor().extractText(text);
         // expect(statblocks).toHaveLength(74);
         const names = statblocks.map((s) => s.split("\n")[0]);
         expect(names).toEqual([
