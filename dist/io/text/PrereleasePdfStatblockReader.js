@@ -6,9 +6,11 @@ const Statblock_1 = require("../../model/Statblock");
 const Trait_1 = require("../../model/Trait");
 const model_1 = require("../../model");
 const Effects_1 = require("../../model/Effects");
+const stringUtils_1 = require("./stringUtils");
 class PrereleasePdfStatblockReader {
     read(text) {
-        const lines = text.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
+        const cleanedText = (0, stringUtils_1.cleanOcrText)(text);
+        const lines = cleanedText.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
         let idx = 0;
         // skip any leading blank lines
         while (idx < lines.length && !lines[idx])

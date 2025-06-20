@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.16
+
+- Fixes issue in removing OCR errors in certain strings
+
 ## 0.0.15
 
 - Adds `PrereleasePdfStatblockExtractor` to extract statblocks from pdf texts
