@@ -2,6 +2,7 @@ import { Ability } from "../../model/Ability";
 import { IDataReader } from "../IDataReader";
 import { Effects } from "../../model/Effects";
 import { Effect, MundaneEffect, PowerRollEffect } from "../../model";
+import { cleanOcrText } from "./stringUtils";
 
 export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
     read(text: string): Ability {
@@ -15,20 +16,14 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
         const costMatch = firstLine.match(/\((.*)\)/);
         if (costMatch) {
             let cost = costMatch[1].trim();
-            cost = cost.replace(/(?<![’'])\b([B-HJ-NP-Z])\s+/g, '$1');
-            cost = cost.replace(/\s+(?=[’'])/g, "");
-            cost = cost.replace(/(-[a-zA-Z])\s+/g, '$1');
+            cost = cleanOcrText(cost);
             abilityData.cost = cost;
             let name = firstLine.replace(costMatch[0], '').trim();
-            name = name.replace(/(?<![’'])\b([B-HJ-NP-Z])\s+/g, '$1');
-            name = name.replace(/\s+(?=[’'])/g, "");
-            name = name.replace(/(-[a-zA-Z])\s+/g, '$1');
+            name = cleanOcrText(name);
             abilityData.name = name;
         } else {
             let name = firstLine.trim();
-            name = name.replace(/(?<![’'])\b([B-HJ-NP-Z])\s+/g, '$1');
-            name = name.replace(/\s+(?=[’'])/g, "");
-            name = name.replace(/(-[a-zA-Z])\s+/g, '$1');
+            name = cleanOcrText(name);
             abilityData.name = name;
         }
 

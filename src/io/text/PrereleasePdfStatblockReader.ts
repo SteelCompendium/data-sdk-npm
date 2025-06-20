@@ -5,15 +5,11 @@ import { Trait } from "../../model/Trait";
 import { IDataReader } from "../IDataReader";
 import { Characteristics, MundaneEffect, PowerRollEffect } from "../../model";
 import { Effects } from "../../model/Effects";
-
-function cleanupOcrArtifacts(text: string): string {
-    // collapse single letters that are separated by a space which is a common OCR artifact
-    return text.replace(/\b([A-Z])\s+([A-Z]+)\b/g, '$1$2');
-}
+import { cleanOcrText } from "./stringUtils";
 
 export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
     read(text: string): Statblock {
-        const cleanedText = cleanupOcrArtifacts(text);
+        const cleanedText = cleanOcrText(text);
         const lines = cleanedText.split(/\r?\n/).map(l => l.trim()).filter(l => !l.includes("MCDM Productions"));
         let idx = 0;
 

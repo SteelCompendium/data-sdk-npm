@@ -44,9 +44,9 @@ abilities:
     target: Two enemies
     effects:
       - roll: 2d10 + 3
-        t1: P<1 S lowed (save ends)
-        t2: P<2 S lowed (save ends)
-        t3: P<3 S lowed (save ends)
+        t1: P<1 Slowed (save ends)
+        t2: P<2 Slowed (save ends)
+        t3: P<3 Slowed (save ends)
       - cost: 3 Malice
         effect: Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.
   - name: Ever Ready Rodent
