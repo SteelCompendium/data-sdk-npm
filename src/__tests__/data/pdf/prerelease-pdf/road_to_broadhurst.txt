@@ -1,0 +1,337 @@
+Road to Broadhurst © 2025 MCDM Productions, LLC
+T IME TO D RAW S TEEL !
+Road to Broadhurst is a short, modular adventure for Draw
+Steel. It’s written for three to six 1st-level heroes and a
+Director. This free adventure comes with pregenerated
+heroes and is meant to introduce new players to Draw Steel.
+The Director should be familiar with the Draw Steel core
+rules found in Draw Steel: Heroes and Draw Steel: Monsters.
+This adventure can be run online on a virtual tabletop or in-
+person at conventions, game stores, libraries, community
+centers, homes, and anywhere else roleplaying games are
+played. It can also serve as a lead in to The Delain Tomb
+adventure for Draw Steel.
+S ET UP
+Before starting the adventure, give each player a copy of
+the Draw Steel Rules Reference and allow the players to look
+over the pregenerated heroes and select one (or allow them
+to create their own hero using the Draw Steel: Heroes core
+rulebook if they have the time and access to it). Each player
+needs a miniature or virtual token to represent their hero
+and a way to roll dice.
+MAPS
+Maps have been included for combat encounters, which
+should be played out using tokens and miniatures on a grid.
+Each combat encounter ncludes a map that shows the
+starting positions of enemies and a start area where players
+can place their heroes’ tokens.
+H OW MUCH TIME YOU GOT ?
+This adventure can be run as a 1-hour, 2-hour, 3-hour, or 4-
+hour experience:
+• A 1-hour experience: Run only Rat Raiders
+• A 2-hour experience: Run Rat Raiders and Days of Rain
+• A 3-hour experience: Run Rat Raiders, Days of Rain,
+and Cattywampus
+• A 4-hour experience: Run the entire adventure.
+E NCOUNTER , N EGOTIATION, AND M ONTAGE SHEETS
+Each combat encounter, negotiation, and montage test detailed in
+this adventure also has a sheet that goes along with it to help you
+run things more smoothly at the table.
+THE S TORY S O F AR
+A virulent goatpox has struck the local goat population in
+Broadhurst. No one in the small farming village has the
+knowhow or the resources to fix the problem. But an
+enterprising trio in the nearby town of Wend has a solution.
+Torrance, a merchant with a bleeding heart, is originally
+from Broadhurst, and his family goat farm is the epicenter
+of this pox. He’s teamed up with his once teenaged
+paramour from the same hometown, an eccentric but
+brilliant alchemist named Myrna and her husband Hector, a
+penny-pinching herbalist. The latter two have brewed a
+medicine that cures the pox. Torrance has a sturdy
+merchant’s cart and an old nag that could make the journey
+to Broadhust. There’s been rumors of bandit raids and
+goblin attacks on the road, so they also need some guards.
+KICKING THINGS OFF
+Give the players the following bulleted information. When
+you see information presented in bullet points with
+quotation marks around it, that information is meant to be
+shared with the players through reading or paraphrasing it
+aloud.
+• “You were hired just over a day ago to protect this
+wagon, carrying valuable medicine, on its journey west
+from Wend to Broadhurst.”
+• “Torrance, the bleeding-heart merchant, ducks into the
+wagon seat while Myrna, the brilliant alchemist, and
+Hector, the miserly herbalist, lock themselves in the
+back.”
+• “Tell us what everyone is looking at. Who are you? Tell us
+your name, ancestry, class, and a bit about what they
+look like, their personality, and why they chose to
+become a hero.”
+Have each player introduce their hero. Some might choose
+to do so in the third person. Others might get into character
+and act like their hero making an introduction. Either
+approach or anything in between is great. Whatever makes
+the players most comfortable.
+DALRATH
+Wend and Broadhurst are in the barony of Dalrath, ruled by the
+benevolent Lord Kenway. An occasional monster or threat of war
+emerges from the wodes and mountains that surround the
+barony, but most folks in the region live simple, mundane lives.
+Dalrath is part of Vasloria, a continent on the world of Orden.
+This adventure takes place entirely on the road from Wend to
+Broadhurst, so you can feel free to change the world where these
+villages are set to suit your needs.
+MEDICINE W AGON
+The wagon the heroes guard uses the following rules, which
+is on the Medicine Wagon handout you should give to the
+players.
+• The wagon has three weight classifications, each defined
+how many crates it holds. Holding 0-1 crates is light, 2-4
+crates is medium, and 5 or more crates is heavy.
+• The wagon starts with 5 medicine crates.
+• If a hero holding a crate takes damage, the crate is
+destroyed instead.
+• The wagon has 30 Stamina.
+If the wagon loses all of its crates, the group who hired the
+heroes wish to press on to Broadhurst and plan to make
+new medicine while there at the village.
+P ART 1: R AT R AIDERS
+After the players introduce their heroes, give them the
+following information:
+• “FWIP! An arrow pierces the side of the medicine wagon!
+The rain pours down in sheets, but the sudden sound of a
+Road to Broadhurst © 2025 MCDM Productions, LLC
+pan pipe whips up over the din and they emerge—
+threatening shapes slicked with mud.”
+• “Your wagon is mired in the mud and carries five heavy
+crates of valuable medicine. It’s sunk too deep to move,
+and you may need to lighten the load.’”
+• “The bandits, as they draw closer, have tails and
+elongated, furry faces—ratfolk.”
+• “From inside the wagon, hector peeps, ‘Don’t let them
+steal any medicine. We at least need to break even on
+this trip!’”
+The bandits are radenwights, acrobatic, highly coordinated,
+and devious ratfolk. They are led by Tix, a radenwight
+maestro. He has eight radenwight mischievers, eight
+radenwight swiftpaws, and eight radenwight redeyes
+with him.
+• The radenwights are after whatever’s in that wagon.
+They have no interest in killing, but attempt to subdue
+those who stand in their way.
+• The mischievers and swiftpaws will attempt to steal
+crates of medicine from the wagon.
+This encounter uses the Rainy Road map.
+Rat Raiders Groups
+Group Creatures
+1 Four radenwight mischievers (minion group)
+Four radenwight mischievers (minion group)
+2 Four radenwight swiftpaws (minion group)
+Four radenwight swiftpaws (minion group)
+3 Four radenwight redeyes (minion group)
+Four radenwight redeyes (minion group)
+4 One radenwight maestro
+ENCOUNTER ADJUSTMENTS
+If this encounter has more or fewer than five heroes, make
+the following adjustments:
+• For six heroes, add four radenwight mischievers.
+• For four heroes, remove four radenwight michievers.
+• For three heroes, remove four radenwight michievers
+and four radenwight swiftpaws.
+UNHEROIC TRIO
+The trio that hired the heroes isn’t much help in a fight, and
+the radenwights don’t consider them a threat. They’ve
+hidden in the wagon. Hoping their money was well spent.
+TACTICS
+During the first round, the mischievers and swiftpaws use
+Rat Race to get close to the heroes and attempt to
+overwhelm and surround the cart while stealing crates. The
+redeyes attack heroes trying to recover stolen crates. Tix
+stays near the edge of the battlefield, enhancing his
+minions, starting with his Overture villain action. He keeps
+a few minions close by so he can take advantage of Rat
+Rondo.
+At the start of the second round of combat, the hidden
+mischeivers group emerges from the woods,
+attempting to steal crates. The minions attempt to keep
+the heroes contained while they take advantage of Ready
+Rodent to whittle them down.
+ENDING THE ENCOUNTER
+The encounter ends when the radenwights have escaped
+the map with three crates or the heroes kill Tix, after which
+the remaining radenwights flee. If the heroes kill Tix before
+the radenwights steal three crates, each hero gains 1
+Victory. If they kill Tix before any crates are stolen, each
+hero gains an additional 1 Victory.
+FLEEING FOES
+If the heroes wish to give chase at the end of an encounter when
+their foes flee, any attempt ends in failure as the heroes are
+bogged down in mud and rain while they scurry into hidden
+warrens beneath the ground.
+A GOOD I NVESTMENT
+As Torrance, Myrna, and Hector emerge from the wagon,
+Myrna teases Hector, about not wanting to spend money on
+guards. Hector is still skeptical, asking the heroes,“ Did we
+lose any crates?” He’s relieved if the answer is no. If the
+answer is yes, he grumbles that they could lose their shop.
+R ADENWIGHT M ALICE M ALICE FEATURES
+At the start of any radenwight’s turn, you can spend malice to activate
+one of the following features.
+Trouser Cut (Main Action) (Non-minion) ◆ 2d10 +2 ◆ 3 Malice
+Keywords Melee, Strike, Weapon
+Distance Melee 1 Target One creature
+✦ ≤11 7 damage; push 3
+★ 12–16 10 damage; push 3; taunted (EoT)
+✸ 17+ 13 damage; push 5; taunted (EoT)
+Effect If a target is wearing clothing covering the lower half of
+their body, they must use a maneuver to pull that clothing up
+before they can move.
+Rat Race ◆ 5 Malice
+Each radenwight shifts up to their speed. Wherever a radenwight
+ends this movement adjacent to at least one other radenwight,
+they can make a melee free strike against each adjacent enemy.
+Rally the Rodents ◆ 7 Malice
+A radenwight uses music to coordinate rats to form a 10 wall of
+living rats scurrying atop one another into unoccupied spaces
+anywhere on the encounter map. The wall doesn’t block line of
+effect for radenwights and their allies, but it does for other
+creatures, as the rats coordinate their movements with the
+radenwights. Each square of the wall has 10 Stamina. If the last
+radenwight in the encounter dies and the wall is still standing, the
+rats let out a hideous screech as they disperse. Each enemy on the
+encounter map makes an Intuition test.
+✸ ≤11 7 sonic damage; target can’t take a respite activity
+during their next respite
+★ 12–16 5 sonic damage
+✦ 17+ No effect
+Road to Broadhurst © 2025 MCDM Productions, LLC
+R ADENWIGHT M ISCHIEVER LEVEL 1 M INION AMBUSHER
+Humanoid, Radenwight EV 3 for four minions
+Stamina 4
+Speed 7 (climb) Size 1S / Stability 0
+With Captain Strike damage +1 Free Strike 2
+Might −1 Agility +2 Reason +0 Intuition +1 Presence +0
+Dagger Dance (Main Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Melee, Strike, Weapon
+Distance Melee 1 or Ranged 5 Target One creature per minion
+✦ ≤11 2 damage
+★ 12–16 4 damage
+✸ 17+ 5 damage
+Effect If the mischiever is hidden when they use this ability, they
+can target two creatures.
+Ready Rodent (Triggered Action)
+Keywords Melee, Weapon
+Distance Melee 1 Target One creature
+Trigger An ally deals damage to the target.
+Effect The mischiever makes a free strike against the target.
+R ADENWIGHT SWIFTPAW LEVEL 1 M INION HARRIER
+Humanoid, Radenwight EV 3 for four minions
+Stamina 4
+Speed 7 (climb) Size 1S / Stability 0
+With Captain Edge on strikes Free Strike 1
+Might +0 Agility +2 Reason +1 Intuition +0 Presence −1
+Rapier Flunge (Main Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Melee, Strike, Weapon
+Distance Melee 1 Target One creature or object per minion
+✦ ≤11 1 damage; slide 1; shift 1
+★ 12–16 2 damage; slide 2; shift 2
+✸ 17+ 3 damage; slide 3; shift 3
+Ready Rodent (Triggered Action)
+Keywords Melee, Weapon
+Distance Melee 1 Target One creature
+Trigger An ally deals damage to the target.
+Effect The swiftpaw makes a free strike against the target.
+R ADENWIGHT R EDEYE LEVEL 1 M INION ARTILLERY
+Humanoid, Radenwight EV 3 for four minions
+Stamina 3
+Speed 5 (climb) Size 1S / Stability 0
+With Captain Edge on strikes Free Strike 2
+Might +1 Agility +2 Reason −1 Intuition +0 Presence +0
+Eyes-On-Me Shot (Main Action) ◆ 2d10 + 2 ◆ Signature
+Keywords Ranged, Strike, Weapon
+Distance Ranged 10 Target One creature or object per minion
+✦ ≤11 2 damage
+★ 12–16 4 damage
+✸ 17+ 5 damage
+Effect An ally of the redeye within 2 squares of the target can shift
+up to 2 squares.
+Ready Rodent (Triggered Action)
+Keywords Melee, Weapon
+Distance Melee 1 Target One creature
+Trigger An ally deals damage to the target.
+Effect The redeye makes a free strike against the target.
+R ADENWIGHT M AESTRO LEVEL 1 LEADER
+Humanoid, Radenwight EV 12
+Stamina 80
+Speed 5 (climb) Size 1S / Stability 1
+Free Strike 4
+Might −2 Agility +2 Reason +0 Intuition +0 Presence +3
+Cacophony (Main Action) ◆ 2d10 + 3 ◆ Signature
+Keywords Area, Magic
+Distance 5 burst Target All enemies in the burst
+✦ ≤11 3 sonic damage; slide 1; shift 1
+★ 12–16 6 sonic damage; slide 3; shift 3
+✸ 17+ 8 sonic damage; slide 5; shift 5
+Effect Each ally within distance can use Ready Rodent as a free
+triggered action once before the end of the round.
+Tempo Change (Maneuver) ◆ 2d10 + 3
+Keywords Magic, Ranged
+Distance Ranged 10 Target Two enemies
+✦ ≤11 P<1 Slowed (save ends)
+★ 12–16 P<2 Slowed (save ends)
+✸ 17+ P<3 Slowed (save ends)
+3 Malice Each ally within 3 of a target has their speed increased
+by 2 until the end of their next turn.
+Ever Ready Rodent (Free Triggered Action) ◆ 2 Malice
+Keywords Magic, Melee, Ranged
+Distance Ranged 5 Target One creature
+Trigger The target deals damage to an ally or takes damage from
+an ally.
+Effect The maestro makes a free strike against the target.
+End Effect
+At the end of their turn, the maestro can take 5 damage to end
+one save ends effect affecting them. This damage can’t be reduced
+in any way.
+Overture (Villain Action 1)
+Keywords Area
+Distance 10 burst Target All allies in the burst
+Effect Each target shifts up to their speed or takes the Defend
+main action.
+Solo Act (Villain Action 2)
+Keywords Ranged
+Distance Ranged 15 Target One creature
+Effect Until the end of their next turn, the target halves incoming
+damage, deals an additional 4 damage on strikes, and their
+speed is doubled.
+Rondo of Rat (Villain Action 3)
+Keywords Area
+Distance 10 burst Target All dead allies in the burst
+Effect Each target stands, makes a free strike, then collapses
+again. Allies of the targets can use Ready Rodent as a free
+triggered action once in conjunction with these free strikes.
+Road to Broadhurst © 2025 MCDM Productions, LLC
+F REEING THE W AGON
+Before the journey can continue, Torrance asks the heroes
+to get the wagon unstuck. Any hero helping free the wagon
+should make a Might test. The hero who gets the highest
+result determines the outcome for the group. If the wagon
+is heavy they take a bane on the roll. If the wagon is light
+they gain an edge on the roll.
+• ≤11: The wagon is freed, but a crate is dropped and
+destroyed in the process.
+• 12-16: The wagon is freed.
+• 17+: The wagon is quickly freed and the next hero to
+make a power roll gains an edge on the test.
+P ART 2: D AYS OF R AIN
+The heroes have days of travel ahead with no relief from
+the weather. They have to help keep the cart moving to get
+to Broadhurst in time to save some goats.
+MONTAGE TEST : KEEP
+MOVING
+The heroes must perform a montage test to keep the wagon
+moving, forage the forest for supplies, and prevent any
+potential threats from manifesting. The success and failure
+limits of this test are listed on the Keep Moving Test
+Difficulty table.
