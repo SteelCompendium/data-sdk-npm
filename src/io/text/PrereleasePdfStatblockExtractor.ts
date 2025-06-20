@@ -3,30 +3,30 @@ import { IDataExtractor } from "../IDataExtractor";
 import { PrereleasePdfStatblockReader } from "./PrereleasePdfStatblockReader";
 
 export class PrereleasePdfStatblockExtractor implements IDataExtractor<Statblock> {
+    private readonly statblockReader: PrereleasePdfStatblockReader = new PrereleasePdfStatblockReader();
+
     extract(text: string): Statblock[] {
-        const statblocks = PrereleasePdfStatblockExtractor.extractStatblockText(text);
-        const reader = new PrereleasePdfStatblockReader();
-        return statblocks.map(reader.read);
+        const statblocks = this.extractStatblockText(text);
+        return statblocks.map(this.statblockReader.read);
     }
 
-    static extractStatblockText(text: string): string[] {
+    extractStatblockText(text: string): string[] {
         const lines = text.split(/\r?\n/);
 
         const statblockStarts: { name: string; index: number }[] = [];
-        const statblockHeaderRegex = /level\s+\d+\s+/i;
-        const reader = new PrereleasePdfStatblockReader();
+        const statblockHeaderRegex = /l\s?evel\s+\d+[^\+]/i;
 
         lines.forEach((line, index) => {
             if (statblockHeaderRegex.test(line)) {
                 // To be a statblock header, it must also have a name
                 const lineWithNext = line + "\n" + (lines[index + 1] ?? "");
                 try {
-                    const statblock = reader.read(lineWithNext);
+                    const statblock = this.statblockReader.read(lineWithNext);
                     if (statblock.name && statblock.roles.length > 0) {
-                        const existing = statblockStarts.find(s => s.name === statblock.name);
-                        if (!existing) {
-                            statblockStarts.push({ name: statblock.name, index });
-                        }
+                        // const existing = statblockStarts.find(s => s.name === statblock.name);
+                        // if (!existing) {
+                        statblockStarts.push({ name: statblock.name, index });
+                        // }
                     }
                 } catch (e) {
                     // Not a valid statblock header, ignore
