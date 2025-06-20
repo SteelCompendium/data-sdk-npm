@@ -1,0 +1,15 @@
+name: VISCOUS FIRE
+flavor: A jet of heavy fire erupts where you strike.
+keywords:
+  - Fire
+  - Magic
+  - Ranged
+  - Strike
+type: Main Action
+distance: Ranged 10
+target: One creature or object
+effects:
+  - roll: Power Roll + Reason
+    t1: 2 + R fire damage; push 2
+    t2: 5 + R fire damage; push 3
+    t3: 7 + R fire damage; push 4

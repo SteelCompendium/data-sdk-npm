@@ -10,8 +10,7 @@ var SteelCompendiumFormat;
 (function (SteelCompendiumFormat) {
     SteelCompendiumFormat["Json"] = "json";
     SteelCompendiumFormat["Yaml"] = "yaml";
-    SteelCompendiumFormat["PrereleasePdfAbilityText"] = "prerelease-pdf-ability-text";
-    SteelCompendiumFormat["PrereleasePdfStatblockText"] = "prerelease-pdf-statblock-text";
+    SteelCompendiumFormat["PrereleasePdfText"] = "prerelease-pdf-text";
     SteelCompendiumFormat["Unknown"] = "unknown";
 })(SteelCompendiumFormat || (exports.SteelCompendiumFormat = SteelCompendiumFormat = {}));
 class SteelCompendiumIdentifier {
@@ -23,12 +22,14 @@ class SteelCompendiumIdentifier {
                 if (modelType === model_1.Ability) {
                     return {
                         format: SteelCompendiumFormat.Json,
+                        model: model_1.Ability,
                         getReader: () => new json_1.JsonReader(model_1.Ability.modelDTOAdapter)
                     };
                 }
                 if (modelType === model_1.Statblock) {
                     return {
                         format: SteelCompendiumFormat.Json,
+                        model: model_1.Statblock,
                         getReader: () => new json_1.JsonReader(model_1.Statblock.modelDTOAdapter)
                     };
                 }
@@ -44,12 +45,14 @@ class SteelCompendiumIdentifier {
                 if (modelType === model_1.Ability) {
                     return {
                         format: SteelCompendiumFormat.Yaml,
+                        model: model_1.Ability,
                         getReader: () => new yaml_2.YamlReader(model_1.Ability.modelDTOAdapter)
                     };
                 }
                 if (modelType === model_1.Statblock) {
                     return {
                         format: SteelCompendiumFormat.Yaml,
+                        model: model_1.Statblock,
                         getReader: () => new yaml_2.YamlReader(model_1.Statblock.modelDTOAdapter)
                     };
                 }
@@ -60,18 +63,21 @@ class SteelCompendiumIdentifier {
         }
         if (this.isStatblock(source)) {
             return {
-                format: SteelCompendiumFormat.PrereleasePdfStatblockText,
+                format: SteelCompendiumFormat.PrereleasePdfText,
+                model: model_1.Statblock,
                 getReader: () => new text_1.PrereleasePdfStatblockReader(),
             };
         }
         if (this.isAbility(source)) {
             return {
-                format: SteelCompendiumFormat.PrereleasePdfAbilityText,
+                format: SteelCompendiumFormat.PrereleasePdfText,
+                model: model_1.Ability,
                 getReader: () => new text_1.PrereleasePdfAbilityReader(),
             };
         }
         return {
             format: SteelCompendiumFormat.Unknown,
+            model: null,
             getReader: () => {
                 throw new Error("Unknown format, cannot provide a reader.");
             }

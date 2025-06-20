@@ -14,6 +14,9 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
 
     public constructor(source: Partial<AbilityDTO>) {
         super(source);
+        if (typeof this.keywords === 'string') {
+            console.log("keywords is a string");
+        }
         this.effects = source.effects ?? [];
     }
 

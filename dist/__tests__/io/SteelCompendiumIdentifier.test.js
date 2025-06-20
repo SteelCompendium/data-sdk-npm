@@ -61,14 +61,18 @@ describe('SteelCompendiumIdentifier', () => {
             return __1.SteelCompendiumFormat.Yaml;
         }
         if (filePath.includes('prerelease-pdf')) {
-            if (filePath.includes('ability')) {
-                return __1.SteelCompendiumFormat.PrereleasePdfAbilityText;
-            }
-            if (filePath.includes('statblock')) {
-                return __1.SteelCompendiumFormat.PrereleasePdfStatblockText;
-            }
+            return __1.SteelCompendiumFormat.PrereleasePdfText;
         }
         return __1.SteelCompendiumFormat.Unknown;
+    };
+    const getExpectedModel = (filePath) => {
+        if (filePath.includes('ability')) {
+            return __1.Ability;
+        }
+        if (filePath.includes('statblock')) {
+            return __1.Statblock;
+        }
+        return null;
     };
     const allFiles = getTestFiles(dataDir);
     allFiles.forEach(file => {
@@ -76,16 +80,22 @@ describe('SteelCompendiumIdentifier', () => {
         if (expectedFormat === __1.SteelCompendiumFormat.Unknown) {
             return;
         }
-        it(`should identify ${path.relative(dataDir, file)} as ${expectedFormat}`, () => {
+        const expectedModel = getExpectedModel(file);
+        if (expectedModel === null) {
+            return;
+        }
+        it(`should identify ${path.relative(dataDir, file)} as ${expectedFormat} and model ${expectedModel.name}`, () => {
             const content = fs.readFileSync(file, 'utf-8');
             const result = __1.SteelCompendiumIdentifier.identify(content);
             expect(result.format).toBe(expectedFormat);
+            expect(result.model).toBe(expectedModel);
         });
     });
     it('should return Unknown for an unidentifiable format', () => {
         const content = 'this is not a valid format';
         const result = __1.SteelCompendiumIdentifier.identify(content);
         expect(result.format).toBe(__1.SteelCompendiumFormat.Unknown);
+        expect(result.model).toBeNull();
     });
 });
 //# sourceMappingURL=SteelCompendiumIdentifier.test.js.map

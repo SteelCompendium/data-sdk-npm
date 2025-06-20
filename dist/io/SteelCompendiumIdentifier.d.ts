@@ -3,12 +3,12 @@ import { Ability, Statblock } from '../model';
 export declare enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
-    PrereleasePdfAbilityText = "prerelease-pdf-ability-text",
-    PrereleasePdfStatblockText = "prerelease-pdf-statblock-text",
+    PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown"
 }
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
+    model: typeof Ability | typeof Statblock | null;
     getReader(): IDataReader<Ability | Statblock>;
 }
 export declare class SteelCompendiumIdentifier {

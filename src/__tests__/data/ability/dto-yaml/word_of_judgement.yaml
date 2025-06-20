@@ -1,0 +1,13 @@
+name: WORD OF JUDGMENT
+flavor: Your holy word saps an attacking enemy’s strength.
+keywords:
+  - Magic
+  - Ranged
+type: Triggered
+distance: Ranged 10
+target: One ally
+trigger: The target would take damage from an ability that uses a power roll.
+effects:
+  - effect: The power roll takes a bane against the target.
+  - effect: The power roll has a double bane against the target.
+    name: Spend 1 Piety
