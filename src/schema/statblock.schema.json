@@ -152,10 +152,6 @@
                     "type": "string",
                     "description": "The name of the trait."
                 },
-                "type": {
-                    "type": "string",
-                    "description": "Optional action-type of the trait (e.g., Maneuver)."
-                },
                 "effects": {
                     "$ref": "ability.schema.json#/definitions/effectsArray"
                 }
