@@ -1,7 +1,15 @@
+import { Statblock } from "../../model";
+import { IDataExtractor } from "../IDataExtractor";
 import { PrereleasePdfStatblockReader } from "./PrereleasePdfStatblockReader";
 
-export class StatblockSplitter {
-    public static split(text: string): string[] {
+export class PrereleasePdfStatblockExtractor implements IDataExtractor<Statblock> {
+    extract(text: string): Statblock[] {
+        const statblocks = PrereleasePdfStatblockExtractor.extractStatblockText(text);
+        const reader = new PrereleasePdfStatblockReader();
+        return statblocks.map(reader.read);
+    }
+
+    static extractStatblockText(text: string): string[] {
         const lines = text.split(/\r?\n/);
 
         const statblockStarts: { name: string; index: number }[] = [];
@@ -33,4 +41,4 @@ export class StatblockSplitter {
             return block;
         });
     }
-} 
+}

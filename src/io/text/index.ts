@@ -1,3 +1,3 @@
 export * from './PrereleasePdfStatblockReader';
 export * from './PrereleasePdfAbilityReader';
-export * from './StatblockSplitter';
+export * from './PrereleasePdfStatblockExtractor';
