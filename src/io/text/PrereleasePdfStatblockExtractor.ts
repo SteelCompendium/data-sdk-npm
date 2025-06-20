@@ -6,11 +6,11 @@ export class PrereleasePdfStatblockExtractor implements IDataExtractor<Statblock
     private readonly statblockReader: PrereleasePdfStatblockReader = new PrereleasePdfStatblockReader();
 
     extract(text: string): Statblock[] {
-        const statblocks = this.extractStatblockText(text);
+        const statblocks = this.extractText(text);
         return statblocks.map(this.statblockReader.read);
     }
 
-    extractStatblockText(text: string): string[] {
+    extractText(text: string): string[] {
         const lines = text.split(/\r?\n/);
 
         const statblockStarts: { name: string; index: number }[] = [];
