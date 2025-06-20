@@ -8,14 +8,14 @@ class PowerRollEffect extends Effect_1.Effect {
         Object.assign(this, source);
     }
     static fromDTO(dto) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         const data = dto;
         return new PowerRollEffect({
             roll: data.roll,
-            t1: (_b = (_a = data.t1) !== null && _a !== void 0 ? _a : data["tier 1"]) !== null && _b !== void 0 ? _b : data["11 or lower"],
-            t2: (_d = (_c = data.t2) !== null && _c !== void 0 ? _c : data["tier 2"]) !== null && _d !== void 0 ? _d : data["12-16"],
-            t3: (_f = (_e = data.t3) !== null && _e !== void 0 ? _e : data["tier 3"]) !== null && _f !== void 0 ? _f : data["17+"],
-            crit: (_h = (_g = data.critical) !== null && _g !== void 0 ? _g : data.crit) !== null && _h !== void 0 ? _h : data["nat 19-20"]
+            t1: (_c = (_b = (_a = data.t1) !== null && _a !== void 0 ? _a : data["tier 1"]) !== null && _b !== void 0 ? _b : data["11 or lower"]) !== null && _c !== void 0 ? _c : data["≤11"],
+            t2: (_f = (_e = (_d = data.t2) !== null && _d !== void 0 ? _d : data["tier 2"]) !== null && _e !== void 0 ? _e : data["12-16"]) !== null && _f !== void 0 ? _f : data["12–16"],
+            t3: (_h = (_g = data.t3) !== null && _g !== void 0 ? _g : data["tier 3"]) !== null && _h !== void 0 ? _h : data["17+"],
+            crit: (_k = (_j = data.critical) !== null && _j !== void 0 ? _j : data.crit) !== null && _k !== void 0 ? _k : data["nat 19-20"]
         });
     }
     toDTO() {

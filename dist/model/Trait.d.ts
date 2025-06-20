@@ -3,7 +3,6 @@ import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import { Effects } from "./Effects";
 export declare class Trait extends SteelCompendiumModel<TraitDTO> {
     name?: string;
-    type?: string;
     effects: Effects;
     constructor(source: Partial<Trait>);
     static modelDTOAdapter: ModelDTOAdapter<Trait, TraitDTO>;
