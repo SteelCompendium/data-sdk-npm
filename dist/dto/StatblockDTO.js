@@ -38,10 +38,6 @@ class StatblockDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             data.free_strike = model.freeStrike;
         if (model.withCaptain !== undefined)
             data.with_captain = model.withCaptain;
-        if (model.traits !== undefined)
-            data.traits = model.traits.map(t => t.toDTO());
-        if (model.abilities !== undefined)
-            data.abilities = model.abilities.map(a => a.toDTO());
         if (model.characteristics !== undefined) {
             if (model.characteristics.might !== undefined)
                 data.might = model.characteristics.might;
@@ -54,6 +50,10 @@ class StatblockDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             if (model.characteristics.presence !== undefined)
                 data.presence = model.characteristics.presence;
         }
+        if (model.traits !== undefined)
+            data.traits = model.traits.map(t => t.toDTO());
+        if (model.abilities !== undefined)
+            data.abilities = model.abilities.map(a => a.toDTO());
         return data;
     }
     static fromModel(model) {

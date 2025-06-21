@@ -44,8 +44,6 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
         if (model.stability !== undefined) data.stability = model.stability;
         if (model.freeStrike !== undefined) data.free_strike = model.freeStrike;
         if (model.withCaptain !== undefined) data.with_captain = model.withCaptain;
-        if (model.traits !== undefined) data.traits = model.traits.map(t => t.toDTO());
-        if (model.abilities !== undefined) data.abilities = model.abilities.map(a => a.toDTO());
         if (model.characteristics !== undefined) {
             if (model.characteristics.might !== undefined) data.might = model.characteristics.might;
             if (model.characteristics.agility !== undefined) data.agility = model.characteristics.agility;
@@ -53,6 +51,8 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
             if (model.characteristics.intuition !== undefined) data.intuition = model.characteristics.intuition;
             if (model.characteristics.presence !== undefined) data.presence = model.characteristics.presence;
         }
+        if (model.traits !== undefined) data.traits = model.traits.map(t => t.toDTO());
+        if (model.abilities !== undefined) data.abilities = model.abilities.map(a => a.toDTO());
         return data;
     }
 
