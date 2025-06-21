@@ -17,8 +17,16 @@ describe("PrereleasePdfStatblockExtractor", () => {
             "G OBLIN SNIPER LEVEL 1 M INION ARTILLERY",
             "G OBLIN ASSASSIN LEVEL 1 HORDE AMBUSHER",
             "G OBLIN STINKER LEVEL 1 HORDE C ONTROLLER",
-            "G OBLIN WARRIOR LEVEL 1 HORDE HARRIER"
+            "G OBLIN WARRIOR LEVEL 1 HORDE HARRIER",
         ]);
+
+        const maestroLines = statblocks[3].split("\n");
+        expect(maestroLines[maestroLines.length - 1]).toBe(
+            "triggered action once in conjunction with these free strikes."
+        );
+
+        const warriorLines = statblocks[7].split("\n");
+        expect(warriorLines[warriorLines.length - 1]).toBe("The warrior doesn’t provoke opportunity attacks by moving.");
     });
 
     it("should extract the statblocks from the delian tomb encounters prerelease pdf text", () => {
