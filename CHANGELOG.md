@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.17
+
+- Extractor updated to improve truncating statblocks
+
 ## 0.0.16
 
 - Fixes issue in removing OCR errors in certain strings

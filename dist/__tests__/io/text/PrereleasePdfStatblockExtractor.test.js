@@ -50,13 +50,17 @@ describe("PrereleasePdfStatblockExtractor", () => {
             "G OBLIN SNIPER LEVEL 1 M INION ARTILLERY",
             "G OBLIN ASSASSIN LEVEL 1 HORDE AMBUSHER",
             "G OBLIN STINKER LEVEL 1 HORDE C ONTROLLER",
-            "G OBLIN WARRIOR LEVEL 1 HORDE HARRIER"
+            "G OBLIN WARRIOR LEVEL 1 HORDE HARRIER",
         ]);
+        const maestroLines = statblocks[3].split("\n");
+        expect(maestroLines[maestroLines.length - 1]).toBe("triggered action once in conjunction with these free strikes.");
+        const warriorLines = statblocks[7].split("\n");
+        expect(warriorLines[warriorLines.length - 1]).toBe("The warrior doesn’t provoke opportunity attacks by moving.");
     });
     it("should extract the statblocks from the delian tomb encounters prerelease pdf text", () => {
         const text = fs.readFileSync(path.join(__dirname, "../../data/pdf/prerelease-pdf/delian_tomb_encounters.txt"), "utf-8");
         const statblocks = new PrereleasePdfStatblockExtractor_1.PrereleasePdfStatblockExtractor().extractText(text);
-        // expect(statblocks).toHaveLength(74);
+        expect(statblocks.length).toBeGreaterThanOrEqual(109);
         const names = statblocks.map((s) => s.split("\n")[0]);
         expect(names).toEqual([
             "GOBLIN ASSASSIN L EVEL 1 HORDE AMBUSHER",
@@ -176,6 +180,29 @@ describe("PrereleasePdfStatblockExtractor", () => {
             "GOBLIN B ATTLEBORN L EVEL 2 HORDE B RUTE",
             "M YSTIC Q UEEN B ARGNOT L EVEL 3 L EADER",
         ]);
+        expect(names[0]).toBe("GOBLIN ASSASSIN L EVEL 1 HORDE AMBUSHER");
+        const goblinAssassinLines = statblocks[0].split("\n");
+        expect(goblinAssassinLines[goblinAssassinLines.length - 1]).toBe("The assassin can take the Hide maneuver even while observed.");
+        const werewolfIndex = names.indexOf("WEREWOLF L EVEL 1 S OLO");
+        expect(werewolfIndex).toBeGreaterThan(-1);
+        const werewolfLines = statblocks[werewolfIndex].split("\n");
+        expect(werewolfLines[werewolfLines.length - 1]).toBe("using this ability.");
+        const mysticQueenIndex = names.indexOf("M YSTIC Q UEEN B ARGNOT L EVEL 3 L EADER");
+        expect(mysticQueenIndex).toBeGreaterThan(-1);
+        const mysticQueenLines = statblocks[mysticQueenIndex].split("\n");
+        expect(mysticQueenLines[mysticQueenLines.length - 1]).toBe("(EoT) after using this villain action.");
+        const ghostIndex = names.indexOf("GHOST L EVEL 1 L EADER");
+        expect(ghostIndex).toBeGreaterThan(-1);
+        const ghostLines = statblocks[ghostIndex].split("\n");
+        expect(ghostLines[ghostLines.length - 1]).toBe("ghost doesn’t take damage from being force moved into objects.");
+        const banditChiefIndex = names.indexOf("HUMAN B ANDIT CHIEF L EVEL 3 L EADER");
+        expect(banditChiefIndex).toBeGreaterThan(-1);
+        const banditChiefLines = statblocks[banditChiefIndex].split("\n");
+        expect(banditChiefLines[banditChiefLines.length - 1]).toBe("against that target.");
+        const ogreJuggernautIndex = names.indexOf("O GRE JUGGERNAUT L EVEL 2 E LITE HARRIER");
+        expect(ogreJuggernautIndex).toBeGreaterThan(-1);
+        const ogreJuggernautLines = statblocks[ogreJuggernautIndex].split("\n");
+        expect(ogreJuggernautLines[ogreJuggernautLines.length - 1]).toBe("The juggernaut has damage immunity 2 while they are winded.");
     });
 });
 //# sourceMappingURL=PrereleasePdfStatblockExtractor.test.js.map

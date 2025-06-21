@@ -22,10 +22,7 @@ class PrereleasePdfStatblockExtractor {
                 try {
                     const statblock = this.statblockReader.read(lineWithNext);
                     if (statblock.name && statblock.roles.length > 0) {
-                        // const existing = statblockStarts.find(s => s.name === statblock.name);
-                        // if (!existing) {
                         statblockStarts.push({ name: statblock.name, index });
-                        // }
                     }
                 }
                 catch (e) {
@@ -33,10 +30,26 @@ class PrereleasePdfStatblockExtractor {
                 }
             }
         });
-        return statblockStarts.map(({ name, index }, i) => {
+        return statblockStarts.map(({ index }, i) => {
             const start = index;
-            const end = i < statblockStarts.length - 1 ? statblockStarts[i + 1].index : lines.length;
-            const block = lines.slice(start, end).join("\n");
+            const nextStatblockStart = i < statblockStarts.length - 1 ? statblockStarts[i + 1].index : lines.length;
+            let end = nextStatblockStart;
+            for (let j = start + 1; j < nextStatblockStart; j++) {
+                const line = lines[j].trim();
+                if (line.length === 0) {
+                    continue;
+                }
+                const isAllCaps = line.toUpperCase() === line && /[A-Z]/.test(line);
+                const isStatblockHeader = statblockHeaderRegex.test(line);
+                if (isAllCaps && !isStatblockHeader) {
+                    end = j;
+                    break;
+                }
+            }
+            const block = lines
+                .slice(start, end)
+                .filter(line => !line.includes("MCDM Productions"))
+                .join("\n");
             return block;
         });
     }
