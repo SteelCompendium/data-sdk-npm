@@ -32,7 +32,7 @@ describe("PrereleasePdfStatblockExtractor", () => {
     it("should extract the statblocks from the delian tomb encounters prerelease pdf text", () => {
         const text = fs.readFileSync(path.join(__dirname, "../../data/pdf/prerelease-pdf/delian_tomb_encounters.txt"), "utf-8");
         const statblocks = new PrereleasePdfStatblockExtractor().extractText(text);
-        // expect(statblocks).toHaveLength(74);
+        expect(statblocks.length).toBeGreaterThanOrEqual(109);
 
         const names = statblocks.map((s: string) => s.split("\n")[0]);
         expect(names).toEqual([
@@ -153,5 +153,23 @@ describe("PrereleasePdfStatblockExtractor", () => {
             "GOBLIN B ATTLEBORN L EVEL 2 HORDE B RUTE",
             "M YSTIC Q UEEN B ARGNOT L EVEL 3 L EADER",
         ]);
+        expect(names[0]).toBe("GOBLIN ASSASSIN L EVEL 1 HORDE AMBUSHER");
+        const goblinAssassinLines = statblocks[0].split("\n");
+        expect(goblinAssassinLines[goblinAssassinLines.length - 1]).toBe(
+            "The assassin can take the Hide maneuver even while observed."
+        );
+
+        const werewolfIndex = names.indexOf("WEREWOLF L EVEL 1 S OLO");
+        expect(werewolfIndex).toBeGreaterThan(-1);
+        const werewolfLines = statblocks[werewolfIndex].split("\n");
+        expect(werewolfLines[werewolfLines.length - 1]).toBe(
+            "using this ability."
+        );
+
+        const mysticQueenIndex = names.indexOf("M YSTIC Q UEEN B ARGNOT L EVEL 3 L EADER");
+        expect(mysticQueenIndex).toBeGreaterThan(-1);
+        const mysticQueenLines = statblocks[mysticQueenIndex].split("\n");
+        expect(mysticQueenLines[mysticQueenLines.length - 1]).toBe("(EoT) after using this villain action.");
+
     });
 }); 
