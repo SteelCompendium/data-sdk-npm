@@ -83,12 +83,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                     i++;
                 }
 
-                const costMatch = nameAndCost.match(/^(Spend|Persistent) (\d+\+?)/);
-                if (costMatch) {
-                    effects.push(new MundaneEffect({ name: nameAndCost, cost: costMatch[2], effect: effect.trim() }));
-                } else {
-                    effects.push(new MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
-                }
+                effects.push(new MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
                 continue;
             }
 
