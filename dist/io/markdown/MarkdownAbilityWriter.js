@@ -1,19 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarkdownAbilityWriter = void 0;
+const Effect_1 = require("../../model/Effect");
 const model_1 = require("../../model");
 const model_2 = require("../../model");
 class MarkdownAbilityWriter {
-    toTitleCase(str) {
-        if (!str) {
-            return '';
-        }
-        return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
-    }
     write(data) {
         const parts = [];
         if (data.name) {
-            let title = `**${this.toTitleCase(data.name)}`;
+            let title = `**${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
@@ -23,7 +18,6 @@ class MarkdownAbilityWriter {
         if (data.flavor) {
             parts.push(`*${data.flavor}*`);
         }
-        const table = [];
         const header1 = [];
         if (data.keywords && data.keywords.length > 0) {
             header1.push(`**${data.keywords.join(', ')}**`);
@@ -37,8 +31,6 @@ class MarkdownAbilityWriter {
         else {
             header1.push('');
         }
-        table.push(`| ${header1.join(' | ')} |`);
-        table.push(`|-----------------|---------------------------:|`);
         const row2 = [];
         if (data.distance) {
             row2.push(`**📏 ${data.distance}**`);
@@ -52,19 +44,46 @@ class MarkdownAbilityWriter {
         else {
             row2.push('');
         }
-        table.push(`| ${row2.join(' | ')} |`);
-        parts.push(table.join('\n'));
-        if (data.effects && data.effects.effects.length > 0) {
+        if (header1.some(h => h) || row2.some(r => r)) {
+            const table = [];
+            const col1Width = Math.max(header1[0].length, row2[0].length);
+            const col2Width = Math.max(header1[1].length, row2[1].length);
+            const paddedHeader1 = [
+                header1[0].padEnd(col1Width),
+                header1[1].padStart(col2Width)
+            ];
+            table.push(`| ${paddedHeader1.join(' | ')} |`);
+            const separator1 = '-'.repeat(col1Width);
+            const separator2 = '-'.repeat(col2Width);
+            table.push(`| ${separator1} | ${separator2}:|`);
+            const paddedRow2 = [
+                row2[0].padEnd(col1Width),
+                row2[1].padStart(col2Width)
+            ];
+            table.push(`| ${paddedRow2.join(' | ')} |`);
+            parts.push(table.join('\n'));
+        }
+        if (data.effects && (data.effects.effects || data.effects)) {
+            const allEffects = (data.effects.effects || data.effects);
+            if (allEffects.length === 0) {
+                return parts.join('\n\n');
+            }
+            const mappedEffects = allEffects.map(e => {
+                if (e instanceof Effect_1.Effect)
+                    return e;
+                if (e.roll)
+                    return new model_2.PowerRollEffect(e);
+                return new model_1.MundaneEffect(e);
+            });
             const effectParts = [];
-            const mundaneEffects = data.effects.effects.filter(e => e instanceof model_1.MundaneEffect && !e.name);
-            const otherEffects = data.effects.effects.filter(e => !(e instanceof model_1.MundaneEffect && !e.name));
+            const mundaneEffects = mappedEffects.filter(e => e instanceof model_1.MundaneEffect && !e.name);
+            const otherEffects = mappedEffects.filter(e => !(e instanceof model_1.MundaneEffect && !e.name));
             if (mundaneEffects.length > 0) {
                 if (mundaneEffects.length === 1) {
                     const effectText = mundaneEffects[0].effect.trim();
                     effectParts.push(`**Effect:** ${effectText}`);
                 }
                 else {
-                    //This is a guess.  It is untested
                     const intro = mundaneEffects[0].effect.trim();
                     if (intro.endsWith(':')) {
                         const listItems = mundaneEffects.slice(1).map(e => `- ${e.effect.trim()}`);

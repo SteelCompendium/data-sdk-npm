@@ -42,21 +42,16 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
 
             if (line.startsWith('**Effect:**')) {
                 let effectText = line.substring('**Effect:**'.length).trim();
-                const mundaneEffect = new MundaneEffect({ effect: effectText });
-                effects.push(mundaneEffect);
                 i++;
-                // Handle multi-line effects
-                while (i < lines.length && lines[i].trim().startsWith('-')) {
-                    const effectLine = lines[i].trim().substring(1).trim();
-                    if (mundaneEffect.effect.endsWith(':')) {
-                        mundaneEffect.effect += '\n' + `- ${effectLine}`;
-                    } else {
-                        const newEffect = new MundaneEffect({ effect: effectLine });
-                        effects.push(newEffect);
-                    }
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effectText += '\n' + lines[i];
                     i++;
                 }
-            } else if (line.includes('Roll +')) { // Power Roll
+                effects.push(new MundaneEffect({ effect: effectText.trim() }));
+                continue;
+            }
+
+            if (line.includes('Roll +')) { // Power Roll
                 const powerRollEffect = new PowerRollEffect({});
                 powerRollEffect.roll = line.replace(/\*\*|:/g, '');
                 i++;
@@ -72,20 +67,30 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                     i++;
                 }
                 effects.push(powerRollEffect);
-            } else { // Named Effects (e.g., Persistent)
-                const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
-                if (namedEffectMatch) {
-                    const nameAndCost = namedEffectMatch[1];
-                    const effect = namedEffectMatch[2];
-                    const costMatch = nameAndCost.match(/(.+) (\d+)/);
-                    if (costMatch) {
-                        effects.push(new MundaneEffect({ name: costMatch[1], cost: costMatch[2], effect }));
-                    } else {
-                        effects.push(new MundaneEffect({ name: nameAndCost, effect }));
-                    }
-                }
-                i++;
+                continue;
             }
+
+            // Named Effects (e.g., Persistent)
+            const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
+            if (namedEffectMatch) {
+                const nameAndCost = namedEffectMatch[1];
+                let effect = namedEffectMatch[2];
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effect += '\n' + lines[i];
+                    i++;
+                }
+
+                const costMatch = nameAndCost.match(/(.+) (\d+)/);
+                if (costMatch) {
+                    effects.push(new MundaneEffect({ name: costMatch[1], cost: costMatch[2], effect: effect.trim() }));
+                } else {
+                    effects.push(new MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
+                }
+                continue;
+            }
+
+            i++;
         }
 
         const ability = new Ability(partial);
