@@ -5,21 +5,11 @@ import { MundaneEffect } from "../../model";
 import { PowerRollEffect } from "../../model";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    private toTitleCase(str: string): string {
-        if (!str) {
-            return '';
-        }
-        return str.replace(
-            /\w\S*/g,
-            (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-        );
-    }
-
     write(data: Ability): string {
         const parts: string[] = [];
 
         if (data.name) {
-            let title = `**${this.toTitleCase(data.name)}`;
+            let title = `**${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
@@ -59,10 +49,12 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             row2.push('');
         }
         table.push(`| ${row2.join(' | ')} |`);
-        parts.push(table.join('\n'));
+        if (header1.some(h => h) || row2.some(r => r)) {
+            parts.push(table.join('\n'));
+        }
 
 
-        if (data.effects && data.effects.effects.length > 0) {
+        if (data.effects && data.effects.effects && data.effects.effects.length > 0) {
             const effectParts: string[] = [];
 
             const mundaneEffects = data.effects.effects.filter(e => e instanceof MundaneEffect && !e.name) as MundaneEffect[];
@@ -73,7 +65,6 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
                     const effectText = mundaneEffects[0].effect.trim();
                     effectParts.push(`**Effect:** ${effectText}`);
                 } else {
-                    //This is a guess.  It is untested
                     const intro = mundaneEffects[0].effect.trim();
                     if (intro.endsWith(':')) {
                         const listItems = mundaneEffects.slice(1).map(e => `- ${e.effect.trim()}`);
@@ -119,7 +110,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     private writePowerRollEffect(effect: PowerRollEffect): string {
         const rollParts: string[] = [];
         if (effect.roll) {
-            rollParts.push(`**${effect.roll}:**`);
+            rollParts.push(`**Power Roll + ${effect.roll}:**`);
         }
         if (effect.t1) {
             rollParts.push(`- **≤11:** ${effect.t1}`);

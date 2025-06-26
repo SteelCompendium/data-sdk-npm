@@ -1,10 +1,10 @@
-**Corruption’s Curse (5 PIETY)**
+**CORRUPTION’S CURSE (5 PIETY)**
 
 *Cursed by you, your enemy takes more damage from your allies.*
 
-| **Magic, Ranged, Strike** | **Main Action** |
-|-----------------|---------------------------:|
-| **📏 Ranged 10** | **🎯 One creature or object** |
+| **Magic, Ranged, Strike** |               **Main Action** |
+|---------------------------|------------------------------:|
+| **📏 Ranged 10**          | **🎯 One creature or object** |
 
 **Power Roll + Intuition:**
 - **≤11:** 3 + I corruption damage; M < weak, damage weakness 5 (save ends)
