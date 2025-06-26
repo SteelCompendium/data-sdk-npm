@@ -40,22 +40,11 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         while (i < lines.length) {
             const line = lines[i];
 
-            if (line.startsWith('**Effect:**')) {
-                let effectText = line.substring('**Effect:**'.length).trim();
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
-                    effectText += '\n' + lines[i];
-                    i++;
-                }
-                effects.push(new MundaneEffect({ effect: effectText.trim() }));
-                continue;
-            }
-
-            if (line.includes('Roll +')) { // Power Roll
+            if (line.startsWith('**Power Roll')) { // Power Roll
                 const powerRollEffect = new PowerRollEffect({});
                 powerRollEffect.roll = line.replace(/\*\*|:/g, '');
                 i++;
-                while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim().startsWith('*'))) {
+                while (i < lines.length && lines[i].trim().startsWith('-')) {
                     const rollLine = lines[i].trim();
                     const separatorIndex = rollLine.indexOf(':');
                     const tier = rollLine.substring(0, separatorIndex);
@@ -67,6 +56,17 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                     i++;
                 }
                 effects.push(powerRollEffect);
+                continue;
+            }
+
+            if (line.startsWith('**Effect:**')) {
+                let effectText = line.substring('**Effect:**'.length).trim();
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effectText += '\n' + lines[i];
+                    i++;
+                }
+                effects.push(new MundaneEffect({ effect: effectText.trim() }));
                 continue;
             }
 
