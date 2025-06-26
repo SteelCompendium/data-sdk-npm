@@ -4,36 +4,82 @@ exports.MarkdownAbilityWriter = void 0;
 const model_1 = require("../../model");
 const model_2 = require("../../model");
 class MarkdownAbilityWriter {
+    toTitleCase(str) {
+        if (!str) {
+            return '';
+        }
+        return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
+    }
     write(data) {
         const parts = [];
         if (data.name) {
-            parts.push(`### ${data.name}`);
-        }
-        if (data.cost) {
-            parts.push(`**Cost:** ${data.cost}`);
-        }
-        if (data.type) {
-            parts.push(`**Type:** ${data.type}`);
-        }
-        if (data.keywords && data.keywords.length > 0) {
-            parts.push(`**Keywords:** ${data.keywords.join(', ')}`);
+            let title = `**${this.toTitleCase(data.name)}`;
+            if (data.cost) {
+                title += ` (${data.cost})`;
+            }
+            title += `**`;
+            parts.push(title);
         }
         if (data.flavor) {
             parts.push(`*${data.flavor}*`);
         }
-        if (data.trigger) {
-            parts.push(`**Trigger:** ${data.trigger}`);
+        const table = [];
+        const header1 = [];
+        if (data.keywords && data.keywords.length > 0) {
+            header1.push(`**${data.keywords.join(', ')}**`);
+        }
+        else {
+            header1.push('');
+        }
+        if (data.type) {
+            header1.push(`**${data.type}**`);
+        }
+        else {
+            header1.push('');
+        }
+        table.push(`| ${header1.join(' | ')} |`);
+        table.push(`|-----------------|---------------------------:|`);
+        const row2 = [];
+        if (data.distance) {
+            row2.push(`**📏 ${data.distance}**`);
+        }
+        else {
+            row2.push('');
         }
         if (data.target) {
-            parts.push(`**Target:** ${data.target}`);
+            row2.push(`**🎯 ${data.target}**`);
         }
-        if (data.distance) {
-            parts.push(`**Distance:** ${data.distance}`);
+        else {
+            row2.push('');
         }
+        table.push(`| ${row2.join(' | ')} |`);
+        parts.push(table.join('\n'));
         if (data.effects && data.effects.effects.length > 0) {
-            parts.push('**Effects:**');
-            const effectParts = data.effects.effects.map(effect => this.writeEffect(effect));
-            parts.push(effectParts.join('\n'));
+            const effectParts = [];
+            const mundaneEffects = data.effects.effects.filter(e => e instanceof model_1.MundaneEffect && !e.name);
+            const otherEffects = data.effects.effects.filter(e => !(e instanceof model_1.MundaneEffect && !e.name));
+            if (mundaneEffects.length > 0) {
+                if (mundaneEffects.length === 1) {
+                    const effectText = mundaneEffects[0].effect.trim();
+                    effectParts.push(`**Effect:** ${effectText}`);
+                }
+                else {
+                    //This is a guess.  It is untested
+                    const intro = mundaneEffects[0].effect.trim();
+                    if (intro.endsWith(':')) {
+                        const listItems = mundaneEffects.slice(1).map(e => `- ${e.effect.trim()}`);
+                        effectParts.push(`**Effect:** ${intro}\n\n${listItems.join('\n')}`);
+                    }
+                    else {
+                        const listItems = mundaneEffects.map(e => `- ${e.effect.trim()}`);
+                        effectParts.push(`**Effect:**\n\n${listItems.join('\n')}`);
+                    }
+                }
+            }
+            for (const effect of otherEffects) {
+                effectParts.push(this.writeEffect(effect));
+            }
+            parts.push(effectParts.join('\n\n'));
         }
         return parts.join('\n\n');
     }
@@ -47,33 +93,32 @@ class MarkdownAbilityWriter {
         return '';
     }
     writeMundaneEffect(effect) {
-        let effectString = `- `;
         if (effect.name) {
-            effectString += `**${effect.name}**`;
+            let str = `**${effect.name}`;
             if (effect.cost) {
-                effectString += ` (${effect.cost})`;
+                str += ` ${effect.cost}`;
             }
-            effectString += `: `;
+            str += `:** ${effect.effect}`;
+            return str;
         }
-        effectString += effect.effect;
-        return effectString;
+        return effect.effect.trim();
     }
     writePowerRollEffect(effect) {
         const rollParts = [];
         if (effect.roll) {
-            rollParts.push(`- **Roll:** ${effect.roll}`);
+            rollParts.push(`**${effect.roll}:**`);
         }
         if (effect.t1) {
-            rollParts.push(`  - **11 or lower:** ${effect.t1}`);
+            rollParts.push(`- **≤11:** ${effect.t1}`);
         }
         if (effect.t2) {
-            rollParts.push(`  - **12-16:** ${effect.t2}`);
+            rollParts.push(`- **12-16:** ${effect.t2}`);
         }
         if (effect.t3) {
-            rollParts.push(`  - **17+:** ${effect.t3}`);
+            rollParts.push(`- **17+:** ${effect.t3}`);
         }
         if (effect.crit) {
-            rollParts.push(`  - **Natural 19-20:** ${effect.crit}`);
+            rollParts.push(`- **Natural 19-20:** ${effect.crit}`);
         }
         return rollParts.join('\n');
     }
