@@ -72,6 +72,17 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 continue;
             }
 
+            if (line.startsWith('**Trigger:**')) {
+                let triggerText = line.substring('**Trigger:**'.length).trim();
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    triggerText += '\n' + lines[i];
+                    i++;
+                }
+                partial.trigger = triggerText.trim();
+                continue;
+            }
+
             // Named Effects (e.g., Persistent)
             const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
             if (namedEffectMatch) {

@@ -70,6 +70,9 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             parts.push(table.join('\n'));
         }
 
+        if (data.trigger) {
+            parts.push(`**Trigger:** ${data.trigger}`);
+        }
 
         if (data.effects && (data.effects.effects || data.effects)) {
             const allEffects = (data.effects.effects || data.effects) as any[];
