@@ -308,8 +308,28 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
 
     private joinAndFormatEffectLines(lines: string[]): string {
         if (!lines || lines.length === 0) return '';
-        // Join with spaces, but handle bullet points by putting them on a new line.
-        return lines.join(' ').replace(/\s*•/g, '\n•').trim();
+
+        let result = lines[0];
+        for (let i = 1; i < lines.length; i++) {
+            const prevLine = lines[i - 1];
+            const currentLine = lines[i];
+
+            if (currentLine.startsWith('•')) {
+                result += `\n${currentLine}`;
+                continue;
+            }
+            const prevLineEndsWithPunctuation = /[.!?]$/.test(prevLine);
+            const currentLineStartsWithCapital = /^[A-Z]/.test(currentLine);
+
+            if (prevLineEndsWithPunctuation && currentLineStartsWithCapital) {
+                result += `\n${currentLine}`;
+            } else {
+                result += ` ${currentLine}`;
+            }
+        }
+
+        // Final cleanup for bullet points that might not have been handled by the loop logic (e.g., first line is a bullet)
+        return result.replace(/\s*•/g, '\n•').trim();
     }
 
     private mapOutcomeToTierKey(threshold: string): string {
