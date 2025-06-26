@@ -77,7 +77,7 @@ class MarkdownAbilityReader {
                     effect += '\n' + lines[i];
                     i++;
                 }
-                const costMatch = nameAndCost.match(/(.+) (\d+)/);
+                const costMatch = nameAndCost.match(/(.+) (\d+\+?)$/);
                 if (costMatch) {
                     effects.push(new model_1.MundaneEffect({ name: costMatch[1], cost: costMatch[2], effect: effect.trim() }));
                 }
