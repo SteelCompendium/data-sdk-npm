@@ -75,29 +75,7 @@ class MarkdownAbilityWriter {
                     return new model_2.PowerRollEffect(e);
                 return new model_1.MundaneEffect(e);
             });
-            const effectParts = [];
-            const mundaneEffects = mappedEffects.filter(e => e instanceof model_1.MundaneEffect && !e.name);
-            const otherEffects = mappedEffects.filter(e => !(e instanceof model_1.MundaneEffect && !e.name));
-            if (mundaneEffects.length > 0) {
-                if (mundaneEffects.length === 1) {
-                    const effectText = mundaneEffects[0].effect.trim();
-                    effectParts.push(`**Effect:** ${effectText}`);
-                }
-                else {
-                    const intro = mundaneEffects[0].effect.trim();
-                    if (intro.endsWith(':')) {
-                        const listItems = mundaneEffects.slice(1).map(e => `- ${e.effect.trim()}`);
-                        effectParts.push(`**Effect:** ${intro}\n\n${listItems.join('\n')}`);
-                    }
-                    else {
-                        const listItems = mundaneEffects.map(e => `- ${e.effect.trim()}`);
-                        effectParts.push(`**Effect:**\n\n${listItems.join('\n')}`);
-                    }
-                }
-            }
-            for (const effect of otherEffects) {
-                effectParts.push(this.writeEffect(effect));
-            }
+            const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
         return parts.join('\n\n');
@@ -117,10 +95,10 @@ class MarkdownAbilityWriter {
             if (effect.cost) {
                 str += ` ${effect.cost}`;
             }
-            str += `:** ${effect.effect}`;
+            str += `:** ${effect.effect.trim()}`;
             return str;
         }
-        return effect.effect.trim();
+        return `**Effect:** ${effect.effect.trim()}`;
     }
     writePowerRollEffect(effect) {
         const rollParts = [];
@@ -128,16 +106,16 @@ class MarkdownAbilityWriter {
             rollParts.push(`**${effect.roll}:**`);
         }
         if (effect.t1) {
-            rollParts.push(`- **≤11:** ${effect.t1}`);
+            rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
         }
         if (effect.t2) {
-            rollParts.push(`- **12-16:** ${effect.t2}`);
+            rollParts.push(`- **12-16:** ${effect.t2.trim()}`);
         }
         if (effect.t3) {
-            rollParts.push(`- **17+:** ${effect.t3}`);
+            rollParts.push(`- **17+:** ${effect.t3.trim()}`);
         }
         if (effect.crit) {
-            rollParts.push(`- **Natural 19-20:** ${effect.crit}`);
+            rollParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
         }
         return rollParts.join('\n');
     }

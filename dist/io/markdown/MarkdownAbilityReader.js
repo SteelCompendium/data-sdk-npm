@@ -4,6 +4,7 @@ exports.MarkdownAbilityReader = void 0;
 const model_1 = require("../../model");
 const Effects_1 = require("../../model/Effects");
 class MarkdownAbilityReader {
+    constructor() { }
     read(content) {
         const lines = content.split('\n').filter(line => line.trim() !== '');
         const partial = {};
@@ -34,29 +35,11 @@ class MarkdownAbilityReader {
         // Effects
         while (i < lines.length) {
             const line = lines[i];
-            if (line.startsWith('**Effect:**')) {
-                let effectText = line.substring('**Effect:**'.length).trim();
-                const mundaneEffect = new model_1.MundaneEffect({ effect: effectText });
-                effects.push(mundaneEffect);
-                i++;
-                // Handle multi-line effects
-                while (i < lines.length && lines[i].trim().startsWith('-')) {
-                    const effectLine = lines[i].trim().substring(1).trim();
-                    if (mundaneEffect.effect.endsWith(':')) {
-                        mundaneEffect.effect += '\n' + `- ${effectLine}`;
-                    }
-                    else {
-                        const newEffect = new model_1.MundaneEffect({ effect: effectLine });
-                        effects.push(newEffect);
-                    }
-                    i++;
-                }
-            }
-            else if (line.includes('Roll +')) { // Power Roll
+            if (line.startsWith('**Power Roll')) { // Power Roll
                 const powerRollEffect = new model_1.PowerRollEffect({});
                 powerRollEffect.roll = line.replace(/\*\*|:/g, '');
                 i++;
-                while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim().startsWith('*'))) {
+                while (i < lines.length && lines[i].trim().startsWith('-')) {
                     const rollLine = lines[i].trim();
                     const separatorIndex = rollLine.indexOf(':');
                     const tier = rollLine.substring(0, separatorIndex);
@@ -72,22 +55,38 @@ class MarkdownAbilityReader {
                     i++;
                 }
                 effects.push(powerRollEffect);
+                continue;
             }
-            else { // Named Effects (e.g., Persistent)
-                const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
-                if (namedEffectMatch) {
-                    const nameAndCost = namedEffectMatch[1];
-                    const effect = namedEffectMatch[2];
-                    const costMatch = nameAndCost.match(/(.+) (\d+)/);
-                    if (costMatch) {
-                        effects.push(new model_1.MundaneEffect({ name: costMatch[1], cost: costMatch[2], effect }));
-                    }
-                    else {
-                        effects.push(new model_1.MundaneEffect({ name: nameAndCost, effect }));
-                    }
-                }
+            if (line.startsWith('**Effect:**')) {
+                let effectText = line.substring('**Effect:**'.length).trim();
                 i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effectText += '\n' + lines[i];
+                    i++;
+                }
+                effects.push(new model_1.MundaneEffect({ effect: effectText.trim() }));
+                continue;
             }
+            // Named Effects (e.g., Persistent)
+            const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
+            if (namedEffectMatch) {
+                const nameAndCost = namedEffectMatch[1];
+                let effect = namedEffectMatch[2];
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effect += '\n' + lines[i];
+                    i++;
+                }
+                const costMatch = nameAndCost.match(/(.+) (\d+)/);
+                if (costMatch) {
+                    effects.push(new model_1.MundaneEffect({ name: costMatch[1], cost: costMatch[2], effect: effect.trim() }));
+                }
+                else {
+                    effects.push(new model_1.MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
+                }
+                continue;
+            }
+            i++;
         }
         const ability = new model_1.Ability(partial);
         ability.effects = new Effects_1.Effects(effects);

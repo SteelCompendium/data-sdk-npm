@@ -3,6 +3,8 @@ import { Effects } from "../../model/Effects";
 import { IDataReader } from "../IDataReader";
 
 export class MarkdownAbilityReader implements IDataReader<Ability> {
+    public constructor() { }
+
     read(content: string): Ability {
         const lines = content.split('\n').filter(line => line.trim() !== '');
         const partial: Partial<Ability> = {};
