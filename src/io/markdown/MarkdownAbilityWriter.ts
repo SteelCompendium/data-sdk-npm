@@ -21,7 +21,6 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             parts.push(`*${data.flavor}*`);
         }
 
-        const table: string[] = [];
         const header1: string[] = [];
         if (data.keywords && data.keywords.length > 0) {
             header1.push(`**${data.keywords.join(', ')}**`);
@@ -34,8 +33,6 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         } else {
             header1.push('');
         }
-        table.push(`| ${header1.join(' | ')} |`);
-        table.push(`|-----------------|---------------------------:|`);
 
         const row2: string[] = [];
         if (data.distance) {
@@ -48,17 +45,49 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         } else {
             row2.push('');
         }
-        table.push(`| ${row2.join(' | ')} |`);
+
         if (header1.some(h => h) || row2.some(r => r)) {
+            const table: string[] = [];
+            const col1Width = Math.max(header1[0].length, row2[0].length);
+            const col2Width = Math.max(header1[1].length, row2[1].length);
+
+            const paddedHeader1 = [
+                header1[0].padEnd(col1Width),
+                header1[1].padStart(col2Width)
+            ];
+            table.push(`| ${paddedHeader1.join(' | ')} |`);
+
+            const separator1 = '-'.repeat(col1Width);
+            const separator2 = '-'.repeat(col2Width);
+            table.push(`| ${separator1} | ${separator2}:|`);
+
+            const paddedRow2 = [
+                row2[0].padEnd(col1Width),
+                row2[1].padStart(col2Width)
+            ];
+            table.push(`| ${paddedRow2.join(' | ')} |`);
+
             parts.push(table.join('\n'));
         }
 
 
-        if (data.effects && data.effects.effects && data.effects.effects.length > 0) {
+        if (data.effects && (data.effects.effects || data.effects)) {
+            const allEffects = (data.effects.effects || data.effects) as any[];
+
+            if (allEffects.length === 0) {
+                return parts.join('\n\n');
+            }
+
+            const mappedEffects = allEffects.map(e => {
+                if (e instanceof Effect) return e;
+                if (e.roll) return new PowerRollEffect(e);
+                return new MundaneEffect(e);
+            });
+
             const effectParts: string[] = [];
 
-            const mundaneEffects = data.effects.effects.filter(e => e instanceof MundaneEffect && !e.name) as MundaneEffect[];
-            const otherEffects = data.effects.effects.filter(e => !(e instanceof MundaneEffect && !e.name));
+            const mundaneEffects = mappedEffects.filter(e => e instanceof MundaneEffect && !e.name) as MundaneEffect[];
+            const otherEffects = mappedEffects.filter(e => !(e instanceof MundaneEffect && !e.name));
 
             if (mundaneEffects.length > 0) {
                 if (mundaneEffects.length === 1) {
@@ -110,7 +139,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     private writePowerRollEffect(effect: PowerRollEffect): string {
         const rollParts: string[] = [];
         if (effect.roll) {
-            rollParts.push(`**Power Roll + ${effect.roll}:**`);
+            rollParts.push(`**${effect.roll}:**`);
         }
         if (effect.t1) {
             rollParts.push(`- **≤11:** ${effect.t1}`);
