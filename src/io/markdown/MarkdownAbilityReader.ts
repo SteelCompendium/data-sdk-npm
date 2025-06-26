@@ -10,25 +10,29 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         let i = 0;
 
         // Title and Cost
-        const titleMatch = lines[i++].match(/\*\*(.+) \((.+)\)\*\*/);
+        const titleMatch = lines[i++].match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);
         if (titleMatch) {
             partial.name = titleMatch[1].trim().toUpperCase();
-            partial.cost = titleMatch[2].trim();
+            if (titleMatch[2]) {
+                partial.cost = titleMatch[2].trim();
+            }
         }
 
         // Flavor Text
-        if (i < lines.length && lines[i].startsWith('*')) {
+        if (i < lines.length && lines[i].startsWith('*') && !lines[i].startsWith('**')) {
             partial.flavor = lines[i++].replace(/\*/g, '');
         }
 
         // Table
-        const headerCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
-        partial.keywords = headerCells[0].split(', ').map(k => k.trim());
-        partial.type = headerCells[1];
-        i++; // Skip separator
-        const dataCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
-        partial.distance = dataCells[0].replace('📏', '').trim();
-        partial.target = dataCells[1].replace('🎯', '').trim();
+        if (i < lines.length && lines[i].includes('|')) {
+            const headerCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
+            partial.keywords = headerCells[0].split(', ').map(k => k.trim());
+            partial.type = headerCells[1];
+            i++; // Skip separator
+            const dataCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
+            partial.distance = dataCells[0].replace('📏', '').trim();
+            partial.target = dataCells[1].replace('🎯', '').trim();
+        }
 
         const effects: Effect[] = [];
 
@@ -54,13 +58,13 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 }
             } else if (line.includes('Roll +')) { // Power Roll
                 const powerRollEffect = new PowerRollEffect({});
-                powerRollEffect.roll = line.replace(/\*\*/g, '');
+                powerRollEffect.roll = line.replace(/\*\*|:/g, '');
                 i++;
-                while (i < lines.length && lines[i].trim().startsWith('-')) {
+                while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim().startsWith('*'))) {
                     const rollLine = lines[i].trim();
                     const separatorIndex = rollLine.indexOf(':');
                     const tier = rollLine.substring(0, separatorIndex);
-                    const description = rollLine.substring(separatorIndex + 1);
+                    const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
                     if (tier.includes('≤11')) powerRollEffect.t1 = description.trim();
                     else if (tier.includes('12-16')) powerRollEffect.t2 = description.trim();
                     else if (tier.includes('17+')) powerRollEffect.t3 = description.trim();
