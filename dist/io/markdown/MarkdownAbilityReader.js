@@ -61,10 +61,20 @@ class MarkdownAbilityReader {
                 let effectText = line.substring('**Effect:**'.length).trim();
                 i++;
                 while (i < lines.length && !lines[i].startsWith('**')) {
-                    effectText += '\n' + lines[i];
+                    effectText += '\n' + lines[i].trim();
                     i++;
                 }
                 effects.push(new model_1.MundaneEffect({ effect: effectText.trim() }));
+                continue;
+            }
+            if (line.startsWith('**Trigger:**')) {
+                let triggerText = line.substring('**Trigger:**'.length).trim();
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    triggerText += '\n' + lines[i];
+                    i++;
+                }
+                partial.trigger = triggerText.trim();
                 continue;
             }
             // Named Effects (e.g., Persistent)

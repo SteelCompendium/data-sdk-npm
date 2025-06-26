@@ -65,7 +65,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 let effectText = line.substring('**Effect:**'.length).trim();
                 i++;
                 while (i < lines.length && !lines[i].startsWith('**')) {
-                    effectText += '\n' + lines[i];
+                    effectText += '\n' + lines[i].trim();
                     i++;
                 }
                 effects.push(new MundaneEffect({ effect: effectText.trim() }));

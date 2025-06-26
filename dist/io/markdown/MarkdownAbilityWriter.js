@@ -63,6 +63,9 @@ class MarkdownAbilityWriter {
             table.push(`| ${paddedRow2.join(' | ')} |`);
             parts.push(table.join('\n'));
         }
+        if (data.trigger) {
+            parts.push(`**Trigger:** ${data.trigger}`);
+        }
         if (data.effects && (data.effects.effects || data.effects)) {
             const allEffects = (data.effects.effects || data.effects);
             if (allEffects.length === 0) {
@@ -95,10 +98,10 @@ class MarkdownAbilityWriter {
             if (effect.cost) {
                 str += ` ${effect.cost}`;
             }
-            str += `:** ${effect.effect.trim()}`;
+            str += `:** ${effect.effect.trim().replace(/\n/g, '\n\n')}`;
             return str;
         }
-        return `**Effect:** ${effect.effect.trim()}`;
+        return `**Effect:** ${effect.effect.trim().replace(/\n/g, '\n\n')}`;
     }
     writePowerRollEffect(effect) {
         const rollParts = [];
