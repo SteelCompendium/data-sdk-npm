@@ -98,10 +98,10 @@ class MarkdownAbilityWriter {
             if (effect.cost) {
                 str += ` ${effect.cost}`;
             }
-            str += `:** ${effect.effect.trim().replace(/\n/g, '\n\n')}`;
+            str += `:** ${effect.effect.trim()}`;
             return str;
         }
-        return `**Effect:** ${effect.effect.trim().replace(/\n/g, '\n\n')}`;
+        return `**Effect:** ${effect.effect.trim()}`;
     }
     writePowerRollEffect(effect) {
         const rollParts = [];

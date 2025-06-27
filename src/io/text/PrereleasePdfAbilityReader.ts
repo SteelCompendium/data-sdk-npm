@@ -6,7 +6,7 @@ import { cleanOcrText } from "./stringUtils";
 
 export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
     read(text: string): Ability {
-        const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+        const lines = text.split('\n').map(l => l).filter(l => l);
         const effects: Effect[] = [];
         const abilityData: Partial<Ability> = {};
 
@@ -83,7 +83,7 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
             }
         }
 
-        if (flavorLines.length > 0) abilityData.flavor = flavorLines.join(' ');
+        if (flavorLines.length > 0) abilityData.flavor = this.joinAndFormatEffectLines(flavorLines);
 
         let capturingTrigger = false;
         for (const line of actualPropertyLines) {
@@ -318,11 +318,16 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                 result += `\n${currentLine}`;
                 continue;
             }
-            const prevLineEndsWithPunctuation = /[.!?]$/.test(prevLine);
-            const currentLineStartsWithCapital = /^[A-Z]/.test(currentLine);
 
-            if (prevLineEndsWithPunctuation && currentLineStartsWithCapital) {
+            const prevPunctuationWhitespace = /[.!?]\s+$/.test(prevLine);
+            const prevPunctuationNoWhitespace = /[.!?]$/.test(prevLine);
+            const prevWhitespace = /\s+$/.test(prevLine);
+            if (prevPunctuationWhitespace) {
+                result += `${currentLine}`;
+            } else if (prevPunctuationNoWhitespace) {
                 result += `\n${currentLine}`;
+            } else if (prevWhitespace) {
+                result += `${currentLine}`;
             } else {
                 result += ` ${currentLine}`;
             }

@@ -7,7 +7,7 @@ const model_1 = require("../../model");
 const stringUtils_1 = require("./stringUtils");
 class PrereleasePdfAbilityReader {
     read(text) {
-        const lines = text.split('\n').map(l => l.trim()).filter(l => l);
+        const lines = text.split('\n').map(l => l).filter(l => l);
         const effects = [];
         const abilityData = {};
         if (!lines.length)
@@ -81,7 +81,7 @@ class PrereleasePdfAbilityReader {
             }
         }
         if (flavorLines.length > 0)
-            abilityData.flavor = flavorLines.join(' ');
+            abilityData.flavor = this.joinAndFormatEffectLines(flavorLines);
         let capturingTrigger = false;
         for (const line of actualPropertyLines) {
             const triggerMatch = line.match(/Trigger:\s*(.*)/i);
@@ -300,8 +300,34 @@ class PrereleasePdfAbilityReader {
     joinAndFormatEffectLines(lines) {
         if (!lines || lines.length === 0)
             return '';
-        // Join with spaces, but handle bullet points by putting them on a new line.
-        return lines.join(' ').replace(/\s*•/g, '\n•').trim();
+        let result = lines[0];
+        for (let i = 1; i < lines.length; i++) {
+            const prevLine = lines[i - 1];
+            const currentLine = lines[i];
+            if (currentLine.startsWith('•')) {
+                result += `\n${currentLine}`;
+                continue;
+            }
+            const prevPunctuationWhitespace = /[.!?]\s+$/.test(prevLine);
+            const prevPunctuationNoWhitespace = /[.!?]$/.test(prevLine);
+            const prevWhitespace = /\s+$/.test(prevLine);
+            if (prevPunctuationWhitespace) {
+                result += `${currentLine}`;
+            }
+            else if (prevPunctuationNoWhitespace) {
+                result += `\n${currentLine}`;
+            }
+            else if (prevWhitespace) {
+                result += `${currentLine}`;
+            }
+            else {
+                result += ` ${currentLine}`;
+            }
+        }
+        // Final cleanup for bullet points that might not have been handled by the loop logic (e.g., first line is a bullet)
+        return result
+            .replace(/\s*•/g, '\n•')
+            .trim();
     }
     mapOutcomeToTierKey(threshold) {
         const s = threshold.toLowerCase().replace(':', '');
