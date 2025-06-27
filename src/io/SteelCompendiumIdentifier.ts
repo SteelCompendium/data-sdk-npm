@@ -3,11 +3,13 @@ import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
 import { PrereleasePdfAbilityReader, PrereleasePdfStatblockReader } from './text';
+import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
 
 export enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
+    Markdown = "markdown",
     PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown",
 }
@@ -66,6 +68,14 @@ export class SteelCompendiumIdentifier {
             // Not YAML
         }
 
+        if (this.isMarkdownAbility(source)) {
+            return {
+                format: SteelCompendiumFormat.Markdown,
+                model: Ability,
+                getReader: () => new MarkdownAbilityReader(),
+            };
+        }
+
         if (this.isStatblock(source)) {
             return {
                 format: SteelCompendiumFormat.PrereleasePdfText,
@@ -99,6 +109,30 @@ export class SteelCompendiumIdentifier {
             return Ability;
         }
         return null;
+    }
+
+    private static isMarkdownAbility(text: string): boolean {
+        const lines = text.split('\n').map(l => l.trim());
+        const firstLine = lines[0];
+
+        // e.g. **Ability Name (Cost)**
+        const titleRegex = /^\s*\*\*(.*?)(?: \((.*?)\))?\*\*\s*$/;
+        if (!titleRegex.test(firstLine)) {
+            return false;
+        }
+
+        // Check for markdown table for keywords/type/etc.
+        // e.g. | **Keywords** | **Type** |
+        const hasTable = lines.some(l => l.includes('|'));
+
+        // Check for markdown sections
+        const hasSection = lines.some(l =>
+            l.startsWith('**Power Roll') ||
+            l.startsWith('**Effect:**') ||
+            l.startsWith('**Trigger:**')
+        );
+
+        return hasTable || hasSection;
     }
 
     private static isStatblock(text: string): boolean {

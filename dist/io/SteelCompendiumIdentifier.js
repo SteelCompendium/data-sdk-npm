@@ -5,11 +5,13 @@ const yaml_1 = require("yaml");
 const json_1 = require("./json");
 const yaml_2 = require("./yaml");
 const text_1 = require("./text");
+const MarkdownAbilityReader_1 = require("./markdown/MarkdownAbilityReader");
 const model_1 = require("../model");
 var SteelCompendiumFormat;
 (function (SteelCompendiumFormat) {
     SteelCompendiumFormat["Json"] = "json";
     SteelCompendiumFormat["Yaml"] = "yaml";
+    SteelCompendiumFormat["Markdown"] = "markdown";
     SteelCompendiumFormat["PrereleasePdfText"] = "prerelease-pdf-text";
     SteelCompendiumFormat["Unknown"] = "unknown";
 })(SteelCompendiumFormat || (exports.SteelCompendiumFormat = SteelCompendiumFormat = {}));
@@ -61,6 +63,13 @@ class SteelCompendiumIdentifier {
         catch (e) {
             // Not YAML
         }
+        if (this.isMarkdownAbility(source)) {
+            return {
+                format: SteelCompendiumFormat.Markdown,
+                model: model_1.Ability,
+                getReader: () => new MarkdownAbilityReader_1.MarkdownAbilityReader(),
+            };
+        }
         if (this.isStatblock(source)) {
             return {
                 format: SteelCompendiumFormat.PrereleasePdfText,
@@ -91,6 +100,23 @@ class SteelCompendiumIdentifier {
             return model_1.Ability;
         }
         return null;
+    }
+    static isMarkdownAbility(text) {
+        const lines = text.split('\n').map(l => l.trim());
+        const firstLine = lines[0];
+        // e.g. **Ability Name (Cost)**
+        const titleRegex = /^\s*\*\*(.*?)(?: \((.*?)\))?\*\*\s*$/;
+        if (!titleRegex.test(firstLine)) {
+            return false;
+        }
+        // Check for markdown table for keywords/type/etc.
+        // e.g. | **Keywords** | **Type** |
+        const hasTable = lines.some(l => l.includes('|'));
+        // Check for markdown sections
+        const hasSection = lines.some(l => l.startsWith('**Power Roll') ||
+            l.startsWith('**Effect:**') ||
+            l.startsWith('**Trigger:**'));
+        return hasTable || hasSection;
     }
     static isStatblock(text) {
         const statblockKeywords = [

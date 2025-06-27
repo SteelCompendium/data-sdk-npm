@@ -27,6 +27,9 @@ describe('SteelCompendiumIdentifier', () => {
         if (filePath.includes('dto-yaml')) {
             return SteelCompendiumFormat.Yaml;
         }
+        if (filePath.includes('sc_md')) {
+            return SteelCompendiumFormat.Markdown;
+        }
         if (filePath.includes('prerelease-pdf')) {
             return SteelCompendiumFormat.PrereleasePdfText;
         }
