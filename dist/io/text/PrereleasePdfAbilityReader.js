@@ -325,9 +325,7 @@ class PrereleasePdfAbilityReader {
             }
         }
         // Final cleanup for bullet points that might not have been handled by the loop logic (e.g., first line is a bullet)
-        return result
-            .replace(/\s*•/g, '\n•')
-            .trim();
+        return result.replace(/\s*•/g, '\n•').trim();
     }
     mapOutcomeToTierKey(threshold) {
         const s = threshold.toLowerCase().replace(':', '');

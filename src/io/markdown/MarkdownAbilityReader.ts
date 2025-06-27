@@ -14,7 +14,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         // Title and Cost
         const titleMatch = lines[i++].match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);
         if (titleMatch) {
-            partial.name = titleMatch[1].trim().toUpperCase();
+            partial.name = titleMatch[1].trim();
             if (titleMatch[2]) {
                 partial.cost = titleMatch[2].trim();
             }
