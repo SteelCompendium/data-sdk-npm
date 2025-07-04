@@ -93,15 +93,17 @@ class MarkdownAbilityWriter {
         return '';
     }
     writeMundaneEffect(effect) {
+        let name = "Effect";
         if (effect.name) {
-            let str = `**${effect.name}`;
+            name = effect.name;
             if (effect.cost) {
-                str += ` ${effect.cost}`;
+                name += ` (${effect.cost})`;
             }
-            str += `:** ${effect.effect.trim()}`;
-            return str;
         }
-        return `**Effect:** ${effect.effect.trim()}`;
+        else if (effect.cost) {
+            name = effect.cost;
+        }
+        return `**${name}:** ${effect.effect.trim()}`;
     }
     writePowerRollEffect(effect) {
         const rollParts = [];

@@ -355,12 +355,7 @@ class PrereleasePdfStatblockReader {
                 const effect = {
                     effect: effectText,
                 };
-                if (statblock.name === "WEREWOLF" || (current.cost && /malice/i.test(current.cost))) {
-                    effect.name = malice[1];
-                }
-                else {
-                    effect.cost = malice[1];
-                }
+                effect.cost = malice[1];
                 current.effects.push(new model_1.MundaneEffect(effect));
                 idx = lookahead;
                 continue;

@@ -17,4 +17,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./MarkdownAbilityWriter"), exports);
 __exportStar(require("./MarkdownAbilityReader"), exports);
 __exportStar(require("./MarkdownStatblockWriter"), exports);
+__exportStar(require("./MarkdownStatblockReader"), exports);
 //# sourceMappingURL=index.js.map

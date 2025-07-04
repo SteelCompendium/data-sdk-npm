@@ -80,8 +80,8 @@ class MarkdownStatblockReader {
                         // if (prevEffect) {
                         //     prevEffect.effect += '\n' + currentLine.trim();
                         // }
-                        // lineIdx++;
                     }
+                    lineIdx++;
                 }
                 trait.effects = new model_1.Effects(effects);
                 traits.push(new model_1.Trait(trait));

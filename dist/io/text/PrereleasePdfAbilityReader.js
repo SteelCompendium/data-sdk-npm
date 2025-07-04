@@ -191,7 +191,12 @@ class PrereleasePdfAbilityReader {
                             continue;
                         const namedMatch = part.match(/^([A-Z][a-zA-Z0-9\s'-+]*):\s*([\s\S]*)/);
                         if (namedMatch) {
-                            parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            if (namedMatch[1].trim().match(/\d+\+?\s*\w+/)) {
+                                parsedEffects.push({ cost: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            }
+                            else {
+                                parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            }
                         }
                         else {
                             parsedEffects.push({ effect: part.trim() });
@@ -205,10 +210,15 @@ class PrereleasePdfAbilityReader {
                             if (!current.name && current.effect.startsWith('Spend ') && i + 1 < parsedEffects.length) {
                                 const next = parsedEffects[i + 1];
                                 if (next.name) {
-                                    finalEffects.push(new model_1.MundaneEffect({
-                                        name: `${current.effect} ${next.name}`,
-                                        effect: next.effect
-                                    }));
+                                    const name = `${current.effect} ${next.name}`;
+                                    let data = { effect: next.effect };
+                                    if (name.match(/\d+\+?\s*\w+/)) {
+                                        data.cost = name;
+                                    }
+                                    else {
+                                        data.name = name;
+                                    }
+                                    finalEffects.push(new model_1.MundaneEffect(data));
                                     i++; // consumed next element
                                 }
                                 else {

@@ -88,18 +88,23 @@ class MarkdownAbilityReader {
                     i++;
                 }
                 const effectProps = { effect: effect.trim() };
-                const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
-                let name;
-                if (nameCostMatch) {
-                    name = nameCostMatch[1].trim();
-                    effectProps.cost = nameCostMatch[2].trim();
+                if (nameAndCost.trim().match(/\d+\+*\s*\w+/)) {
+                    effectProps.cost = nameAndCost.trim();
                 }
-                else {
-                    name = nameAndCost.trim();
+                else if (nameAndCost.trim().toLowerCase() !== 'effect') {
+                    effectProps.name = nameAndCost.trim();
                 }
-                if (name.toLowerCase() !== 'effect') {
-                    effectProps.name = name;
-                }
+                // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
+                // let name: string | undefined;
+                // if (nameCostMatch) {
+                //     name = nameCostMatch[1].trim();
+                //     effectProps.cost = nameCostMatch[2].trim();
+                // } else {
+                //     name = nameAndCost.trim();
+                // }
+                // if (name.toLowerCase() !== 'effect') {
+                //     effectProps.name = name;
+                // }
                 effects.push(new model_1.MundaneEffect(effectProps));
                 continue;
             }
