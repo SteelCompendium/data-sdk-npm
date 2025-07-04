@@ -17,13 +17,12 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
                 if (trait.name) {
                     parts.push("");
                     parts.push(`##### ${trait.name}`);
-                    parts.push(""); // Empty line for spacing
                     if (trait.effects && trait.effects.effects.length > 0) {
                         const effects = trait.effects.effects.map(e => {
                             if (e.effectType() === 'MundaneEffect') {
                                 const mundane = e as any;
                                 const name = mundane.name ? `**${mundane.name.trim()}:** ` : '';
-                                return `${name}${mundane.effect.trim()}`;
+                                return `\n${name}${mundane.effect.trim()}`;
                             }
                             return '';
                         }).filter(e => e);

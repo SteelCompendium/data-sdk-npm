@@ -80,13 +80,15 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                         //     effectProps.name = name;
                         // }
 
-                        effects.push(new MundaneEffect(effectProps as any));
+                        effects.push(new MundaneEffect(effectProps));
                     } else {
-                        const prevEffect = effects[effects.length - 1];
-                        if (prevEffect) {
-                            prevEffect.effect += '\n' + currentLine.trim();
-                        }
-                        lineIdx++;
+                        effects.push(new MundaneEffect({ effect: currentLine.trim() }));
+                        // Pretty sure this will be a problem for multi-line effects
+                        // const prevEffect = effects[effects.length - 1];
+                        // if (prevEffect) {
+                        //     prevEffect.effect += '\n' + currentLine.trim();
+                        // }
+                        // lineIdx++;
                     }
                 }
                 trait.effects = new Effects(effects);
