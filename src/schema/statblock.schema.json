@@ -74,9 +74,24 @@
             "default": []
         },
         "speed": {
-            "type": "string",
-            "description": "Movement speed of the creature, may include parenthetical modifiers (e.g., '5 (climb)').",
+            "type": "integer",
+            "description": "Movement speed of the creature (e.g., 5).",
             "default": ""
+        },
+        "movement": {
+            "type": "string",
+            "description": "Movement types of the creature (e.g., 'climb, fly, swim').",
+            "default": ""
+        },
+        "melee_distance": {
+            "type": "integer",
+            "description": "Melee distance of the creature.",
+            "default": 0
+        },
+        "ranged_distance": {
+            "type": "integer",
+            "description": "Ranged distance of the creature.",
+            "default": 0
         },
         "size": {
             "type": "string",

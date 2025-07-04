@@ -9,7 +9,7 @@ stamina: 80
 immunities:
   - Corruption 2
   - Psychic 2
-speed: "5"
+speed: 5
 size: 1M
 stability: 2
 free_strike: 4

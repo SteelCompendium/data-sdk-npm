@@ -10,7 +10,7 @@ stamina: 20
 immunities:
   - corruption 1
   - poison 1
-speed: "5"
+speed: 5
 size: 1M
 stability: 1
 free_strike: 2

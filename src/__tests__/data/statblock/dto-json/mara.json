@@ -12,7 +12,7 @@
   ],
   "ev": "16",
   "stamina": 60,
-  "speed": "5",
+  "speed": 5,
   "size": "1M",
   "stability": 1,
   "free_strike": 5,

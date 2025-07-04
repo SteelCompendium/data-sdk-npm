@@ -7,10 +7,13 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     ancestry!: string[];
     ev!: string;
     stamina!: number;
-    speed!: string;
+    speed!: number;
+    movement!: string;
     size!: string;
     stability!: number;
     free_strike!: number;
+    melee_distance?: number;
+    ranged_distance?: number;
     might!: number;
     agility!: number;
     reason!: number;
@@ -40,6 +43,9 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
         if (model.immunities !== undefined && model.immunities.length > 0) data.immunities = model.immunities;
         if (model.weaknesses !== undefined && model.weaknesses.length > 0) data.weaknesses = model.weaknesses;
         if (model.speed !== undefined) data.speed = model.speed;
+        if (model.movement !== undefined) data.movement = model.movement;
+        if (model.meleeDistance !== undefined) data.melee_distance = model.meleeDistance;
+        if (model.rangedDistance !== undefined) data.ranged_distance = model.rangedDistance;
         if (model.size !== undefined) data.size = model.size;
         if (model.stability !== undefined) data.stability = model.stability;
         if (model.freeStrike !== undefined) data.free_strike = model.freeStrike;

@@ -8,7 +8,7 @@ ancestry:
   - Humanoid
 ev: "6"
 stamina: 36
-speed: "7"
+speed: 7
 size: 1M
 stability: 2
 free_strike: 3

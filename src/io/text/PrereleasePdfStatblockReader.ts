@@ -89,7 +89,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         while (idx < lines.length && !lines[idx]) idx++;
 
         // 4, 5, 6) Speed, Size, Stability, Free Strike, Stats, etc.
-        statblock.speed = "0";
+        statblock.speed = 0;
         statblock.size = "";
         statblock.stability = 0;
         statblock.freeStrike = 0;
@@ -116,9 +116,13 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 continue;
             }
 
+            const speedMovementMatch = /Speed\s+(\d+)\s*\((\w+?)\)?(?=\s*Size|\s*\/|$)/i.exec(line);
             const speedMatch = /Speed\s+([\d\s()A-z]+?)(?=\s*Size|\s*\/|$)/i.exec(line);
-            if (speedMatch) {
-                statblock.speed = speedMatch[1].trim();
+            if (speedMovementMatch) {
+                statblock.speed = parseInt(speedMovementMatch[1].trim(), 10);
+                statblock.movement = speedMovementMatch[2].trim();
+            } else if (speedMatch) {
+                statblock.speed = parseInt(speedMatch[1].trim(), 10);
             }
 
             const sizeMatch = /Size\s+(.+?)(?=\s*\/|$)/i.exec(line);

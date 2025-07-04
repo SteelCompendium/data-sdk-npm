@@ -14,7 +14,7 @@
     "Corruption 4",
     "Psychic 4"
   ],
-  "speed": "5",
+  "speed": 5,
   "size": "1 M",
   "stability": 2,
   "free_strike": 5,

@@ -17,7 +17,7 @@
   "weaknesses": [
     "acid 3"
   ],
-  "speed": "0",
+  "speed": 0,
   "size": "1L",
   "stability": 3,
   "free_strike": 4,

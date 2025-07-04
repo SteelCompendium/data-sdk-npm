@@ -8,7 +8,7 @@ ancestry:
   - Werebeast
 ev: "36"
 stamina: 200
-speed: "7"
+speed: 7
 size: 1M
 stability: 0
 free_strike: 5
