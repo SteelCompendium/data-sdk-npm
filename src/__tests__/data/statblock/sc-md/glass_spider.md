@@ -1,9 +1,9 @@
-| **GLASS SPIDER**                         | **Level:** 1                             |
+| **GLASS SPIDER**                         | Level 1 ELITE, SKIRMISHER                |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Construct                  | **Roles:** ELITE, SKIRMISHER             |
-| **Stamina:** 60                          | **EV:** 12                               |
-| **Speed:** 7 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** Sonic 5                    |
+| **Ancestry:** Construct                  | **EV:** 12                               |
+| **Stamina:** 60                          | **Immunity:** -                          |
+| **Speed:** 7                             | **Weakness:** Sonic 5                    |
+| **Movement:** climb                      | **With Captain:** -                      |
 | **Might:** +2                            | **Free Strike:** 4                       |
 | **Agility:** +1                          | **Melee:** -                             |
 | **Reason:** -4                           | **Ranged:** -                            |

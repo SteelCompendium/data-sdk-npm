@@ -1,9 +1,9 @@
-| **RADENWIGHT MISCHIEVER**                | **Level:** 1                             |
+| **RADENWIGHT MISCHIEVER**                | Level 1 MINION, AMBUSHER                 |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Radenwight       | **Roles:** MINION, AMBUSHER              |
-| **Stamina:** 4                           | **EV:** 3 for four minions               |
-| **Speed:** 7 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Humanoid, Radenwight       | **EV:** 3 for four minions               |
+| **Stamina:** 4                           | **Immunity:** -                          |
+| **Speed:** 7                             | **Weakness:** -                          |
+| **Movement:** climb                      | **With Captain:** Strike damage +1       |
 | **Might:** -1                            | **Free Strike:** 2                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

@@ -1,9 +1,9 @@
-| **GOBLIN SNIPER**                        | **Level:** 1                             |
+| **GOBLIN SNIPER**                        | Level 1 MINION, ARTILLERY                |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Goblin, Humanoid           | **Roles:** MINION, ARTILLERY             |
-| **Stamina:** 3                           | **EV:** 3 for four minions               |
-| **Speed:** 5 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Goblin, Humanoid           | **EV:** 3 for four minions               |
+| **Stamina:** 3                           | **Immunity:** -                          |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** climb                      | **With Captain:** Ranged distance +5     |
 | **Might:** -2                            | **Free Strike:** 2                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

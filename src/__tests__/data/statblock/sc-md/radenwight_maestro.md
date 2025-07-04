@@ -1,9 +1,9 @@
-| **RADENWIGHT MAESTRO**                   | **Level:** 1                             |
+| **RADENWIGHT MAESTRO**                   | Level 1 LEADER                           |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Radenwight       | **Roles:** LEADER                        |
-| **Stamina:** 80                          | **EV:** 12                               |
-| **Speed:** 5 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Humanoid, Radenwight       | **EV:** 12                               |
+| **Stamina:** 80                          | **Immunity:** -                          |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** climb                      | **With Captain:** -                      |
 | **Might:** -2                            | **Free Strike:** 4                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

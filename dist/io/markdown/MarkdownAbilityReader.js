@@ -35,37 +35,37 @@ class MarkdownAbilityReader {
         // Effects
         while (i < lines.length) {
             const line = lines[i];
-            if (line.startsWith('**Power Roll')) { // Power Roll
-                const powerRollEffect = new model_1.PowerRollEffect({});
-                powerRollEffect.roll = line.replace(/\*\*|:/g, '');
-                i++;
-                while (i < lines.length && lines[i].trim().startsWith('-')) {
-                    const rollLine = lines[i].trim();
-                    const separatorIndex = rollLine.indexOf(':');
-                    const tier = rollLine.substring(0, separatorIndex);
-                    const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
-                    if (tier.includes('≤11'))
-                        powerRollEffect.t1 = description.trim();
-                    else if (tier.includes('12-16'))
-                        powerRollEffect.t2 = description.trim();
-                    else if (tier.includes('17+'))
-                        powerRollEffect.t3 = description.trim();
-                    else if (tier.includes('19-20'))
-                        powerRollEffect.crit = description.trim();
-                    i++;
+            if (line.startsWith('**') && line.endsWith(':**')) {
+                let isPowerRoll = false;
+                // Peek ahead to see if there are roll tiers
+                if (i + 1 < lines.length) {
+                    const nextLine = lines[i + 1].trim();
+                    if (nextLine.startsWith('- **') && nextLine.includes(':')) {
+                        isPowerRoll = true;
+                    }
                 }
-                effects.push(powerRollEffect);
-                continue;
-            }
-            if (line.startsWith('**Effect:**')) {
-                let effectText = line.substring('**Effect:**'.length).trim();
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
-                    effectText += '\n' + lines[i].trim();
+                if (isPowerRoll) {
+                    const powerRollEffect = new model_1.PowerRollEffect({});
+                    powerRollEffect.roll = line.replace(/\*\*|:/g, '').trim();
                     i++;
+                    while (i < lines.length && lines[i].trim().startsWith('-')) {
+                        const rollLine = lines[i].trim();
+                        const separatorIndex = rollLine.indexOf(':');
+                        const tier = rollLine.substring(0, separatorIndex);
+                        const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
+                        if (tier.includes('≤11'))
+                            powerRollEffect.t1 = description.trim();
+                        else if (tier.includes('12-16'))
+                            powerRollEffect.t2 = description.trim();
+                        else if (tier.includes('17+'))
+                            powerRollEffect.t3 = description.trim();
+                        else if (tier.includes('19-20'))
+                            powerRollEffect.crit = description.trim();
+                        i++;
+                    }
+                    effects.push(powerRollEffect);
+                    continue;
                 }
-                effects.push(new model_1.MundaneEffect({ effect: effectText.trim() }));
-                continue;
             }
             if (line.startsWith('**Trigger:**')) {
                 let triggerText = line.substring('**Trigger:**'.length).trim();
@@ -77,17 +77,30 @@ class MarkdownAbilityReader {
                 partial.trigger = triggerText.trim();
                 continue;
             }
-            // Named Effects (e.g., Persistent)
-            const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
-            if (namedEffectMatch) {
-                const nameAndCost = namedEffectMatch[1];
-                let effect = namedEffectMatch[2];
+            // Effects (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
+            const effectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
+            if (effectMatch) {
+                const nameAndCost = effectMatch[1];
+                let effect = effectMatch[2];
                 i++;
                 while (i < lines.length && !lines[i].startsWith('**')) {
                     effect += '\n' + lines[i];
                     i++;
                 }
-                effects.push(new model_1.MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
+                const effectProps = { effect: effect.trim() };
+                const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
+                let name;
+                if (nameCostMatch) {
+                    name = nameCostMatch[1].trim();
+                    effectProps.cost = nameCostMatch[2].trim();
+                }
+                else {
+                    name = nameAndCost.trim();
+                }
+                if (name.toLowerCase() !== 'effect') {
+                    effectProps.name = name;
+                }
+                effects.push(new model_1.MundaneEffect(effectProps));
                 continue;
             }
             i++;

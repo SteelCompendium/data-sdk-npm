@@ -1,9 +1,9 @@
-| **ZOMBIE**                               | **Level:** 1                             |
+| **ZOMBIE**                               | Level 1 HORDE, BRUTE                     |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Undead                     | **Roles:** HORDE, BRUTE                  |
-| **Stamina:** 20                          | **EV:** 3                                |
-| **Speed:** 5                             | **Immunity:** corruption 1, poison 1     |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Undead                     | **EV:** 3                                |
+| **Stamina:** 20                          | **Immunity:** corruption 1, poison 1     |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +2                            | **Free Strike:** 2                       |
 | **Agility:** +1                          | **Melee:** -                             |
 | **Reason:** -5                           | **Ranged:** -                            |

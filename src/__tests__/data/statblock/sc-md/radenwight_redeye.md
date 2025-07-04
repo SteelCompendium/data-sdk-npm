@@ -1,9 +1,9 @@
-| **RADENWIGHT REDEYE**                    | **Level:** 1                             |
+| **RADENWIGHT REDEYE**                    | Level 1 MINION, ARTILLERY                |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Radenwight       | **Roles:** MINION, ARTILLERY             |
-| **Stamina:** 3                           | **EV:** 3 for four minions               |
-| **Speed:** 5 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Humanoid, Radenwight       | **EV:** 3 for four minions               |
+| **Stamina:** 3                           | **Immunity:** -                          |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** climb                      | **With Captain:** Edge on strikes        |
 | **Might:** +1                            | **Free Strike:** 2                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** -1                           | **Ranged:** -                            |

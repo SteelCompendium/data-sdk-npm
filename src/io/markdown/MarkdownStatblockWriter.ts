@@ -53,7 +53,8 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
 
         // Row 1: Name and Level
         const nameCol = `**${data.name || 'Unnamed'}**`;
-        const levelCol = `**Level:** ${data.level || 1}`;
+        const rolesText = data.roles && data.roles.length > 0 ? data.roles.join(', ') : '-';
+        const levelCol = `Level ${data.level || 1} ${rolesText}`;
         table.push(`| ${nameCol.padEnd(colWidth)} | ${levelCol.padEnd(colWidth)} |`);
 
         // Table alignment
@@ -61,27 +62,32 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
 
         // Row 2: Ancestry and Roles
         const ancestryText = data.ancestry && data.ancestry.length > 0 ? data.ancestry.join(', ') : '-';
-        const rolesText = data.roles && data.roles.length > 0 ? data.roles.join(', ') : '-';
         const ancestryCol = `**Ancestry:** ${ancestryText}`;
-        const rolesCol = `**Roles:** ${rolesText}`;
-        table.push(`| ${ancestryCol.padEnd(colWidth)} | ${rolesCol.padEnd(colWidth)} |`);
-
-        // Row 3: Stamina and EVcheckpoiont
-        const staminaCol = `**Stamina:** ${data.stamina || 0}`;
         const evCol = `**EV:** ${data.ev || 0}`;
-        table.push(`| ${staminaCol.padEnd(colWidth)} | ${evCol.padEnd(colWidth)} |`);
+        table.push(`| ${ancestryCol.padEnd(colWidth)} | ${evCol.padEnd(colWidth)} |`);
 
-        // Row 4: Speed and Immunity
-        const speedCol = `**Speed:** ${data.speed || 0}`;
+        // Row 3: Stamina and EV
+        const staminaCol = `**Stamina:** ${data.stamina || 0}`;
         const immunityText = data.immunities && data.immunities.length > 0 ? data.immunities.join(', ') : '-';
         const immunityCol = `**Immunity:** ${immunityText}`;
-        table.push(`| ${speedCol.padEnd(colWidth)} | ${immunityCol.padEnd(colWidth)} |`);
+        table.push(`| ${staminaCol.padEnd(colWidth)} | ${immunityCol.padEnd(colWidth)} |`);
 
-        // Row 5: Movement and Weakness
-        const movementCol = `**Movement:** -`; // Not in current model
+        // Row 4: Speed and Immunity
+        const speedCol = `**Speed:** ${data.speed.replace(/\(.*\)/, '').trim()}`;
         const weaknessText = data.weaknesses && data.weaknesses.length > 0 ? data.weaknesses.join(', ') : '-';
         const weaknessCol = `**Weakness:** ${weaknessText}`;
-        table.push(`| ${movementCol.padEnd(colWidth)} | ${weaknessCol.padEnd(colWidth)} |`);
+        table.push(`| ${speedCol.padEnd(colWidth)} | ${weaknessCol.padEnd(colWidth)} |`);
+
+        // Row 5: Movement and Weakness
+        // TODO - add this to the model
+        let movement = '-';
+        const movementMatch = data.speed.match(/\d+\s*\((.+?)\)/);
+        if (movementMatch) {
+            movement = movementMatch[1];
+        }
+        const movementCol = `**Movement:** ${movement}`;
+        const withCaptainCol = `**With Captain:** ${data.withCaptain || '-'}`;
+        table.push(`| ${movementCol.padEnd(colWidth)} | ${withCaptainCol.padEnd(colWidth)} |`);
 
         // Row 6: Might and Free Strike
         const mightCol = `**Might:** ${this.formatCharacteristic(data.characteristics.might)}`;

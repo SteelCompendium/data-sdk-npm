@@ -1,9 +1,9 @@
-| **GOREK**                                | **Level:** 2                             |
+| **GOREK**                                | Level 2 ELITE, BRUTE                     |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Dwarf, Rival     | **Roles:** ELITE, BRUTE                  |
-| **Stamina:** 100                         | **EV:** 16                               |
-| **Speed:** 5                             | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Humanoid, Dwarf, Rival     | **EV:** 16                               |
+| **Stamina:** 100                         | **Immunity:** -                          |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +2                            | **Free Strike:** 5                       |
 | **Agility:** +1                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

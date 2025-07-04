@@ -1,9 +1,9 @@
-| **GOBLIN ASSASSIN**                      | **Level:** 1                             |
+| **GOBLIN ASSASSIN**                      | Level 1 HORDE, AMBUSHER                  |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Goblin, Humanoid           | **Roles:** HORDE, AMBUSHER               |
-| **Stamina:** 15                          | **EV:** 3                                |
-| **Speed:** 6 (climb)                     | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Goblin, Humanoid           | **EV:** 3                                |
+| **Stamina:** 15                          | **Immunity:** -                          |
+| **Speed:** 6                             | **Weakness:** -                          |
+| **Movement:** climb                      | **With Captain:** -                      |
 | **Might:** -2                            | **Free Strike:** 2                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

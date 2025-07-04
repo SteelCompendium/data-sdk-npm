@@ -1,9 +1,9 @@
-| **DAME CORNELIA**                        | **Level:** 1                             |
+| **DAME CORNELIA**                        | Level 1 LEADER                           |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Undead                     | **Roles:** LEADER                        |
-| **Stamina:** 80                          | **EV:** 12                               |
-| **Speed:** 5                             | **Immunity:** Corruption 2, Psychic 2    |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Undead                     | **EV:** 12                               |
+| **Stamina:** 80                          | **Immunity:** Corruption 2, Psychic 2    |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +3                            | **Free Strike:** 4                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** +2                           | **Ranged:** -                            |

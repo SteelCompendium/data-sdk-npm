@@ -1,9 +1,9 @@
-| **CIVILIAN**                             | **Level:** 1                             |
+| **CIVILIAN**                             | Level 1 -                                |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid or Animal         | **Roles:** -                             |
-| **Stamina:** 8                           | **EV:** 0                                |
-| **Speed:** 5                             | **Immunity:** -                          |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Humanoid or Animal         | **EV:** 0                                |
+| **Stamina:** 8                           | **Immunity:** -                          |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +0                            | **Free Strike:** 1                       |
 | **Agility:** +0                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

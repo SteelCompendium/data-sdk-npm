@@ -1,9 +1,9 @@
-| **WALLMASTER**                           | **Level:** 1                             |
+| **WALLMASTER**                           | Level 1 ELITE, DEFENDER                  |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Construct, Ruinborn        | **Roles:** ELITE, DEFENDER               |
-| **Stamina:** 80                          | **EV:** 12                               |
-| **Speed:** 0                             | **Immunity:** holy 1                     |
-| **Movement:** -                          | **Weakness:** acid 3                     |
+| **Ancestry:** Construct, Ruinborn        | **EV:** 12                               |
+| **Stamina:** 80                          | **Immunity:** holy 1                     |
+| **Speed:** 0                             | **Weakness:** acid 3                     |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +2                            | **Free Strike:** 4                       |
 | **Agility:** -5                          | **Melee:** -                             |
 | **Reason:** -3                           | **Ranged:** -                            |

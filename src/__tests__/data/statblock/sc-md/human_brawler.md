@@ -1,9 +1,9 @@
-| **HUMAN BRAWLER**                        | **Level:** 1                             |
+| **HUMAN BRAWLER**                        | Level 1 PLATOON, BRUTE                   |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Human, Humanoid            | **Roles:** PLATOON, BRUTE                |
-| **Stamina:** 40                          | **EV:** 6                                |
-| **Speed:** 5                             | **Immunity:** Corruption 1, Psychic 1    |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Human, Humanoid            | **EV:** 6                                |
+| **Stamina:** 40                          | **Immunity:** Corruption 1, Psychic 1    |
+| **Speed:** 5                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +2                            | **Free Strike:** 4                       |
 | **Agility:** +1                          | **Melee:** -                             |
 | **Reason:** +0                           | **Ranged:** -                            |

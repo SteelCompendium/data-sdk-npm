@@ -1,9 +1,9 @@
-| **GHOUL**                                | **Level:** 1                             |
+| **GHOUL**                                | Level 1 HORDE, HARRIER                   |
 |:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Undead                     | **Roles:** HORDE, HARRIER                |
-| **Stamina:** 15                          | **EV:** 3                                |
-| **Speed:** 7                             | **Immunity:** corruption 1, poison 1     |
-| **Movement:** -                          | **Weakness:** -                          |
+| **Ancestry:** Undead                     | **EV:** 3                                |
+| **Stamina:** 15                          | **Immunity:** corruption 1, poison 1     |
+| **Speed:** 7                             | **Weakness:** -                          |
+| **Movement:** -                          | **With Captain:** -                      |
 | **Might:** +0                            | **Free Strike:** 1                       |
 | **Agility:** +2                          | **Melee:** -                             |
 | **Reason:** -2                           | **Ranged:** -                            |
