@@ -54,7 +54,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // Row 1: Name and Level
         const nameCol = `**${data.name || 'Unnamed'}**`;
         const rolesText = data.roles && data.roles.length > 0 ? data.roles.join(', ') : '-';
-        const levelCol = `Level ${data.level || 1} ${rolesText}`;
+        const levelCol = `Level ${data.level || 0} ${rolesText}`;
         table.push(`| ${nameCol.padEnd(colWidth)} | ${levelCol.padEnd(colWidth)} |`);
 
         // Table alignment

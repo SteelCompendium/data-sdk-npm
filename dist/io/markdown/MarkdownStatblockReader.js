@@ -101,14 +101,12 @@ class MarkdownStatblockReader {
         if (cleanCell.startsWith('Level:')) {
             const level = parseInt(cleanCell.replace('Level:', '').trim(), 10);
             partial.level = isNaN(level) ? 0 : level;
+            const roles = cleanCell.replace(`Level: ${level}`, '').trim();
+            partial.roles = roles === '-' ? [] : roles.split(',').map(s => s.trim());
         }
         else if (cleanCell.startsWith('Ancestry:')) {
             const val = cleanCell.replace('Ancestry:', '').trim();
             partial.ancestry = val === '-' ? [] : val.split(',').map(s => s.trim());
-        }
-        else if (cleanCell.startsWith('Roles:')) {
-            const val = cleanCell.replace('Roles:', '').trim();
-            partial.roles = val === '-' ? [] : val.split(',').map(s => s.trim());
         }
         else if (cleanCell.startsWith('Stamina:')) {
             partial.stamina = parseInt(cleanCell.replace('Stamina:', '').trim(), 10) || 0;
@@ -152,7 +150,23 @@ class MarkdownStatblockReader {
             partial.stability = parseInt(cleanCell.replace('Stability:', '').trim(), 10) || 0;
         }
         else if (cleanCell.startsWith('With Captain:')) {
-            partial.withCaptain = cleanCell.replace('With Captain:', '').trim();
+            const val = cleanCell.replace('With Captain:', '').trim();
+            if (val !== '-') {
+                partial.withCaptain = val;
+            }
+        }
+        else if (cleanCell.toLowerCase().startsWith('level ')) {
+            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
+            if (match) {
+                partial.level = parseInt(match[1], 10);
+                partial.roles = match[2].split(',').map(s => s.trim());
+            }
+        }
+        else if (cleanCell.startsWith('Movement:')) {
+            const val = cleanCell.replace('Movement:', '').trim();
+            if (val !== '-') {
+                partial.speed = `${partial.speed} (${val})`;
+            }
         }
         else if (!cleanCell.includes(':')) {
             partial.name = cleanCell;

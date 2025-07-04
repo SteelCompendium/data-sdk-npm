@@ -1,4 +1,4 @@
-| **CIVILIAN**                             | Level 1 -                                |
+| **CIVILIAN**                             | Level 0 -                                |
 |:-----------------------------------------|:-----------------------------------------|
 | **Ancestry:** Humanoid or Animal         | **EV:** 0                                |
 | **Stamina:** 8                           | **Immunity:** -                          |
