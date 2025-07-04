@@ -394,11 +394,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
                 const effect: any = {
                     effect: effectText,
                 };
-                if (statblock.name === "WEREWOLF" || (current.cost && /malice/i.test(current.cost))) {
-                    effect.name = malice[1];
-                } else {
-                    effect.cost = malice[1];
-                }
+                effect.cost = malice[1];
                 current.effects.push(new MundaneEffect(effect));
                 idx = lookahead;
                 continue;

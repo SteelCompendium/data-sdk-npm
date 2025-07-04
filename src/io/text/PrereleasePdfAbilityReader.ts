@@ -196,12 +196,16 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                     const blockText = blockTextWithHeader.replace(/^(Effect|Trigger):/i, '').trim();
                     const effectParts = blockText.split(/(?=\b[A-Z][a-zA-Z0-9\s'-+]*:\s)/);
 
-                    const parsedEffects: { name?: string, effect: string }[] = [];
+                    const parsedEffects: { name?: string, cost?: string, effect: string }[] = [];
                     for (const part of effectParts) {
                         if (!part.trim()) continue;
                         const namedMatch = part.match(/^([A-Z][a-zA-Z0-9\s'-+]*):\s*([\s\S]*)/);
                         if (namedMatch) {
-                            parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            if (namedMatch[1].trim().match(/\d+\+?\s*\w+/)) {
+                                parsedEffects.push({ cost: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            } else {
+                                parsedEffects.push({ name: namedMatch[1].trim(), effect: namedMatch[2].trim() });
+                            }
                         } else {
                             parsedEffects.push({ effect: part.trim() });
                         }
@@ -215,10 +219,14 @@ export class PrereleasePdfAbilityReader implements IDataReader<Ability> {
                             if (!current.name && current.effect.startsWith('Spend ') && i + 1 < parsedEffects.length) {
                                 const next = parsedEffects[i + 1];
                                 if (next.name) {
-                                    finalEffects.push(new MundaneEffect({
-                                        name: `${current.effect} ${next.name}`,
-                                        effect: next.effect
-                                    }));
+                                    const name = `${current.effect} ${next.name}`;
+                                    let data: Partial<MundaneEffect> = { effect: next.effect }
+                                    if (name.match(/\d+\+?\s*\w+/)) {
+                                        data.cost = name;
+                                    } else {
+                                        data.name = name;
+                                    }
+                                    finalEffects.push(new MundaneEffect(data));
                                     i++; // consumed next element
                                 } else {
                                     finalEffects.push(new MundaneEffect(current));
