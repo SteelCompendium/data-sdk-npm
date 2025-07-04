@@ -147,7 +147,21 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         } else if (cleanCell.startsWith('Stability:')) {
             partial.stability = parseInt(cleanCell.replace('Stability:', '').trim(), 10) || 0;
         } else if (cleanCell.startsWith('With Captain:')) {
-            (partial as any).withCaptain = cleanCell.replace('With Captain:', '').trim();
+            const val = cleanCell.replace('With Captain:', '').trim();
+            if (val !== '-') {
+                partial.withCaptain = val
+            }
+        } else if (cleanCell.toLowerCase().startsWith('level ')) {
+            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
+            if (match) {
+                partial.level = parseInt(match[1], 10);
+                partial.roles = match[2].split(',').map(s => s.trim());
+            }
+        } else if (cleanCell.startsWith('Movement:')) {
+            const val = cleanCell.replace('Movement:', '').trim();
+            if (val !== '-') {
+                partial.speed = `${partial.speed} (${val})`;
+            }
         } else if (!cleanCell.includes(':')) {
             partial.name = cleanCell;
         }

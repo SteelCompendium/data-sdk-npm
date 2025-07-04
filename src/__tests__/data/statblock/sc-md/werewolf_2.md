@@ -12,8 +12,9 @@
 
 ##### Solo Monster
 
-**Effect:** The werewolf takes up to two turns each round. They can’t take turns consecutively.
-**Effect:** At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
+**Solo Turns:** The werewolf takes up to two turns each round. They can’t take turns consecutively.
+
+**End Effect:** At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
 
 ##### Shapeshifter
 
