@@ -49,28 +49,34 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                 const effects: MundaneEffect[] = [];
                 while (lineIdx < mainLines.length && !mainLines[lineIdx].startsWith('#####')) {
                     const currentLine = mainLines[lineIdx];
-                    if (currentLine.startsWith('**Effect:**')) {
-                        let effectText = currentLine.substring('**Effect:**'.length).trim();
+                    const effectMatch = currentLine.match(/\*\*(.+?):\*\* (.*)/);
+                    if (effectMatch) {
+                        const nameAndCost = effectMatch[1];
+                        let effect = effectMatch[2];
                         lineIdx++;
                         while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].startsWith('**')) {
-                            effectText += '\n' + mainLines[lineIdx].trim();
+                            effect += '\n' + mainLines[lineIdx];
                             lineIdx++;
                         }
-                        effects.push(new MundaneEffect({ effect: effectText }));
-                    } else {
-                        const namedEffectMatch = currentLine.match(/\*\*(.+?):\*\* (.*)/);
-                        if (namedEffectMatch) {
-                            const name = namedEffectMatch[1];
-                            let effect = namedEffectMatch[2];
-                            lineIdx++;
-                            while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].startsWith('**')) {
-                                effect += '\n' + mainLines[lineIdx];
-                                lineIdx++;
-                            }
-                            effects.push(new MundaneEffect({ name: name, effect: effect.trim() }));
+
+                        const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
+                        const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
+
+                        let name: string | undefined;
+                        if (nameCostMatch) {
+                            name = nameCostMatch[1].trim();
+                            effectProps.cost = nameCostMatch[2].trim();
                         } else {
-                            lineIdx++;
+                            name = nameAndCost.trim();
                         }
+
+                        if (name.toLowerCase() !== 'effect') {
+                            effectProps.name = name;
+                        }
+
+                        effects.push(new MundaneEffect(effectProps as any));
+                    } else {
+                        lineIdx++;
                     }
                 }
                 trait.effects = new Effects(effects);

@@ -72,17 +72,6 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 }
             }
 
-            if (line.startsWith('**Effect:**')) {
-                let effectText = line.substring('**Effect:**'.length).trim();
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
-                    effectText += '\n' + lines[i].trim();
-                    i++;
-                }
-                effects.push(new MundaneEffect({ effect: effectText.trim() }));
-                continue;
-            }
-
             if (line.startsWith('**Trigger:**')) {
                 let triggerText = line.substring('**Trigger:**'.length).trim();
                 i++;
@@ -94,18 +83,33 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 continue;
             }
 
-            // Named Effects (e.g., Persistent)
-            const namedEffectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
-            if (namedEffectMatch) {
-                const nameAndCost = namedEffectMatch[1];
-                let effect = namedEffectMatch[2];
+            // Effects (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
+            const effectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
+            if (effectMatch) {
+                const nameAndCost = effectMatch[1];
+                let effect = effectMatch[2];
                 i++;
                 while (i < lines.length && !lines[i].startsWith('**')) {
                     effect += '\n' + lines[i];
                     i++;
                 }
 
-                effects.push(new MundaneEffect({ name: nameAndCost, effect: effect.trim() }));
+                const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
+                const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
+
+                let name: string | undefined;
+                if (nameCostMatch) {
+                    name = nameCostMatch[1].trim();
+                    effectProps.cost = nameCostMatch[2].trim();
+                } else {
+                    name = nameAndCost.trim();
+                }
+
+                if (name.toLowerCase() !== 'effect') {
+                    effectProps.name = name;
+                }
+
+                effects.push(new MundaneEffect(effectProps as any));
                 continue;
             }
 

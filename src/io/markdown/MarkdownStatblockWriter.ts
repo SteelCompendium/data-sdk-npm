@@ -66,7 +66,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         const rolesCol = `**Roles:** ${rolesText}`;
         table.push(`| ${ancestryCol.padEnd(colWidth)} | ${rolesCol.padEnd(colWidth)} |`);
 
-        // Row 3: Stamina and EV
+        // Row 3: Stamina and EVcheckpoiont
         const staminaCol = `**Stamina:** ${data.stamina || 0}`;
         const evCol = `**EV:** ${data.ev || 0}`;
         table.push(`| ${staminaCol.padEnd(colWidth)} | ${evCol.padEnd(colWidth)} |`);
