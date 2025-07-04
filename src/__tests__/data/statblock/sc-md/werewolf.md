@@ -12,24 +12,24 @@
 
 ##### Solo Monster
 
-**Effect:** The werewolf takes up to two turns each round. They can’t take turns consecutively.
-**Effect:** At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
+**Solo Turns:** The werewolf takes up to two turns each round. They can’t take turns consecutively.
+**End Effect:** At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
 
 ##### Shapeshifter
 
-**Effect:** The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability.
+The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability.
 
 ##### Shared Ferocity
 
-**Effect:** The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf.
+The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf.
 
 ##### Accursed Rage
 
-**Effect:** The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite.
+The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite.
 
 ##### Vukenstep
 
-**Effect:** The werewolf ignores difficult terrain.
+The werewolf ignores difficult terrain.
 
 ---
 

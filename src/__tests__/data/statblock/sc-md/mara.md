@@ -12,11 +12,11 @@
 
 ##### Determination
 
-**Effect:** If Mara is frightened, slowed, or weakened, she can use a maneuver to end the condition.
+If Mara is frightened, slowed, or weakened, she can use a maneuver to end the condition.
 
 ##### Rivalry
 
-**Effect:** Mara selects one creature within line of effect at the start of an encounter. Both Mara and the creature can add a 1d3 to all power rolls made against each other.
+Mara selects one creature within line of effect at the start of an encounter. Both Mara and the creature can add a 1d3 to all power rolls made against each other.
 
 ---
 

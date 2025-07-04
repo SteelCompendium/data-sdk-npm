@@ -12,11 +12,11 @@
 
 ##### Hunger
 
-**Effect:** If the ghoul charges, their speed increases by 2 until the end of their turn.
+If the ghoul charges, their speed increases by 2 until the end of their turn.
 
 ##### Arise
 
-**Effect:** The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 1 Stamina and fall prone.
+The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 1 Stamina and fall prone.
 
 ---
 

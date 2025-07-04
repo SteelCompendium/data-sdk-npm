@@ -12,7 +12,7 @@
 
 ##### Living Labyrinth
 
-**Effect:** The wallmaster starts combat affixed to a wall. At the start of each round of combat while affixed to a wall, the wallmaster creates a 20 wall of stone within a distance of 10 squares. Any walls created by the wallmaster in the previous round are destroyed or replaced by the new walls.
+The wallmaster starts combat affixed to a wall. At the start of each round of combat while affixed to a wall, the wallmaster creates a 20 wall of stone within a distance of 10 squares. Any walls created by the wallmaster in the previous round are destroyed or replaced by the new walls.
 
 ---
 

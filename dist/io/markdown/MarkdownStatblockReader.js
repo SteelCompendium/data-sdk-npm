@@ -43,31 +43,41 @@ class MarkdownStatblockReader {
                 const effects = [];
                 while (lineIdx < mainLines.length && !mainLines[lineIdx].startsWith('#####')) {
                     const currentLine = mainLines[lineIdx];
-                    const effectMatch = currentLine.match(/\*\*(.+?):\*\* (.*)/);
+                    if (currentLine.trim() === '') {
+                        lineIdx++;
+                        continue;
+                    }
+                    const effectMatch = currentLine.match(/\*\*(.*?):\*\* (.*)/);
                     if (effectMatch) {
                         const nameAndCost = effectMatch[1];
                         let effect = effectMatch[2];
                         lineIdx++;
-                        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].startsWith('**')) {
+                        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].match(/\*\*(.*?):\*\*/)) {
                             effect += '\n' + mainLines[lineIdx];
                             lineIdx++;
                         }
                         const effectProps = { effect: effect.trim() };
-                        const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
-                        let name;
-                        if (nameCostMatch) {
-                            name = nameCostMatch[1].trim();
-                            effectProps.cost = nameCostMatch[2].trim();
+                        if (nameAndCost.toLowerCase() !== 'effect') {
+                            effectProps.name = nameAndCost.trim();
                         }
-                        else {
-                            name = nameAndCost.trim();
-                        }
-                        if (name.toLowerCase() !== 'effect') {
-                            effectProps.name = name;
-                        }
+                        // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
+                        // let name: string | undefined;
+                        // if (nameCostMatch) {
+                        //     name = nameCostMatch[1].trim();
+                        //     effectProps.cost = nameCostMatch[2].trim();
+                        // } else {
+                        //     name = nameAndCost.trim();
+                        // }
+                        // if (name.toLowerCase() !== 'effect') {
+                        //     effectProps.name = name;
+                        // }
                         effects.push(new model_1.MundaneEffect(effectProps));
                     }
                     else {
+                        const prevEffect = effects[effects.length - 1];
+                        if (prevEffect) {
+                            prevEffect.effect += '\n' + currentLine.trim();
+                        }
                         lineIdx++;
                     }
                 }
@@ -98,11 +108,16 @@ class MarkdownStatblockReader {
     }
     parseRow(cell, partial) {
         const cleanCell = cell.replace(/\*/g, '');
-        if (cleanCell.startsWith('Level:')) {
-            const level = parseInt(cleanCell.replace('Level:', '').trim(), 10);
-            partial.level = isNaN(level) ? 0 : level;
-            const roles = cleanCell.replace(`Level: ${level}`, '').trim();
-            partial.roles = roles === '-' ? [] : roles.split(',').map(s => s.trim());
+        if (cleanCell.toLowerCase().startsWith('level ')) {
+            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
+            if (match) {
+                partial.level = parseInt(match[1], 10);
+                let roles = match[2].split(',').map(s => s.trim());
+                if (roles.length === 1 && roles[0] === '-') {
+                    roles = [];
+                }
+                partial.roles = roles;
+            }
         }
         else if (cleanCell.startsWith('Ancestry:')) {
             const val = cleanCell.replace('Ancestry:', '').trim();
@@ -153,13 +168,6 @@ class MarkdownStatblockReader {
             const val = cleanCell.replace('With Captain:', '').trim();
             if (val !== '-') {
                 partial.withCaptain = val;
-            }
-        }
-        else if (cleanCell.toLowerCase().startsWith('level ')) {
-            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
-            if (match) {
-                partial.level = parseInt(match[1], 10);
-                partial.roles = match[2].split(',').map(s => s.trim());
             }
         }
         else if (cleanCell.startsWith('Movement:')) {

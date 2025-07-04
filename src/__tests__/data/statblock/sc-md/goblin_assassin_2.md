@@ -12,11 +12,11 @@
 
 ##### Crafty
 
-**Effect:** The assassin doesn’t provoke opportunity attacks by moving.
+The assassin doesn’t provoke opportunity attacks by moving.
 
 ##### Slip Away
 
-**Effect:** The assassin can take the Hide maneuver even while observed.
+The assassin can take the Hide maneuver even while observed.
 
 ---
 

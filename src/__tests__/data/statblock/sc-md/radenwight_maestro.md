@@ -12,7 +12,7 @@
 
 ##### End Effect
 
-**Effect:** At the end of their turn, the maestro can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
+At the end of their turn, the maestro can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
 
 ---
 

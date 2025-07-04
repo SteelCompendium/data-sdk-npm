@@ -12,11 +12,11 @@
 
 ##### Shoot the Hostage
 
-**Effect:** The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage.
+The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage.
 
 ##### Supernatural Insight
 
-**Effect:** The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
+The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
 
 ---
 

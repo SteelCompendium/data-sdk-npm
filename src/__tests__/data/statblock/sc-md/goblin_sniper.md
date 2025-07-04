@@ -12,7 +12,7 @@
 
 ##### Crafty
 
-**Effect:** The sniper doesn’t provoke opportunity attacks by moving.
+The sniper doesn’t provoke opportunity attacks by moving.
 
 ---
 

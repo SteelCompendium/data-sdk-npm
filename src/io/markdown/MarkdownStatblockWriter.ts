@@ -22,7 +22,8 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
                         const effects = trait.effects.effects.map(e => {
                             if (e.effectType() === 'MundaneEffect') {
                                 const mundane = e as any;
-                                return `**Effect:** ${mundane.effect.trim()}`;
+                                const name = mundane.name ? `**${mundane.name.trim()}:** ` : '';
+                                return `${name}${mundane.effect.trim()}`;
                             }
                             return '';
                         }).filter(e => e);

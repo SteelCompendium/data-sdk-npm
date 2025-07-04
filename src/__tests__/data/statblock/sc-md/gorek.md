@@ -12,15 +12,15 @@
 
 ##### Overwhelm
 
-**Effect:** Once per turn, when Gorek force moves a target or shifts into a square adjacent to a creature or object, he can make a free strike against them.
+Once per turn, when Gorek force moves a target or shifts into a square adjacent to a creature or object, he can make a free strike against them.
 
 ##### Great Fortitude
 
-**Effect:** Gorek can’t be weakened.
+Gorek can’t be weakened.
 
 ##### Rivalry
 
-**Effect:** Gorek selects one creature within line of effect at the start of an encounter. Both Gorek and the creature can add a 1d3 to all power rolls made against each other.
+Gorek selects one creature within line of effect at the start of an encounter. Both Gorek and the creature can add a 1d3 to all power rolls made against each other.
 
 ---
 

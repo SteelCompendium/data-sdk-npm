@@ -12,7 +12,7 @@
 
 ##### Cunning
 
-**Effect:** The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whenever the battleborn is adjacent to an enemy and willingly moves to a space no longer adjacent to that enemy, the battleborn can make an opportunity attack against them as a triggered action.
+The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whenever the battleborn is adjacent to an enemy and willingly moves to a space no longer adjacent to that enemy, the battleborn can make an opportunity attack against them as a triggered action.
 
 ---
 

@@ -12,11 +12,11 @@
 
 ##### End Effect
 
-**Effect:** At the end of their turn, the bandit chief can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
+At the end of their turn, the bandit chief can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
 
 ##### Supernatural Insight
 
-**Effect:** The bandit chief ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
+The bandit chief ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
 
 ---
 

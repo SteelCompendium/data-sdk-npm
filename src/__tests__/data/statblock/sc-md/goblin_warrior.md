@@ -12,7 +12,7 @@
 
 ##### Crafty
 
-**Effect:** The warrior doesn’t provoke opportunity attacks by moving.
+The warrior doesn’t provoke opportunity attacks by moving.
 
 ---
 

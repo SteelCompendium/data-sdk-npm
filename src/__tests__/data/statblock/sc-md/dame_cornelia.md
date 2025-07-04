@@ -12,11 +12,11 @@
 
 ##### End Effect
 
-**Effect:** At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way.
+At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way.
 
 ##### Death Void
 
-**Effect:** When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage.
+When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage.
 
 ---
 

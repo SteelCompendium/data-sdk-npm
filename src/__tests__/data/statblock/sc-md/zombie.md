@@ -12,7 +12,7 @@
 
 ##### Endless Knight
 
-**Effect:** The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.
+The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.
 
 ---
 
