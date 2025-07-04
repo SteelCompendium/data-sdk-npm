@@ -27,7 +27,7 @@ The stinker doesn’t provoke opportunity attacks by moving.
 - **12-16:** 2 poison damage; slide 2
 - **17+:** 3 poison damage; slide 3
 
-**Effect:** Increase the slide for one target by 1 square for each malice spent.
+**1+ Malice:** Increase the slide for one target by 1 square for each malice spent.
 
 ##### **Swamp Gas**
 

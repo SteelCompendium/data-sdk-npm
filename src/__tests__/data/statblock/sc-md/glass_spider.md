@@ -23,7 +23,7 @@
 - **12-16:** 11 damage
 - **17+:** 14 damage; A<2 bleeding (save ends)
 
-**Effect:** A<3 bleeding (save ends).
+**2 Malice:** A<3 bleeding (save ends).
 
 ##### **Slashing Leg**
 

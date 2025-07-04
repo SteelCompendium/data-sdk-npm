@@ -104,16 +104,16 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     }
 
     private writeMundaneEffect(effect: MundaneEffect): string {
+        let name = "Effect";
         if (effect.name) {
-            let str = `**${effect.name}`;
+            name = effect.name;
             if (effect.cost) {
-                str += ` ${effect.cost}`;
+                name += ` (${effect.cost})`;
             }
-            str += `:** ${effect.effect.trim()}`;
-            return str;
+        } else if (effect.cost) {
+            name = effect.cost;
         }
-
-        return `**Effect:** ${effect.effect.trim()}`;
+        return `**${name}:** ${effect.effect.trim()}`
     }
 
     private writePowerRollEffect(effect: PowerRollEffect): string {

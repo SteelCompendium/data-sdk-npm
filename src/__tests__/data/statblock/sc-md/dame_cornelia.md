@@ -33,7 +33,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **Effect:** An ally within 10 of Cornelia can make a free strike.
 
-**Effect:** The ally can use their signature action instead.
+**1 Malice:** The ally can use their signature action instead.
 
 ##### **You!**
 

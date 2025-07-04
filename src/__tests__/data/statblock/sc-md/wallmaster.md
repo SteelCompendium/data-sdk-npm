@@ -29,7 +29,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 - **12-16:** 9 damage; A<1 prone
 - **17+:** 12 damage; A<2 prone can’t stand (EoT)
 
-**Effect:** The wallmaster chooses an additional wall segment and target for every 3 malice spent.
+**3+ Malice:** The wallmaster chooses an additional wall segment and target for every 3 malice spent.
 
 ##### **Dead End**
 

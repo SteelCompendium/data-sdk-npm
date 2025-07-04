@@ -33,7 +33,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **Effect:** A target who is adjacent to the bandit chief after the ability resolves takes 5 corruption damage.
 
-**Effect:** The bandit chief targets an additional enemy or object.
+**2 Malice:** The bandit chief targets an additional enemy or object.
 
 ##### **Kneel, Peasant!**
 
@@ -46,7 +46,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 - **12-16:** Push 2; M<2 prone
 - **17+:** Push 4; M<3 prone
 
-**Effect:** This ability targets each enemy adjacent to the bandit chief.
+**2 Malice:** This ability targets each enemy adjacent to the bandit chief.
 
 ##### **Bloodstones**
 

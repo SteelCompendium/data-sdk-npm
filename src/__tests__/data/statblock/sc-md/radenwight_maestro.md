@@ -40,7 +40,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 - **12-16:** P<2 Slowed (save ends)
 - **17+:** P<3 Slowed (save ends)
 
-**Effect:** Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.
+**3 Malice:** Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.
 
 ##### **Ever Ready Rodent (2 Malice)**
 

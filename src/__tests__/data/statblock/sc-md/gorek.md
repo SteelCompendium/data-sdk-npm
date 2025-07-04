@@ -35,7 +35,7 @@ Gorek selects one creature within line of effect at the start of an encounter. B
 - **12-16:** 11 damage; push 2
 - **17+:** 14 damage; push 3
 
-**Effect:** Each target is M<1 slowed (save ends).
+**2 Malice:** Each target is M<1 slowed (save ends).
 
 ##### **Let’s Tussle (2 Malice)**
 
