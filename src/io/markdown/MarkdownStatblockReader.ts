@@ -88,8 +88,8 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                         // if (prevEffect) {
                         //     prevEffect.effect += '\n' + currentLine.trim();
                         // }
-                        // lineIdx++;
                     }
+                    lineIdx++;
                 }
                 trait.effects = new Effects(effects);
                 traits.push(new Trait(trait));
