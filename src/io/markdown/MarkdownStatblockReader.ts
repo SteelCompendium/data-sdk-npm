@@ -1,7 +1,6 @@
 import { Statblock, Trait, MundaneEffect, Effects } from "../../model";
 import { IDataReader } from "../IDataReader";
 import { MarkdownAbilityReader } from "./MarkdownAbilityReader";
-import { Ability } from "../../model/Ability";
 
 export class MarkdownStatblockReader implements IDataReader<Statblock> {
     private abilityReader = new MarkdownAbilityReader();
@@ -49,12 +48,16 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                 const effects: MundaneEffect[] = [];
                 while (lineIdx < mainLines.length && !mainLines[lineIdx].startsWith('#####')) {
                     const currentLine = mainLines[lineIdx];
-                    const effectMatch = currentLine.match(/\*\*(.+?):\*\* (.*)/);
+                    if (currentLine.trim() === '') {
+                        lineIdx++;
+                        continue;
+                    }
+                    const effectMatch = currentLine.match(/\*\*(.*?):\*\* (.*)/);
                     if (effectMatch) {
                         const nameAndCost = effectMatch[1];
                         let effect = effectMatch[2];
                         lineIdx++;
-                        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].startsWith('**')) {
+                        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].match(/\*\*(.*?):\*\*/)) {
                             effect += '\n' + mainLines[lineIdx];
                             lineIdx++;
                         }
@@ -76,6 +79,10 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
 
                         effects.push(new MundaneEffect(effectProps as any));
                     } else {
+                        const prevEffect = effects[effects.length - 1];
+                        if (prevEffect) {
+                            prevEffect.effect += '\n' + currentLine.trim();
+                        }
                         lineIdx++;
                     }
                 }
@@ -112,11 +119,12 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         if (cleanCell.startsWith('Level:')) {
             const level = parseInt(cleanCell.replace('Level:', '').trim(), 10);
             partial.level = isNaN(level) ? 0 : level;
-            const roles = cleanCell.replace(`Level: ${level}`, '').trim();
-            partial.roles = roles === '-' ? [] : roles.split(',').map(s => s.trim());
         } else if (cleanCell.startsWith('Ancestry:')) {
             const val = cleanCell.replace('Ancestry:', '').trim();
             partial.ancestry = val === '-' ? [] : val.split(',').map(s => s.trim());
+        } else if (cleanCell.startsWith('Roles:')) {
+            const val = cleanCell.replace('Roles:', '').trim();
+            partial.roles = val === '-' ? [] : val.split(',').map(s => s.trim());
         } else if (cleanCell.startsWith('Stamina:')) {
             partial.stamina = parseInt(cleanCell.replace('Stamina:', '').trim(), 10) || 0;
         } else if (cleanCell.startsWith('EV:')) {
@@ -154,7 +162,11 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
             const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
             if (match) {
                 partial.level = parseInt(match[1], 10);
-                partial.roles = match[2].split(',').map(s => s.trim());
+                let roles = match[2].split(',').map(s => s.trim());
+                if (roles.length === 1 && roles[0] === '-') {
+                    roles = [];
+                }
+                partial.roles = roles;
             }
         } else if (cleanCell.startsWith('Movement:')) {
             const val = cleanCell.replace('Movement:', '').trim();
@@ -165,4 +177,4 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
             partial.name = cleanCell;
         }
     }
-} 
+}
