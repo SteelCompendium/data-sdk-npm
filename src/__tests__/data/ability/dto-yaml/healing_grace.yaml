@@ -19,4 +19,4 @@ effects:
       • A prone target can stand up.
 
       • A target can spend 1 additional Recovery.
-    name: Spend 1+ Piety
+    cost: Spend 1+ Piety
