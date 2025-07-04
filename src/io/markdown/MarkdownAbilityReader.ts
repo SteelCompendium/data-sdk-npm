@@ -95,19 +95,23 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 }
 
                 const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
-                const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
-
-                let name: string | undefined;
-                if (nameCostMatch) {
-                    name = nameCostMatch[1].trim();
-                    effectProps.cost = nameCostMatch[2].trim();
-                } else {
-                    name = nameAndCost.trim();
+                if (nameAndCost.trim().match(/\d+\+*\s*\w+/)) {
+                    effectProps.cost = nameAndCost.trim();
+                } else if (nameAndCost.trim().toLowerCase() !== 'effect') {
+                    effectProps.name = nameAndCost.trim();
                 }
+                // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
 
-                if (name.toLowerCase() !== 'effect') {
-                    effectProps.name = name;
-                }
+                // let name: string | undefined;
+                // if (nameCostMatch) {
+                //     name = nameCostMatch[1].trim();
+                //     effectProps.cost = nameCostMatch[2].trim();
+                // } else {
+                //     name = nameAndCost.trim();
+                // }
+                // if (name.toLowerCase() !== 'effect') {
+                //     effectProps.name = name;
+                // }
 
                 effects.push(new MundaneEffect(effectProps as any));
                 continue;
