@@ -116,15 +116,19 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
 
     private parseRow(cell: string, partial: Partial<Statblock> & { characteristics: any }) {
         const cleanCell = cell.replace(/\*/g, '');
-        if (cleanCell.startsWith('Level:')) {
-            const level = parseInt(cleanCell.replace('Level:', '').trim(), 10);
-            partial.level = isNaN(level) ? 0 : level;
+        if (cleanCell.toLowerCase().startsWith('level ')) {
+            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
+            if (match) {
+                partial.level = parseInt(match[1], 10);
+                let roles = match[2].split(',').map(s => s.trim());
+                if (roles.length === 1 && roles[0] === '-') {
+                    roles = [];
+                }
+                partial.roles = roles;
+            }
         } else if (cleanCell.startsWith('Ancestry:')) {
             const val = cleanCell.replace('Ancestry:', '').trim();
             partial.ancestry = val === '-' ? [] : val.split(',').map(s => s.trim());
-        } else if (cleanCell.startsWith('Roles:')) {
-            const val = cleanCell.replace('Roles:', '').trim();
-            partial.roles = val === '-' ? [] : val.split(',').map(s => s.trim());
         } else if (cleanCell.startsWith('Stamina:')) {
             partial.stamina = parseInt(cleanCell.replace('Stamina:', '').trim(), 10) || 0;
         } else if (cleanCell.startsWith('EV:')) {
@@ -157,16 +161,6 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
             const val = cleanCell.replace('With Captain:', '').trim();
             if (val !== '-') {
                 partial.withCaptain = val
-            }
-        } else if (cleanCell.toLowerCase().startsWith('level ')) {
-            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
-            if (match) {
-                partial.level = parseInt(match[1], 10);
-                let roles = match[2].split(',').map(s => s.trim());
-                if (roles.length === 1 && roles[0] === '-') {
-                    roles = [];
-                }
-                partial.roles = roles;
             }
         } else if (cleanCell.startsWith('Movement:')) {
             const val = cleanCell.replace('Movement:', '').trim();
