@@ -63,18 +63,12 @@ class MarkdownStatblockWriter {
         const immunityCol = `**Immunity:** ${immunityText}`;
         table.push(`| ${staminaCol.padEnd(colWidth)} | ${immunityCol.padEnd(colWidth)} |`);
         // Row 4: Speed and Immunity
-        const speedCol = `**Speed:** ${data.speed.replace(/\(.*\)/, '').trim()}`;
+        const speedCol = `**Speed:** ${data.speed || 0}`;
         const weaknessText = data.weaknesses && data.weaknesses.length > 0 ? data.weaknesses.join(', ') : '-';
         const weaknessCol = `**Weakness:** ${weaknessText}`;
         table.push(`| ${speedCol.padEnd(colWidth)} | ${weaknessCol.padEnd(colWidth)} |`);
         // Row 5: Movement and Weakness
-        // TODO - add this to the model
-        let movement = '-';
-        const movementMatch = data.speed.match(/\d+\s*\((.+?)\)/);
-        if (movementMatch) {
-            movement = movementMatch[1];
-        }
-        const movementCol = `**Movement:** ${movement}`;
+        const movementCol = `**Movement:** ${data.movement || '-'}`;
         const withCaptainCol = `**With Captain:** ${data.withCaptain || '-'}`;
         table.push(`| ${movementCol.padEnd(colWidth)} | ${withCaptainCol.padEnd(colWidth)} |`);
         // Row 6: Might and Free Strike
@@ -83,11 +77,11 @@ class MarkdownStatblockWriter {
         table.push(`| ${mightCol.padEnd(colWidth)} | ${freeStrikeCol.padEnd(colWidth)} |`);
         // Row 7: Agility and Melee
         const agilityCol = `**Agility:** ${this.formatCharacteristic(data.characteristics.agility)}`;
-        const meleeCol = `**Melee:** -`; // Not in current model
+        const meleeCol = `**Melee:** ${data.meleeDistance || '-'}`;
         table.push(`| ${agilityCol.padEnd(colWidth)} | ${meleeCol.padEnd(colWidth)} |`);
         // Row 8: Reason and Ranged
         const reasonCol = `**Reason:** ${this.formatCharacteristic(data.characteristics.reason)}`;
-        const rangedCol = `**Ranged:** -`; // Not in current model
+        const rangedCol = `**Ranged:** ${data.rangedDistance || '-'}`;
         table.push(`| ${reasonCol.padEnd(colWidth)} | ${rangedCol.padEnd(colWidth)} |`);
         // Row 9: Intuition and Size
         const intuitionCol = `**Intuition:** ${this.formatCharacteristic(data.characteristics.intuition)}`;

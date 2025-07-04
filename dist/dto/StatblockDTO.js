@@ -30,6 +30,12 @@ class StatblockDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             data.weaknesses = model.weaknesses;
         if (model.speed !== undefined)
             data.speed = model.speed;
+        if (model.movement !== undefined)
+            data.movement = model.movement;
+        if (model.meleeDistance !== undefined)
+            data.melee_distance = model.meleeDistance;
+        if (model.rangedDistance !== undefined)
+            data.ranged_distance = model.rangedDistance;
         if (model.size !== undefined)
             data.size = model.size;
         if (model.stability !== undefined)

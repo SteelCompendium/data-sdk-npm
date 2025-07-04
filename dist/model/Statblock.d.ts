@@ -12,10 +12,13 @@ export declare class Statblock extends SteelCompendiumModel<StatblockDTO> {
     stamina: number;
     immunities?: string[];
     weaknesses?: string[];
-    speed: string;
+    speed: number;
+    movement: string;
     size: string;
     stability: number;
     freeStrike: number;
+    meleeDistance?: number;
+    rangedDistance?: number;
     withCaptain?: string;
     characteristics: Characteristics;
     traits: Trait[];

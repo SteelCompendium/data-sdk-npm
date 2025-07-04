@@ -132,7 +132,7 @@ class MarkdownStatblockReader {
             partial.ev = cleanCell.replace('EV:', '').trim() || '0';
         }
         else if (cleanCell.startsWith('Speed:')) {
-            partial.speed = cleanCell.replace('Speed:', '').trim() || '0';
+            partial.speed = parseInt(cleanCell.replace('Speed:', '').trim(), 10) || 0;
         }
         else if (cleanCell.startsWith('Immunity:')) {
             const val = cleanCell.replace('Immunity:', '').trim();
@@ -175,7 +175,19 @@ class MarkdownStatblockReader {
         else if (cleanCell.startsWith('Movement:')) {
             const val = cleanCell.replace('Movement:', '').trim();
             if (val !== '-') {
-                partial.speed = `${partial.speed} (${val})`;
+                partial.movement = val;
+            }
+        }
+        else if (cleanCell.startsWith('Melee:')) {
+            const val = cleanCell.replace('Melee:', '').trim();
+            if (val !== '-') {
+                partial.meleeDistance = parseInt(val, 10) || 0;
+            }
+        }
+        else if (cleanCell.startsWith('Ranged:')) {
+            const val = cleanCell.replace('Ranged:', '').trim();
+            if (val !== '-') {
+                partial.rangedDistance = parseInt(val, 10) || 0;
             }
         }
         else if (!cleanCell.includes(':')) {

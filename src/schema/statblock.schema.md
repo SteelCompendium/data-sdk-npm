@@ -16,10 +16,13 @@ The root object represents a complete statblock with the following properties:
 | `stamina` | integer | Yes | 0 | The creature's max stamina. |
 | `immunities` | string[] | No | [] | List of immunities (e.g., Magic 2, Psionic 2). |
 | `weaknesses` | string[] | No | [] | List of weaknesses (e.g., acid 3, holy 1). |
-| `speed` | string | Yes | "" | Movement speed of the creature, may include parenthetical modifiers (e.g., '5 (climb)'). |
+| `speed` | integer | Yes | "" | Movement speed of the creature (e.g., 5). |
+| `movement` | string | No | "" | Movement types of the creature (e.g. 'run, fly') |
 | `size` | string | Yes | "" | Size category (e.g., 1M for medium). |
 | `stability` | integer | Yes | 0 | Stability value of the creature. |
 | `free_strike` | integer | Yes | 0 | The free strike value. |
+| `melee_distance` | integer | No | 0 | The melee distance. |
+| `ranged_distance` | integer | No | 0 | The ranged distance. |
 | `might` | integer | Yes | 0 | Might modifier. |
 | `agility` | integer | Yes | 0 | Agility modifier. |
 | `reason` | integer | Yes | 0 | Reason modifier. |

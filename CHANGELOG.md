@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.20
+
+- Adds new fields to statblocks:
+  - movement (string)
+  - melee distance (integer)
+  - ranged distance (integer)
+
+## 0.0.19
+
+- Adds support for markdown reading/writing for abilities and statblocks
+
 ## 0.0.17
 
 - Extractor updated to improve truncating statblocks
