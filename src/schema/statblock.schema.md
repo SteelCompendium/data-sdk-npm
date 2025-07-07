@@ -13,7 +13,7 @@ The root object represents a complete statblock with the following properties:
 | `roles` | string[] | Yes | [] | Roles assigned to the creature (e.g., Boss, Minion). |
 | `ancestry` | string[] | Yes | [] | Ancestries or types the creature belongs to (e.g., Human, Humanoid). |
 | `ev` | string | Yes | "0" | Encounter Value (EV) of the creature. |
-| `stamina` | integer | Yes | 0 | The creature's max stamina. |
+| `stamina` | string | Yes | 0 | The creature's max stamina. |
 | `immunities` | string[] | No | [] | List of immunities (e.g., Magic 2, Psionic 2). |
 | `weaknesses` | string[] | No | [] | List of weaknesses (e.g., acid 3, holy 1). |
 | `speed` | integer | Yes | "" | Movement speed of the creature (e.g., 5). |

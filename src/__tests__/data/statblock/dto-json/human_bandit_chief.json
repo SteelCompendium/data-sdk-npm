@@ -9,7 +9,7 @@
     "Humanoid"
   ],
   "ev": "20",
-  "stamina": 120,
+  "stamina": "120",
   "immunities": [
     "Corruption 4",
     "Psychic 4"

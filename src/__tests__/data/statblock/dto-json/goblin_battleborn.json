@@ -11,7 +11,7 @@
         "Mystic Goblin"
     ],
     "ev": "4",
-    "stamina": 25,
+    "stamina": "25",
     "speed": 6,
     "movement": "climb",
     "size": "1L",

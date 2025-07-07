@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.21
+
+- Changes `stamina` field to a string because the Familiar statblock
+
 ## 0.0.20
 
 - Adds new fields to statblocks:

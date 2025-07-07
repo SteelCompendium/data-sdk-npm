@@ -10,7 +10,7 @@
     "Humanoid"
   ],
   "ev": "6",
-  "stamina": 36,
+  "stamina": "36",
   "speed": 7,
   "size": "1M",
   "stability": 2,

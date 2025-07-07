@@ -7,7 +7,7 @@ ancestry:
   - Humanoid
   - Radenwight
 ev: 3 for four minions
-stamina: 4
+stamina: "4"
 speed: 7
 movement: climb
 size: 1S

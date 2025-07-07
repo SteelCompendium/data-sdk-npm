@@ -10,7 +10,7 @@
     "Ruinborn"
   ],
   "ev": "12",
-  "stamina": 80,
+  "stamina": "80",
   "immunities": [
     "holy 1"
   ],

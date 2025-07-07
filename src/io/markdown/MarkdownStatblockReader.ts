@@ -135,7 +135,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
             const val = cleanCell.replace('Ancestry:', '').trim();
             partial.ancestry = val === '-' ? [] : val.split(',').map(s => s.trim());
         } else if (cleanCell.startsWith('Stamina:')) {
-            partial.stamina = parseInt(cleanCell.replace('Stamina:', '').trim(), 10) || 0;
+            partial.stamina = cleanCell.replace('Stamina:', '').trim() || '0';
         } else if (cleanCell.startsWith('EV:')) {
             partial.ev = cleanCell.replace('EV:', '').trim() || '0';
         } else if (cleanCell.startsWith('Speed:')) {

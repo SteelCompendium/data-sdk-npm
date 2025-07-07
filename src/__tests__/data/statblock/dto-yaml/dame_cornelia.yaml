@@ -5,7 +5,7 @@ roles:
 ancestry:
   - Undead
 ev: "12"
-stamina: 80
+stamina: "80"
 immunities:
   - Corruption 2
   - Psychic 2

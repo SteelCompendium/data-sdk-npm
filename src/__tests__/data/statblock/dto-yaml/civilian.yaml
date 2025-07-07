@@ -4,7 +4,7 @@ roles: []
 ancestry:
   - Humanoid or Animal
 ev: "0"
-stamina: 8
+stamina: "8"
 speed: 5
 size: 1S, 1M, 1L, or 2
 stability: 0

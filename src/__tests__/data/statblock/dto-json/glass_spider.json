@@ -9,7 +9,7 @@
     "Construct"
   ],
   "ev": "12",
-  "stamina": 60,
+  "stamina": "60",
   "weaknesses": [
     "Sonic 5"
   ],

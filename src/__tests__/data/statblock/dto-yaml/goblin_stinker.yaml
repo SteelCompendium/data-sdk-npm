@@ -7,7 +7,7 @@ ancestry:
   - Goblin
   - Humanoid
 ev: "3"
-stamina: 10
+stamina: "10"
 speed: 5
 movement: climb
 size: 1S

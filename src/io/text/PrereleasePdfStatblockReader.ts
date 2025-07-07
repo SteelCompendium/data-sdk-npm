@@ -73,7 +73,7 @@ export class PrereleasePdfStatblockReader implements IDataReader<Statblock> {
         // 3) Stamina
         const staminaLine = lines[idx++];
         const staminaMatch = /^Stamina\s+(\d+)/.exec(staminaLine);
-        statblock.stamina = staminaMatch ? parseInt(staminaMatch[1], 10) : 0;
+        statblock.stamina = staminaMatch ? staminaMatch[1] : '0';
 
         const immunityMatchOnStamina = /Immunity\s+([^/]+)/i.exec(staminaLine);
         if (immunityMatchOnStamina) {

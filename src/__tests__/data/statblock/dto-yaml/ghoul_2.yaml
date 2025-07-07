@@ -6,7 +6,7 @@ roles:
 ancestry:
   - Undead
 ev: "3"
-stamina: 15
+stamina: "15"
 immunities:
   - corruption 1
   - poison 1

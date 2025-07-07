@@ -10,7 +10,7 @@
     "Radenwight"
   ],
   "ev": "3 for four minions",
-  "stamina": 3,
+  "stamina": "3",
   "speed": 5,
   "movement": "climb",
   "size": "1S",

@@ -9,7 +9,7 @@ export declare class Statblock extends SteelCompendiumModel<StatblockDTO> {
     roles: string[];
     ancestry: string[];
     ev: string;
-    stamina: number;
+    stamina: string;
     immunities?: string[];
     weaknesses?: string[];
     speed: number;

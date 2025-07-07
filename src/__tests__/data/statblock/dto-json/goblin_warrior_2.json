@@ -10,7 +10,7 @@
     "Humanoid"
   ],
   "ev": "3",
-  "stamina": 15,
+  "stamina": "15",
   "speed": 6,
   "movement": "climb",
   "size": "1S",

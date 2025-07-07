@@ -8,7 +8,7 @@ ancestry:
   - Dwarf
   - Rival
 ev: "16"
-stamina: 100
+stamina: "100"
 speed: 5
 size: 1M
 stability: 2

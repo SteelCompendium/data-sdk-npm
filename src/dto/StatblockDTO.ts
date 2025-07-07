@@ -6,7 +6,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     roles!: string[];
     ancestry!: string[];
     ev!: string;
-    stamina!: number;
+    stamina!: string;
     speed!: number;
     movement!: string;
     size!: string;
