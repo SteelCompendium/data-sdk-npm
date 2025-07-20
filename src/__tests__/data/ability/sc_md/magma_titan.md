@@ -14,6 +14,7 @@
 - They can use their highest characteristic instead of Might for Might power rolls.
 
 **Power Roll + Reason:**
+
 - **≤11:** You teleport the target up to 4 squares.
 - **12-16:** You teleport the target up to 6 squares.
 - **17+:** You teleport the target up to 8 squares.

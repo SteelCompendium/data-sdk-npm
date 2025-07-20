@@ -15,6 +15,7 @@ type: ability
 | **📏 Ranged 10**  | **🎯 One creature or object** |
 
 **Power Roll + Agility:**
+
 - **≤11:** 12 psychic damage; push 3
 - **12-16:** 17 psychic damage; push 5
 - **17+:** 23 psychic damage; push 7

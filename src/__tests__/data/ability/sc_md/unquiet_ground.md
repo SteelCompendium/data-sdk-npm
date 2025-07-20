@@ -7,6 +7,7 @@
 | **📏 2 cube within 10**        | **🎯 Each enemy in the area** |
 
 **Power Roll + Reason:**
+
 - **≤11:** 2 damage
 - **12-16:** 5 damage
 - **17+:** 7 damage

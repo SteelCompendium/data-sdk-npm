@@ -7,6 +7,7 @@
 | **📏 Ranged 10**                | **🎯 One creature or object** |
 
 **Power Roll + Reason:**
+
 - **≤11:** 2 + R fire damage; push 2
 - **12-16:** 5 + R fire damage; push 3
 - **17+:** 7 + R fire damage; push 4
