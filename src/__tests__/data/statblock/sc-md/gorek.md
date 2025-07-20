@@ -31,6 +31,7 @@ Gorek selects one creature within line of effect at the start of an encounter. B
 | **📏 Melee 1**            | **🎯 Two creatures or objects** |
 
 **2D10 + 2:**
+
 - **≤11:** 7 damage; push 1
 - **12-16:** 11 damage; push 2
 - **17+:** 14 damage; push 3
@@ -44,6 +45,7 @@ Gorek selects one creature within line of effect at the start of an encounter. B
 | **📏 Melee 1**            | **🎯 One creature the fury’s size or smaller** |
 
 **2D10 + 2:**
+
 - **≤11:** 8 damage; M<0 grabbed
 - **12-16:** 13 damage; M<1 grabbed
 - **17+:** 16 damage; M<2 grabbed

@@ -23,6 +23,7 @@ The first time the zombie is reduced to Stamina 0 by damage that isn’t fire da
 | **📏 Melee 1**            | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 4 damage
 - **12-16:** 6 damage
 - **17+:** 7 damage; grabbed
@@ -38,6 +39,7 @@ The first time the zombie is reduced to Stamina 0 by damage that isn’t fire da
 **Effect:** The zombie falls prone, expelling a wave of rot and dust.
 
 **2d10 + 2:**
+
 - **≤11:** 2 corruption damage
 - **12-16:** 3 corruption damage; M<1 weakened (save ends)
 - **17+:** 4 corruption damage; M<2 dazed (save ends)

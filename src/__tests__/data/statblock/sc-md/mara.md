@@ -27,6 +27,7 @@ Mara selects one creature within line of effect at the start of an encounter. Bo
 | **📏 Ranged 10**                 | **🎯 Two creatures or objects** |
 
 **2d10 + 2:**
+
 - **≤11:** 7 damage; slide 1
 - **12-16:** 10 damage; slide 2
 - **17+:** 13 damage; slide 3
@@ -38,6 +39,7 @@ Mara selects one creature within line of effect at the start of an encounter. Bo
 | **📏 3 cube within 10** | **🎯 All enemies in the cube** |
 
 **2d10 + 2:**
+
 - **≤11:** 3 damage
 - **12-16:** 5 damage; restrained (EoT)
 - **17+:** 8 damage; restrained (save ends)

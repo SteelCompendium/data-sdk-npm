@@ -23,6 +23,7 @@ The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whe
 | **📏 Melee 1**                    | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 5 damage
 - **12-16:** 6 damage
 - **17+:** 8 damage; prone; the battleborn continues charging up to their speed or until they can make a free strike against another creature or object
@@ -34,6 +35,7 @@ The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whe
 | **📏 1 Burst**          | **🎯 Each creature and object in the burst** |
 
 **2d10 + 2:**
+
 - **≤11:** 3 damage; M<0 bleeding (save ends)
 - **12-16:** 4 damage; M<1 bleeding (save ends)
 - **17+:** 5 damage; M<2 bleeding (save ends)

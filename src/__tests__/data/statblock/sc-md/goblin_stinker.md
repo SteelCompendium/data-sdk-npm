@@ -23,6 +23,7 @@ The stinker doesn’t provoke opportunity attacks by moving.
 | **📏 3 cube within 15** | **🎯 Each enemy in the cube** |
 
 **2d10 + 2:**
+
 - **≤11:** 1 poison damage; slide 1
 - **12-16:** 2 poison damage; slide 2
 - **17+:** 3 poison damage; slide 3

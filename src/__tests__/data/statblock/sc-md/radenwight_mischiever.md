@@ -19,6 +19,7 @@
 | **📏 Melee 1 or Ranged 5** | **🎯 One creature per minion** |
 
 **2d10 + 2:**
+
 - **≤11:** 2 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage

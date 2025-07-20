@@ -119,7 +119,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     private writePowerRollEffect(effect: PowerRollEffect): string {
         const rollParts: string[] = [];
         if (effect.roll) {
-            rollParts.push(`**${effect.roll}:**`);
+            rollParts.push(`**${effect.roll}:**\n`);
         }
         if (effect.t1) {
             rollParts.push(`- **≤11:** ${effect.t1.trim()}`);

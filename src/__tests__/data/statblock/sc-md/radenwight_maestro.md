@@ -23,6 +23,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 | **📏 5 burst**  | **🎯 All enemies in the burst** |
 
 **2d10 + 3:**
+
 - **≤11:** 3 sonic damage; slide 1; shift 1
 - **12-16:** 6 sonic damage; slide 3; shift 3
 - **17+:** 8 sonic damage; slide 5; shift 5
@@ -36,6 +37,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 | **📏 Ranged 10**  | **🎯 Two enemies** |
 
 **2d10 + 3:**
+
 - **≤11:** P<1 Slowed (save ends)
 - **12-16:** P<2 Slowed (save ends)
 - **17+:** P<3 Slowed (save ends)

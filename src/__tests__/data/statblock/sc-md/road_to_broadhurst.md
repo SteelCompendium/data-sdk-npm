@@ -443,6 +443,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Melee 1 or Ranged 5** | **🎯 One creature per minion** |
 
 **2d10 + 2:**
+
 - **≤11:** 2 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage
@@ -466,6 +467,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Melee 1**            | **🎯 One creature or object per minion** |
 
 **2d10 + 2:**
+
 - **≤11:** 1 damage; slide 1; shift 1
 - **12-16:** 2 damage; slide 2; shift 2
 - **17+:** 3 damage; slide 3; shift 3
@@ -487,6 +489,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Ranged 10**           | **🎯 One creature or object per minion** |
 
 **2d10 + 2:**
+
 - **≤11:** 2 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage
@@ -510,6 +513,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 5 burst**  | **🎯 All enemies in the burst** |
 
 **2d10 + 3:**
+
 - **≤11:** 3 sonic damage; slide 1; shift 1
 - **12-16:** 6 sonic damage; slide 3; shift 3
 - **17+:** 8 sonic damage; slide 5; shift 5
@@ -523,6 +527,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Ranged 10**  | **🎯 Two enemies** |
 
 **2d10 + 3:**
+
 - **≤11:** P<1 Slowed (save ends)
 - **12-16:** P<2 Slowed (save ends)
 - **17+:** P<3 Slowed (save ends)
@@ -570,6 +575,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Ranged 10**           | **🎯 One creature or object per minion** |
 
 **2d10 + 2:**
+
 - **≤11:** 2 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage
@@ -583,6 +589,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Melee 1**            | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 4 damage
 - **12-16:** 6 damage
 - **17+:** 7 damage
@@ -596,6 +603,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Ranged 10**  | **🎯 Three creatures** |
 
 **2d10 + 2:**
+
 - **≤11:** 2 corruption damage; A<0 restrained (save ends)
 - **12-16:** 4 corruption damage; A<1 restrained (save ends)
 - **17+:** 5 corruption damage; A<2 restrained (save ends)
@@ -607,6 +615,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 3 cube within 15** | **🎯 Each enemy in the cube** |
 
 **2d10 + 2:**
+
 - **≤11:** 1 poison damage; slide 1
 - **12-16:** 2 poison damage; slide 2
 - **17+:** 3 poison damage; slide 3
@@ -628,6 +637,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Melee 1**                    | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 3 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage
@@ -639,6 +649,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 | **📏 Melee 1**            | **🎯 One creature** |
 
 **2d10 + 2:**
+
 - **≤11:** 5 damage; M<0 bleeding (save ends)
 - **12-16:** 6 damage; M<1 bleeding (save ends)
 - **17+:** 7 damage; M<2 bleeding (save ends)

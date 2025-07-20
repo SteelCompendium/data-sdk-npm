@@ -27,6 +27,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 | **📏 Melee 3**                   | **🎯 Two enemies or objects** |
 
 **2d10 + 3:**
+
 - **≤11:** 8 damage; pull 1
 - **12-16:** 12 damage; pull 2
 - **17+:** 15 damage; pull 3
@@ -42,6 +43,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 | **📏 Melee 1**    | **🎯 One enemy or object** |
 
 **2d10 + 3:**
+
 - **≤11:** Push 1; M<1 prone
 - **12-16:** Push 2; M<2 prone
 - **17+:** Push 4; M<3 prone

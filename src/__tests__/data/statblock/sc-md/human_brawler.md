@@ -27,6 +27,7 @@ The brawler ignores concealment if it’s granted by a supernatural effect, or t
 | **📏 Melee 1**            | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 6 damage
 - **12-16:** 9 damage
 - **17+:** 12 damage; M<2 grabbed, target has a bane on escaping the grab

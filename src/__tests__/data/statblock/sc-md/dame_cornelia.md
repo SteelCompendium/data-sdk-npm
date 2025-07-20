@@ -27,6 +27,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 | **📏 1 burst**          | **🎯 All enemies in the burst** |
 
 **2d10 + 3:**
+
 - **≤11:** 3 damage; M<1 slowed (save ends)
 - **12-16:** 6 damage; M<2 slowed (save ends)
 - **17+:** 8 damage; M<3 slowed (save ends)

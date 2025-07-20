@@ -23,6 +23,7 @@ The warrior doesn’t provoke opportunity attacks by moving.
 | **📏 Melee 1**                    | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 3 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage
@@ -34,6 +35,7 @@ The warrior doesn’t provoke opportunity attacks by moving.
 | **📏 Melee 1**            | **🎯 One creature** |
 
 **2d10 + 2:**
+
 - **≤11:** 5 damage; M<0 bleeding (save ends)
 - **12-16:** 6 damage; M<1 bleeding (save ends)
 - **17+:** 7 damage; M<2 bleeding (save ends)

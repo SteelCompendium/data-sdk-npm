@@ -27,6 +27,7 @@ The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire dam
 | **📏 Melee 1**                    | **🎯 One creature or object** |
 
 **2d10 + 2:**
+
 - **≤11:** 3 damage
 - **12-16:** 4 damage
 - **17+:** 5 damage; M<2 bleeding (save ends)

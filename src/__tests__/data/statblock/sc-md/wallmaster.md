@@ -25,6 +25,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 **Effect:** The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.
 
 **2d10 + 2:**
+
 - **≤11:** 6 damage
 - **12-16:** 9 damage; A<1 prone
 - **17+:** 12 damage; A<2 prone can’t stand (EoT)
@@ -40,6 +41,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 **Effect:** The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.
 
 **2d10 + 2:**
+
 - **≤11:** Push 2
 - **12-16:** Push 4
 - **17+:** Push 5

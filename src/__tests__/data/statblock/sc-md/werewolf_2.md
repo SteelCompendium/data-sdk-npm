@@ -41,6 +41,7 @@ The werewolf ignores difficult terrain.
 | **📏 Melee 1**                    | **🎯 1 creature or object** |
 
 **2d10 + 3:**
+
 - **≤11:** 9 damage; 2 rage
 - **12-16:** 13 damage; 4 rage
 - **17+:** 16 damage; 5 rage
@@ -56,6 +57,7 @@ The werewolf ignores difficult terrain.
 | **📏 Melee 1**            | **🎯 Two creatures or objects** |
 
 **2d10 + 3:**
+
 - **≤11:** 8 damage; M<1 bleeding (save ends)
 - **12-16:** 11 damage; 1 rage; M<2 bleeding (save ends)
 - **17+:** 14 damage; 3 rage; M<3 bleeding (save ends)
@@ -67,6 +69,7 @@ The werewolf ignores difficult terrain.
 | **📏 1 burst**          | **🎯 All enemies and objects in the burst** |
 
 **2d10 + 3:**
+
 - **≤11:** 4 damage; push 2
 - **12-16:** 6 damage; 1 rage; push 3
 - **17+:** 7 damage; 3 rage; slide 3
@@ -98,6 +101,7 @@ The werewolf ignores difficult terrain.
 | **📏 5 burst** | **🎯 All enemies in the burst** |
 
 **Each target makes an Intuition test.:**
+
 - **≤11:** Target moves up to their speed away from the werewolf; frightened (save ends)
 - **12-16:** Frightened (EoT)
 - **17+:** no effect
@@ -119,6 +123,7 @@ The werewolf ignores difficult terrain.
 | **📏 2 burst**          | **🎯 All creatures in the burst** |
 
 **2d10 + 3:**
+
 - **≤11:** 5 damage; 2 rage; M<1 bleeding (save ends)
 - **12-16:** 8 damage; 4 rage; M<2 bleeding (save ends)
 - **17+:** 11 damage; 8 rage; M<3 bleeding (save ends)
