@@ -13,6 +13,9 @@
     "./model": "./dist/model/index.js",
     "./dto": "./dist/dto/index.js"
   },
+  "bin": {
+    "sc-convert": "dist/cli/sc-convert.js"
+  },
   "scripts": {
     "build": "tsc",
     "test": "jest",
