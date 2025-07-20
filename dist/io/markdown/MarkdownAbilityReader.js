@@ -6,11 +6,29 @@ const Effects_1 = require("../../model/Effects");
 class MarkdownAbilityReader {
     constructor() { }
     read(content) {
-        const lines = content.split('\n').filter(line => line.trim() !== '');
+        let lines = content.split('\n');
         const partial = {};
+        // Find the end of the frontmatter
+        let frontmatterEndIndex = -1;
+        if (lines[0].trim() === '---') {
+            frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
+            if (frontmatterEndIndex !== -1) {
+                // The index is in the sliced array, so we add 1 to get the index in the original array
+                // and another 1 to get the line after the '---'
+                lines = lines.slice(frontmatterEndIndex + 2);
+            }
+        }
+        lines = lines.filter(line => line.trim() !== '');
         let i = 0;
         // Title and Cost
-        const titleMatch = lines[i++].match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);
+        const titleLine = lines[i++].trim();
+        let titleMatch;
+        if (titleLine.startsWith('######')) {
+            titleMatch = titleLine.match(/#+\s*(.*?)(?: \((.*?)\))?$/);
+        }
+        else {
+            titleMatch = titleLine.match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);
+        }
         if (titleMatch) {
             partial.name = titleMatch[1].trim();
             if (titleMatch[2]) {

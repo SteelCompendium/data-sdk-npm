@@ -13,6 +13,18 @@ describe("MarkdownAbilityWriter", () => {
     const mdFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".md"));
     const testFiles = jsonFiles.filter(file => mdFiles.includes(file.replace('.json', '.md')));
 
+    function stripFrontmatter(content: string): string {
+        const lines = content.split('\n');
+        if (lines[0].trim() !== '---') {
+            return content;
+        }
+        const frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
+        if (frontmatterEndIndex === -1) {
+            return content;
+        }
+        return lines.slice(frontmatterEndIndex + 2).join('\n');
+    }
+
     testFiles.forEach(file => {
         it(`should correctly write ${file}`, () => {
             const inputPath = path.join(inputsDir, file);
@@ -24,7 +36,7 @@ describe("MarkdownAbilityWriter", () => {
             const ability = new Ability(JSON.parse(inputText));
             const result = writer.write(ability);
 
-            expect(result.trim()).toEqual(expectedOutput.trim());
+            expect(result.trim()).toEqual(stripFrontmatter(expectedOutput).trim());
         });
     });
 }); 
