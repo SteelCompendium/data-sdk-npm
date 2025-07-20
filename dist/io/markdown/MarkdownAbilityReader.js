@@ -62,12 +62,22 @@ class MarkdownAbilityReader {
                         isPowerRoll = true;
                     }
                 }
+                if (!isPowerRoll && i + 2 < lines.length) {
+                    const nextLine = lines[i + 2].trim();
+                    if (nextLine.startsWith('- **') && nextLine.includes(':')) {
+                        isPowerRoll = true;
+                    }
+                }
                 if (isPowerRoll) {
                     const powerRollEffect = new model_1.PowerRollEffect({});
                     powerRollEffect.roll = line.replace(/\*\*|:/g, '').trim();
                     i++;
-                    while (i < lines.length && lines[i].trim().startsWith('-')) {
+                    while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
                         const rollLine = lines[i].trim();
+                        if (rollLine === '') {
+                            i++;
+                            continue;
+                        }
                         const separatorIndex = rollLine.indexOf(':');
                         const tier = rollLine.substring(0, separatorIndex);
                         const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
