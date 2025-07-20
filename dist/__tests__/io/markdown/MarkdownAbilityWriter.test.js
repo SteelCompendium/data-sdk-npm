@@ -15,6 +15,17 @@ const model_1 = require("../../../model");
     const jsonFiles = fs_1.default.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const mdFiles = fs_1.default.readdirSync(outputsDir).filter(file => file.endsWith(".md"));
     const testFiles = jsonFiles.filter(file => mdFiles.includes(file.replace('.json', '.md')));
+    function stripFrontmatter(content) {
+        const lines = content.split('\n');
+        if (lines[0].trim() !== '---') {
+            return content;
+        }
+        const frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
+        if (frontmatterEndIndex === -1) {
+            return content;
+        }
+        return lines.slice(frontmatterEndIndex + 2).join('\n');
+    }
     testFiles.forEach(file => {
         (0, globals_1.it)(`should correctly write ${file}`, () => {
             const inputPath = path_1.default.join(inputsDir, file);
@@ -23,7 +34,7 @@ const model_1 = require("../../../model");
             const expectedOutput = fs_1.default.readFileSync(outputPath, "utf-8");
             const ability = new model_1.Ability(JSON.parse(inputText));
             const result = writer.write(ability);
-            (0, globals_1.expect)(result.trim()).toEqual(expectedOutput.trim());
+            (0, globals_1.expect)(result.trim()).toEqual(stripFrontmatter(expectedOutput).trim());
         });
     });
 });

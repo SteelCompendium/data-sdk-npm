@@ -102,11 +102,23 @@ class SteelCompendiumIdentifier {
         return null;
     }
     static isMarkdownAbility(text) {
-        const lines = text.split('\n').map(l => l.trim());
+        let lines = text.split('\n').map(l => l.trim());
+        // Find the end of the frontmatter
+        let frontmatterEndIndex = -1;
+        if (lines[0].trim() === '---') {
+            frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
+            if (frontmatterEndIndex !== -1) {
+                // The index is in the sliced array, so we add 1 to get the index in the original array
+                // and another 1 to get the line after the '---'
+                lines = lines.slice(frontmatterEndIndex + 2);
+            }
+        }
+        lines = lines.filter(line => line.trim() !== '');
         const firstLine = lines[0];
-        // e.g. **Ability Name (Cost)**
-        const titleRegex = /^\s*\*\*(.*?)(?: \((.*?)\))?\*\*\s*$/;
-        if (!titleRegex.test(firstLine)) {
+        // e.g. **Ability Name (Cost)** or ###### Ability Name (Cost)
+        const h6TitleRegex = /^\s*#+\s*(.*?)(?: \((.*?)\))?\s*$/;
+        const boldTitleRegex = /^\s*\*\*(.*?)(?: \((.*?)\))?\*\*\s*$/;
+        if (!h6TitleRegex.test(firstLine) && !boldTitleRegex.test(firstLine)) {
             return false;
         }
         // Check for markdown table for keywords/type/etc.
