@@ -146,6 +146,19 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 continue;
             }
 
+            // If we've reached here and the line is not empty, it must be a simple effect
+            if (line.trim()) {
+                let effect = line;
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effect += '\n' + lines[i];
+                    i++;
+                }
+                const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
+                effects.push(new MundaneEffect(effectProps as any));
+                continue;
+            }
+
             i++;
         }
 
