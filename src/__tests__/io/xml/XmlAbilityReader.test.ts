@@ -1,11 +1,10 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import {XmlReader} from "../../../io/xml";
-import {Ability} from "../../../model";
+import { XmlAbilityReader } from "../../../io/xml/XmlAbilityReader";
 
 describe("XmlAbilityReader", () => {
-    const reader = new XmlReader(Ability.modelDTOAdapter);
+    const reader = new XmlAbilityReader();
     const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-xml");
     const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
 

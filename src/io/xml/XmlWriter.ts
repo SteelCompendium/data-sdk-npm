@@ -8,25 +8,7 @@ export class XmlWriter<M extends SteelCompendiumModel<any>> extends IDataWriter<
     }
 
     write(data: M): string {
-        const dto = data.toDTO() as any;
-
-        if (dto.effects) {
-            dto.effects = {
-                effect: dto.effects.map((effect: any) => {
-                    const name = effect.roll ? 'roll_effect' : 'mundane_effect';
-                    return {
-                        [name]: effect
-                    }
-                })
-            };
-        }
-
-        if (dto.keywords) {
-            dto.keywords = {
-                keyword: dto.keywords
-            };
-        }
-
+        const dto = data.toDTO();
 
         const cleanDTO = Object.entries(dto).reduce((acc: Record<string, any>, [key, value]) => {
             if (value !== undefined) {
