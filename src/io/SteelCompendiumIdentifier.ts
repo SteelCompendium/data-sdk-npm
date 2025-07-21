@@ -2,13 +2,16 @@ import { parse } from 'yaml';
 import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
+import { XmlReader } from './xml';
 import { PrereleasePdfAbilityReader, PrereleasePdfStatblockReader } from './text';
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
+import { XMLParser } from 'fast-xml-parser';
 
 export enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
+    Xml = "xml",
     Markdown = "markdown",
     PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown",
@@ -43,6 +46,32 @@ export class SteelCompendiumIdentifier {
             }
         } catch (e) {
             // Not JSON
+        }
+
+        try {
+            const parser = new XMLParser();
+            const data = parser.parse(source);
+            const [_, root] = Object.entries(data)[0];
+
+            if (typeof root === 'object' && root !== null) {
+                const modelType = this.identifyModelType(root);
+                if (modelType === Ability) {
+                    return {
+                        format: SteelCompendiumFormat.Xml,
+                        model: Ability,
+                        getReader: () => new XmlReader(Ability.modelDTOAdapter)
+                    };
+                }
+                if (modelType === Statblock) {
+                    return {
+                        format: SteelCompendiumFormat.Xml,
+                        model: Statblock,
+                        getReader: () => new XmlReader(Statblock.modelDTOAdapter)
+                    };
+                }
+            }
+        } catch (e) {
+            // Not XML
         }
 
         try {

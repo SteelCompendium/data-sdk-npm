@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <!-- Definition for the root element: Ability -->
+    <xs:element name="ability" type="AbilityType"/>
+
+    <!-- Type definition for an Ability -->
+    <xs:complexType name="AbilityType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="type" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="cost" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="keywords" type="KeywordsType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="distance" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="target" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="trigger" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="effects" type="EffectsType" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="flavor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Type definition for Keywords -->
+    <xs:complexType name="KeywordsType">
+        <xs:sequence>
+            <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Type definition for Effects -->
+    <xs:complexType name="EffectsType">
+        <xs:sequence>
+            <xs:choice minOccurs="1" maxOccurs="unbounded">
+                <xs:element name="powerRollEffect" type="PowerRollEffectType"/>
+                <xs:element name="namedEffectWithCost" type="NamedEffectWithCostType"/>
+                <xs:element name="namedEffect" type="NamedEffectType"/>
+                <xs:element name="costedEffect" type="CostedEffectType"/>
+                <xs:element name="namelessEffect" type="NamelessEffectType"/>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Effect type definitions -->
+    <xs:complexType name="PowerRollEffectType">
+        <xs:sequence>
+            <xs:element name="roll" type="xs:string"/>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NamedEffectWithCostType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="cost" type="xs:string"/>
+            <xs:element name="effect" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CostedEffectType">
+        <xs:sequence>
+            <xs:element name="cost" type="xs:string"/>
+            <xs:element name="effect" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NamedEffectType">
+        <xs:sequence>
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="effect" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NamelessEffectType">
+        <xs:sequence>
+            <xs:element name="effect" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema> 
