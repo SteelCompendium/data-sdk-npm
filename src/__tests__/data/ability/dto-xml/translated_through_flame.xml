@@ -12,14 +12,12 @@
     <distance>Ranged 10</distance>
     <target>Self or one ally</target>
     <effects>
-        <mundane_effect>
-            <effect>The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target’s new space.</effect>
-        </mundane_effect>
-        <roll_effect>
+        <effect type="mundane">The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target’s new space.</effect>
+        <effect type="roll">
             <roll>Power Roll + Reason</roll>
             <t1>3 fire damage</t1>
             <t2>5 fire damage</t2>
             <t3>8 fire damage</t3>
-        </roll_effect>
+        </effect>
     </effects>
 </ability>

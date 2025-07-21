@@ -11,11 +11,11 @@
     <distance>Ranged 10</distance>
     <target>One creature or object</target>
     <effects>
-        <roll_effect>
+        <effect type="roll">
             <roll>Power Roll + Intuition</roll>
             <t1>3 + I corruption damage; M &lt; weak, damage weakness 5 (save ends)</t1>
             <t2>6 + I corruption damage; M &lt; average, damage weakness 5 (save ends)</t2>
             <t3>9 + I corruption damage; M &lt; strong, damage weakness 5 (save ends)</t3>
-        </roll_effect>
+        </effect>
     </effects>
 </ability>

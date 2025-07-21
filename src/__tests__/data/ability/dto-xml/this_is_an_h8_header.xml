@@ -10,11 +10,11 @@
     <distance>Ranged 10</distance>
     <target>One creature or object</target>
     <effects>
-        <roll_effect>
+        <effect type="roll">
             <roll>Power Roll + Agility</roll>
             <t1>12 psychic damage; push 3</t1>
             <t2>17 psychic damage; push 5</t2>
             <t3>23 psychic damage; push 7</t3>
-        </roll_effect>
+        </effect>
     </effects>
 </ability>

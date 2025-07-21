@@ -11,18 +11,13 @@
     <distance>Ranged 10</distance>
     <target>Special</target>
     <effects>
-        <mundane_effect>
-            <effect>You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can’t score a critical hit with this ability because it uses a maneuver.)</effect>
-        </mundane_effect>
-        <roll_effect>
+        <effect type="mundane">You open up two holes with 1-square openings that are 4 squares deep, which can be placed on any mundane surface within distance. You can place these holes next to each other to create fewer holes with wider openings. When the holes open, make a separate power roll for each creature on the ground above a hole and small enough to fall in. (You can’t score a critical hit with this ability because it uses a maneuver.)</effect>
+        <effect type="roll">
             <roll>Power Roll + Reason</roll>
             <t1>The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.</t1>
             <t2>The target falls into the hole.</t2>
             <t3>The target falls into the hole and can’t reduce the height of the fall.</t3>
-        </roll_effect>
-        <mundane_effect>
-            <effect>At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.</effect>
-            <name>Persistent 1</name>
-        </mundane_effect>
+        </effect>
+        <effect type="mundane" name="Persistent 1">At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.</effect>
     </effects>
 </ability>

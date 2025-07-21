@@ -10,8 +10,6 @@
     <distance>5 aura</distance>
     <target>Self and each ally in the area</target>
     <effects>
-        <mundane_effect>
-            <effect>At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.</effect>
-        </mundane_effect>
+        <effect type="mundane">At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.</effect>
     </effects>
 </ability>

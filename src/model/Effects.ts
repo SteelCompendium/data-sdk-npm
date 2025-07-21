@@ -14,6 +14,7 @@ export class Effects {
             return new Effects([]);
         }
         if (!Array.isArray(data)) {
+            console.log("NOT AN ARRAY\n"  + JSON.stringify(data))
             throw new Error("Expected effects to be an array");
         }
         return new Effects(data.map(effectFromDTO));
@@ -22,19 +23,20 @@ export class Effects {
     public toDTO(): any[] {
         return this.effects.map(e => e.toDTO());
     }
-
 }
 
-export function effectFromDTO(data: any): Effect {
-    if (data.roll) {
-        return PowerRollEffect.fromDTO(data);
-    } else if (typeof data === "string") {
-        return new MundaneEffect({ effect: data });
-    } else if (data.effect) {
-        return new MundaneEffect({ effect: data.effect, name: data.name, cost: data.cost });
+export function effectFromDTO(effect_data: any): Effect {
+    if (effect_data.type === "mundane") {
+        return new MundaneEffect({ effect: effect_data.text, name: effect_data.name, cost: effect_data.cost });
+    } else if (effect_data.roll) {
+        return PowerRollEffect.fromDTO(effect_data);
+    } else if (typeof effect_data === "string") {
+        return new MundaneEffect({ effect: effect_data });
+    } else if (effect_data.effect) {
+        return new MundaneEffect({ effect: effect_data.effect, name: effect_data.name, cost: effect_data.cost });
     } else {
-        const key: string = Object.keys(data)[0];
-        const effect: string = data[key];
+        const key: string = Object.keys(effect_data)[0];
+        const effect: string = effect_data[key];
         return new MundaneEffect({ effect: effect, name: key });
     }
 }

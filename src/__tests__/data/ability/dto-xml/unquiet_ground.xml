@@ -11,14 +11,12 @@
     <distance>2 cube within 10</distance>
     <target>Each enemy in the area</target>
     <effects>
-        <roll_effect>
+        <effect type="roll">
             <roll>Power Roll + Reason</roll>
             <t1>2 damage</t1>
             <t2>5 damage</t2>
             <t3>7 damage</t3>
-        </roll_effect>
-        <mundane_effect>
-            <effect>The ground beneath the area is difficult terrain for enemies.</effect>
-        </mundane_effect>
+        </effect>
+        <effect type="mundane">The ground beneath the area is difficult terrain for enemies.</effect>
     </effects>
 </ability>

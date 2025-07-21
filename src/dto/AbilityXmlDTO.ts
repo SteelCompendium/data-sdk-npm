@@ -1,5 +1,5 @@
-import { SteelCompendiumDTO } from "./SteelCompendiumDTO";
-import { Ability } from "../model";
+import {SteelCompendiumDTO} from "./SteelCompendiumDTO";
+import {Ability, Effects} from "../model";
 
 export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
     name!: string;
@@ -9,25 +9,26 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
     distance?: string;
     target?: string;
     trigger?: string;
-    effects?: {
-        mundane_effect?: any | any[],
-        roll_effect?: any | any[],
-    };
     flavor?: string;
+    effects?: any[];
 
-    public constructor(source: Partial<AbilityXmlDTO>) {
+    constructor(source: Partial<AbilityXmlDTO>) {
         super(source);
     }
 
     public toModel(): Ability {
-        const effects: any[] = [];
-        if (this.effects) {
-            const mundane = this.effects.mundane_effect ?? [];
-            const roll = this.effects.roll_effect ?? [];
-            effects.push(...[mundane, roll].flat());
-        }
+        // flatten your keyword list as before
+        const keywords = this.keywords
+            ? [this.keywords.keyword].flat().filter(Boolean)
+            : undefined;
 
-        const keywords = this.keywords ? [this.keywords.keyword].flat().filter(Boolean) : undefined;
+        // pull out the ordered array of raw effects (or [] if absent)
+        const rawEffects: any[] = this.effects ?? [];
+        let es = rawEffects.map(e => e.effect);
+        // xml parsing is wierd, man
+        if (Array.isArray(es[0])) {
+            es = es[0];
+        }
 
         return new Ability({
             name: this.name,
@@ -37,8 +38,8 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
             distance: this.distance,
             target: this.target,
             trigger: this.trigger,
-            effects: effects as any,
             flavor: this.flavor,
+            effects: Effects.fromDTO(es),
         });
     }
-} 
+}

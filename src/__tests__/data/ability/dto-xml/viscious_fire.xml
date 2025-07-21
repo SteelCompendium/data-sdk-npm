@@ -11,11 +11,11 @@
     <distance>Ranged 10</distance>
     <target>One creature or object</target>
     <effects>
-        <roll_effect>
+        <effect type="roll">
             <roll>Power Roll + Reason</roll>
             <t1>2 + R fire damage; push 2</t1>
             <t2>5 + R fire damage; push 3</t2>
             <t3>7 + R fire damage; push 4</t3>
-        </roll_effect>
+        </effect>
     </effects>
 </ability>

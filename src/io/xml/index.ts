@@ -1,2 +1,2 @@
-export * from './XmlReader';
+export * from './XmlAbilityReader';
 export * from './XmlWriter'; 
