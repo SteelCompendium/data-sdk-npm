@@ -1,119 +1,104 @@
-# Draw Steel Ability Schema
+# Ability XML Schema Documentation
 
-This document describes the JSON schema for Draw Steel abilities, which represent actions, maneuvers, and other capabilities that creatures can use.
+This document provides a guide to the structure of an `ability` XML file, as defined by the `ability.schema.xsd`.
 
-## Root Object
+## Root Element: `<ability>`
 
-The root object represents a complete ability with the following properties:
+The root element of the XML document must be `<ability>`.
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | The title or description of the ability |
-| `type` | string | Yes | Ability type (e.g., "Action", "Maneuver", "Triggered Action", "Villain Action 1") |
-| `cost` | string | No | Cost to use the ability (e.g., "5 Essence", "Signature", "2 Malice") |
-| `keywords` | string[] | No | Keywords associated with the ability (e.g., ["Magic", "Earth", "Melee"]) |
-| `distance` | string | No | Distance or area (e.g., "Ranged 5", "2 burst", "Melee 1") |
-| `target` | string | No | Who or what is targeted (e.g., "All enemies", "One creature", "Self") |
-| `trigger` | string | No | Trigger condition for triggered actions |
-| `effects` | Effect[] | Yes | List of effects (flexible formats) |
-| `flavor` | string | No | Flavor text of the ability |
+### Attributes
 
-## Effect Types
+None.
 
-Abilities can have different types of effects, which are defined as follows:
+### Child Elements
 
-### Power Roll Effect
+The `<ability>` element contains the following child elements in a specific sequence:
 
-A power roll effect represents a roll with different outcomes based on the result.
+| Element    | Type          | Occurrence | Description                                     |
+| :--------- | :------------ | :--------- | :---------------------------------------------- |
+| `name`     | `xs:string`   | 1          | The name of the ability.                        |
+| `type`     | `xs:string`   | 1          | The type of action (e.g., "Maneuver", "Main Action"). |
+| `cost`     | `xs:string`   | 0..1       | The resource cost to use the ability.           |
+| `keywords` | `KeywordsType`| 0..1       | A container for keyword elements.               |
+| `distance` | `xs:string`   | 0..1       | The range of the ability.                       |
+| `target`   | `xs:string`   | 0..1       | The target of the ability.                      |
+| `trigger`  | `xs:string`   | 0..1       | The trigger condition for the ability.          |
+| `flavor`   | `xs:string`   | 0..1       | Flavor text for the ability.                    |
+| `effects`  | `EffectsType` | 1          | A container for the ability's effects.          |
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `roll` | string | Yes | Power Roll expression (e.g., "2d10 + 3") |
-| `[tier]` | string | No | Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.) |
+---
 
-Example:
-```json
-{
-  "roll": "2d10 + 3",
-  "11 or lower": "3 sonic damage; slide 1; shift 1",
-  "12-16": "6 sonic damage; slide 3; shift 3",
-  "17+": "8 sonic damage; slide 5; shift 5"
-}
-```
+## Complex Types
 
-### Named Effect with Cost
+### `KeywordsType`
 
-An effect that has a name and requires a cost to trigger.
+A container for one or more `<keyword>` elements.
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Name of the effect |
-| `cost` | string | Yes | Cost to trigger this effect |
-| `effect` | string | Yes | Description of what the effect does |
+| Element   | Type        | Occurrence | Description               |
+| :-------- | :---------- | :--------- | :------------------------ |
+| `keyword` | `xs:string` | 0..unbounded | A keyword associated with the ability. |
 
-Example:
-```json
-{
-  "name": "Malice Boost",
-  "cost": "3 Malice",
-  "effect": "Each ally within 3 of a target has their speed increased by 2 until the end of their next turn."
-}
-```
+### `EffectsType`
 
-### Effect with Cost
+A container for one or more `<effect>` elements.
 
-An effect that requires a cost to trigger.
+| Element  | Type         | Occurrence | Description                                |
+| :------- | :----------- | :--------- | :----------------------------------------- |
+| `effect` | `EffectType` | 1..unbounded | Describes a single effect of the ability. |
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `cost` | string | Yes | Cost to trigger this effect |
-| `effect` | string | Yes | Description of what the effect does |
+### `EffectType`
 
-Example:
-```json
-{
-  "cost": "2 Malice",
-  "effect": "The maestro makes a free strike against the target."
-}
-```
+Describes an effect. This is a mixed-type element, meaning it can contain text and child elements.
 
-### Named or Nameless Effect
+#### Attributes
 
-An effect with an optional name, but no cost.
+| Attribute | Type        | Use        | Description                                       |
+| :-------- | :---------- | :--------- | :------------------------------------------------ |
+| `type`    | `xs:string` | required   | The type of effect. Can be "mundane" or "roll".   |
+| `name`    | `xs:string` | optional   | The name of the effect (e.g., "Persistent 1").    |
+| `cost`    | `xs:string` | optional   | The cost associated with this specific effect.    |
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | No | Name of the effect |
-| `effect` | string | Yes | Description of what the effect does |
+#### Content and Child Elements
 
-Example:
-```json
-{
-  "name": "Solo Performance",
-  "effect": "Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled."
-}
-```
+The content of the `<effect>` element depends on its `type` attribute.
+
+-   If `type="mundane"`, the element's text content is the description of the effect.
+-   If `type="roll"`, the element contains child elements that describe a power roll.
+
+| Element | Type        | Occurrence | Description                             |
+| :------ | :---------- | :--------- | :-------------------------------------- |
+| `roll`  | `xs:string` | 0..1       | The dice roll formula.                  |
+| `t1`    | `xs:string` | 0..1       | The outcome for the first tier.         |
+| `t2`    | `xs:string` | 0..1       | The outcome for the second tier.        |
+| `t3`    | `xs:string` | 0..1       | The outcome for the third tier.         |
+| `crit`  | `xs:string` | 0..1       | The outcome for a critical success.     |
+
+---
 
 ## Example
 
-```json
-{
-  "name": "Cacophony",
-  "type": "Action",
-  "cost": "Signature",
-  "keywords": ["Area", "Magic"],
-  "effects": [
-    {
-      "roll": "2d10 + 3",
-      "11 or lower": "3 sonic damage; slide 1; shift 1",
-      "12-16": "6 sonic damage; slide 3; shift 3",
-      "17+": "8 sonic damage; slide 5; shift 5"
-    },
-    { 
-      "effect": "Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round"
-    }
-  ],
-  "distance": "5 burst",
-  "target": "All enemies in the burst"
-}
-``` 
+Here is an example of a complete `<ability>` XML structure.
+
+```xml
+<ability>
+  <name>BLESSING OF THE BLADE</name>
+  <cost>11 PIETY</cost>
+  <flavor>“The power of the gods is within you, friends. Allow me to unleash it.”</flavor>
+  <keywords>
+    <keyword>Area</keyword>
+    <keyword>Magic</keyword>
+  </keywords>
+  <type>Maneuver</type>
+  <distance>5 aura</distance>
+  <target>Self and each ally in the area</target>
+  <effects>
+    <effect type="mundane">At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.</effect>
+    <effect type="roll">
+      <roll>Power Roll + Intuition</roll>
+      <t1>3 + I corruption damage; M &lt; weak, damage weakness 5 (save ends)</t1>
+      <t2>6 + I corruption damage; M &lt; average, damage weakness 5 (save ends)</t2>
+      <t3>9 + I corruption damage; M &lt; strong, damage weakness 5 (save ends)</t3>
+    </effect>
+  </effects>
+</ability>
+```
