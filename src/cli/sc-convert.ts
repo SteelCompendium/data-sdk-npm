@@ -77,6 +77,9 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
             );
         }
     } else {
+        // ignore index.md files
+        if (inPath.endsWith('index.md')) return;
+
         // Filter by `from` extension
         const ext = extname(inPath).toLowerCase();
         const validExts = from === SteelCompendiumFormat.Json     ? ['.json']

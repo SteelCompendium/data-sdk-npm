@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.23
+
+- Ignores `index.md` files in `sc-convert` cli
+
 ## 0.0.22
 
 - Adds cli utility `sc-convert`
