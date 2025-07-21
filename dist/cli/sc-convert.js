@@ -118,9 +118,8 @@ function convertPath(inPath, outBase, from, to) {
                     break;
                 case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Xml:
                     if (model instanceof model_1.Ability)
-                        writer = new xml_1.XmlWriter('ability');
-                    else if (model instanceof model_1.Statblock)
-                        writer = new xml_1.XmlWriter('statblock');
+                        writer = new xml_1.XmlAbilityWriter();
+                    // else if (model instanceof Statblock) writer = new XmlWriter('statblock');
                     else
                         throw new Error('No XML writer for this model');
                     break;

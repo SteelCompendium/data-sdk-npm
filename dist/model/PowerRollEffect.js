@@ -32,6 +32,16 @@ class PowerRollEffect extends Effect_1.Effect {
             dto.crit = this.crit;
         return dto;
     }
+    toXmlDTO() {
+        return {
+            '@_type': 'roll',
+            roll: this.roll,
+            t1: this.t1,
+            t2: this.t2,
+            t3: this.t3,
+            crit: this.crit,
+        };
+    }
     effectType() {
         return "PowerRollEffect";
     }

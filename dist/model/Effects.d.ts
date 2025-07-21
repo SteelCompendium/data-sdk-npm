@@ -4,5 +4,6 @@ export declare class Effects {
     constructor(effects: Effect[]);
     static fromDTO(data: any): Effects;
     toDTO(): any[];
+    toXmlDTO(): any[];
 }
-export declare function effectFromDTO(data: any): Effect;
+export declare function effectFromDTO(effect_data: any): Effect;

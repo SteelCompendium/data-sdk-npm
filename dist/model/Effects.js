@@ -13,6 +13,7 @@ class Effects {
             return new Effects([]);
         }
         if (!Array.isArray(data)) {
+            console.log("NOT AN ARRAY\n" + JSON.stringify(data));
             throw new Error("Expected effects to be an array");
         }
         return new Effects(data.map(effectFromDTO));
@@ -20,21 +21,33 @@ class Effects {
     toDTO() {
         return this.effects.map(e => e.toDTO());
     }
+    toXmlDTO() {
+        return this.effects.map(e => e.toXmlDTO());
+    }
 }
 exports.Effects = Effects;
-function effectFromDTO(data) {
-    if (data.roll) {
-        return PowerRollEffect_1.PowerRollEffect.fromDTO(data);
+function effectFromDTO(effect_data) {
+    if (effect_data['@_type'] === "mundane") {
+        return new MundaneEffect_1.MundaneEffect({ effect: effect_data['#text'], name: effect_data['@_name'], cost: effect_data['@_cost'] });
     }
-    else if (typeof data === "string") {
-        return new MundaneEffect_1.MundaneEffect({ effect: data });
+    else if (effect_data['@_type'] === "roll") {
+        return PowerRollEffect_1.PowerRollEffect.fromDTO(effect_data);
     }
-    else if (data.effect) {
-        return new MundaneEffect_1.MundaneEffect({ effect: data.effect, name: data.name, cost: data.cost });
+    else if (effect_data.type === "mundane") {
+        return new MundaneEffect_1.MundaneEffect({ effect: effect_data.text, name: effect_data.name, cost: effect_data.cost });
+    }
+    else if (effect_data.roll) {
+        return PowerRollEffect_1.PowerRollEffect.fromDTO(effect_data);
+    }
+    else if (typeof effect_data === "string") {
+        return new MundaneEffect_1.MundaneEffect({ effect: effect_data });
+    }
+    else if (effect_data.effect) {
+        return new MundaneEffect_1.MundaneEffect({ effect: effect_data.effect, name: effect_data.name, cost: effect_data.cost });
     }
     else {
-        const key = Object.keys(data)[0];
-        const effect = data[key];
+        const key = Object.keys(effect_data)[0];
+        const effect = effect_data[key];
         return new MundaneEffect_1.MundaneEffect({ effect: effect, name: key });
     }
 }

@@ -15,9 +15,7 @@ import { dirname, extname, join, relative, basename } from 'path';
 import { JsonWriter }      from '../io/json/JsonWriter';                       // :contentReference[oaicite:0]{index=0}
 import { YamlWriter }      from '../io/yaml/YamlWriter';                       // :contentReference[oaicite:1]{index=1}
 import {
-    MarkdownAbilityReader,
     MarkdownAbilityWriter,
-    MarkdownStatblockReader,
     MarkdownStatblockWriter,
 } from '../io/markdown';                              // :contentReference[oaicite:2]{index=2}
 import {
@@ -25,8 +23,7 @@ import {
     SteelCompendiumFormat,
 }                           from '../io/SteelCompendiumIdentifier';             // :contentReference[oaicite:3]{index=3}
 import { Ability, Statblock } from '../model';
-import {JsonReader, YamlReader} from "../io";
-import {XmlAbilityWriter, XmlWriter} from "../io/xml";                                  // :contentReference[oaicite:4]{index=4}
+import {XmlAbilityWriter} from "../io/xml";                                  // :contentReference[oaicite:4]{index=4}
 
 interface CLIArgs {
     from: SteelCompendiumFormat;

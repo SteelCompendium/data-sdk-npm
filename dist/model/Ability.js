@@ -4,6 +4,7 @@ exports.Ability = void 0;
 const dto_1 = require("../dto");
 const Effects_1 = require("./Effects");
 const SteelCompendiumModel_1 = require("./SteelCompendiumModel");
+const AbilityXmlDTO_1 = require("../dto/AbilityXmlDTO");
 class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     constructor(source) {
         var _a;
@@ -16,6 +17,9 @@ class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     }
     toDTO() {
         return dto_1.AbilityDTO.partialFromModel(this);
+    }
+    toXmlDTO() {
+        return AbilityXmlDTO_1.AbilityXmlDTO.partialFromModel(this);
     }
 }
 exports.Ability = Ability;

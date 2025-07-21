@@ -1,6 +1,7 @@
 import { AbilityDTO } from "../dto";
 import { Effects } from "./Effects";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 export declare class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
     cost?: string;
@@ -15,4 +16,5 @@ export declare class Ability extends SteelCompendiumModel<AbilityDTO> {
     static modelDTOAdapter: ModelDTOAdapter<Ability, AbilityDTO>;
     static fromDTO(dto: AbilityDTO): Ability;
     toDTO(): Partial<AbilityDTO>;
+    toXmlDTO(): Partial<AbilityXmlDTO>;
 }

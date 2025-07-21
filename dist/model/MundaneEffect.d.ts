@@ -6,4 +6,5 @@ export declare class MundaneEffect extends Effect {
     constructor(source: Partial<MundaneEffect>);
     effectType(): string;
     toDTO(): any;
+    toXmlDTO(): any;
 }

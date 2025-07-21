@@ -53,14 +53,15 @@ class SteelCompendiumIdentifier {
                     return {
                         format: SteelCompendiumFormat.Xml,
                         model: model_1.Ability,
-                        getReader: () => new xml_1.XmlReader(model_1.Ability.modelDTOAdapter)
+                        getReader: () => new xml_1.XmlAbilityReader()
                     };
                 }
                 if (modelType === model_1.Statblock) {
                     return {
                         format: SteelCompendiumFormat.Xml,
                         model: model_1.Statblock,
-                        getReader: () => new xml_1.XmlReader(model_1.Statblock.modelDTOAdapter)
+                        // TODO - should be XmlStatblockReader, but that's not implemented yet'
+                        getReader: () => new xml_1.XmlAbilityReader()
                     };
                 }
             }
