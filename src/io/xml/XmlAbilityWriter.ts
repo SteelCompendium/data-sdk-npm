@@ -17,9 +17,6 @@ export class XmlAbilityWriter extends IDataWriter<Ability> {
             format: true,
             suppressBooleanAttributes: false,
             ignoreAttributes: false,
-            attributeNamePrefix: "@_",
-            textNodeName: "#text",
-            cdataPropName: "#text",
         });
 
         return builder.build({
