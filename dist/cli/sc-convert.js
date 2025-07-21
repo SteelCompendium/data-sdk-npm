@@ -70,7 +70,7 @@ function convertPath(inPath, outBase, from, to) {
         }
         else {
             // ignore index.md files
-            if (inPath.endsWith('index.md'))
+            if (inPath.toLowerCase().endsWith('index.md'))
                 return;
             // Filter by `from` extension
             const ext = (0, path_1.extname)(inPath).toLowerCase();

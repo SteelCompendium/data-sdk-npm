@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.25
+
+- `sc-convert` will properly ignore `index.md` files regardless of casing
+
 ## 0.0.24
 
 - Better handling of "feature"-type abilities
