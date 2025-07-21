@@ -5,6 +5,9 @@
  *
  * Usage:
  *   sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--output <outpath>] <input>
+ *
+ * Example:
+ *   npm run build && npm link && sc-convert --from markdown --to json ../data-gen/staging/heroes/9_formatted/Abilities/Introduction/1st-Level\ Features/This\ Is\ An\ H8\ Header.md --output ./tmp
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -23,7 +26,6 @@ const YamlWriter_1 = require("../io/yaml/YamlWriter"); // :contentReference[oaic
 const markdown_1 = require("../io/markdown"); // :contentReference[oaicite:2]{index=2}
 const SteelCompendiumIdentifier_1 = require("../io/SteelCompendiumIdentifier"); // :contentReference[oaicite:3]{index=3}
 const model_1 = require("../model");
-const io_1 = require("../io"); // :contentReference[oaicite:4]{index=4}
 function parseArgs() {
     const args = process.argv.slice(2);
     const cli = { from: undefined, to: undefined };
@@ -82,26 +84,27 @@ function convertPath(inPath, outBase, from, to) {
                 return;
             const source = yield fs_1.promises.readFile(inPath, 'utf8');
             // TODO - this identifier is wrong (markdown/prereleasetext), ignore for now
-            // const idRes  = SteelCompendiumIdentifier.identify(source);
-            // if (idRes.format !== from) {
-            //     console.warn(`⚠️  Warning: detected format "${idRes.format}" but --from="${from}" was given.`);
-            // }
-            // TODO - support statblocks too
-            let reader;
-            switch (from) {
-                case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Json:
-                    reader = new io_1.JsonReader(model_1.Ability.modelDTOAdapter);
-                    break;
-                case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Yaml:
-                    reader = new io_1.YamlReader(model_1.Statblock.modelDTOAdapter);
-                    break;
-                case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Markdown:
-                    reader = new markdown_1.MarkdownAbilityReader();
-                    break;
-                default:
-                    throw new Error(`Unsupported --from format "${from}"`);
+            const idRes = SteelCompendiumIdentifier_1.SteelCompendiumIdentifier.identify(source);
+            if (idRes.format !== from) {
+                console.warn(`⚠️  Warning: detected format "${idRes.format}" but --from="${from}" was given.`);
             }
-            const model = reader.read(source);
+            const model = idRes.getReader().read(source);
+            // // This was hard-coded for abilities only
+            // let reader: any;
+            // switch (from) {
+            //     case SteelCompendiumFormat.Json:
+            //         reader = new JsonReader(Ability.modelDTOAdapter);
+            //         break;
+            //     case SteelCompendiumFormat.Yaml:
+            //         reader = new YamlReader(Statblock.modelDTOAdapter);
+            //         break;
+            //     case SteelCompendiumFormat.Markdown:
+            //         reader = new MarkdownAbilityReader();
+            //         break;
+            //     default:
+            //         throw new Error(`Unsupported --from format "${from}"`);
+            // }
+            // const model = reader.read(source);
             // Pick the correct writer
             let writer;
             switch (to) {
