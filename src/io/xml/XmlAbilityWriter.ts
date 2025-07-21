@@ -14,6 +14,7 @@ export class XmlAbilityWriter extends IDataWriter<Ability> {
         }, {});
 
         const builder = new XMLBuilder({
+            format: true,
             suppressBooleanAttributes: false,
             ignoreAttributes: false,
             attributeNamePrefix: "@_",
