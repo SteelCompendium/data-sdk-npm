@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.27
+
+- Adds support for reader/writing abilities as XML
+
 ## 0.0.26
 
 - Wires in the Identifier to automatically figure out the model in `sc-convert`

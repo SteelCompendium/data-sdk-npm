@@ -26,7 +26,7 @@ import {
 }                           from '../io/SteelCompendiumIdentifier';             // :contentReference[oaicite:3]{index=3}
 import { Ability, Statblock } from '../model';
 import {JsonReader, YamlReader} from "../io";
-import {XmlWriter} from "../io/xml";                                  // :contentReference[oaicite:4]{index=4}
+import {XmlAbilityWriter, XmlWriter} from "../io/xml";                                  // :contentReference[oaicite:4]{index=4}
 
 interface CLIArgs {
     from: SteelCompendiumFormat;
@@ -128,8 +128,8 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
                 writer = new YamlWriter();
                 break;
             case SteelCompendiumFormat.Xml:
-                if (model instanceof Ability) writer = new XmlWriter('ability');
-                else if (model instanceof Statblock) writer = new XmlWriter('statblock');
+                if (model instanceof Ability) writer = new XmlAbilityWriter();
+                // else if (model instanceof Statblock) writer = new XmlWriter('statblock');
                 else throw new Error('No XML writer for this model');
                 break;
             case SteelCompendiumFormat.Markdown:
