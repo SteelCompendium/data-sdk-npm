@@ -134,18 +134,7 @@ export class SteelCompendiumIdentifier {
             return false;
         }
 
-        // Check for markdown table for keywords/type/etc.
-        // e.g. | **Keywords** | **Type** |
-        const hasTable = lines.some(l => l.includes('|'));
-
-        // Check for markdown sections
-        const hasSection = lines.some(l =>
-            l.startsWith('**Power Roll') ||
-            l.startsWith('**Effect:**') ||
-            l.startsWith('**Trigger:**')
-        );
-
-        return hasTable || hasSection;
+        return true;
     }
 
     private static isStatblock(text: string): boolean {
