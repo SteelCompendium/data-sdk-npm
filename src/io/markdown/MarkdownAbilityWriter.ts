@@ -5,7 +5,9 @@ import { MundaneEffect } from "../../model";
 import { PowerRollEffect } from "../../model";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    write(data: Ability): string {
+   write(data: Ability): string {
+        // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
+        const includeEffectsToken: boolean = !!(data.keywords && data.keywords.length > 0);
         const parts: string[] = [];
 
         if (data.name) {
@@ -87,23 +89,23 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
                 return new MundaneEffect(e);
             });
 
-            const effectParts = mappedEffects.map(e => this.writeEffect(e));
+            const effectParts = mappedEffects.map(e => this.writeEffect(e, includeEffectsToken));
             parts.push(effectParts.join('\n\n'));
         }
 
         return parts.join('\n\n');
     }
 
-    private writeEffect(effect: Effect): string {
+    private writeEffect(effect: Effect, includeEffectToken: boolean): string {
         if (effect instanceof MundaneEffect) {
-            return this.writeMundaneEffect(effect);
+            return this.writeMundaneEffect(effect, includeEffectToken);
         } else if (effect instanceof PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         }
         return '';
     }
 
-    private writeMundaneEffect(effect: MundaneEffect): string {
+    private writeMundaneEffect(effect: MundaneEffect, includeEffectToken: boolean): string {
         let name = "Effect";
         if (effect.name) {
             name = effect.name;
@@ -112,6 +114,10 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             }
         } else if (effect.cost) {
             name = effect.cost;
+        }
+
+        if (!effect.name && !effect.cost && !includeEffectToken) {
+            return effect.effect.trim();
         }
         return `**${name}:** ${effect.effect.trim()}`
     }
