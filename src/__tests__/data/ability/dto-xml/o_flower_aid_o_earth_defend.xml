@@ -12,7 +12,7 @@
   <type>Maneuver</type>
   <distance>3 cube within 10</distance>
   <target>Special</target>
-    <effects>
+  <effects>
     <effect type="mundane">Until the start of your next turn, the area gains the following effects:
 • Once at the start of your turn as a free maneuver, you and each ally in the area can spend any number of Recoveries. Once as a free maneuver at the start of your turn, you allow yourself and each ally in the area to spend any number of Recoveries.
 • The area is difficult terrain for enemies.
