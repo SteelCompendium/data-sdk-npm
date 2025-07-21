@@ -2,7 +2,7 @@ import { parse } from 'yaml';
 import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
-import { XmlReader } from './xml';
+import { XmlAbilityReader } from './xml';
 import { PrereleasePdfAbilityReader, PrereleasePdfStatblockReader } from './text';
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
@@ -59,14 +59,15 @@ export class SteelCompendiumIdentifier {
                     return {
                         format: SteelCompendiumFormat.Xml,
                         model: Ability,
-                        getReader: () => new XmlReader(Ability.modelDTOAdapter)
+                        getReader: () => new XmlAbilityReader()
                     };
                 }
                 if (modelType === Statblock) {
                     return {
                         format: SteelCompendiumFormat.Xml,
                         model: Statblock,
-                        getReader: () => new XmlReader(Statblock.modelDTOAdapter)
+                        // TODO - should be XmlStatblockReader, but that's not implemented yet'
+                        getReader: () => new XmlAbilityReader()
                     };
                 }
             }

@@ -1,6 +1,7 @@
 import { AbilityDTO } from "../dto";
 import { Effects } from "./Effects";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import {AbilityXmlDTO} from "../dto/AbilityXmlDTO";
 
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
@@ -30,5 +31,9 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
 
     public toDTO(): Partial<AbilityDTO> {
         return AbilityDTO.partialFromModel(this);
+    }
+
+    public toXmlDTO(): Partial<AbilityXmlDTO> {
+        return AbilityXmlDTO.partialFromModel(this);
     }
 }

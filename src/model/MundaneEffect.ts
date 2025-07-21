@@ -23,4 +23,8 @@ export class MundaneEffect extends Effect {
         if (this.cost !== undefined) dto.cost = this.cost;
         return dto;
     }
+
+    public toXmlDTO() {
+        return this.toDTO();
+    }
 } 

@@ -1,21 +1,21 @@
 <ability>
-    <name>VISCOUS FIRE</name>
-    <flavor>A jet of heavy fire erupts where you strike.</flavor>
-    <keywords>
-        <keyword>Fire</keyword>
-        <keyword>Magic</keyword>
-        <keyword>Ranged</keyword>
-        <keyword>Strike</keyword>
-    </keywords>
-    <type>Main Action</type>
-    <distance>Ranged 10</distance>
-    <target>One creature or object</target>
-    <effects>
-        <effect type="roll">
-            <roll>Power Roll + Reason</roll>
-            <t1>2 + R fire damage; push 2</t1>
-            <t2>5 + R fire damage; push 3</t2>
-            <t3>7 + R fire damage; push 4</t3>
-        </effect>
-    </effects>
+  <name>VISCOUS FIRE</name>
+  <flavor>A jet of heavy fire erupts where you strike.</flavor>
+  <keywords>
+    <keyword>Fire</keyword>
+    <keyword>Magic</keyword>
+    <keyword>Ranged</keyword>
+    <keyword>Strike</keyword>
+  </keywords>
+  <type>Main Action</type>
+  <distance>Ranged 10</distance>
+  <target>One creature or object</target>
+  <effects>
+    <effect type="roll">
+      <roll>Power Roll + Reason</roll>
+      <t1>2 + R fire damage; push 2</t1>
+      <t2>5 + R fire damage; push 3</t2>
+      <t3>7 + R fire damage; push 4</t3>
+    </effect>
+  </effects>
 </ability>

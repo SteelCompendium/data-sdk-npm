@@ -33,7 +33,11 @@ export class PowerRollEffect extends Effect {
         return dto;
     }
 
+    public toXmlDTO() {
+        return this.toDTO();
+    }
+
     effectType() {
         return "PowerRollEffect";
     }
-} 
+}

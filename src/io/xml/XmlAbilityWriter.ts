@@ -1,14 +1,10 @@
 import { IDataWriter } from "../IDataWriter";
-import { SteelCompendiumModel } from "../../model/SteelCompendiumModel";
 import { XMLBuilder } from "fast-xml-parser";
+import {Ability} from "../../model";
 
-export class XmlWriter<M extends SteelCompendiumModel<any>> extends IDataWriter<M> {
-    public constructor(private readonly rootName: string) {
-        super();
-    }
-
-    write(data: M): string {
-        const dto = data.toDTO();
+export class XmlAbilityWriter extends IDataWriter<Ability> {
+    write(data: Ability): string {
+        const dto = data.toXmlDTO();
 
         const cleanDTO = Object.entries(dto).reduce((acc: Record<string, any>, [key, value]) => {
             if (value !== undefined) {
@@ -23,7 +19,7 @@ export class XmlWriter<M extends SteelCompendiumModel<any>> extends IDataWriter<
         });
 
         return builder.build({
-            [this.rootName]: cleanDTO
+            ['ability']: cleanDTO
         });
     }
-} 
+}

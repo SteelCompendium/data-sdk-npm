@@ -16,6 +16,21 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
         super(source);
     }
 
+    public static partialFromModel(model: Ability): Partial<AbilityXmlDTO> {
+        const dto: Partial<AbilityXmlDTO> = {};
+        if (model.name !== undefined) dto.name = model.name;
+        if (model.cost !== undefined) dto.cost = model.cost;
+        if (model.flavor !== undefined) dto.flavor = model.flavor;
+        if (model.keywords !== undefined) dto.keywords = {keyword: model.keywords};
+        if (model.type !== undefined) dto.type = model.type;
+        if (model.distance !== undefined) dto.distance = model.distance;
+        if (model.target !== undefined) dto.target = model.target;
+        if (model.trigger !== undefined) dto.trigger = model.trigger;
+        console.log(JSON.stringify(model.effects));
+        dto.effects = model.effects.toXmlDTO();
+        return dto;
+    }
+
     public toModel(): Ability {
         // flatten your keyword list as before
         const keywords = this.keywords

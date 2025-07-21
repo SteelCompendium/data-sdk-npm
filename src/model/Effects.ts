@@ -23,6 +23,10 @@ export class Effects {
     public toDTO(): any[] {
         return this.effects.map(e => e.toDTO());
     }
+
+    public toXmlDTO(): any[] {
+        return this.effects.map(e => e.toXmlDTO());
+    }
 }
 
 export function effectFromDTO(effect_data: any): Effect {
