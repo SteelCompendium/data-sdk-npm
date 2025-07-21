@@ -121,14 +121,7 @@ class SteelCompendiumIdentifier {
         if (!h6TitleRegex.test(firstLine) && !boldTitleRegex.test(firstLine)) {
             return false;
         }
-        // Check for markdown table for keywords/type/etc.
-        // e.g. | **Keywords** | **Type** |
-        const hasTable = lines.some(l => l.includes('|'));
-        // Check for markdown sections
-        const hasSection = lines.some(l => l.startsWith('**Power Roll') ||
-            l.startsWith('**Effect:**') ||
-            l.startsWith('**Trigger:**'));
-        return hasTable || hasSection;
+        return true;
     }
     static isStatblock(text) {
         const statblockKeywords = [

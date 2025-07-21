@@ -136,6 +136,18 @@ class MarkdownAbilityReader {
                 effects.push(new model_1.MundaneEffect(effectProps));
                 continue;
             }
+            // If we've reached here and the line is not empty, it must be a simple effect
+            if (line.trim()) {
+                let effect = line;
+                i++;
+                while (i < lines.length && !lines[i].startsWith('**')) {
+                    effect += '\n' + lines[i];
+                    i++;
+                }
+                const effectProps = { effect: effect.trim() };
+                effects.push(new model_1.MundaneEffect(effectProps));
+                continue;
+            }
             i++;
         }
         const ability = new model_1.Ability(partial);

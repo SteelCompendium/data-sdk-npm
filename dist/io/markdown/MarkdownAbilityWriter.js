@@ -6,6 +6,8 @@ const model_1 = require("../../model");
 const model_2 = require("../../model");
 class MarkdownAbilityWriter {
     write(data) {
+        // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
+        const includeEffectsToken = !!(data.keywords && data.keywords.length > 0);
         const parts = [];
         if (data.name) {
             let title = `**${data.name}`;
@@ -78,21 +80,21 @@ class MarkdownAbilityWriter {
                     return new model_2.PowerRollEffect(e);
                 return new model_1.MundaneEffect(e);
             });
-            const effectParts = mappedEffects.map(e => this.writeEffect(e));
+            const effectParts = mappedEffects.map(e => this.writeEffect(e, includeEffectsToken));
             parts.push(effectParts.join('\n\n'));
         }
         return parts.join('\n\n');
     }
-    writeEffect(effect) {
+    writeEffect(effect, includeEffectToken) {
         if (effect instanceof model_1.MundaneEffect) {
-            return this.writeMundaneEffect(effect);
+            return this.writeMundaneEffect(effect, includeEffectToken);
         }
         else if (effect instanceof model_2.PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         }
         return '';
     }
-    writeMundaneEffect(effect) {
+    writeMundaneEffect(effect, includeEffectToken) {
         let name = "Effect";
         if (effect.name) {
             name = effect.name;
@@ -102,6 +104,9 @@ class MarkdownAbilityWriter {
         }
         else if (effect.cost) {
             name = effect.cost;
+        }
+        if (!effect.name && !effect.cost && !includeEffectToken) {
+            return effect.effect.trim();
         }
         return `**${name}:** ${effect.effect.trim()}`;
     }

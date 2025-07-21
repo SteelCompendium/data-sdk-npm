@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.24
+
+- Better handling of "feature"-type abilities
+
 ## 0.0.23
 
 - Ignores `index.md` files in `sc-convert` cli
