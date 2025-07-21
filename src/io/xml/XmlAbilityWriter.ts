@@ -1,6 +1,6 @@
 import { IDataWriter } from "../IDataWriter";
 import { XMLBuilder } from "fast-xml-parser";
-import {Ability} from "../../model";
+import { Ability } from "../../model";
 
 export class XmlAbilityWriter extends IDataWriter<Ability> {
     write(data: Ability): string {
@@ -14,8 +14,11 @@ export class XmlAbilityWriter extends IDataWriter<Ability> {
         }, {});
 
         const builder = new XMLBuilder({
-            format: true,
             suppressBooleanAttributes: false,
+            ignoreAttributes: false,
+            attributeNamePrefix: "@_",
+            textNodeName: "#text",
+            cdataPropName: "#text",
         });
 
         return builder.build({

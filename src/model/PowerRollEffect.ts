@@ -34,7 +34,14 @@ export class PowerRollEffect extends Effect {
     }
 
     public toXmlDTO() {
-        return this.toDTO();
+        return {
+            '@_type': 'roll',
+            roll: this.roll,
+            t1: this.t1,
+            t2: this.t2,
+            t3: this.t3,
+            crit: this.crit,
+        };
     }
 
     effectType() {
