@@ -13,9 +13,7 @@
     <target>Self or one ally</target>
     <effects>
         <mundane_effect>
-            <effect>The target is teleported to another space within distance. Make a power roll that affects each enemy
-                adjacent to the target’s new space.
-            </effect>
+            <effect>The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target’s new space.</effect>
         </mundane_effect>
         <roll_effect>
             <roll>Power Roll + Reason</roll>
