@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.22
+
+- Adds cli utility `sc-convert`
+
 ## 0.0.21
 
 - Changes `stamina` field to a string because the Familiar statblock

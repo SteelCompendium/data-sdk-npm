@@ -2,7 +2,7 @@
 
 This repo is a suite of utilities for working with structured Draw Steel data.  
 
-- The repo itself is an npm package: [steel-compendium-sdk](https://www.npmjs.com/package/steel-compendium-sdk)
+- The repo itself is an npm package: [npmjs.com - steel-compendium-sdk](https://www.npmjs.com/package/steel-compendium-sdk)
   - [Typescript Models](src/model)
   - Readers and Writers (Serialization)
     - JSON
@@ -14,7 +14,16 @@ This repo is a suite of utilities for working with structured Draw Steel data.
 
 This code is also the backbone of the [Draw Steel Web Adapter](https://steelcompendium.io/web-adapter/) ([sourcecode](https://github.com/SteelCompendium/web-adapter))
 
-## Future work
+
+## Development
+
+- Test: `npm run test`
+- Publish version
+  - Update `CHANGELOG.md` with release notes
+  - Update `pacakge.json` with new version
+  - `npm publish`
+
+### Future work
 
 - Update Markdown standard to be compliant with changes from the final DS PDF
 - Add XML support (reader, writer, schema, validator)
