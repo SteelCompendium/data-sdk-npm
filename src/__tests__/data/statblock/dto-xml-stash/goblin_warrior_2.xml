@@ -1,0 +1,59 @@
+<statblock>
+  <name>GOBLIN WARRIOR</name>
+  <level>1</level>
+  <roles>HORDE</roles>
+  <roles>HARRIER</roles>
+  <ancestry>Goblin</ancestry>
+  <ancestry>Humanoid</ancestry>
+  <ev>3</ev>
+  <stamina>15</stamina>
+  <speed>6</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>0</stability>
+  <free_strike>1</free_strike>
+  <might>-2</might>
+  <agility>2</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>-1</presence>
+  <traits>
+    <name>Crafty</name>
+    <effects>
+      <effect>The warrior doesn’t provoke opportunity attacks by moving.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Spear Charge</name>
+    <cost>Signature</cost>
+    <keywords>Charge</keywords>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature or object</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>3 damage</t1>
+      <t2>4 damage</t2>
+      <t3>5 damage</t3>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Bury the Point</name>
+    <cost>2 Malice</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>5 damage; M&lt;0 bleeding (save ends)</t1>
+      <t2>6 damage; M&lt;1 bleeding (save ends)</t2>
+      <t3>7 damage; M&lt;2 bleeding (save ends)</t3>
+    </effects>
+  </abilities>
+</statblock>

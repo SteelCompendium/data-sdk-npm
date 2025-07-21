@@ -1,0 +1,52 @@
+<statblock>
+  <name>RADENWIGHT REDEYE</name>
+  <level>1</level>
+  <roles>MINION</roles>
+  <roles>ARTILLERY</roles>
+  <ancestry>Humanoid</ancestry>
+  <ancestry>Radenwight</ancestry>
+  <ev>3 for four minions</ev>
+  <stamina>3</stamina>
+  <speed>5</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>0</stability>
+  <free_strike>2</free_strike>
+  <with_captain>Edge on strikes</with_captain>
+  <might>1</might>
+  <agility>2</agility>
+  <reason>-1</reason>
+  <intuition>0</intuition>
+  <presence>0</presence>
+  <abilities>
+    <name>Eyes-On-Me Shot</name>
+    <cost>Signature</cost>
+    <keywords>Ranged</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Ranged 10</distance>
+    <target>One creature or object per minion</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>2 damage</t1>
+      <t2>4 damage</t2>
+      <t3>5 damage</t3>
+    </effects>
+    <effects>
+      <effect>An ally of the redeye within 2 squares of the target can shift up to 2 squares.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Ready Rodent</name>
+    <keywords>Melee</keywords>
+    <keywords>Weapon</keywords>
+    <type>Triggered Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature</target>
+    <trigger>An ally deals damage to the target.</trigger>
+    <effects>
+      <effect>The redeye makes a free strike against the target.</effect>
+    </effects>
+  </abilities>
+</statblock>

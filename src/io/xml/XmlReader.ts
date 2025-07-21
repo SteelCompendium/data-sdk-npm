@@ -11,7 +11,7 @@ export class XmlReader<M extends SteelCompendiumModel<T>, T extends SteelCompend
     public read(source: string): M {
         const parser = new XMLParser({
             isArray: (name, jpath, isLeafNode, isAttribute) => {
-                return ['keywords', 'effects', 'traits', 'abilities', 'ancestry', 'roles', 'tier', 'keyword'].includes(name);
+                return ['traits', 'abilities', 'ancestry', 'roles', 'tier', 'keyword', 'effect'].includes(name);
             },
             transformTagName: (tagName) => tagName,
             transformAttributeName: (attributeName) => attributeName,
@@ -19,8 +19,26 @@ export class XmlReader<M extends SteelCompendiumModel<T>, T extends SteelCompend
             parseAttributeValue: false,
             trimValues: true,
         });
-        const json = parser.parse(source);
-        const [_, root] = Object.entries(json)[0];
-        return this.adapter(root as T);
+        const xml = parser.parse(source);
+        const [_, root] = Object.entries(xml)[0];
+        const rootDTO = root as any;
+
+        if (rootDTO.effects?.effect) {
+            rootDTO.effects = rootDTO.effects.effect.map((effect: any) => {
+                if (effect.mundane_effect) return effect.mundane_effect;
+                if (effect.roll_effect) return effect.roll_effect;
+                return effect;
+            }).filter(Boolean);
+        } else {
+            rootDTO.effects = [];
+        }
+
+        if (rootDTO.keywords?.keyword) {
+            rootDTO.keywords = rootDTO.keywords.keyword;
+        } else {
+            rootDTO.keywords = [];
+        }
+
+        return this.adapter(rootDTO as T);
     }
 } 

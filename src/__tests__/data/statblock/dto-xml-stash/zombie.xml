@@ -1,0 +1,63 @@
+<statblock>
+  <name>ZOMBIE</name>
+  <level>1</level>
+  <roles>HORDE</roles>
+  <roles>BRUTE</roles>
+  <ancestry>Undead</ancestry>
+  <ev>3</ev>
+  <stamina>20</stamina>
+  <immunities>corruption 1</immunities>
+  <immunities>poison 1</immunities>
+  <speed>5</speed>
+  <size>1M</size>
+  <stability>1</stability>
+  <free_strike>2</free_strike>
+  <might>2</might>
+  <agility>1</agility>
+  <reason>-5</reason>
+  <intuition>-2</intuition>
+  <presence>1</presence>
+  <traits>
+    <name>Endless Knight</name>
+    <effects>
+      <effect>The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Clobber and Clutch</name>
+    <cost>Signature</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature or object</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>4 damage</t1>
+      <t2>6 damage</t2>
+      <t3>7 damage; grabbed</t3>
+    </effects>
+    <effects>
+      <effect>A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Zombie Dust</name>
+    <cost>3 Malice</cost>
+    <keywords>Area</keywords>
+    <keywords>Melee</keywords>
+    <type>Maneuver</type>
+    <distance>2 burst</distance>
+    <target>Each enemy in the burst</target>
+    <effects>
+      <effect>The zombie falls prone, expelling a wave of rot and dust.</effect>
+    </effects>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>2 corruption damage</t1>
+      <t2>3 corruption damage; M&lt;1 weakened (save ends)</t2>
+      <t3>4 corruption damage; M&lt;2 dazed (save ends)</t3>
+    </effects>
+  </abilities>
+</statblock>

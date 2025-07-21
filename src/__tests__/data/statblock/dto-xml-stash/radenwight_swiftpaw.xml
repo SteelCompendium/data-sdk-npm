@@ -1,0 +1,49 @@
+<statblock>
+  <name>RADENWIGHT SWIFTPAW</name>
+  <level>1</level>
+  <roles>MINION</roles>
+  <roles>HARRIER</roles>
+  <ancestry>Humanoid</ancestry>
+  <ancestry>Radenwight</ancestry>
+  <ev>3 for four minions</ev>
+  <stamina>4</stamina>
+  <speed>7</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>0</stability>
+  <free_strike>1</free_strike>
+  <with_captain>Edge on strikes</with_captain>
+  <might>0</might>
+  <agility>2</agility>
+  <reason>1</reason>
+  <intuition>0</intuition>
+  <presence>-1</presence>
+  <abilities>
+    <name>Rapier Flunge</name>
+    <cost>Signature</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature or object per minion</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>1 damage; slide 1; shift 1</t1>
+      <t2>2 damage; slide 2; shift 2</t2>
+      <t3>3 damage; slide 3; shift 3</t3>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Ready Rodent</name>
+    <keywords>Melee</keywords>
+    <keywords>Weapon</keywords>
+    <type>Triggered Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature</target>
+    <trigger>An ally deals damage to the target.</trigger>
+    <effects>
+      <effect>The swiftpaw makes a free strike against the target.</effect>
+    </effects>
+  </abilities>
+</statblock>

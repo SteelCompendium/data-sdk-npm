@@ -1,0 +1,60 @@
+<statblock>
+  <name>GOBLIN BATTLEBORN</name>
+  <level>2</level>
+  <roles>HORDE</roles>
+  <roles>BRUTE</roles>
+  <ancestry>Goblin</ancestry>
+  <ancestry>Humanoid</ancestry>
+  <ancestry>Mystic Goblin</ancestry>
+  <ev>4</ev>
+  <stamina>25</stamina>
+  <speed>6</speed>
+  <movement>climb</movement>
+  <size>1L</size>
+  <stability>2</stability>
+  <free_strike>5</free_strike>
+  <might>2</might>
+  <agility>1</agility>
+  <reason>0</reason>
+  <intuition>1</intuition>
+  <presence>0</presence>
+  <traits>
+    <name>Cunning</name>
+    <effects>
+      <effect>The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whenever the battleborn is adjacent to an enemy and willingly moves to a space no longer adjacent to that enemy, the battleborn can make an opportunity attack against them as a triggered action.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Spear Charge</name>
+    <cost>Signature</cost>
+    <keywords>Charge</keywords>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature or object</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>5 damage</t1>
+      <t2>6 damage</t2>
+      <t3>8 damage; prone; the battleborn continues charging up to their speed or until they can make a free strike against another creature or object</t3>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Battle Flurry</name>
+    <cost>3 Malice</cost>
+    <keywords>Area</keywords>
+    <keywords>Melee</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>1 Burst</distance>
+    <target>Each creature and object in the burst</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>3 damage; M&lt;0 bleeding (save ends)</t1>
+      <t2>4 damage; M&lt;1 bleeding (save ends)</t2>
+      <t3>5 damage; M&lt;2 bleeding (save ends)</t3>
+    </effects>
+  </abilities>
+</statblock>

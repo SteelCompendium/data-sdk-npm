@@ -1,0 +1,105 @@
+<statblock>
+  <name>RADENWIGHT MAESTRO</name>
+  <level>1</level>
+  <roles>LEADER</roles>
+  <ancestry>Humanoid</ancestry>
+  <ancestry>Radenwight</ancestry>
+  <ev>12</ev>
+  <stamina>80</stamina>
+  <speed>5</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>1</stability>
+  <free_strike>4</free_strike>
+  <might>-2</might>
+  <agility>2</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>3</presence>
+  <traits>
+    <name>End Effect</name>
+    <effects>
+      <effect>At the end of their turn, the maestro can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Cacophony</name>
+    <cost>Signature</cost>
+    <keywords>Area</keywords>
+    <keywords>Magic</keywords>
+    <type>Action</type>
+    <distance>5 burst</distance>
+    <target>All enemies in the burst</target>
+    <effects>
+      <roll>2d10 + 3</roll>
+      <t1>3 sonic damage; slide 1; shift 1</t1>
+      <t2>6 sonic damage; slide 3; shift 3</t2>
+      <t3>8 sonic damage; slide 5; shift 5</t3>
+    </effects>
+    <effects>
+      <effect>Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Tempo Change</name>
+    <keywords>Magic</keywords>
+    <keywords>Ranged</keywords>
+    <type>Maneuver</type>
+    <distance>Ranged 10</distance>
+    <target>Two enemies</target>
+    <effects>
+      <roll>2d10 + 3</roll>
+      <t1>P&lt;1 Slowed (save ends)</t1>
+      <t2>P&lt;2 Slowed (save ends)</t2>
+      <t3>P&lt;3 Slowed (save ends)</t3>
+    </effects>
+    <effects>
+      <effect>Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.</effect>
+      <cost>3 Malice</cost>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Ever Ready Rodent</name>
+    <cost>2 Malice</cost>
+    <keywords>Magic</keywords>
+    <keywords>Melee</keywords>
+    <keywords>Ranged</keywords>
+    <type>Free Triggered Action</type>
+    <distance>Ranged 5</distance>
+    <target>One creature</target>
+    <trigger>The target deals damage to an ally or takes damage from an ally.</trigger>
+    <effects>
+      <effect>The maestro makes a free strike against the target.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Overture</name>
+    <keywords>Area</keywords>
+    <type>Villain Action 1</type>
+    <distance>10 burst</distance>
+    <target>All allies in the burst</target>
+    <effects>
+      <effect>Each target shifts up to their speed or takes the Defend main action.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Solo Act</name>
+    <keywords>Ranged</keywords>
+    <type>Villain Action 2</type>
+    <distance>Ranged 15</distance>
+    <target>One creature</target>
+    <effects>
+      <effect>Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Rondo of Rat</name>
+    <keywords>Area</keywords>
+    <type>Villain Action 3</type>
+    <distance>10 burst</distance>
+    <target>All dead allies in the burst</target>
+    <effects>
+      <effect>Each target stands, makes a free strike, then collapses again. Allies of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.</effect>
+    </effects>
+  </abilities>
+</statblock>

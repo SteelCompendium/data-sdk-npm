@@ -1,0 +1,66 @@
+<statblock>
+  <name>GOBLIN ASSASSIN</name>
+  <level>1</level>
+  <roles>HORDE</roles>
+  <roles>AMBUSHER</roles>
+  <ancestry>Goblin</ancestry>
+  <ancestry>Humanoid</ancestry>
+  <ev>3</ev>
+  <stamina>15</stamina>
+  <speed>6</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>0</stability>
+  <free_strike>2</free_strike>
+  <might>-2</might>
+  <agility>2</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>-2</presence>
+  <traits>
+    <name>Crafty</name>
+    <effects>
+      <effect>The assassin doesn’t provoke opportunity attacks by moving.</effect>
+    </effects>
+  </traits>
+  <traits>
+    <name>Slip Away</name>
+    <effects>
+      <effect>The assassin can take the Hide maneuver even while observed.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Sword Stab</name>
+    <cost>Signature</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature or object</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>4 damage</t1>
+      <t2>6 damage</t2>
+      <t3>7 damage</t3>
+    </effects>
+    <effects>
+      <effect>This ability deals an additional 2 damage if the assassin has an edge on the power roll.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Shadow Chains</name>
+    <cost>3 Malice</cost>
+    <keywords>Magic</keywords>
+    <keywords>Ranged</keywords>
+    <type>Action</type>
+    <distance>Ranged 10</distance>
+    <target>Three creatures</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>2 corruption damage; A&lt;0 restrained (save ends)</t1>
+      <t2>4 corruption damage; A&lt;1 restrained (save ends)</t2>
+      <t3>5 corruption damage; A&lt;2 restrained (save ends)</t3>
+    </effects>
+  </abilities>
+</statblock>

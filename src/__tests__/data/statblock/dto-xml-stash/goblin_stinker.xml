@@ -1,0 +1,58 @@
+<statblock>
+  <name>GOBLIN STINKER</name>
+  <level>1</level>
+  <roles>HORDE</roles>
+  <roles>CONTROLLER</roles>
+  <ancestry>Goblin</ancestry>
+  <ancestry>Humanoid</ancestry>
+  <ev>3</ev>
+  <stamina>10</stamina>
+  <speed>5</speed>
+  <movement>climb</movement>
+  <size>1S</size>
+  <stability>0</stability>
+  <free_strike>1</free_strike>
+  <might>-2</might>
+  <agility>1</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>2</presence>
+  <traits>
+    <name>Crafty</name>
+    <effects>
+      <effect>The stinker doesn’t provoke opportunity attacks by moving.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Toxic Winds</name>
+    <cost>Signature</cost>
+    <keywords>Area</keywords>
+    <keywords>Magic</keywords>
+    <keywords>Ranged</keywords>
+    <type>Action</type>
+    <distance>3 cube within 15</distance>
+    <target>Each enemy in the cube</target>
+    <effects>
+      <roll>2d10 + 2</roll>
+      <t1>1 poison damage; slide 1</t1>
+      <t2>2 poison damage; slide 2</t2>
+      <t3>3 poison damage; slide 3</t3>
+    </effects>
+    <effects>
+      <effect>Increase the slide for one target by 1 square for each malice spent.</effect>
+      <cost>1+ Malice</cost>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Swamp Gas</name>
+    <keywords>Area</keywords>
+    <keywords>Magic</keywords>
+    <keywords>Ranged</keywords>
+    <type>Maneuver</type>
+    <distance>3 cube within 10</distance>
+    <target>Special</target>
+    <effects>
+      <effect>The area is filled with a green haze until the start of the stinker’s next turn or until the stinker is reduced to Stamina 0. The area is difficult terrain for non-goblin creatures, and each such creature who moves within the area takes 2 poison damage for each square moved. The haze can’t be dispersed by wind.</effect>
+    </effects>
+  </abilities>
+</statblock>

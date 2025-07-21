@@ -1,0 +1,109 @@
+<statblock>
+  <name>DAME CORNELIA</name>
+  <level>1</level>
+  <roles>LEADER</roles>
+  <ancestry>Undead</ancestry>
+  <ev>12</ev>
+  <stamina>80</stamina>
+  <immunities>Corruption 2</immunities>
+  <immunities>Psychic 2</immunities>
+  <speed>5</speed>
+  <size>1M</size>
+  <stability>2</stability>
+  <free_strike>4</free_strike>
+  <might>3</might>
+  <agility>2</agility>
+  <reason>2</reason>
+  <intuition>0</intuition>
+  <presence>2</presence>
+  <traits>
+    <name>End Effect</name>
+    <effects>
+      <effect>At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way.</effect>
+    </effects>
+  </traits>
+  <traits>
+    <name>Death Void</name>
+    <effects>
+      <effect>When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Zweihander Swing</name>
+    <cost>Signature</cost>
+    <keywords>Area</keywords>
+    <keywords>Melee</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>1 burst</distance>
+    <target>All enemies in the burst</target>
+    <effects>
+      <roll>2d10 + 3</roll>
+      <t1>3 damage; M&lt;1 slowed (save ends)</t1>
+      <t2>6 damage; M&lt;2 slowed (save ends)</t2>
+      <t3>8 damage; M&lt;3 slowed (save ends)</t3>
+    </effects>
+    <effects>
+      <effect>An ally within 10 of Cornelia can make a free strike.</effect>
+    </effects>
+    <effects>
+      <effect>The ally can use their signature action instead.</effect>
+      <cost>1 Malice</cost>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>You!</name>
+    <keywords>—</keywords>
+    <type>Maneuver</type>
+    <distance>Ranged 10</distance>
+    <target>One enemy</target>
+    <effects>
+      <effect>The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Parry!</name>
+    <keywords>—</keywords>
+    <type>Triggered Action</type>
+    <distance>Melee 1</distance>
+    <target>Self or one ally</target>
+    <trigger>A creature targets the blackguard or an ally adjacent to Cornelia with a strike.</trigger>
+    <effects>
+      <effect>The damage is halved.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Advance!</name>
+    <keywords>—</keywords>
+    <type>Villain Action 1</type>
+    <distance>Self</distance>
+    <target>Self</target>
+    <effects>
+      <effect>Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Back!</name>
+    <keywords>Area</keywords>
+    <keywords>Magic</keywords>
+    <type>Villain Action 2</type>
+    <distance>5 burst</distance>
+    <target>All enemies in the burst</target>
+    <effects>
+      <effect>Slide 5.</effect>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>I Can Throw My Blade and So Should You!</name>
+    <keywords>Area</keywords>
+    <keywords>Magic</keywords>
+    <keywords>Ranged</keywords>
+    <keywords>Weapon</keywords>
+    <type>Villain Action 3</type>
+    <distance>3 cube within 5</distance>
+    <target>Each enemy in the cube</target>
+    <effects>
+      <effect>Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally).</effect>
+    </effects>
+  </abilities>
+</statblock>

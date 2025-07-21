@@ -1,0 +1,24 @@
+<ability>
+    <name>UNQUIET GROUND</name>
+    <flavor>A sudden storm of detritus assaults your foes and leaves them struggling to move.</flavor>
+    <keywords>
+        <keyword>Area</keyword>
+        <keyword>Earth</keyword>
+        <keyword>Magic</keyword>
+        <keyword>Ranged</keyword>
+    </keywords>
+    <type>Main Action</type>
+    <distance>2 cube within 10</distance>
+    <target>Each enemy in the area</target>
+    <effects>
+        <roll_effect>
+            <roll>Power Roll + Reason</roll>
+            <t1>2 damage</t1>
+            <t2>5 damage</t2>
+            <t3>7 damage</t3>
+        </roll_effect>
+        <mundane_effect>
+            <effect>The ground beneath the area is difficult terrain for enemies.</effect>
+        </mundane_effect>
+    </effects>
+</ability>

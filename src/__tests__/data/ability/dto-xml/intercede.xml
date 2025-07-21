@@ -1,0 +1,20 @@
+<ability>
+    <name>INTERCEDE</name>
+    <cost>9 WRATH</cost>
+    <flavor>You take your ally’s place.</flavor>
+    <keywords>
+        <keyword>Magic</keyword>
+        <keyword>Ranged</keyword>
+    </keywords>
+    <type>Free Triggered</type>
+    <distance>Ranged 10</distance>
+    <target>One ally</target>
+    <trigger>A creature makes a strike against the target.</trigger>
+    <effects>
+        <mundane_effect>
+            <effect>The target is unaffected by the strike and you become the target instead, even if you aren’t a valid
+                target for it. You take half the damage from the strike, and the target gains 3 surges.
+            </effect>
+        </mundane_effect>
+    </effects>
+</ability>

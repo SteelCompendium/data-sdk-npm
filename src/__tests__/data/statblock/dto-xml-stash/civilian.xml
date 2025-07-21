@@ -1,0 +1,16 @@
+<statblock>
+  <name>CIVILIAN</name>
+  <level>0</level>
+  <ancestry>Humanoid or Animal</ancestry>
+  <ev>0</ev>
+  <stamina>8</stamina>
+  <speed>5</speed>
+  <size>1S, 1M, 1L, or 2</size>
+  <stability>0</stability>
+  <free_strike>1</free_strike>
+  <might>0</might>
+  <agility>0</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>0</presence>
+</statblock>

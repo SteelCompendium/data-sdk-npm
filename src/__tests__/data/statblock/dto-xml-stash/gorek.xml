@@ -1,0 +1,77 @@
+<statblock>
+  <name>GOREK</name>
+  <level>2</level>
+  <roles>ELITE</roles>
+  <roles>BRUTE</roles>
+  <ancestry>Humanoid</ancestry>
+  <ancestry>Dwarf</ancestry>
+  <ancestry>Rival</ancestry>
+  <ev>16</ev>
+  <stamina>100</stamina>
+  <speed>5</speed>
+  <size>1M</size>
+  <stability>2</stability>
+  <free_strike>5</free_strike>
+  <might>2</might>
+  <agility>1</agility>
+  <reason>0</reason>
+  <intuition>0</intuition>
+  <presence>0</presence>
+  <traits>
+    <name>Overwhelm</name>
+    <effects>
+      <effect>Once per turn, when Gorek force moves a target or shifts into a square adjacent to a creature or object, he can make a free strike against them.</effect>
+    </effects>
+  </traits>
+  <traits>
+    <name>Great Fortitude</name>
+    <effects>
+      <effect>Gorek can’t be weakened.</effect>
+    </effects>
+  </traits>
+  <traits>
+    <name>Rivalry</name>
+    <effects>
+      <effect>Gorek selects one creature within line of effect at the start of an encounter. Both Gorek and the creature can add a 1d3 to all power rolls made against each other.</effect>
+    </effects>
+  </traits>
+  <abilities>
+    <name>Brutal Impact</name>
+    <cost>Signature</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>Two creatures or objects</target>
+    <effects>
+      <roll>2D10 + 2</roll>
+      <t1>7 damage; push 1</t1>
+      <t2>11 damage; push 2</t2>
+      <t3>14 damage; push 3</t3>
+    </effects>
+    <effects>
+      <effect>Each target is M&lt;1 slowed (save ends).</effect>
+      <cost>2 Malice</cost>
+    </effects>
+  </abilities>
+  <abilities>
+    <name>Let’s Tussle</name>
+    <cost>2 Malice</cost>
+    <keywords>Melee</keywords>
+    <keywords>Strike</keywords>
+    <keywords>Weapon</keywords>
+    <type>Action</type>
+    <distance>Melee 1</distance>
+    <target>One creature the fury’s size or smaller</target>
+    <effects>
+      <roll>2D10 + 2</roll>
+      <t1>8 damage; M&lt;0 grabbed</t1>
+      <t2>13 damage; M&lt;1 grabbed</t2>
+      <t3>16 damage; M&lt;2 grabbed</t3>
+    </effects>
+    <effects>
+      <effect>Gorek has an edge on strikes against a grabbed creature.</effect>
+    </effects>
+  </abilities>
+</statblock>

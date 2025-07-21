@@ -26,6 +26,7 @@ const YamlWriter_1 = require("../io/yaml/YamlWriter"); // :contentReference[oaic
 const markdown_1 = require("../io/markdown"); // :contentReference[oaicite:2]{index=2}
 const SteelCompendiumIdentifier_1 = require("../io/SteelCompendiumIdentifier"); // :contentReference[oaicite:3]{index=3}
 const model_1 = require("../model");
+const xml_1 = require("../io/xml"); // :contentReference[oaicite:4]{index=4}
 function parseArgs() {
     const args = process.argv.slice(2);
     const cli = { from: undefined, to: undefined };
@@ -79,7 +80,8 @@ function convertPath(inPath, outBase, from, to) {
             const validExts = from === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Json ? ['.json']
                 : from === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Yaml ? ['.yml', '.yaml']
                     : from === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Markdown ? ['.md']
-                        : [];
+                        : from === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Xml ? ['.xml']
+                            : [];
             if (!validExts.includes(ext))
                 return;
             const source = yield fs_1.promises.readFile(inPath, 'utf8');
@@ -113,6 +115,14 @@ function convertPath(inPath, outBase, from, to) {
                     break;
                 case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Yaml:
                     writer = new YamlWriter_1.YamlWriter();
+                    break;
+                case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Xml:
+                    if (model instanceof model_1.Ability)
+                        writer = new xml_1.XmlWriter('ability');
+                    else if (model instanceof model_1.Statblock)
+                        writer = new xml_1.XmlWriter('statblock');
+                    else
+                        throw new Error('No XML writer for this model');
                     break;
                 case SteelCompendiumIdentifier_1.SteelCompendiumFormat.Markdown:
                     if (model instanceof model_1.Ability)

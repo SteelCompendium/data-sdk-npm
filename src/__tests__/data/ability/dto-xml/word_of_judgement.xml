@@ -1,0 +1,21 @@
+<ability>
+    <name>WORD OF JUDGMENT</name>
+    <flavor>Your holy word saps an attacking enemy’s strength.</flavor>
+    <keywords>
+        <keyword>Magic</keyword>
+        <keyword>Ranged</keyword>
+    </keywords>
+    <type>Triggered</type>
+    <distance>Ranged 10</distance>
+    <target>One ally</target>
+    <trigger>The target would take damage from an ability that uses a power roll.</trigger>
+    <effects>
+        <mundane_effect>
+            <effect>The power roll takes a bane against the target.</effect>
+        </mundane_effect>
+        <mundane_effect>
+            <effect>The power roll has a double bane against the target.</effect>
+            <cost>Spend 1 Piety</cost>
+        </mundane_effect>
+    </effects>
+</ability>

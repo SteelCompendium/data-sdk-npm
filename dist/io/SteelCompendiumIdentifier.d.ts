@@ -3,6 +3,7 @@ import { Ability, Statblock } from '../model';
 export declare enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
+    Xml = "xml",
     Markdown = "markdown",
     PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown"

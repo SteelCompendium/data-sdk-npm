@@ -1,0 +1,27 @@
+<ability>
+    <name>TRANSLATED THROUGH FLAME</name>
+    <cost>5 ESSENCE</cost>
+    <flavor>Your ally disappears, then reappears in a burst of fire.</flavor>
+    <keywords>
+        <keyword>Fire</keyword>
+        <keyword>Magic</keyword>
+        <keyword>Ranged</keyword>
+        <keyword>Void</keyword>
+    </keywords>
+    <type>Main Action</type>
+    <distance>Ranged 10</distance>
+    <target>Self or one ally</target>
+    <effects>
+        <mundane_effect>
+            <effect>The target is teleported to another space within distance. Make a power roll that affects each enemy
+                adjacent to the target’s new space.
+            </effect>
+        </mundane_effect>
+        <roll_effect>
+            <roll>Power Roll + Reason</roll>
+            <t1>3 fire damage</t1>
+            <t2>5 fire damage</t2>
+            <t3>8 fire damage</t3>
+        </roll_effect>
+    </effects>
+</ability>

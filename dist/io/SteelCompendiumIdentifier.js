@@ -4,13 +4,16 @@ exports.SteelCompendiumIdentifier = exports.SteelCompendiumFormat = void 0;
 const yaml_1 = require("yaml");
 const json_1 = require("./json");
 const yaml_2 = require("./yaml");
+const xml_1 = require("./xml");
 const text_1 = require("./text");
 const MarkdownAbilityReader_1 = require("./markdown/MarkdownAbilityReader");
 const model_1 = require("../model");
+const fast_xml_parser_1 = require("fast-xml-parser");
 var SteelCompendiumFormat;
 (function (SteelCompendiumFormat) {
     SteelCompendiumFormat["Json"] = "json";
     SteelCompendiumFormat["Yaml"] = "yaml";
+    SteelCompendiumFormat["Xml"] = "xml";
     SteelCompendiumFormat["Markdown"] = "markdown";
     SteelCompendiumFormat["PrereleasePdfText"] = "prerelease-pdf-text";
     SteelCompendiumFormat["Unknown"] = "unknown";
@@ -39,6 +42,31 @@ class SteelCompendiumIdentifier {
         }
         catch (e) {
             // Not JSON
+        }
+        try {
+            const parser = new fast_xml_parser_1.XMLParser();
+            const data = parser.parse(source);
+            const [_, root] = Object.entries(data)[0];
+            if (typeof root === 'object' && root !== null) {
+                const modelType = this.identifyModelType(root);
+                if (modelType === model_1.Ability) {
+                    return {
+                        format: SteelCompendiumFormat.Xml,
+                        model: model_1.Ability,
+                        getReader: () => new xml_1.XmlReader(model_1.Ability.modelDTOAdapter)
+                    };
+                }
+                if (modelType === model_1.Statblock) {
+                    return {
+                        format: SteelCompendiumFormat.Xml,
+                        model: model_1.Statblock,
+                        getReader: () => new xml_1.XmlReader(model_1.Statblock.modelDTOAdapter)
+                    };
+                }
+            }
+        }
+        catch (e) {
+            // Not XML
         }
         try {
             const data = (0, yaml_1.parse)(source);

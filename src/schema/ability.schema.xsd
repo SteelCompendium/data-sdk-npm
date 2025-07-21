@@ -39,11 +39,26 @@
         </xs:sequence>
     </xs:complexType>
 
+    <!-- Rich text type definition -->
+    <xs:complexType name="RichTextType" mixed="true">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Result type definition -->
+    <xs:complexType name="ResultType">
+        <xs:sequence>
+            <xs:element name="success" type="RichTextType" minOccurs="0"/>
+            <xs:element name="failure" type="RichTextType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
     <!-- Effect type definitions -->
     <xs:complexType name="PowerRollEffectType">
         <xs:sequence>
             <xs:element name="roll" type="xs:string"/>
-            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="skip"/>
+            <xs:element name="result" type="ResultType" minOccurs="0"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -51,27 +66,27 @@
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
             <xs:element name="cost" type="xs:string"/>
-            <xs:element name="effect" type="xs:string"/>
+            <xs:element name="effect" type="RichTextType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="CostedEffectType">
         <xs:sequence>
             <xs:element name="cost" type="xs:string"/>
-            <xs:element name="effect" type="xs:string"/>
+            <xs:element name="effect" type="RichTextType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="NamedEffectType">
         <xs:sequence>
             <xs:element name="name" type="xs:string"/>
-            <xs:element name="effect" type="xs:string"/>
+            <xs:element name="effect" type="RichTextType"/>
         </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="NamelessEffectType">
         <xs:sequence>
-            <xs:element name="effect" type="xs:string"/>
+            <xs:element name="effect" type="RichTextType"/>
         </xs:sequence>
     </xs:complexType>
 

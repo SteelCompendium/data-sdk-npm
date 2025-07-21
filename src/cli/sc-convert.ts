@@ -25,7 +25,8 @@ import {
     SteelCompendiumFormat,
 }                           from '../io/SteelCompendiumIdentifier';             // :contentReference[oaicite:3]{index=3}
 import { Ability, Statblock } from '../model';
-import {JsonReader, YamlReader} from "../io";                                  // :contentReference[oaicite:4]{index=4}
+import {JsonReader, YamlReader} from "../io";
+import {XmlWriter} from "../io/xml";                                  // :contentReference[oaicite:4]{index=4}
 
 interface CLIArgs {
     from: SteelCompendiumFormat;
@@ -88,7 +89,8 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
         const validExts = from === SteelCompendiumFormat.Json     ? ['.json']
             : from === SteelCompendiumFormat.Yaml     ? ['.yml','.yaml']
                 : from === SteelCompendiumFormat.Markdown ? ['.md']
-                    : [];
+                    : from === SteelCompendiumFormat.Xml ? ['.xml']
+                        : [];
         if (!validExts.includes(ext)) return;
 
         const source = await fs.readFile(inPath, 'utf8');
@@ -124,6 +126,11 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
                 break;
             case SteelCompendiumFormat.Yaml:
                 writer = new YamlWriter();
+                break;
+            case SteelCompendiumFormat.Xml:
+                if (model instanceof Ability) writer = new XmlWriter('ability');
+                else if (model instanceof Statblock) writer = new XmlWriter('statblock');
+                else throw new Error('No XML writer for this model');
                 break;
             case SteelCompendiumFormat.Markdown:
                 if (model instanceof Ability)  writer = new MarkdownAbilityWriter();
