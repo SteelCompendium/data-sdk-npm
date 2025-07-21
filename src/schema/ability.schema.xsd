@@ -14,8 +14,8 @@
             <xs:element name="distance" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="target" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="trigger" type="xs:string" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="effects" type="EffectsType" minOccurs="1" maxOccurs="1"/>
             <xs:element name="flavor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="effects" type="EffectsType" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -29,13 +29,7 @@
     <!-- Type definition for Effects -->
     <xs:complexType name="EffectsType">
         <xs:sequence>
-            <xs:choice minOccurs="1" maxOccurs="unbounded">
-                <xs:element name="powerRollEffect" type="PowerRollEffectType"/>
-                <xs:element name="namedEffectWithCost" type="NamedEffectWithCostType"/>
-                <xs:element name="namedEffect" type="NamedEffectType"/>
-                <xs:element name="costedEffect" type="CostedEffectType"/>
-                <xs:element name="namelessEffect" type="NamelessEffectType"/>
-            </xs:choice>
+            <xs:element name="effect" type="EffectType" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -54,40 +48,18 @@
         </xs:sequence>
     </xs:complexType>
 
-    <!-- Effect type definitions -->
-    <xs:complexType name="PowerRollEffectType">
-        <xs:sequence>
+    <!-- Effect type definition -->
+    <xs:complexType name="EffectType" mixed="true">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:element name="roll" type="xs:string"/>
-            <xs:element name="result" type="ResultType" minOccurs="0"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="NamedEffectWithCostType">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="cost" type="xs:string"/>
-            <xs:element name="effect" type="RichTextType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="CostedEffectType">
-        <xs:sequence>
-            <xs:element name="cost" type="xs:string"/>
-            <xs:element name="effect" type="RichTextType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="NamedEffectType">
-        <xs:sequence>
-            <xs:element name="name" type="xs:string"/>
-            <xs:element name="effect" type="RichTextType"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="NamelessEffectType">
-        <xs:sequence>
-            <xs:element name="effect" type="RichTextType"/>
-        </xs:sequence>
+            <xs:element name="t1" type="xs:string"/>
+            <xs:element name="t2" type="xs:string"/>
+            <xs:element name="t3" type="xs:string"/>
+            <xs:element name="crit" type="xs:string"/>
+        </xs:choice>
+        <xs:attribute name="type" type="xs:string" use="required"/>
+        <xs:attribute name="name" type="xs:string" use="optional"/>
+        <xs:attribute name="cost" type="xs:string" use="optional"/>
     </xs:complexType>
 
 </xs:schema> 
