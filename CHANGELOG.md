@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.28
+
+- Adds support for metadata in abilities
+
 ## 0.0.27
 
 - Adds support for reader/writing abilities as XML

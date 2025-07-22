@@ -25,6 +25,8 @@ class AbilityXmlDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             dto.target = model.target;
         if (model.trigger !== undefined)
             dto.trigger = model.trigger;
+        if (model.metadata !== undefined)
+            dto.metadata = model.metadata;
         const effects = model.effects.toXmlDTO();
         if (effects.length > 0) {
             dto.effects = { effect: effects.map((e) => e) };
@@ -48,6 +50,7 @@ class AbilityXmlDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             trigger: this.trigger,
             flavor: this.flavor,
             effects: model_1.Effects.fromDTO(es),
+            metadata: this.metadata,
         });
     }
 }
