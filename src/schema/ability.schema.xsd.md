@@ -24,6 +24,7 @@ The `<ability>` element contains the following child elements in a specific sequ
 | `target`   | `xs:string`   | 0..1       | The target of the ability.                      |
 | `trigger`  | `xs:string`   | 0..1       | The trigger condition for the ability.          |
 | `flavor`   | `xs:string`   | 0..1       | Flavor text for the ability.                    |
+| `metadata` | `MetadataType`| 0..1       | A container for arbitrary metadata.             |
 | `effects`  | `EffectsType` | 1          | A container for the ability's effects.          |
 
 ---
@@ -37,6 +38,15 @@ A container for one or more `<keyword>` elements.
 | Element   | Type        | Occurrence | Description               |
 | :-------- | :---------- | :--------- | :------------------------ |
 | `keyword` | `xs:string` | 0..unbounded | A keyword associated with the ability. |
+
+### `MetadataType`
+
+A container for arbitrary metadata, allowing for flexible key-value pairs represented as XML elements.
+
+| Element | Type | Occurrence | Description |
+| :--- | :--- | :--- | :--- |
+| (any) | `xs:any` | 0..unbounded | Any valid XML element can be included. |
+
 
 ### `EffectsType`
 
@@ -84,6 +94,10 @@ Here is an example of a complete `<ability>` XML structure.
   <name>BLESSING OF THE BLADE</name>
   <cost>11 PIETY</cost>
   <flavor>“The power of the gods is within you, friends. Allow me to unleash it.”</flavor>
+  <metadata>
+    <sourceBook>Core Rulebook</sourceBook>
+    <page>78</page>
+  </metadata>
   <keywords>
     <keyword>Area</keyword>
     <keyword>Magic</keyword>
