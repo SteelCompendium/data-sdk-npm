@@ -16,5 +16,12 @@
       "t2": "17 psychic damage; push 5",
       "t3": "23 psychic damage; push 7"
     }
-  ]
+  ],
+  "metadata":  {
+    "class": "introduction",
+    "cost": "8 Energy",
+    "level": 1,
+    "name": "This Is An H8 Header",
+    "type": "ability"
+  }
 }
