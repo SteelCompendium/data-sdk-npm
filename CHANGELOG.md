@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.29
+
+- Correctly exports xml package
+
 ## 0.0.28
 
 - Adds support for metadata in abilities

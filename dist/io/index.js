@@ -18,6 +18,7 @@ __exportStar(require("./IDataWriter"), exports);
 __exportStar(require("./IDataReader"), exports);
 __exportStar(require("./yaml"), exports);
 __exportStar(require("./json"), exports);
+__exportStar(require("./xml"), exports);
 __exportStar(require("./markdown"), exports);
 __exportStar(require("./text"), exports);
 __exportStar(require("./SteelCompendiumIdentifier"), exports);
