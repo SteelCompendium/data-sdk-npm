@@ -17,11 +17,19 @@ This code is also the backbone of the [Draw Steel Web Adapter](https://steelcomp
 
 ## Development
 
+
+### Quick Start 
+
 - Test: `npm run test`
 - Publish version
   - Update `CHANGELOG.md` with release notes
   - Update `pacakge.json` with new version
   - `npm publish`
+
+Run the `sc-convert` cli tool with:
+```bash
+npm run build && npm link && sc-convert --from json --to xml ./src/__tests__/data/ability/dto-json/blessing_of_the_blade.json --output ./tmp
+```
 
 ### Future work
 

@@ -11,6 +11,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     trigger?: string;
     effects!: any[];
     flavor?: string;
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<AbilityDTO>) {
         super(source);
@@ -27,6 +28,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
         if (model.distance !== undefined) dto.distance = model.distance;
         if (model.target !== undefined) dto.target = model.target;
         if (model.trigger !== undefined) dto.trigger = model.trigger;
+        if (model.metadata !== undefined) dto.metadata = model.metadata;
         dto.effects = model.effects.toDTO();
         return dto;
     }

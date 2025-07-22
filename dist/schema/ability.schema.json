@@ -45,6 +45,20 @@
         "flavor": {
             "type": "string",
             "description": "Flavor text of the ability"
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Metadata for the ability, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
+            "additionalProperties": {
+                "type": [
+                    "string",
+                    "number",
+                    "boolean",
+                    "array",
+                    "object",
+                    "null"
+                ]
+            }
         }
     },
     "additionalProperties": false,

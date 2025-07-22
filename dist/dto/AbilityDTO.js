@@ -27,6 +27,8 @@ class AbilityDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
             dto.target = model.target;
         if (model.trigger !== undefined)
             dto.trigger = model.trigger;
+        if (model.metadata !== undefined)
+            dto.metadata = model.metadata;
         dto.effects = model.effects.toDTO();
         return dto;
     }

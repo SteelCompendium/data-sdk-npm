@@ -1,6 +1,7 @@
 import { Ability, MundaneEffect, PowerRollEffect, Effect } from "../../model";
 import { Effects } from "../../model/Effects";
 import { IDataReader } from "../IDataReader";
+import * as yaml from 'js-yaml';
 
 export class MarkdownAbilityReader implements IDataReader<Ability> {
     public constructor() { }
@@ -14,6 +15,13 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         if (lines[0].trim() === '---') {
             frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
             if (frontmatterEndIndex !== -1) {
+                const frontmatterLines = lines.slice(1, frontmatterEndIndex + 1).join('\n');
+                try {
+                    partial.metadata = yaml.load(frontmatterLines) as Record<string, any>;
+                } catch (e) {
+                    console.error("Error parsing frontmatter:", e);
+                }
+
                 // The index is in the sliced array, so we add 1 to get the index in the original array
                 // and another 1 to get the line after the '---'
                 lines = lines.slice(frontmatterEndIndex + 2);

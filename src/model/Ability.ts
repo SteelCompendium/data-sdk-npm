@@ -1,7 +1,7 @@
 import { AbilityDTO } from "../dto";
 import { Effects } from "./Effects";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
-import {AbilityXmlDTO} from "../dto/AbilityXmlDTO";
+import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
@@ -13,6 +13,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     target?: string;
     trigger?: string;
     effects: Effects;
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<Ability>) {
         super();

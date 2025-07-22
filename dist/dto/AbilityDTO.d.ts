@@ -10,6 +10,7 @@ export declare class AbilityDTO extends SteelCompendiumDTO<Ability> {
     trigger?: string;
     effects: any[];
     flavor?: string;
+    metadata?: Record<string, any>;
     constructor(source: Partial<AbilityDTO>);
     static partialFromModel(model: Ability): Partial<AbilityDTO>;
     static fromModel(model: Ability): AbilityDTO;
