@@ -3,12 +3,18 @@ import { IDataWriter } from "../IDataWriter";
 import { Effect } from "../../model/Effect";
 import { MundaneEffect } from "../../model";
 import { PowerRollEffect } from "../../model";
+import * as yaml from 'js-yaml';
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-   write(data: Ability): string {
+    write(data: Ability): string {
         // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
         const includeEffectsToken: boolean = !!(data.keywords && data.keywords.length > 0);
         const parts: string[] = [];
+
+        if (data.metadata && Object.keys(data.metadata).length > 0) {
+            const yamlString = yaml.dump(data.metadata);
+            parts.push(`---\n${yamlString.trim()}\n---`);
+        }
 
         if (data.name) {
             let title = `**${data.name}`;
