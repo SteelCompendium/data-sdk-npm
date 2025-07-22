@@ -9,6 +9,13 @@
   <type>Main action</type>
   <distance>Ranged 10</distance>
   <target>One creature or object</target>
+  <metadata>
+    <class>introduction</class>
+    <cost>8 Energy</cost>
+    <level>1</level>
+    <name>This Is An H8 Header</name>
+    <type>ability</type>
+  </metadata>
   <effects>
     <effect type="roll">
       <roll>Power Roll + Agility</roll>

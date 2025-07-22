@@ -15,6 +15,7 @@
             <xs:element name="target" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="trigger" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="flavor" type="xs:string" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="metadata" type="MetadataType" minOccurs="0" maxOccurs="1"/>
             <xs:element name="effects" type="EffectsType" minOccurs="1" maxOccurs="1"/>
         </xs:sequence>
     </xs:complexType>
@@ -23,6 +24,13 @@
     <xs:complexType name="KeywordsType">
         <xs:sequence>
             <xs:element name="keyword" type="xs:string" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- Type definition for Metadata -->
+    <xs:complexType name="MetadataType">
+        <xs:sequence>
+            <xs:any minOccurs="0" maxOccurs="unbounded" processContents="lax"/>
         </xs:sequence>
     </xs:complexType>
 

@@ -12,6 +12,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
     trigger?: string;
     flavor?: string;
     effects?: any;
+    metadata?: any;
 
     constructor(source: Partial<AbilityXmlDTO>) {
         super(source);
@@ -27,6 +28,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
         if (model.distance !== undefined) dto.distance = model.distance;
         if (model.target !== undefined) dto.target = model.target;
         if (model.trigger !== undefined) dto.trigger = model.trigger;
+        if (model.metadata !== undefined) dto.metadata = model.metadata;
         const effects = model.effects.toXmlDTO();
         if (effects.length > 0) {
             dto.effects = { effect: effects.map((e: any) => e) };
@@ -53,6 +55,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
             trigger: this.trigger,
             flavor: this.flavor,
             effects: Effects.fromDTO(es),
+            metadata: this.metadata,
         });
     }
 }
