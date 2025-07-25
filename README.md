@@ -14,9 +14,9 @@ This repo is a suite of utilities for working with structured Draw Steel data.
 
 This code is also the backbone of the [Draw Steel Web Adapter](https://steelcompendium.io/web-adapter/) ([sourcecode](https://github.com/SteelCompendium/web-adapter))
 
+Please use this [form to report bugs](https://docs.google.com/forms/d/e/1FAIpQLSc6m-pZ0NLt2EArE-Tcxr-XbAPMyhu40ANHJKtyRvvwBd2LSw/viewform?usp=sharing&ouid=105036387964900154878) if you find them!
 
 ## Development
-
 
 ### Quick Start 
 
