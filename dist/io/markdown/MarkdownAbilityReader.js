@@ -64,7 +64,7 @@ class MarkdownAbilityReader {
         // Title and Cost
         const titleLine = lines[i++].trim();
         let titleMatch;
-        if (titleLine.startsWith('######')) {
+        if (titleLine.startsWith('###')) {
             titleMatch = titleLine.match(/#+\s*(.*?)(?: \((.*?)\))?$/);
         }
         else {

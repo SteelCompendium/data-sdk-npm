@@ -34,7 +34,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         // Title and Cost
         const titleLine = lines[i++].trim();
         let titleMatch;
-        if (titleLine.startsWith('######')) {
+        if (titleLine.startsWith('###')) {
             titleMatch = titleLine.match(/#+\s*(.*?)(?: \((.*?)\))?$/);
         } else {
             titleMatch = titleLine.match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.31
+
+- Markdown ability reader updated to support titles as low as H3
+
 ## 0.0.30
 
 - When converting to xml, corrects extension to `.xml`
