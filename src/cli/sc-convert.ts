@@ -148,7 +148,8 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
             const outExt = to === SteelCompendiumFormat.Json     ? '.json'
                 : to === SteelCompendiumFormat.Yaml     ? '.yaml'
                     : to === SteelCompendiumFormat.Markdown ? '.md'
-                        : '';
+                        : to === SteelCompendiumFormat.Xml ? '.xml'
+                            : '';
             const finalOut = stat.isDirectory()
                 ? outBase
                 : outBase.endsWith(outExt)

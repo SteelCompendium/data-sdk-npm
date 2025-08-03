@@ -145,7 +145,8 @@ function convertPath(inPath, outBase, from, to) {
                 const outExt = to === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Json ? '.json'
                     : to === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Yaml ? '.yaml'
                         : to === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Markdown ? '.md'
-                            : '';
+                            : to === SteelCompendiumIdentifier_1.SteelCompendiumFormat.Xml ? '.xml'
+                                : '';
                 const finalOut = stat.isDirectory()
                     ? outBase
                     : outBase.endsWith(outExt)

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.30
+
+- When converting to xml, corrects extension to `.xml`
+
 ## 0.0.29
 
 - Correctly exports xml package
