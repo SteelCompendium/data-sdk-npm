@@ -39,7 +39,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             parts.push(""); // Empty line for spacing
 
             for (const ability of data.abilities) {
-                parts.push(`##### ${this.abilityWriter.write(ability)}`);
+                parts.push(`##### ${this.abilityWriter.write(ability, "", "")}`);
                 parts.push(""); // Empty line between abilities
             }
         }
