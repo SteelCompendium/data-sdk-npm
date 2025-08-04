@@ -39,7 +39,7 @@ const model_1 = require("../../model");
 const model_2 = require("../../model");
 const yaml = __importStar(require("js-yaml"));
 class MarkdownAbilityWriter {
-    write(data) {
+    write(data, prefix = "**", suffix = "**") {
         // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
         const includeEffectsToken = !!(data.keywords && data.keywords.length > 0);
         const parts = [];
@@ -48,11 +48,11 @@ class MarkdownAbilityWriter {
             parts.push(`---\n${yamlString.trim()}\n---`);
         }
         if (data.name) {
-            let title = `**${data.name}`;
+            let title = `${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
-            title += `**`;
+            title += `${suffix}`;
             parts.push(title);
         }
         if (data.flavor) {
