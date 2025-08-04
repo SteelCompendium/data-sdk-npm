@@ -16,7 +16,7 @@ The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whe
 
 ---
 
-##### **Spear Charge (Signature)**
+##### Spear Charge (Signature)
 
 | **Charge, Melee, Strike, Weapon** |                    **Action** |
 | --------------------------------- | -----------------------------:|
@@ -28,7 +28,7 @@ The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whe
 - **12-16:** 6 damage
 - **17+:** 8 damage; prone; the battleborn continues charging up to their speed or until they can make a free strike against another creature or object
 
-##### **Battle Flurry (3 Malice)**
+##### Battle Flurry (3 Malice)
 
 | **Area, Melee, Weapon** |                                   **Action** |
 | ----------------------- | --------------------------------------------:|

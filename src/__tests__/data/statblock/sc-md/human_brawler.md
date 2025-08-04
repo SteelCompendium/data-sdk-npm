@@ -20,7 +20,7 @@ The brawler ignores concealment if it’s granted by a supernatural effect, or t
 
 ---
 
-##### **Haymaker (Signature)**
+##### Haymaker (Signature)
 
 | **Melee, Strike, Weapon** |                    **Action** |
 | ------------------------- | -----------------------------:|
@@ -34,7 +34,7 @@ The brawler ignores concealment if it’s granted by a supernatural effect, or t
 
 **Effect:** brawler deals an additional 2 damage if the target is already grabbed.
 
-##### **Throw (1 Malice)**
+##### Throw (1 Malice)
 
 | **—**          |                               **Maneuver** |
 | -------------- | ------------------------------------------:|

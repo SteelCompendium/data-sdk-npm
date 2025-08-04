@@ -436,7 +436,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 ---
 
-##### **Dagger Dance (Signature)**
+##### Dagger Dance (Signature)
 
 | **Melee, Strike, Weapon**  |                     **Action** |
 | -------------------------- | ------------------------------:|
@@ -450,7 +450,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** If the mischiever is hidden when they use this ability, they can target two creatures.
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|
@@ -460,7 +460,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** The mischiever makes a free strike against the target. RADENWIGHT SWIFTPAW LEVEL 1 MINION HARRIER Humanoid, Radenwight EV 3 for four minions Stamina 4 Speed 7 (climb) Size 1S / Stability 0 With Captain Edge on strikes Free Strike 1 Might +0 Agility +2 Reason +1 Intuition +0 Presence −1
 
-##### **Rapier Flunge (Signature)**
+##### Rapier Flunge (Signature)
 
 | **Melee, Strike, Weapon** |                               **Action** |
 | ------------------------- | ----------------------------------------:|
@@ -472,7 +472,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 - **12-16:** 2 damage; slide 2; shift 2
 - **17+:** 3 damage; slide 3; shift 3
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|
@@ -482,7 +482,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** The swiftpaw makes a free strike against the target. RADENWIGHT REDEYE LEVEL 1 MINION ARTILLERY Humanoid, Radenwight EV 3 for four minions Stamina 3 Speed 5 (climb) Size 1S / Stability 0 With Captain Edge on strikes Free Strike 2 Might +1 Agility +2 Reason −1 Intuition +0 Presence +0
 
-##### **Eyes-On-Me Shot (Signature)**
+##### Eyes-On-Me Shot (Signature)
 
 | **Ranged, Strike, Weapon** |                               **Action** |
 | -------------------------- | ----------------------------------------:|
@@ -496,7 +496,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** An ally of the redeye within 2 squares of the target can shift up to 2 squares.
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|
@@ -506,7 +506,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** The redeye makes a free strike against the target. RADENWIGHT MAESTRO LEVEL 1 LEADER Humanoid, Radenwight EV 12 Stamina 80 Speed 5 (climb) Size 1S / Stability 1 Free Strike 4 Might −2 Agility +2 Reason +0 Intuition +0 Presence +3
 
-##### **Cacophony (Signature)**
+##### Cacophony (Signature)
 
 | **Area, Magic** |                      **Action** |
 | --------------- | -------------------------------:|
@@ -520,7 +520,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.
 
-##### **Tempo Change**
+##### Tempo Change
 
 | **Magic, Ranged** |       **Maneuver** |
 | ----------------- | ------------------:|
@@ -534,7 +534,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.
 
-##### **Ever Ready Rodent (2 Malice)**
+##### Ever Ready Rodent (2 Malice)
 
 | **Magic, Melee, Ranged** | **Free Triggered Action** |
 | ------------------------ | -------------------------:|
@@ -544,7 +544,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** The maestro makes a free strike against the target.
 
-##### **Overture**
+##### Overture
 
 | **Area**        |           **Villain Action 1** |
 | --------------- | ------------------------------:|
@@ -552,7 +552,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Each target shifts up to their speed or takes the Defend main action.
 
-##### **Solo Act**
+##### Solo Act
 
 | **Ranged**       | **Villain Action 2** |
 | ---------------- | --------------------:|
@@ -560,7 +560,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled.
 
-##### **Rondo of Rat**
+##### Rondo of Rat
 
 | **Area**        |                **Villain Action 3** |
 | --------------- | -----------------------------------:|
@@ -568,7 +568,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Each target stands, makes a free strike, then collapses again. Allies of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.
 
-##### **Bow (Signature)**
+##### Bow (Signature)
 
 | **Ranged, Strike, Weapon** |                               **Action** |
 | -------------------------- | ----------------------------------------:|
@@ -582,7 +582,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** If the sniper doesn’t use a move action this turn, the ability has an edge.
 
-##### **Sword Stab (Signature)**
+##### Sword Stab (Signature)
 
 | **Melee, Strike, Weapon** |                    **Action** |
 | ------------------------- | -----------------------------:|
@@ -596,7 +596,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** This ability deals an additional 2 damage if the assassin has an edge on the power roll.
 
-##### **Shadow Chains (3 Malice)**
+##### Shadow Chains (3 Malice)
 
 | **Magic, Ranged** |             **Action** |
 | ----------------- | ----------------------:|
@@ -608,7 +608,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 - **12-16:** 4 corruption damage; A<1 restrained (save ends)
 - **17+:** 5 corruption damage; A<2 restrained (save ends)
 
-##### **Toxic Winds (Signature)**
+##### Toxic Winds (Signature)
 
 | **Area, Magic, Ranged** |                    **Action** |
 | ----------------------- | -----------------------------:|
@@ -622,7 +622,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** Increase the slide for one target by 1 square for each malice spent.
 
-##### **Swamp Gas**
+##### Swamp Gas
 
 | **Area, Magic, Ranged** |   **Maneuver** |
 | ----------------------- | --------------:|
@@ -630,7 +630,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 
 **Effect:** The area is filled with a green haze until the start of the stinker’s next turn or until the stinker is reduced to Stamina 0. The area is difficult terrain for non-goblin creatures, and each such creature who moves within the area takes 2 poison damage for each square moved. The haze can’t be dispersed by wind.
 
-##### **Spear Charge (Signature)**
+##### Spear Charge (Signature)
 
 | **Charge, Melee, Strike, Weapon** |                    **Action** |
 | --------------------------------- | -----------------------------:|
@@ -642,7 +642,7 @@ If the wagon is empty or the NPCs are all dead, the heroes get nothing. If the N
 - **12-16:** 4 damage
 - **17+:** 5 damage
 
-##### **Bury the Point (2 Malice)**
+##### Bury the Point (2 Malice)
 
 | **Melee, Strike, Weapon** |          **Action** |
 | ------------------------- | -------------------:|

@@ -12,7 +12,7 @@
 
 ---
 
-##### **Concussive Bolts (Signature)**
+##### Concussive Bolts (Signature)
 
 | **Charge, Melee, Ranged, Strike, Weapon** |                  **Action** |
 | ----------------------------------------- | ---------------------------:|
@@ -26,7 +26,7 @@
 
 **Effect:** A target restrained by a dwarf can be pushed by this ability.
 
-##### **Steam Powered Snare (3 Malice)**
+##### Steam Powered Snare (3 Malice)
 
 | **Area, Ranged**       |                   **Maneuver** |
 | ---------------------- | ------------------------------:|

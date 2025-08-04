@@ -16,7 +16,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 
 ---
 
-##### **Wall Slam (Signature)**
+##### Wall Slam (Signature)
 
 | **Melee, Strike, Weapon** |                      **Action** |
 | ------------------------- | -------------------------------:|
@@ -32,7 +32,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 
 **3+ Malice:** The wallmaster chooses an additional wall segment and target for every 3 malice spent.
 
-##### **Dead End**
+##### Dead End
 
 | **Area, Weapon**         |                **Maneuver** |
 | ------------------------ | ---------------------------:|
@@ -46,7 +46,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 - **12-16:** Push 4
 - **17+:** Push 5
 
-##### **The Wall Sees All (5 Malice)**
+##### The Wall Sees All (5 Malice)
 
 | **Magic**        | **Maneuver** |
 | ---------------- | ------------:|
@@ -54,7 +54,7 @@ The wallmaster starts combat affixed to a wall. At the start of each round of co
 
 **Effect:** The wallmaster teleports to a wall within distance and affixes itself to it.
 
-##### **Wall Redirect**
+##### Wall Redirect
 
 | **—**          | **Triggered Action** |
 | -------------- | --------------------:|

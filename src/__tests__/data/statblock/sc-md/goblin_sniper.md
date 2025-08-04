@@ -16,7 +16,7 @@ The sniper doesn’t provoke opportunity attacks by moving.
 
 ---
 
-##### **Bow (Signature)**
+##### Bow (Signature)
 
 | **Ranged, Strike, Weapon** |                               **Action** |
 | -------------------------- | ----------------------------------------:|

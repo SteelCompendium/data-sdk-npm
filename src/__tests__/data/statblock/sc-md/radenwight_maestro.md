@@ -16,7 +16,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 ---
 
-##### **Cacophony (Signature)**
+##### Cacophony (Signature)
 
 | **Area, Magic** |                      **Action** |
 | --------------- | -------------------------------:|
@@ -30,7 +30,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 **Effect:** Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.
 
-##### **Tempo Change**
+##### Tempo Change
 
 | **Magic, Ranged** |       **Maneuver** |
 | ----------------- | ------------------:|
@@ -44,7 +44,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 **3 Malice:** Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.
 
-##### **Ever Ready Rodent (2 Malice)**
+##### Ever Ready Rodent (2 Malice)
 
 | **Magic, Melee, Ranged** | **Free Triggered Action** |
 | ------------------------ | -------------------------:|
@@ -54,7 +54,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 **Effect:** The maestro makes a free strike against the target.
 
-##### **Overture**
+##### Overture
 
 | **Area**        |           **Villain Action 1** |
 | --------------- | ------------------------------:|
@@ -62,7 +62,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 **Effect:** Each target shifts up to their speed or takes the Defend main action.
 
-##### **Solo Act**
+##### Solo Act
 
 | **Ranged**       | **Villain Action 2** |
 | ---------------- | --------------------:|
@@ -70,7 +70,7 @@ At the end of their turn, the maestro can take 5 damage to end one save ends eff
 
 **Effect:** Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled.
 
-##### **Rondo of Rat**
+##### Rondo of Rat
 
 | **Area**        |                **Villain Action 3** |
 | --------------- | -----------------------------------:|

@@ -16,7 +16,7 @@ The warrior doesn’t provoke opportunity attacks by moving.
 
 ---
 
-##### **Spear Charge (Signature)**
+##### Spear Charge (Signature)
 
 | **Charge, Melee, Strike, Weapon** |                    **Action** |
 | --------------------------------- | -----------------------------:|
@@ -28,7 +28,7 @@ The warrior doesn’t provoke opportunity attacks by moving.
 - **12-16:** 4 damage
 - **17+:** 5 damage
 
-##### **Bury the Point (2 Malice)**
+##### Bury the Point (2 Malice)
 
 | **Melee, Strike, Weapon** |          **Action** |
 | ------------------------- | -------------------:|

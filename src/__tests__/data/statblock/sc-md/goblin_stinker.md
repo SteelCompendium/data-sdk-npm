@@ -16,7 +16,7 @@ The stinker doesn’t provoke opportunity attacks by moving.
 
 ---
 
-##### **Toxic Winds (Signature)**
+##### Toxic Winds (Signature)
 
 | **Area, Magic, Ranged** |                    **Action** |
 | ----------------------- | -----------------------------:|
@@ -30,7 +30,7 @@ The stinker doesn’t provoke opportunity attacks by moving.
 
 **1+ Malice:** Increase the slide for one target by 1 square for each malice spent.
 
-##### **Swamp Gas**
+##### Swamp Gas
 
 | **Area, Magic, Ranged** |   **Maneuver** |
 | ----------------------- | --------------:|

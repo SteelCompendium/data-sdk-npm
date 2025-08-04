@@ -12,7 +12,7 @@
 
 ---
 
-##### **Dagger Dance (Signature)**
+##### Dagger Dance (Signature)
 
 | **Melee, Strike, Weapon**  |                     **Action** |
 | -------------------------- | ------------------------------:|
@@ -26,7 +26,7 @@
 
 **Effect:** If the mischiever is hidden when they use this ability, they can target two creatures.
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|

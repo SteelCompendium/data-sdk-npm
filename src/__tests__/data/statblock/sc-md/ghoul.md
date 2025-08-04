@@ -20,7 +20,7 @@ The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire dam
 
 ---
 
-##### **Razor Claws (Signature)**
+##### Razor Claws (Signature)
 
 | **Charge, Melee, Strike, Weapon** |                    **Action** |
 | --------------------------------- | -----------------------------:|
@@ -32,7 +32,7 @@ The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire dam
 - **12-16:** 4 damage
 - **17+:** 5 damage; M<2 bleeding (save ends)
 
-##### **Leap**
+##### Leap
 
 | **—**       | **Maneuver** |
 | ----------- | ------------:|

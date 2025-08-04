@@ -12,7 +12,7 @@
 
 ---
 
-##### **Eyes-On-Me Shot (Signature)**
+##### Eyes-On-Me Shot (Signature)
 
 | **Ranged, Strike, Weapon** |                               **Action** |
 | -------------------------- | ----------------------------------------:|
@@ -26,7 +26,7 @@
 
 **Effect:** An ally of the redeye within 2 squares of the target can shift up to 2 squares.
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|

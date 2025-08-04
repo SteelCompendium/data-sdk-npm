@@ -34,7 +34,7 @@ The werewolf ignores difficult terrain.
 
 ---
 
-##### **Accursed Bite (Signature)**
+##### Accursed Bite (Signature)
 
 | **Charge, Melee, Strike, Weapon** |                  **Action** |
 | --------------------------------- | ---------------------------:|
@@ -50,7 +50,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition.
 
-##### **Ripping Claws**
+##### Ripping Claws
 
 | **Melee, Strike, Weapon** |                      **Action** |
 | ------------------------- | -------------------------------:|
@@ -62,7 +62,7 @@ The werewolf ignores difficult terrain.
 - **12-16:** 11 damage; 1 rage; M<2 bleeding (save ends)
 - **17+:** 14 damage; 3 rage; M<3 bleeding (save ends)
 
-##### **Berserker Slash (3 Malice)**
+##### Berserker Slash (3 Malice)
 
 | **Area, Melee, Weapon** |                                  **Action** |
 | ----------------------- | -------------------------------------------:|
@@ -76,7 +76,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** The werewolf shifts up to their speed before using this ability.
 
-##### **Wall Leap**
+##### Wall Leap
 
 | **—**       | **Maneuver** |
 | ----------- | ------------:|
@@ -84,7 +84,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone.
 
-##### **Facepalm and Head Slam (2 Malice)**
+##### Facepalm and Head Slam (2 Malice)
 
 | **—**          | **Triggered Action** |
 | -------------- | --------------------:|
@@ -94,7 +94,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** The target is knocked prone and takes 5 damage before executing the ability.
 
-##### **Howl**
+##### Howl
 
 | **Area**       |            **Villain Action 1** |
 | -------------- | -------------------------------:|
@@ -108,7 +108,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** Enemies that have 1 or more rage gain 4 rage and howl along with the werewolf.
 
-##### **Full Wolf**
+##### Full Wolf
 
 | **—**       | **Villain Action 2** |
 | ----------- | --------------------:|
@@ -116,7 +116,7 @@ The werewolf ignores difficult terrain.
 
 **Effect:** The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1.
 
-##### **Rampage**
+##### Rampage
 
 | **Area, Melee, Weapon** |              **Villain Action 3** |
 | ----------------------- | ---------------------------------:|

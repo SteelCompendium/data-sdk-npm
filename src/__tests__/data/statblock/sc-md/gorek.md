@@ -24,7 +24,7 @@ Gorek selects one creature within line of effect at the start of an encounter. B
 
 ---
 
-##### **Brutal Impact (Signature)**
+##### Brutal Impact (Signature)
 
 | **Melee, Strike, Weapon** |                      **Action** |
 | ------------------------- | -------------------------------:|
@@ -38,7 +38,7 @@ Gorek selects one creature within line of effect at the start of an encounter. B
 
 **2 Malice:** Each target is M<1 slowed (save ends).
 
-##### **Let’s Tussle (2 Malice)**
+##### Let’s Tussle (2 Malice)
 
 | **Melee, Strike, Weapon** |                                     **Action** |
 | ------------------------- | ----------------------------------------------:|

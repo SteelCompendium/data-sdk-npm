@@ -20,7 +20,7 @@ The assassin can take the Hide maneuver even while observed.
 
 ---
 
-##### **Sword Stab (Signature)**
+##### Sword Stab (Signature)
 
 | **Melee, Strike, Weapon** |                    **Action** |
 | ------------------------- | -----------------------------:|
@@ -34,7 +34,7 @@ The assassin can take the Hide maneuver even while observed.
 
 **Effect:** This ability deals an additional 2 damage if the assassin has an edge on the power roll.
 
-##### **Shadow Chains (3 Malice)**
+##### Shadow Chains (3 Malice)
 
 | **Magic, Ranged** |             **Action** |
 | ----------------- | ----------------------:|

@@ -20,7 +20,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 ---
 
-##### **Whip & Magic Longsword (Signature)**
+##### Whip & Magic Longsword (Signature)
 
 | **Magic, Melee, Strike, Weapon** |                    **Action** |
 | -------------------------------- | -----------------------------:|
@@ -36,7 +36,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **2 Malice:** The bandit chief targets an additional enemy or object.
 
-##### **Kneel, Peasant!**
+##### Kneel, Peasant!
 
 | **Melee, Weapon** |               **Maneuver** |
 | ----------------- | --------------------------:|
@@ -50,7 +50,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **2 Malice:** This ability targets each enemy adjacent to the bandit chief.
 
-##### **Bloodstones**
+##### Bloodstones
 
 | **Magic**   | **Triggered Action** |
 | ----------- | --------------------:|
@@ -60,7 +60,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **Effect:** The bandit chief takes 4 corruption damage and increases the result of the power roll by one tier.
 
-##### **Shoot!**
+##### Shoot!
 
 | **Area**        |           **Villain Action 1** |
 | --------------- | ------------------------------:|
@@ -68,7 +68,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **Effect:** Each target makes a ranged free strike.
 
-##### **Form Up!**
+##### Form Up!
 
 | **Area**        |           **Villain Action 2** |
 | --------------- | ------------------------------:|
@@ -76,7 +76,7 @@ The bandit chief ignores concealment if it’s granted by a supernatural effect,
 
 **Effect:** Each target shifts up to their speed. Until the end of the encounter, the bandit chief and all allies have damage immunity 2 while adjacent to a target.
 
-##### **Lead From the Front**
+##### Lead From the Front
 
 | **—**       | **Villain Action 3** |
 | ----------- | --------------------:|

@@ -16,7 +16,7 @@ The first time the zombie is reduced to Stamina 0 by damage that isn’t fire da
 
 ---
 
-##### **Clobber and Clutch (Signature)**
+##### Clobber and Clutch (Signature)
 
 | **Melee, Strike, Weapon** |                    **Action** |
 | ------------------------- | -----------------------------:|
@@ -30,7 +30,7 @@ The first time the zombie is reduced to Stamina 0 by damage that isn’t fire da
 
 **Effect:** A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.
 
-##### **Zombie Dust (3 Malice)**
+##### Zombie Dust (3 Malice)
 
 | **Area, Melee** |                   **Maneuver** |
 | --------------- | ------------------------------:|

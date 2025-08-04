@@ -12,7 +12,7 @@
 
 ---
 
-##### **Bite (Signature)**
+##### Bite (Signature)
 
 | **Melee, Strike, Weapon** |                    **Action** |
 | ------------------------- | -----------------------------:|
@@ -26,7 +26,7 @@
 
 **2 Malice:** A<3 bleeding (save ends).
 
-##### **Slashing Leg**
+##### Slashing Leg
 
 | **Melee, Strike, Weapon** |                      **Action** |
 | ------------------------- | -------------------------------:|
@@ -38,7 +38,7 @@
 - **12-16:** 9 damage
 - **17+:** 12 damage
 
-##### **Trample (5 Malice)**
+##### Trample (5 Malice)
 
 | **—**       |  **Action** |
 | ----------- | -----------:|
@@ -46,7 +46,7 @@
 
 **Effect:** The spider shifts up to their speed and makes a Slashing Leg strike against each creature who comes within 1 of the spider during the move. The spider makes one power roll against all targets.
 
-##### **Web**
+##### Web
 
 | **Area, Weapon**       |                     **Maneuver** |
 | ---------------------- | --------------------------------:|
@@ -58,7 +58,7 @@
 - **12-16:** A<1 r estrained (save ends)
 - **17+:** A<2 r estrained (save ends)
 
-##### **Skitter**
+##### Skitter
 
 | **—**       | **Triggered Action** |
 | ----------- | --------------------:|

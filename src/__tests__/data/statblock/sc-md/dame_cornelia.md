@@ -20,7 +20,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 ---
 
-##### **Zweihander Swing (Signature)**
+##### Zweihander Swing (Signature)
 
 | **Area, Melee, Weapon** |                      **Action** |
 | ----------------------- | -------------------------------:|
@@ -36,7 +36,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **1 Malice:** The ally can use their signature action instead.
 
-##### **You!**
+##### You!
 
 | **—**            |     **Maneuver** |
 | ---------------- | ----------------:|
@@ -44,7 +44,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **Effect:** The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.
 
-##### **Parry!**
+##### Parry!
 
 | **—**          |    **Triggered Action** |
 | -------------- | -----------------------:|
@@ -54,7 +54,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **Effect:** The damage is halved.
 
-##### **Advance!**
+##### Advance!
 
 | **—**       | **Villain Action 1** |
 | ----------- | --------------------:|
@@ -62,7 +62,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **Effect:** Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.
 
-##### **Back!**
+##### Back!
 
 | **Area, Magic** |            **Villain Action 2** |
 | --------------- | -------------------------------:|
@@ -70,7 +70,7 @@ When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruptio
 
 **Effect:** Slide 5.
 
-##### **I Can Throw My Blade and So Should You!**
+##### I Can Throw My Blade and So Should You!
 
 | **Area, Magic, Ranged, Weapon** |          **Villain Action 3** |
 | ------------------------------- | -----------------------------:|

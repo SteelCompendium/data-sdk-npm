@@ -12,7 +12,7 @@
 
 ---
 
-##### **Rapier Flunge (Signature)**
+##### Rapier Flunge (Signature)
 
 | **Melee, Strike, Weapon** |                               **Action** |
 | ------------------------- | ----------------------------------------:|
@@ -24,7 +24,7 @@
 - **12-16:** 2 damage; slide 2; shift 2
 - **17+:** 3 damage; slide 3; shift 3
 
-##### **Ready Rodent**
+##### Ready Rodent
 
 | **Melee, Weapon** | **Triggered Action** |
 | ----------------- | --------------------:|

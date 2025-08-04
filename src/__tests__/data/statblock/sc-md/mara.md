@@ -20,7 +20,7 @@ Mara selects one creature within line of effect at the start of an encounter. Bo
 
 ---
 
-##### **The Writhing Green (Signature)**
+##### The Writhing Green (Signature)
 
 | **Green, Magic, Ranged, Strike** |                      **Action** |
 | -------------------------------- | -------------------------------:|
@@ -32,7 +32,7 @@ Mara selects one creature within line of effect at the start of an encounter. Bo
 - **12-16:** 10 damage; slide 2
 - **17+:** 13 damage; slide 3
 
-##### **The Earth Devours (3 Malice)**
+##### The Earth Devours (3 Malice)
 
 | **Area, Green, Magic**  |                     **Action** |
 | ----------------------- | ------------------------------:|
@@ -46,7 +46,7 @@ Mara selects one creature within line of effect at the start of an encounter. Bo
 
 **Effect:** The affected area is difficult terrain for enemies. An enemy has acid weakness 2 while occupying an affected square.
 
-##### **Jaws of the Void**
+##### Jaws of the Void
 
 | **Magic, Void** | **Triggered Action** |
 | --------------- | --------------------:|
