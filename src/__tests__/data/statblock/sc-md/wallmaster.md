@@ -1,6 +1,6 @@
 **WALLMASTER**
 
-|   Construct, Ruinborn    |         -         |      Level 1      |           -           |          EV 12           |
+|   Construct, Ruinborn    |         -         |      Level 1      |    ELITE, DEFENDER    |          EV 12           |
 |:------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|
 |      **1L**<br>Size      |  **0**<br>Speed   | **80**<br>Stamina |  **3**<br>Stability   |   **4**<br>Free Strike   |
 | **holy 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **acid 3**<br>Weaknesses |

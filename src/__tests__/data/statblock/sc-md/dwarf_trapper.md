@@ -1,6 +1,6 @@
 **DWARF TRAPPER**
 
-|   Dwarf, Humanoid   |         -         |      Level 1      |           -           |         EV 6         |
+|   Dwarf, Humanoid   |         -         |      Level 1      |   PLATOON, HARRIER    |         EV 6         |
 |:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |   **1M**<br>Size    |  **7**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |
 | **-**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

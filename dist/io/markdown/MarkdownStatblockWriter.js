@@ -74,11 +74,11 @@ class MarkdownStatblockWriter {
         // ---- build rows (same as before) ----
         const name = `**${(_a = data.name) !== null && _a !== void 0 ? _a : 'Unnamed'}**`;
         const ancestry = ((_b = data.ancestry) === null || _b === void 0 ? void 0 : _b.length) ? data.ancestry.join(', ') : '-';
-        const movementDash = (_c = data.movement) !== null && _c !== void 0 ? _c : '-';
-        const levelCell = `Level ${(_d = data.level) !== null && _d !== void 0 ? _d : 0}`;
-        const roles = '-';
+        const blankDash = '-';
+        const levelCell = `Level ${(_c = data.level) !== null && _c !== void 0 ? _c : 0}`;
+        const roles = ((_d = data.roles) === null || _d === void 0 ? void 0 : _d.length) ? data.roles.join(', ') : '-';
         const evCell = `EV ${(_e = data.ev) !== null && _e !== void 0 ? _e : 0}`;
-        const row0 = [ancestry, movementDash, levelCell, roles, evCell];
+        const row0 = [ancestry, blankDash, levelCell, roles, evCell];
         const row1 = [
             cell((_f = data.size) !== null && _f !== void 0 ? _f : '-', 'Size'),
             cell((_g = data.speed) !== null && _g !== void 0 ? _g : '-', 'Speed'),

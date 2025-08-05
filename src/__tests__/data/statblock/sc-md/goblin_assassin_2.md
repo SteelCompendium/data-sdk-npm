@@ -1,6 +1,6 @@
 **GOBLIN ASSASSIN**
 
-|  Goblin, Humanoid   |         climb         |      Level 1      |           -           |         EV 3         |
+|  Goblin, Humanoid   |           -           |      Level 1      |    HORDE, AMBUSHER    |         EV 3         |
 |:-------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
 |   **1S**<br>Size    |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **2**<br>Free Strike |
 | **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

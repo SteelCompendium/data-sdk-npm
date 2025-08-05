@@ -1,6 +1,6 @@
 **MARA**
 
-| Humanoid, Human, Rival |         -         |      Level 2      |           -           |        EV 16         |
+| Humanoid, Human, Rival |         -         |      Level 2      |   ELITE, CONTROLLER   |        EV 16         |
 |:----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |     **1M**<br>Size     |  **5**<br>Speed   | **60**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |
 |  **-**<br>Immunities   | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

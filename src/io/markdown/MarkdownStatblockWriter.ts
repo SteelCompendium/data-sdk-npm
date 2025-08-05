@@ -88,11 +88,11 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         const name = `**${data.name ?? 'Unnamed'}**`;
 
         const ancestry = data.ancestry?.length ? data.ancestry.join(', ') : '-';
-        const movementDash = data.movement ?? '-';
+        const blankDash = '-';
         const levelCell = `Level ${data.level ?? 0}`;
-        const roles = '-';
+        const roles = data.roles?.length ? data.roles.join(', ') : '-';
         const evCell = `EV ${data.ev ?? 0}`;
-        const row0 = [ancestry, movementDash, levelCell, roles, evCell];
+        const row0 = [ancestry, blankDash, levelCell, roles, evCell];
 
         const row1 = [
             cell(data.size ?? '-', 'Size'),

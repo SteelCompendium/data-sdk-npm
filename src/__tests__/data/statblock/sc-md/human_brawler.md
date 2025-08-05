@@ -1,6 +1,6 @@
 **HUMAN BRAWLER**
 
-|              Human, Humanoid              |         -         |      Level 1      |           -           |         EV 6         |
+|              Human, Humanoid              |         -         |      Level 1      |    PLATOON, BRUTE     |         EV 6         |
 |:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |              **1M**<br>Size               |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |
 | **Corruption 1, Psychic 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

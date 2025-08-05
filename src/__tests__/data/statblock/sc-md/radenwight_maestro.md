@@ -1,6 +1,6 @@
 **RADENWIGHT MAESTRO**
 
-| Humanoid, Radenwight |         climb         |      Level 1      |           -           |        EV 12         |
+| Humanoid, Radenwight |           -           |      Level 1      |        LEADER         |        EV 12         |
 |:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
 |    **1S**<br>Size    |    **5**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |
 | **-**<br>Immunities  | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

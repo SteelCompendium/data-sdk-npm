@@ -1,6 +1,6 @@
 **RADENWIGHT MISCHIEVER**
 
-| Humanoid, Radenwight |         climb         |     Level 1      |                  -                   | EV 3 for four minions |
+| Humanoid, Radenwight |           -           |     Level 1      |           MINION, AMBUSHER           | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:------------------------------------:|:---------------------:|
 |    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |          **0**<br>Stability          | **2**<br>Free Strike  |
 | **-**<br>Immunities  | **climb**<br>Movement |                  | **Strike damage +1**<br>With Captain |  **-**<br>Weaknesses  |

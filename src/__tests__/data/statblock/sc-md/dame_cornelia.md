@@ -1,6 +1,6 @@
 **DAME CORNELIA**
 
-|                  Undead                   |         -         |      Level 1      |           -           |        EV 12         |
+|                  Undead                   |         -         |      Level 1      |        LEADER         |        EV 12         |
 |:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |              **1M**<br>Size               |  **5**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |
 | **Corruption 2, Psychic 2**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

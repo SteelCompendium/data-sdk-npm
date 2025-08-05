@@ -1,6 +1,6 @@
 **GHOUL**
 
-|                  Undead                  |         -         |      Level 1      |           -           |         EV 3         |
+|                  Undead                  |         -         |      Level 1      |    HORDE, HARRIER     |         EV 3         |
 |:----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |              **1M**<br>Size              |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
 | **corruption 1, poison 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

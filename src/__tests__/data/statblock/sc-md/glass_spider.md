@@ -1,6 +1,6 @@
 **GLASS SPIDER**
 
-|      Construct      |         climb         |      Level 1      |           -           |           EV 12           |
+|      Construct      |           -           |      Level 1      |   ELITE, SKIRMISHER   |           EV 12           |
 |:-------------------:|:---------------------:|:-----------------:|:---------------------:|:-------------------------:|
 |    **3**<br>Size    |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   |   **4**<br>Free Strike    |
 | **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **Sonic 5**<br>Weaknesses |

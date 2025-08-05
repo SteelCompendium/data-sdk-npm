@@ -1,6 +1,6 @@
 **ZOMBIE**
 
-|                  Undead                  |         -         |      Level 1      |           -           |         EV 3         |
+|                  Undead                  |         -         |      Level 1      |     HORDE, BRUTE      |         EV 3         |
 |:----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |              **1M**<br>Size              |  **5**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |
 | **corruption 1, poison 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |

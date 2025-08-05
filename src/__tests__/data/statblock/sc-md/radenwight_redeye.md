@@ -1,6 +1,6 @@
 **RADENWIGHT REDEYE**
 
-| Humanoid, Radenwight |         climb         |     Level 1      |                  -                  | EV 3 for four minions |
+| Humanoid, Radenwight |           -           |     Level 1      |          MINION, ARTILLERY          | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:-----------------------------------:|:---------------------:|
 |    **1S**<br>Size    |    **5**<br>Speed     | **3**<br>Stamina |         **0**<br>Stability          | **2**<br>Free Strike  |
 | **-**<br>Immunities  | **climb**<br>Movement |                  | **Edge on strikes**<br>With Captain |  **-**<br>Weaknesses  |

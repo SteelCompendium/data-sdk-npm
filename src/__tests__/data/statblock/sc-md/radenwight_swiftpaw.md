@@ -1,6 +1,6 @@
 **RADENWIGHT SWIFTPAW**
 
-| Humanoid, Radenwight |         climb         |     Level 1      |                  -                  | EV 3 for four minions |
+| Humanoid, Radenwight |           -           |     Level 1      |           MINION, HARRIER           | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:-----------------------------------:|:---------------------:|
 |    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |         **0**<br>Stability          | **1**<br>Free Strike  |
 | **-**<br>Immunities  | **climb**<br>Movement |                  | **Edge on strikes**<br>With Captain |  **-**<br>Weaknesses  |

@@ -1,6 +1,6 @@
 **GOBLIN BATTLEBORN**
 
-| Goblin, Humanoid, Mystic Goblin |         climb         |      Level 2      |           -           |         EV 4         |
+| Goblin, Humanoid, Mystic Goblin |           -           |      Level 2      |     HORDE, BRUTE      |         EV 4         |
 |:-------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
 |         **1L**<br>Size          |    **6**<br>Speed     | **25**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
 |       **-**<br>Immunities       | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
