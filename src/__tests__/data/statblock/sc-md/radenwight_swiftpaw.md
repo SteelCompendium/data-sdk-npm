@@ -12,24 +12,24 @@
 
 ---
 
-##### Rapier Flunge (Signature)
+> **Rapier Flunge (Signature)**
+> 
+> | **Melee, Strike, Weapon** |                               **Action** |
+> | ------------------------- | ----------------------------------------:|
+> | **📏 Melee 1**            | **🎯 One creature or object per minion** |
+> 
+> **2d10 + 2:**
+> 
+> - **≤11:** 1 damage; slide 1; shift 1
+> - **12-16:** 2 damage; slide 2; shift 2
+> - **17+:** 3 damage; slide 3; shift 3
 
-| **Melee, Strike, Weapon** |                               **Action** |
-| ------------------------- | ----------------------------------------:|
-| **📏 Melee 1**            | **🎯 One creature or object per minion** |
-
-**2d10 + 2:**
-
-- **≤11:** 1 damage; slide 1; shift 1
-- **12-16:** 2 damage; slide 2; shift 2
-- **17+:** 3 damage; slide 3; shift 3
-
-##### Ready Rodent
-
-| **Melee, Weapon** | **Triggered Action** |
-| ----------------- | --------------------:|
-| **📏 Melee 1**    |  **🎯 One creature** |
-
-**Trigger:** An ally deals damage to the target.
-
-**Effect:** The swiftpaw makes a free strike against the target.
+> **Ready Rodent**
+> 
+> | **Melee, Weapon** | **Triggered Action** |
+> | ----------------- | --------------------:|
+> | **📏 Melee 1**    |  **🎯 One creature** |
+> 
+> **Trigger:** An ally deals damage to the target.
+> 
+> **Effect:** The swiftpaw makes a free strike against the target.

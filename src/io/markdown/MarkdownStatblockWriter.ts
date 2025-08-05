@@ -14,21 +14,27 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // Add traits
         if (data.traits && data.traits.length > 0) {
             for (const trait of data.traits) {
-                if (trait.name) {
-                    parts.push("");
-                    parts.push(`##### ${trait.name}`);
-                    if (trait.effects && trait.effects.effects.length > 0) {
-                        const effects = trait.effects.effects.map(e => {
-                            if (e.effectType() === 'MundaneEffect') {
-                                const mundane = e as any;
-                                const name = mundane.name ? `**${mundane.name.trim()}:** ` : '';
-                                return `\n${name}${mundane.effect.trim()}`;
-                            }
-                            return '';
-                        }).filter(e => e);
-                        parts.push(...effects);
-                    }
+                if (!trait.name) continue;
+
+                // Build the trait block, then prefix each line with "> "
+                const tLines: string[] = [];
+
+                tLines.push(`> **${trait.name}**`);
+
+                if (trait.effects && trait.effects.effects.length > 0) {
+                    const effectLines = trait.effects.effects
+                        .filter(e => e.effectType() === 'MundaneEffect')
+                        .map((e: any) => {
+                            const label = e.name ? `**${e.name.trim()}:** ` : '';
+                            return `${label}${e.effect.trim()}`;      // no leading \n
+                        });
+                    tLines.push(...effectLines);
                 }
+
+                // Insert a blank line before each trait block (outside the quote)
+                parts.push('');
+                // Quote-prefix every line of this trait
+                parts.push(tLines.join('\n> \n> '));
             }
         }
 
@@ -39,7 +45,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             parts.push(""); // Empty line for spacing
 
             for (const ability of data.abilities) {
-                parts.push(`##### ${this.abilityWriter.write(ability, "", "")}`);
+                parts.push(this.abilityWriter.write(ability, true));
                 parts.push(""); // Empty line between abilities
             }
         }

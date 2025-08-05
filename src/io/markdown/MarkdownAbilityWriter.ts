@@ -6,10 +6,12 @@ import { PowerRollEffect } from "../../model";
 import * as yaml from 'js-yaml';
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    write(data: Ability, prefix: string = "**", suffix: string = "**"): string {
+    write(data: Ability, for_statblock: boolean = false): string {
         // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
         const includeEffectsToken: boolean = !!(data.keywords && data.keywords.length > 0);
         const parts: string[] = [];
+        const linePrefix = for_statblock ? '> ' : '';
+
 
         if (data.metadata && Object.keys(data.metadata).length > 0) {
             const yamlString = yaml.dump(data.metadata);
@@ -17,6 +19,8 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         }
 
         if (data.name) {
+            const prefix = '**';
+            const suffix = '**';
             let title = `${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
@@ -99,7 +103,14 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             parts.push(effectParts.join('\n\n'));
         }
 
-        return parts.join('\n\n');
+        let md = parts.join('\n\n');
+
+        if (linePrefix) {
+            // ^ start-of-line, gm = every line
+            md = md.replace(/^/gm, linePrefix);
+        }
+
+        return md;
     }
 
     private writeEffect(effect: Effect, includeEffectToken: boolean): string {

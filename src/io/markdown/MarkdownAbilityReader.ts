@@ -8,6 +8,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
 
     read(content: string): Ability {
         let lines = content.split('\n');
+        lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
         const partial: Partial<Ability> = {};
 
         // Find the end of the frontmatter

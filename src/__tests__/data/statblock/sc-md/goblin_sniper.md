@@ -10,22 +10,22 @@
 | **Intuition:** +0                        | **Size:** 1S                             |
 | **Presence:** -1                         | **Stability:** 0                         |
 
-##### Crafty
-
-The sniper doesn’t provoke opportunity attacks by moving.
+> **Crafty**
+> 
+> The sniper doesn’t provoke opportunity attacks by moving.
 
 ---
 
-##### Bow (Signature)
-
-| **Ranged, Strike, Weapon** |                               **Action** |
-| -------------------------- | ----------------------------------------:|
-| **📏 Ranged 10**           | **🎯 One creature or object per minion** |
-
-**2d10 + 2:**
-
-- **≤11:** 2 damage
-- **12-16:** 4 damage
-- **17+:** 5 damage
-
-**Effect:** If the sniper doesn’t use a move action this turn, the ability has an edge.
+> **Bow (Signature)**
+> 
+> | **Ranged, Strike, Weapon** |                               **Action** |
+> | -------------------------- | ----------------------------------------:|
+> | **📏 Ranged 10**           | **🎯 One creature or object per minion** |
+> 
+> **2d10 + 2:**
+> 
+> - **≤11:** 2 damage
+> - **12-16:** 4 damage
+> - **17+:** 5 damage
+> 
+> **Effect:** If the sniper doesn’t use a move action this turn, the ability has an edge.
