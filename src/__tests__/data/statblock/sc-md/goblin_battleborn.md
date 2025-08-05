@@ -1,14 +1,10 @@
-| **GOBLIN BATTLEBORN**                    | Level 2 HORDE, BRUTE                     |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Goblin, Humanoid, Mystic Goblin | **EV:** 4                                |
-| **Stamina:** 25                          | **Immunity:** -                          |
-| **Speed:** 6                             | **Weakness:** -                          |
-| **Movement:** climb                      | **With Captain:** -                      |
-| **Might:** +2                            | **Free Strike:** 5                       |
-| **Agility:** +1                          | **Melee:** -                             |
-| **Reason:** +0                           | **Ranged:** -                            |
-| **Intuition:** +1                        | **Size:** 1L                             |
-| **Presence:** +0                         | **Stability:** 2                         |
+**GOBLIN BATTLEBORN**
+
+| Goblin, Humanoid, Mystic Goblin |         climb         |      Level 2      |           -           |         EV 4         |
+|:-------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
+|         **1L**<br>Size          |    **6**<br>Speed     | **25**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
+|       **-**<br>Immunities       | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|         **+2**<br>Might         |   **+1**<br>Agility   | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
 > **Cunning**
 > 

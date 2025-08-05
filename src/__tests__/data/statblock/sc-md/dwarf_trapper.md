@@ -1,14 +1,10 @@
-| **DWARF TRAPPER**                        | Level 1 PLATOON, HARRIER                 |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Dwarf, Humanoid            | **EV:** 6                                |
-| **Stamina:** 36                          | **Immunity:** -                          |
-| **Speed:** 7                             | **Weakness:** -                          |
-| **Movement:** -                          | **With Captain:** -                      |
-| **Might:** +0                            | **Free Strike:** 3                       |
-| **Agility:** +2                          | **Melee:** -                             |
-| **Reason:** +0                           | **Ranged:** -                            |
-| **Intuition:** +1                        | **Size:** 1M                             |
-| **Presence:** +0                         | **Stability:** 2                         |
+**DWARF TRAPPER**
+
+|   Dwarf, Humanoid   |         -         |      Level 1      |           -           |         EV 6         |
+|:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|   **1M**<br>Size    |  **7**<br>Speed   | **36**<br>Stamina |  **2**<br>Stability   | **3**<br>Free Strike |
+| **-**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|   **+0**<br>Might   | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
 ---
 

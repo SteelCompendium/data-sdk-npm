@@ -1,14 +1,10 @@
-| **GOBLIN STINKER**                       | Level 1 HORDE, CONTROLLER                |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Goblin, Humanoid           | **EV:** 3                                |
-| **Stamina:** 10                          | **Immunity:** -                          |
-| **Speed:** 5                             | **Weakness:** -                          |
-| **Movement:** climb                      | **With Captain:** -                      |
-| **Might:** -2                            | **Free Strike:** 1                       |
-| **Agility:** +1                          | **Melee:** -                             |
-| **Reason:** +0                           | **Ranged:** -                            |
-| **Intuition:** +0                        | **Size:** 1S                             |
-| **Presence:** +2                         | **Stability:** 0                         |
+**GOBLIN STINKER**
+
+|  Goblin, Humanoid   |         climb         |      Level 1      |           -           |         EV 3         |
+|:-------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
+|   **1S**<br>Size    |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
+| **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|   **-2**<br>Might   |   **+1**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |
 
 > **Crafty**
 > 

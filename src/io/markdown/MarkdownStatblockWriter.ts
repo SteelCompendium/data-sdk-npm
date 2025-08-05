@@ -65,32 +65,35 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
      * | **Might**<br>Might | **Agility**<br>Agility | **Reason**<br>Reason | **Intuition**<br>Intuition | **Presence**<br>Presence |
      */
     private createStatblockTable(data: Statblock): string {
-        //-------------------------------------------------------------
-        // Helper that returns "**val**<br>label" or "**-**<br>label"
-        //-------------------------------------------------------------
+        // ---- helpers (raw-width based) ----
+        const rawWidth = (s: string) => [...(s ?? '')].length;   // count code points in *source*
+        const padBothTo = (s: string, w: number) => {
+            const cur = rawWidth(s);
+            const need = Math.max(0, w - cur);
+            const left = Math.floor(need / 2);
+            const right = need - left;
+            return ' '.repeat(left) + (s || '') + ' '.repeat(right);
+        };
+        const toRow = (cells: string[], widths: number[]) =>
+            '| ' + cells.map((c, i) => padBothTo(c ?? '', widths[i])).join(' | ') + ' |';
+
+        // separator must span exactly the same width between pipes as content rows
+        const separator = (widths: number[]) =>
+            '|' + widths.map(w => ':' + '-'.repeat(Math.max(3, w)) + ':').join('|') + '|';
+
         const cell = (val: string | number | undefined, label: string) =>
             `**${val ?? '-'}**<br>${label}`;
 
-        //-------------------------------------------------------------
-        // Row 0 (header row)
-        //-------------------------------------------------------------
+        // ---- build rows (same as before) ----
+        const name = `**${data.name ?? 'Unnamed'}**`;
+
         const ancestry = data.ancestry?.length ? data.ancestry.join(', ') : '-';
         const movementDash = data.movement ?? '-';
-        const levelCell   = `Level ${data.level ?? 0}`;
-        const roles       = data.roles?.length ? data.roles.join(', ') : '-'; // placeholder for col-4
-        const evCell      = `EV ${data.ev ?? 0}`;
+        const levelCell = `Level ${data.level ?? 0}`;
+        const roles = '-';
+        const evCell = `EV ${data.ev ?? 0}`;
+        const row0 = [ancestry, movementDash, levelCell, roles, evCell];
 
-        const headerRow = [
-            ancestry,
-            movementDash,
-            levelCell,
-            roles,
-            evCell,
-        ];
-
-        //-------------------------------------------------------------
-        // Row 1: Size | Speed | Stamina | Stability | Free Strike
-        //-------------------------------------------------------------
         const row1 = [
             cell(data.size ?? '-', 'Size'),
             cell(data.speed ?? '-', 'Speed'),
@@ -99,24 +102,17 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             cell(data.freeStrike ?? 0, 'Free Strike'),
         ];
 
-        //-------------------------------------------------------------
-        // Row 2: Immunities | Movement | (blank) | With Captain | Weaknesses
-        //-------------------------------------------------------------
         const immunities = data.immunities?.length ? data.immunities.join(', ') : '-';
         const weaknesses = data.weaknesses?.length ? data.weaknesses.join(', ') : '-';
         const withCaptain = data.withCaptain ?? '-';
-
         const row2 = [
             cell(immunities, 'Immunities'),
             cell(data.movement ?? '-', 'Movement'),
-            '', // centre cell empty
+            '', // center blank
             cell(withCaptain, 'With Captain'),
             cell(weaknesses, 'Weaknesses'),
         ];
 
-        //-------------------------------------------------------------
-        // Row 3: Characteristics
-        //-------------------------------------------------------------
         const ch = data.characteristics;
         const row3 = [
             cell(this.formatCharacteristic(ch.might), 'Might'),
@@ -126,28 +122,24 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             cell(this.formatCharacteristic(ch.presence), 'Presence'),
         ];
 
-        //-------------------------------------------------------------
-        // Build the markdown table
-        //-------------------------------------------------------------
-        const separator = '|:----------------------------:'.repeat(5) + '|';
+        // ---- compute *raw* widths (so pipes align in source) ----
+        const allRows = [row0, row1, row2, row3];
+        const widths = Array(5).fill(0);
+        for (const r of allRows) r.forEach((c, i) => { widths[i] = Math.max(widths[i], rawWidth(c ?? '')); });
 
-        const toRow = (arr: string[]) => `| ${arr.map(c => c || ' ').join(' | ')} |`;
-
-        const tableLines = [
-            toRow(headerRow),
-            separator,
-            toRow(row1),
-            toRow(row2),
-            toRow(row3),
+        // ---- output ----
+        const lines = [
+            name,
+            '',
+            toRow(row0, widths),
+            separator(widths),
+            toRow(row1, widths),
+            toRow(row2, widths),
+            toRow(row3, widths),
         ];
-
-        //-------------------------------------------------------------
-        // Title line + blank + table
-        //-------------------------------------------------------------
-        const title = `**${data.name ?? 'Unnamed'}**`;
-
-        return `${title}\n\n${tableLines.join('\n')}`;
+        return lines.join('\n');
     }
+
     private formatCharacteristic(value: number): string {
         if (value > 0) {
             return `+${value}`;

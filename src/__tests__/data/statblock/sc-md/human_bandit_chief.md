@@ -1,14 +1,10 @@
-| **HUMAN BANDIT CHIEF**                   | Level 3 LEADER                           |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Human, Humanoid            | **EV:** 20                               |
-| **Stamina:** 120                         | **Immunity:** Corruption 4, Psychic 4    |
-| **Speed:** 5                             | **Weakness:** -                          |
-| **Movement:** -                          | **With Captain:** -                      |
-| **Might:** +2                            | **Free Strike:** 5                       |
-| **Agility:** +3                          | **Melee:** -                             |
-| **Reason:** +2                           | **Ranged:** -                            |
-| **Intuition:** +3                        | **Size:** 1 M                            |
-| **Presence:** +2                         | **Stability:** 2                         |
+**HUMAN BANDIT CHIEF**
+
+|              Human, Humanoid              |         -         |      Level 3       |           -           |        EV 20         |
+|:-----------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
+|              **1 M**<br>Size              |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
+| **Corruption 4, Psychic 4**<br>Immunities | **-**<br>Movement |                    | **-**<br>With Captain | **-**<br>Weaknesses  |
+|              **+2**<br>Might              | **+3**<br>Agility |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |
 
 > **End Effect**
 > 

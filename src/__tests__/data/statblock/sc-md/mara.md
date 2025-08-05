@@ -1,14 +1,10 @@
-| **MARA**                                 | Level 2 ELITE, CONTROLLER                |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Human, Rival     | **EV:** 16                               |
-| **Stamina:** 60                          | **Immunity:** -                          |
-| **Speed:** 5                             | **Weakness:** -                          |
-| **Movement:** -                          | **With Captain:** -                      |
-| **Might:** +0                            | **Free Strike:** 5                       |
-| **Agility:** +0                          | **Melee:** -                             |
-| **Reason:** +2                           | **Ranged:** -                            |
-| **Intuition:** +1                        | **Size:** 1M                             |
-| **Presence:** +0                         | **Stability:** 1                         |
+**MARA**
+
+| Humanoid, Human, Rival |         -         |      Level 2      |           -           |        EV 16         |
+|:----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|     **1M**<br>Size     |  **5**<br>Speed   | **60**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |
+|  **-**<br>Immunities   | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|    **+0**<br>Might     | **+0**<br>Agility | **+2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
 > **Determination**
 > 

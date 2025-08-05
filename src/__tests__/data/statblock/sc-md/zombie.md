@@ -1,14 +1,10 @@
-| **ZOMBIE**                               | Level 1 HORDE, BRUTE                     |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Undead                     | **EV:** 3                                |
-| **Stamina:** 20                          | **Immunity:** corruption 1, poison 1     |
-| **Speed:** 5                             | **Weakness:** -                          |
-| **Movement:** -                          | **With Captain:** -                      |
-| **Might:** +2                            | **Free Strike:** 2                       |
-| **Agility:** +1                          | **Melee:** -                             |
-| **Reason:** -5                           | **Ranged:** -                            |
-| **Intuition:** -2                        | **Size:** 1M                             |
-| **Presence:** +1                         | **Stability:** 1                         |
+**ZOMBIE**
+
+|                  Undead                  |         -         |      Level 1      |           -           |         EV 3         |
+|:----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|              **1M**<br>Size              |  **5**<br>Speed   | **20**<br>Stamina |  **1**<br>Stability   | **2**<br>Free Strike |
+| **corruption 1, poison 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|             **+2**<br>Might              | **+1**<br>Agility | **-5**<br>Reason  |  **-2**<br>Intuition  |  **+1**<br>Presence  |
 
 > **Endless Knight**
 > 

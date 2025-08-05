@@ -1,14 +1,10 @@
-| **WEREWOLF**                             | Level 1 SOLO                             |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Accursed, Humanoid, Werebeast | **EV:** 36                               |
-| **Stamina:** 200                         | **Immunity:** -                          |
-| **Speed:** 7                             | **Weakness:** -                          |
-| **Movement:** -                          | **With Captain:** -                      |
-| **Might:** +3                            | **Free Strike:** 5                       |
-| **Agility:** +2                          | **Melee:** -                             |
-| **Reason:** -1                           | **Ranged:** -                            |
-| **Intuition:** +1                        | **Size:** 1M                             |
-| **Presence:** +1                         | **Stability:** 0                         |
+**WEREWOLF**
+
+| Accursed, Humanoid, Werebeast |         -         |      Level 1       |           -           |        EV 36         |
+|:-----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
+|        **1M**<br>Size         |  **7**<br>Speed   | **200**<br>Stamina |  **0**<br>Stability   | **5**<br>Free Strike |
+|      **-**<br>Immunities      | **-**<br>Movement |                    | **-**<br>With Captain | **-**<br>Weaknesses  |
+|        **+3**<br>Might        | **+2**<br>Agility |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |
 
 > **Solo Monster**
 > 

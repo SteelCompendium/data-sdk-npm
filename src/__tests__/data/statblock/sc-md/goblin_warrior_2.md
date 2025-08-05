@@ -1,14 +1,10 @@
-| **GOBLIN WARRIOR**                       | Level 1 HORDE, HARRIER                   |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Goblin, Humanoid           | **EV:** 3                                |
-| **Stamina:** 15                          | **Immunity:** -                          |
-| **Speed:** 6                             | **Weakness:** -                          |
-| **Movement:** climb                      | **With Captain:** -                      |
-| **Might:** -2                            | **Free Strike:** 1                       |
-| **Agility:** +2                          | **Melee:** -                             |
-| **Reason:** +0                           | **Ranged:** -                            |
-| **Intuition:** +0                        | **Size:** 1S                             |
-| **Presence:** -1                         | **Stability:** 0                         |
+**GOBLIN WARRIOR**
+
+|  Goblin, Humanoid   |         climb         |      Level 1      |           -           |         EV 3         |
+|:-------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
+|   **1S**<br>Size    |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
+| **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|   **-2**<br>Might   |   **+2**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |
 
 > **Crafty**
 > 

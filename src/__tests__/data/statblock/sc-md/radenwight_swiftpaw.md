@@ -1,14 +1,10 @@
-| **RADENWIGHT SWIFTPAW**                  | Level 1 MINION, HARRIER                  |
-|:-----------------------------------------|:-----------------------------------------|
-| **Ancestry:** Humanoid, Radenwight       | **EV:** 3 for four minions               |
-| **Stamina:** 4                           | **Immunity:** -                          |
-| **Speed:** 7                             | **Weakness:** -                          |
-| **Movement:** climb                      | **With Captain:** Edge on strikes        |
-| **Might:** +0                            | **Free Strike:** 1                       |
-| **Agility:** +2                          | **Melee:** -                             |
-| **Reason:** +1                           | **Ranged:** -                            |
-| **Intuition:** +0                        | **Size:** 1S                             |
-| **Presence:** -1                         | **Stability:** 0                         |
+**RADENWIGHT SWIFTPAW**
+
+| Humanoid, Radenwight |         climb         |     Level 1      |                  -                  | EV 3 for four minions |
+|:--------------------:|:---------------------:|:----------------:|:-----------------------------------:|:---------------------:|
+|    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |         **0**<br>Stability          | **1**<br>Free Strike  |
+| **-**<br>Immunities  | **climb**<br>Movement |                  | **Edge on strikes**<br>With Captain |  **-**<br>Weaknesses  |
+|   **+0**<br>Might    |   **+2**<br>Agility   | **+1**<br>Reason |         **+0**<br>Intuition         |  **-1**<br>Presence   |
 
 ---
 

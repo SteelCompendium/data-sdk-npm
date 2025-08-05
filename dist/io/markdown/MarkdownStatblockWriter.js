@@ -57,29 +57,28 @@ class MarkdownStatblockWriter {
      * | **Might**<br>Might | **Agility**<br>Agility | **Reason**<br>Reason | **Intuition**<br>Intuition | **Presence**<br>Presence |
      */
     createStatblockTable(data) {
-        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p, _q;
-        //-------------------------------------------------------------
-        // Helper that returns "**val**<br>label" or "**-**<br>label"
-        //-------------------------------------------------------------
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
+        // ---- helpers (raw-width based) ----
+        const rawWidth = (s) => [...(s !== null && s !== void 0 ? s : '')].length; // count code points in *source*
+        const padBothTo = (s, w) => {
+            const cur = rawWidth(s);
+            const need = Math.max(0, w - cur);
+            const left = Math.floor(need / 2);
+            const right = need - left;
+            return ' '.repeat(left) + (s || '') + ' '.repeat(right);
+        };
+        const toRow = (cells, widths) => '| ' + cells.map((c, i) => padBothTo(c !== null && c !== void 0 ? c : '', widths[i])).join(' | ') + ' |';
+        // separator must span exactly the same width between pipes as content rows
+        const separator = (widths) => '|' + widths.map(w => ':' + '-'.repeat(Math.max(3, w)) + ':').join('|') + '|';
         const cell = (val, label) => `**${val !== null && val !== void 0 ? val : '-'}**<br>${label}`;
-        //-------------------------------------------------------------
-        // Row 0 (header row)
-        //-------------------------------------------------------------
-        const ancestry = ((_a = data.ancestry) === null || _a === void 0 ? void 0 : _a.length) ? data.ancestry.join(', ') : '-';
-        const movementDash = (_b = data.movement) !== null && _b !== void 0 ? _b : '-';
-        const levelCell = `Level ${(_c = data.level) !== null && _c !== void 0 ? _c : 0}`;
-        const roles = ((_d = data.roles) === null || _d === void 0 ? void 0 : _d.length) ? data.roles.join(', ') : '-'; // placeholder for col-4
+        // ---- build rows (same as before) ----
+        const name = `**${(_a = data.name) !== null && _a !== void 0 ? _a : 'Unnamed'}**`;
+        const ancestry = ((_b = data.ancestry) === null || _b === void 0 ? void 0 : _b.length) ? data.ancestry.join(', ') : '-';
+        const movementDash = (_c = data.movement) !== null && _c !== void 0 ? _c : '-';
+        const levelCell = `Level ${(_d = data.level) !== null && _d !== void 0 ? _d : 0}`;
+        const roles = '-';
         const evCell = `EV ${(_e = data.ev) !== null && _e !== void 0 ? _e : 0}`;
-        const headerRow = [
-            ancestry,
-            movementDash,
-            levelCell,
-            roles,
-            evCell,
-        ];
-        //-------------------------------------------------------------
-        // Row 1: Size | Speed | Stamina | Stability | Free Strike
-        //-------------------------------------------------------------
+        const row0 = [ancestry, movementDash, levelCell, roles, evCell];
         const row1 = [
             cell((_f = data.size) !== null && _f !== void 0 ? _f : '-', 'Size'),
             cell((_g = data.speed) !== null && _g !== void 0 ? _g : '-', 'Speed'),
@@ -87,22 +86,16 @@ class MarkdownStatblockWriter {
             cell((_j = data.stability) !== null && _j !== void 0 ? _j : 0, 'Stability'),
             cell((_k = data.freeStrike) !== null && _k !== void 0 ? _k : 0, 'Free Strike'),
         ];
-        //-------------------------------------------------------------
-        // Row 2: Immunities | Movement | (blank) | With Captain | Weaknesses
-        //-------------------------------------------------------------
         const immunities = ((_l = data.immunities) === null || _l === void 0 ? void 0 : _l.length) ? data.immunities.join(', ') : '-';
         const weaknesses = ((_m = data.weaknesses) === null || _m === void 0 ? void 0 : _m.length) ? data.weaknesses.join(', ') : '-';
         const withCaptain = (_o = data.withCaptain) !== null && _o !== void 0 ? _o : '-';
         const row2 = [
             cell(immunities, 'Immunities'),
             cell((_p = data.movement) !== null && _p !== void 0 ? _p : '-', 'Movement'),
-            '', // centre cell empty
+            '', // center blank
             cell(withCaptain, 'With Captain'),
             cell(weaknesses, 'Weaknesses'),
         ];
-        //-------------------------------------------------------------
-        // Row 3: Characteristics
-        //-------------------------------------------------------------
         const ch = data.characteristics;
         const row3 = [
             cell(this.formatCharacteristic(ch.might), 'Might'),
@@ -111,23 +104,22 @@ class MarkdownStatblockWriter {
             cell(this.formatCharacteristic(ch.intuition), 'Intuition'),
             cell(this.formatCharacteristic(ch.presence), 'Presence'),
         ];
-        //-------------------------------------------------------------
-        // Build the markdown table
-        //-------------------------------------------------------------
-        const separator = '|:----------------------------:'.repeat(5) + '|';
-        const toRow = (arr) => `| ${arr.map(c => c || ' ').join(' | ')} |`;
-        const tableLines = [
-            toRow(headerRow),
-            separator,
-            toRow(row1),
-            toRow(row2),
-            toRow(row3),
+        // ---- compute *raw* widths (so pipes align in source) ----
+        const allRows = [row0, row1, row2, row3];
+        const widths = Array(5).fill(0);
+        for (const r of allRows)
+            r.forEach((c, i) => { widths[i] = Math.max(widths[i], rawWidth(c !== null && c !== void 0 ? c : '')); });
+        // ---- output ----
+        const lines = [
+            name,
+            '',
+            toRow(row0, widths),
+            separator(widths),
+            toRow(row1, widths),
+            toRow(row2, widths),
+            toRow(row3, widths),
         ];
-        //-------------------------------------------------------------
-        // Title line + blank + table
-        //-------------------------------------------------------------
-        const title = `**${(_q = data.name) !== null && _q !== void 0 ? _q : 'Unnamed'}**`;
-        return `${title}\n\n${tableLines.join('\n')}`;
+        return lines.join('\n');
     }
     formatCharacteristic(value) {
         if (value > 0) {
