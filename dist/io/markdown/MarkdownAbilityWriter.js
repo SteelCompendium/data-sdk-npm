@@ -39,15 +39,18 @@ const model_1 = require("../../model");
 const model_2 = require("../../model");
 const yaml = __importStar(require("js-yaml"));
 class MarkdownAbilityWriter {
-    write(data, prefix = "**", suffix = "**") {
+    write(data, for_statblock = false) {
         // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
         const includeEffectsToken = !!(data.keywords && data.keywords.length > 0);
         const parts = [];
+        const linePrefix = for_statblock ? '> ' : '';
         if (data.metadata && Object.keys(data.metadata).length > 0) {
             const yamlString = yaml.dump(data.metadata);
             parts.push(`---\n${yamlString.trim()}\n---`);
         }
         if (data.name) {
+            const prefix = '**';
+            const suffix = '**';
             let title = `${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
@@ -121,7 +124,12 @@ class MarkdownAbilityWriter {
             const effectParts = mappedEffects.map(e => this.writeEffect(e, includeEffectsToken));
             parts.push(effectParts.join('\n\n'));
         }
-        return parts.join('\n\n');
+        let md = parts.join('\n\n');
+        if (linePrefix) {
+            // ^ start-of-line, gm = every line
+            md = md.replace(/^/gm, linePrefix);
+        }
+        return md;
     }
     writeEffect(effect, includeEffectToken) {
         if (effect instanceof model_1.MundaneEffect) {

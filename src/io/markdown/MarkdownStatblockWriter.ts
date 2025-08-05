@@ -53,70 +53,101 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         return parts.join('\n');
     }
 
+    /**
+     *  New stat-block layout
+     *
+     * **NAME**
+     *
+     * |  Ancestry  | Movement |    Level    | With Captain |     EV     |
+     * |:----------:|:--------:|:-----------:|:------------:|:----------:|
+     * | **Size**<br>Size      | **Speed**<br>Speed | **Stamina**<br>Stamina | **Stability**<br>Stability | **Free Strike**<br>Free Strike |
+     * | **Immunities**<br>Immunities | **Movement**<br>Movement |           | **With Captain**<br>WithCaptain | **Weaknesses**<br>Weaknesses |
+     * | **Might**<br>Might | **Agility**<br>Agility | **Reason**<br>Reason | **Intuition**<br>Intuition | **Presence**<br>Presence |
+     */
     private createStatblockTable(data: Statblock): string {
-        const table: string[] = [];
-        const colWidth = 40;
+        //-------------------------------------------------------------
+        // Helper that returns "**val**<br>label" or "**-**<br>label"
+        //-------------------------------------------------------------
+        const cell = (val: string | number | undefined, label: string) =>
+            `**${val ?? '-'}**<br>${label}`;
 
-        // Row 1: Name and Level
-        const nameCol = `**${data.name || 'Unnamed'}**`;
-        const rolesText = data.roles && data.roles.length > 0 ? data.roles.join(', ') : '-';
-        const levelCol = `Level ${data.level || 0} ${rolesText}`;
-        table.push(`| ${nameCol.padEnd(colWidth)} | ${levelCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Row 0 (header row)
+        //-------------------------------------------------------------
+        const ancestry = data.ancestry?.length ? data.ancestry.join(', ') : '-';
+        const movementDash = data.movement ?? '-';
+        const levelCell   = `Level ${data.level ?? 0}`;
+        const roles       = data.roles?.length ? data.roles.join(', ') : '-'; // placeholder for col-4
+        const evCell      = `EV ${data.ev ?? 0}`;
 
-        // Table alignment
-        table.push(`|:${'-'.repeat(colWidth + 1)}|:${'-'.repeat(colWidth + 1)}|`);
+        const headerRow = [
+            ancestry,
+            movementDash,
+            levelCell,
+            roles,
+            evCell,
+        ];
 
-        // Row 2: Ancestry and Roles
-        const ancestryText = data.ancestry && data.ancestry.length > 0 ? data.ancestry.join(', ') : '-';
-        const ancestryCol = `**Ancestry:** ${ancestryText}`;
-        const evCol = `**EV:** ${data.ev || 0}`;
-        table.push(`| ${ancestryCol.padEnd(colWidth)} | ${evCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Row 1: Size | Speed | Stamina | Stability | Free Strike
+        //-------------------------------------------------------------
+        const row1 = [
+            cell(data.size ?? '-', 'Size'),
+            cell(data.speed ?? '-', 'Speed'),
+            cell(data.stamina ?? 0, 'Stamina'),
+            cell(data.stability ?? 0, 'Stability'),
+            cell(data.freeStrike ?? 0, 'Free Strike'),
+        ];
 
-        // Row 3: Stamina and EV
-        const staminaCol = `**Stamina:** ${data.stamina || 0}`;
-        const immunityText = data.immunities && data.immunities.length > 0 ? data.immunities.join(', ') : '-';
-        const immunityCol = `**Immunity:** ${immunityText}`;
-        table.push(`| ${staminaCol.padEnd(colWidth)} | ${immunityCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Row 2: Immunities | Movement | (blank) | With Captain | Weaknesses
+        //-------------------------------------------------------------
+        const immunities = data.immunities?.length ? data.immunities.join(', ') : '-';
+        const weaknesses = data.weaknesses?.length ? data.weaknesses.join(', ') : '-';
+        const withCaptain = data.withCaptain ?? '-';
 
-        // Row 4: Speed and Immunity
-        const speedCol = `**Speed:** ${data.speed || 0 }`;
-        const weaknessText = data.weaknesses && data.weaknesses.length > 0 ? data.weaknesses.join(', ') : '-';
-        const weaknessCol = `**Weakness:** ${weaknessText}`;
-        table.push(`| ${speedCol.padEnd(colWidth)} | ${weaknessCol.padEnd(colWidth)} |`);
+        const row2 = [
+            cell(immunities, 'Immunities'),
+            cell(data.movement ?? '-', 'Movement'),
+            '', // centre cell empty
+            cell(withCaptain, 'With Captain'),
+            cell(weaknesses, 'Weaknesses'),
+        ];
 
-        // Row 5: Movement and Weakness
-        const movementCol = `**Movement:** ${data.movement || '-'}`;
-        const withCaptainCol = `**With Captain:** ${data.withCaptain || '-'}`;
-        table.push(`| ${movementCol.padEnd(colWidth)} | ${withCaptainCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Row 3: Characteristics
+        //-------------------------------------------------------------
+        const ch = data.characteristics;
+        const row3 = [
+            cell(this.formatCharacteristic(ch.might), 'Might'),
+            cell(this.formatCharacteristic(ch.agility), 'Agility'),
+            cell(this.formatCharacteristic(ch.reason), 'Reason'),
+            cell(this.formatCharacteristic(ch.intuition), 'Intuition'),
+            cell(this.formatCharacteristic(ch.presence), 'Presence'),
+        ];
 
-        // Row 6: Might and Free Strike
-        const mightCol = `**Might:** ${this.formatCharacteristic(data.characteristics.might)}`;
-        const freeStrikeCol = `**Free Strike:** ${data.freeStrike || 0}`;
-        table.push(`| ${mightCol.padEnd(colWidth)} | ${freeStrikeCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Build the markdown table
+        //-------------------------------------------------------------
+        const separator = '|:----------------------------:'.repeat(5) + '|';
 
-        // Row 7: Agility and Melee
-        const agilityCol = `**Agility:** ${this.formatCharacteristic(data.characteristics.agility)}`;
-        const meleeCol = `**Melee:** ${data.meleeDistance || '-'}`;
-        table.push(`| ${agilityCol.padEnd(colWidth)} | ${meleeCol.padEnd(colWidth)} |`);
+        const toRow = (arr: string[]) => `| ${arr.map(c => c || ' ').join(' | ')} |`;
 
-        // Row 8: Reason and Ranged
-        const reasonCol = `**Reason:** ${this.formatCharacteristic(data.characteristics.reason)}`;
-        const rangedCol = `**Ranged:** ${data.rangedDistance || '-'}`;
-        table.push(`| ${reasonCol.padEnd(colWidth)} | ${rangedCol.padEnd(colWidth)} |`);
+        const tableLines = [
+            toRow(headerRow),
+            separator,
+            toRow(row1),
+            toRow(row2),
+            toRow(row3),
+        ];
 
-        // Row 9: Intuition and Size
-        const intuitionCol = `**Intuition:** ${this.formatCharacteristic(data.characteristics.intuition)}`;
-        const sizeCol = `**Size:** ${data.size || '1'}`;
-        table.push(`| ${intuitionCol.padEnd(colWidth)} | ${sizeCol.padEnd(colWidth)} |`);
+        //-------------------------------------------------------------
+        // Title line + blank + table
+        //-------------------------------------------------------------
+        const title = `**${data.name ?? 'Unnamed'}**`;
 
-        // Row 10: Presence and Stability
-        const presenceCol = `**Presence:** ${this.formatCharacteristic(data.characteristics.presence)}`;
-        const stabilityCol = `**Stability:** ${data.stability || 0}`;
-        table.push(`| ${presenceCol.padEnd(colWidth)} | ${stabilityCol.padEnd(colWidth)} |`);
-
-        return table.join('\n');
+        return `${title}\n\n${tableLines.join('\n')}`;
     }
-
     private formatCharacteristic(value: number): string {
         if (value > 0) {
             return `+${value}`;

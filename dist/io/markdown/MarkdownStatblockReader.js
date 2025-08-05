@@ -14,89 +14,81 @@ class MarkdownStatblockReader {
                 agility: 0,
                 reason: 0,
                 intuition: 0,
-                presence: 0
+                presence: 0,
             },
         };
-        const separatorIndex = content.indexOf('\n---\n');
-        const mainContent = separatorIndex !== -1 ? content.substring(0, separatorIndex) : content;
-        const abilitiesContent = separatorIndex !== -1 ? content.substring(separatorIndex + 5) : undefined;
+        // ------------------------------------------------------------------
+        // Split: stat-block part  |  abilities part
+        // ------------------------------------------------------------------
+        const sep = '\n---\n';
+        const sepIdx = content.indexOf(sep);
+        const mainContent = sepIdx !== -1 ? content.substring(0, sepIdx) : content;
+        const abilitiesContent = sepIdx !== -1 ? content.substring(sepIdx + sep.length) : undefined;
+        // ------------------------------------------------------------------
+        // Parse the *main* stat-block
+        // ------------------------------------------------------------------
         const mainLines = mainContent.split('\n');
+        // 1) Table (first contiguous |…| lines)
         const tableLines = [];
-        let lineIdx = 0;
-        while (lineIdx < mainLines.length && mainLines[lineIdx].startsWith('|')) {
-            tableLines.push(mainLines[lineIdx]);
-            lineIdx++;
+        let idx = 0;
+        while (idx < mainLines.length && mainLines[idx].startsWith('|')) {
+            tableLines.push(mainLines[idx]);
+            idx++;
         }
         this.parseStatblockTable(tableLines, partial);
-        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() === '') {
-            lineIdx++;
-        }
+        // 2) Skip blank lines after the table
+        while (idx < mainLines.length && mainLines[idx].trim() === '')
+            idx++;
+        // 3) Traits — contiguous block-quote chunks
         const traits = [];
-        while (lineIdx < mainLines.length) {
-            const line = mainLines[lineIdx];
-            if (line.startsWith('#####')) {
-                const trait = { name: line.replace(/#+\s*/, '').trim() };
-                lineIdx++;
-                while (lineIdx < mainLines.length && mainLines[lineIdx].trim() === '') {
-                    lineIdx++;
+        while (idx < mainLines.length) {
+            if (/^\s*>\s?/.test(mainLines[idx])) {
+                const block = [];
+                while (idx < mainLines.length && /^\s*>\s?/.test(mainLines[idx])) {
+                    block.push(mainLines[idx].replace(/^\s*>\s?/, ''));
+                    idx++;
                 }
-                const effects = [];
-                while (lineIdx < mainLines.length && !mainLines[lineIdx].startsWith('#####')) {
-                    const currentLine = mainLines[lineIdx];
-                    if (currentLine.trim() === '') {
-                        lineIdx++;
-                        continue;
-                    }
-                    const effectMatch = currentLine.match(/\*\*(.*?):\*\* (.*)/);
-                    if (effectMatch) {
-                        const nameAndCost = effectMatch[1];
-                        let effect = effectMatch[2];
-                        lineIdx++;
-                        while (lineIdx < mainLines.length && mainLines[lineIdx].trim() !== '' && !mainLines[lineIdx].startsWith('#####') && !mainLines[lineIdx].match(/\*\*(.*?):\*\*/)) {
-                            effect += '\n' + mainLines[lineIdx];
-                            lineIdx++;
-                        }
-                        const effectProps = { effect: effect.trim() };
-                        if (nameAndCost.toLowerCase() !== 'effect') {
-                            effectProps.name = nameAndCost.trim();
-                        }
-                        // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
-                        // let name: string | undefined;
-                        // if (nameCostMatch) {
-                        //     name = nameCostMatch[1].trim();
-                        //     effectProps.cost = nameCostMatch[2].trim();
-                        // } else {
-                        //     name = nameAndCost.trim();
-                        // }
-                        // if (name.toLowerCase() !== 'effect') {
-                        //     effectProps.name = name;
-                        // }
-                        effects.push(new model_1.MundaneEffect(effectProps));
-                    }
-                    else {
-                        effects.push(new model_1.MundaneEffect({ effect: currentLine.trim() }));
-                        // Pretty sure this will be a problem for multi-line effects
-                        // const prevEffect = effects[effects.length - 1];
-                        // if (prevEffect) {
-                        //     prevEffect.effect += '\n' + currentLine.trim();
-                        // }
-                    }
-                    lineIdx++;
-                }
-                trait.effects = new model_1.Effects(effects);
-                traits.push(new model_1.Trait(trait));
+                const traitAbility = this.abilityReader.read(block.join('\n').trim());
+                traits.push(new model_1.Trait({
+                    name: traitAbility.name,
+                    effects: traitAbility.effects,
+                }));
             }
             else {
-                lineIdx++;
+                // any non-blockquote line is ignored / future-proof
+                idx++;
             }
         }
         partial.traits = traits;
+        // ------------------------------------------------------------------
+        // Abilities (after the '---' divider)
+        // ------------------------------------------------------------------
         if (abilitiesContent) {
-            const abilityStrings = abilitiesContent.split(/(?=#####\s)/).filter(s => s.trim());
-            partial.abilities = abilityStrings.map(s => this.abilityReader.read(s.trim()));
+            const abilityBlocks = [];
+            let buf = [];
+            const pushBuf = () => {
+                if (buf.length) {
+                    abilityBlocks.push(buf.join('\n').trim());
+                    buf = [];
+                }
+            };
+            for (const line of abilitiesContent.split('\n')) {
+                if (/^\s*>\s?/.test(line)) {
+                    buf.push(line.replace(/^\s*>\s?/, ''));
+                }
+                else {
+                    // blank or non-blockquote line marks the end of a block
+                    pushBuf();
+                }
+            }
+            pushBuf(); // last one
+            partial.abilities = abilityBlocks.map(b => this.abilityReader.read(b));
         }
         return new model_1.Statblock(partial);
     }
+    // ----------------------------------------------------------------------
+    // helpers
+    // ----------------------------------------------------------------------
     parseStatblockTable(tableLines, partial) {
         tableLines.forEach(line => {
             if (line.includes('**')) {
@@ -109,89 +101,84 @@ class MarkdownStatblockReader {
         });
     }
     parseRow(cell, partial) {
-        const cleanCell = cell.replace(/\*/g, '');
-        if (cleanCell.toLowerCase().startsWith('level ')) {
-            const match = cleanCell.match(/Level (\d+)\s+(.*)/i);
-            if (match) {
-                partial.level = parseInt(match[1], 10);
-                let roles = match[2].split(',').map(s => s.trim());
-                if (roles.length === 1 && roles[0] === '-') {
+        const clean = cell.replace(/\*/g, '');
+        if (clean.toLowerCase().startsWith('level ')) {
+            const m = clean.match(/Level (\d+)\s+(.*)/i);
+            if (m) {
+                partial.level = +m[1];
+                let roles = m[2].split(',').map(s => s.trim());
+                if (roles.length === 1 && roles[0] === '-')
                     roles = [];
-                }
                 partial.roles = roles;
             }
         }
-        else if (cleanCell.startsWith('Ancestry:')) {
-            const val = cleanCell.replace('Ancestry:', '').trim();
-            partial.ancestry = val === '-' ? [] : val.split(',').map(s => s.trim());
+        else if (clean.startsWith('Ancestry:')) {
+            const v = clean.replace('Ancestry:', '').trim();
+            partial.ancestry = v === '-' ? [] : v.split(',').map(s => s.trim());
         }
-        else if (cleanCell.startsWith('Stamina:')) {
-            partial.stamina = cleanCell.replace('Stamina:', '').trim() || '0';
+        else if (clean.startsWith('Stamina:')) {
+            partial.stamina = clean.replace('Stamina:', '').trim() || '0';
         }
-        else if (cleanCell.startsWith('EV:')) {
-            partial.ev = cleanCell.replace('EV:', '').trim() || '0';
+        else if (clean.startsWith('EV:')) {
+            partial.ev = clean.replace('EV:', '').trim() || '0';
         }
-        else if (cleanCell.startsWith('Speed:')) {
-            partial.speed = parseInt(cleanCell.replace('Speed:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Speed:')) {
+            partial.speed = parseInt(clean.replace('Speed:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Immunity:')) {
-            const val = cleanCell.replace('Immunity:', '').trim();
-            partial.immunities = val === '-' ? [] : val.split(',').map(s => s.trim());
+        else if (clean.startsWith('Immunity:')) {
+            const v = clean.replace('Immunity:', '').trim();
+            partial.immunities = v === '-' ? [] : v.split(',').map(s => s.trim());
         }
-        else if (cleanCell.startsWith('Weakness:')) {
-            const val = cleanCell.replace('Weakness:', '').trim();
-            partial.weaknesses = val === '-' ? [] : val.split(',').map(s => s.trim());
+        else if (clean.startsWith('Weakness:')) {
+            const v = clean.replace('Weakness:', '').trim();
+            partial.weaknesses = v === '-' ? [] : v.split(',').map(s => s.trim());
         }
-        else if (cleanCell.startsWith('Might:')) {
-            partial.characteristics.might = parseInt(cleanCell.replace('Might:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Might:')) {
+            partial.characteristics.might = parseInt(clean.replace('Might:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Free Strike:')) {
-            partial.freeStrike = parseInt(cleanCell.replace('Free Strike:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Free Strike:')) {
+            partial.freeStrike = parseInt(clean.replace('Free Strike:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Agility:')) {
-            partial.characteristics.agility = parseInt(cleanCell.replace('Agility:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Agility:')) {
+            partial.characteristics.agility = parseInt(clean.replace('Agility:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Reason:')) {
-            partial.characteristics.reason = parseInt(cleanCell.replace('Reason:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Reason:')) {
+            partial.characteristics.reason = parseInt(clean.replace('Reason:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Intuition:')) {
-            partial.characteristics.intuition = parseInt(cleanCell.replace('Intuition:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Intuition:')) {
+            partial.characteristics.intuition = parseInt(clean.replace('Intuition:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Size:')) {
-            partial.size = cleanCell.replace('Size:', '').trim();
+        else if (clean.startsWith('Size:')) {
+            partial.size = clean.replace('Size:', '').trim();
         }
-        else if (cleanCell.startsWith('Presence:')) {
-            partial.characteristics.presence = parseInt(cleanCell.replace('Presence:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Presence:')) {
+            partial.characteristics.presence = parseInt(clean.replace('Presence:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('Stability:')) {
-            partial.stability = parseInt(cleanCell.replace('Stability:', '').trim(), 10) || 0;
+        else if (clean.startsWith('Stability:')) {
+            partial.stability = parseInt(clean.replace('Stability:', '').trim(), 10) || 0;
         }
-        else if (cleanCell.startsWith('With Captain:')) {
-            const val = cleanCell.replace('With Captain:', '').trim();
-            if (val !== '-') {
-                partial.withCaptain = val;
-            }
+        else if (clean.startsWith('With Captain:')) {
+            const v = clean.replace('With Captain:', '').trim();
+            if (v !== '-')
+                partial.withCaptain = v;
         }
-        else if (cleanCell.startsWith('Movement:')) {
-            const val = cleanCell.replace('Movement:', '').trim();
-            if (val !== '-') {
-                partial.movement = val;
-            }
+        else if (clean.startsWith('Movement:')) {
+            const v = clean.replace('Movement:', '').trim();
+            if (v !== '-')
+                partial.movement = v;
         }
-        else if (cleanCell.startsWith('Melee:')) {
-            const val = cleanCell.replace('Melee:', '').trim();
-            if (val !== '-') {
-                partial.meleeDistance = parseInt(val, 10) || 0;
-            }
+        else if (clean.startsWith('Melee:')) {
+            const v = clean.replace('Melee:', '').trim();
+            if (v !== '-')
+                partial.meleeDistance = +v || 0;
         }
-        else if (cleanCell.startsWith('Ranged:')) {
-            const val = cleanCell.replace('Ranged:', '').trim();
-            if (val !== '-') {
-                partial.rangedDistance = parseInt(val, 10) || 0;
-            }
+        else if (clean.startsWith('Ranged:')) {
+            const v = clean.replace('Ranged:', '').trim();
+            if (v !== '-')
+                partial.rangedDistance = +v || 0;
         }
-        else if (!cleanCell.includes(':')) {
-            partial.name = cleanCell;
+        else if (!clean.includes(':')) {
+            partial.name = clean;
         }
     }
 }

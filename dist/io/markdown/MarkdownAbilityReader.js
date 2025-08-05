@@ -41,6 +41,7 @@ class MarkdownAbilityReader {
     constructor() { }
     read(content) {
         let lines = content.split('\n');
+        lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
         const partial = {};
         // Find the end of the frontmatter
         let frontmatterEndIndex = -1;
