@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.33
+
+- Updates the markdown reader/writer to support the new format
+
 ## 0.0.31
 
 - Markdown ability reader updated to support titles as low as H3

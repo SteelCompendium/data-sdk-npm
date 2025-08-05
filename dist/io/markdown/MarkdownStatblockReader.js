@@ -126,7 +126,7 @@ class MarkdownStatblockReader {
             partial.roles = [];
         }
         // EV M
-        const mEv = (evHdr || '').match(/EV\s+(\d+)/i);
+        const mEv = (evHdr || '').match(/EV\s+(.+)/i);
         if (mEv)
             partial.ev = mEv[1];
         // Data rows start at index 2
