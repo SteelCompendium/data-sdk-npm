@@ -4,5 +4,4 @@ export declare class MarkdownStatblockReader implements IDataReader<Statblock> {
     private abilityReader;
     read(content: string): Statblock;
     private parseStatblockTable;
-    private parseRow;
 }

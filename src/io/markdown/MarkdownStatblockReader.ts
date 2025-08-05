@@ -7,164 +7,209 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
 
     public read(content: string): Statblock {
         const partial: Partial<Statblock> & { characteristics: any } = {
-            characteristics: {
-                might: 0,
-                agility: 0,
-                reason: 0,
-                intuition: 0,
-                presence: 0,
-            },
+            characteristics: { might: 0, agility: 0, reason: 0, intuition: 0, presence: 0 },
         };
 
-        // ------------------------------------------------------------------
-        // Split: stat-block part  |  abilities part
-        // ------------------------------------------------------------------
+        // ── Split main vs. abilities (after ---)
         const sep = '\n---\n';
         const sepIdx = content.indexOf(sep);
-        const mainContent      = sepIdx !== -1 ? content.substring(0, sepIdx)     : content;
+        const mainContent      = sepIdx !== -1 ? content.substring(0, sepIdx) : content;
         const abilitiesContent = sepIdx !== -1 ? content.substring(sepIdx + sep.length) : undefined;
 
-        // ------------------------------------------------------------------
-        // Parse the *main* stat-block
-        // ------------------------------------------------------------------
         const mainLines = mainContent.split('\n');
 
-        // 1) Table (first contiguous |…| lines)
-        const tableLines: string[] = [];
-        let idx = 0;
-        while (idx < mainLines.length && mainLines[idx].startsWith('|')) {
-            tableLines.push(mainLines[idx]);
-            idx++;
+        // ── 0) Optional bold title line **NAME** before the table
+        let i = 0;
+        while (i < mainLines.length && mainLines[i].trim() === '') i++;
+        if (i < mainLines.length) {
+            const m = mainLines[i].match(/^\s*\*\*(.+?)\*\*\s*$/);
+            if (m) {
+                partial.name = m[1].trim();
+                i++;
+                while (i < mainLines.length && mainLines[i].trim() === '') i++;
+            }
         }
+
+        // ── 1) Table: gather contiguous |...| lines starting at the first table row
+        const tableLines: string[] = [];
+        while (i < mainLines.length && mainLines[i].trim().startsWith('|')) {
+            tableLines.push(mainLines[i]);
+            i++;
+        }
+
         this.parseStatblockTable(tableLines, partial);
 
-        // 2) Skip blank lines after the table
-        while (idx < mainLines.length && mainLines[idx].trim() === '') idx++;
+        // ── 2) Traits: contiguous block-quote chunks after the table
+        while (i < mainLines.length && mainLines[i].trim() === '') i++;
 
-        // 3) Traits — contiguous block-quote chunks
         const traits: Trait[] = [];
-        while (idx < mainLines.length) {
-            if (/^\s*>\s?/.test(mainLines[idx])) {
+        while (i < mainLines.length) {
+            if (/^\s*>\s?/.test(mainLines[i])) {
                 const block: string[] = [];
-                while (idx < mainLines.length && /^\s*>\s?/.test(mainLines[idx])) {
-                    block.push(mainLines[idx].replace(/^\s*>\s?/, ''));
-                    idx++;
+                while (i < mainLines.length && /^\s*>\s?/.test(mainLines[i])) {
+                    block.push(mainLines[i].replace(/^\s*>\s?/, ''));
+                    i++;
                 }
                 const traitAbility = this.abilityReader.read(block.join('\n').trim());
-                traits.push(
-                    new Trait({
-                        name:    traitAbility.name,
-                        effects: traitAbility.effects,
-                    })
-                );
+                traits.push(new Trait({ name: traitAbility.name, effects: traitAbility.effects }));
             } else {
-                // any non-blockquote line is ignored / future-proof
-                idx++;
+                i++;
             }
         }
         partial.traits = traits;
 
-        // ------------------------------------------------------------------
-        // Abilities (after the '---' divider)
-        // ------------------------------------------------------------------
+        // ── 3) Abilities (after ---), each as a block-quote chunk
         if (abilitiesContent) {
             const abilityBlocks: string[] = [];
             let buf: string[] = [];
-
-            const pushBuf = () => {
-                if (buf.length) {
-                    abilityBlocks.push(buf.join('\n').trim());
-                    buf = [];
-                }
-            };
-
+            const pushBuf = () => { if (buf.length) { abilityBlocks.push(buf.join('\n').trim()); buf = []; } };
             for (const line of abilitiesContent.split('\n')) {
-                if (/^\s*>\s?/.test(line)) {
-                    buf.push(line.replace(/^\s*>\s?/, ''));
-                } else {
-                    // blank or non-blockquote line marks the end of a block
-                    pushBuf();
-                }
+                if (/^\s*>\s?/.test(line)) buf.push(line.replace(/^\s*>\s?/, ''));
+                else pushBuf();
             }
-            pushBuf(); // last one
-
+            pushBuf();
             partial.abilities = abilityBlocks.map(b => this.abilityReader.read(b));
         }
 
         return new Statblock(partial as any);
     }
 
-    // ----------------------------------------------------------------------
-    // helpers
-    // ----------------------------------------------------------------------
-    private parseStatblockTable(tableLines: string[], partial: Partial<Statblock> & { characteristics: any }) {
-        tableLines.forEach(line => {
-            if (line.includes('**')) {
-                const cells = line.split('|').map(c => c.trim()).filter(Boolean);
-                if (cells.length === 2) {
-                    this.parseRow(cells[0], partial);
-                    this.parseRow(cells[1], partial);
+    // ──────────────────────────────────────────────────────────────────────────
+    // New 5-column table parser
+    // ──────────────────────────────────────────────────────────────────────────
+    private parseStatblockTable(lines: string[], partial: Partial<Statblock> & { characteristics: any }) {
+        if (!lines.length) return;
+
+        const isSep = (s: string) => {
+            const inner = s.trim().replace(/^\|/, '').replace(/\|$/, '');
+            return /^[\s:\-\|]+$/.test(inner);
+        };
+        const splitRow = (line: string): string[] => {
+            const inner = line.trim().replace(/^\|\s*/, '').replace(/\s*\|\s*$/, '');
+            // preserve empties
+            return inner.split('|').map(c => c.trim());
+        };
+
+        // Expect: header row, separator, then 3 data rows
+        const rows: string[][] = [];
+        for (const ln of lines) {
+            if (!ln.trim().startsWith('|')) break;
+            rows.push(splitRow(ln));
+        }
+        if (rows.length < 2 || !isSep(lines[1])) {
+            // Not in the expected 5-col format; bail gracefully
+            return;
+        }
+
+        // Row 0 (header data row): Ancestry | Movement | Level N | Roles | EV M
+        const row0 = rows[0];
+        // Normalize to 5 cells
+        while (row0.length < 5) row0.push('');
+        const [ancestryCell, /*movementHdr*/, levelHdr, rolesHdr, evHdr] = row0;
+
+        // Name might have been read above; ancestry can be list or '-'
+        if (ancestryCell && ancestryCell !== '-') {
+            partial.ancestry = ancestryCell.split(',').map(s => s.trim()).filter(Boolean);
+        } else {
+            partial.ancestry = [];
+        }
+
+        // Level N
+        const mLevel = (levelHdr || '').match(/Level\s+(\d+)/i);
+        if (mLevel) partial.level = parseInt(mLevel[1], 10) || 0;
+
+        // Roles (we show '-' in the new layout; keep empty array for '-')
+        if (rolesHdr && rolesHdr !== '-') {
+            partial.roles = rolesHdr.split(',').map(s => s.trim()).filter(Boolean);
+        } else {
+            partial.roles = [];
+        }
+
+        // EV M
+        const mEv = (evHdr || '').match(/EV\s+(.+)/i);
+        if (mEv) partial.ev = mEv[1];
+
+        // Data rows start at index 2
+        for (let r = 2; r < rows.length; r++) {
+            const cells = rows[r];
+            while (cells.length < 5) cells.push('');
+
+            for (let c = 0; c < 5; c++) {
+                const cell = cells[c];
+                if (!cell) continue;
+
+                // Expect "**value**<br>Label"
+                const m = cell.match(/^\s*\*\*(.*?)\*\*\s*<br\s*\/?>\s*(.+?)\s*$/i);
+                if (!m) continue;
+
+                const valueRaw = m[1].trim();
+                const label = m[2].trim().toLowerCase();
+
+                const setList = (val: string) =>
+                    val === '-' ? [] : val.split(',').map(s => s.trim()).filter(Boolean);
+
+                switch (label) {
+                    case 'size':
+                        if (valueRaw) partial.size = valueRaw;
+                        break;
+
+                    case 'speed':
+                        if (valueRaw && valueRaw !== '-') partial.speed = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'stamina':
+                        if (valueRaw) partial.stamina = valueRaw;
+                        break;
+
+                    case 'stability':
+                        if (valueRaw && valueRaw !== '-') partial.stability = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'free strike':
+                        if (valueRaw && valueRaw !== '-') partial.freeStrike = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'immunities':
+                        partial.immunities = setList(valueRaw);
+                        break;
+
+                    case 'movement':
+                        if (valueRaw !== '-') partial.movement = valueRaw;
+                        break;
+
+                    case 'with captain':
+                        if (valueRaw !== '-') partial.withCaptain = valueRaw;
+                        break;
+
+                    case 'weaknesses':
+                        partial.weaknesses = setList(valueRaw);
+                        break;
+
+                    case 'might':
+                        partial.characteristics.might = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'agility':
+                        partial.characteristics.agility = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'reason':
+                        partial.characteristics.reason = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'intuition':
+                        partial.characteristics.intuition = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    case 'presence':
+                        partial.characteristics.presence = parseInt(valueRaw, 10) || 0;
+                        break;
+
+                    default:
+                        // Unknown label – ignore for forward-compat
+                        break;
                 }
             }
-        });
-    }
-
-    private parseRow(cell: string, partial: Partial<Statblock> & { characteristics: any }) {
-        const clean = cell.replace(/\*/g, '');
-
-        if (clean.toLowerCase().startsWith('level ')) {
-            const m = clean.match(/Level (\d+)\s+(.*)/i);
-            if (m) {
-                partial.level = +m[1];
-                let roles = m[2].split(',').map(s => s.trim());
-                if (roles.length === 1 && roles[0] === '-') roles = [];
-                partial.roles = roles;
-            }
-        } else if (clean.startsWith('Ancestry:')) {
-            const v = clean.replace('Ancestry:', '').trim();
-            partial.ancestry = v === '-' ? [] : v.split(',').map(s => s.trim());
-        } else if (clean.startsWith('Stamina:')) {
-            partial.stamina = clean.replace('Stamina:', '').trim() || '0';
-        } else if (clean.startsWith('EV:')) {
-            partial.ev = clean.replace('EV:', '').trim() || '0';
-        } else if (clean.startsWith('Speed:')) {
-            partial.speed = parseInt(clean.replace('Speed:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Immunity:')) {
-            const v = clean.replace('Immunity:', '').trim();
-            partial.immunities = v === '-' ? [] : v.split(',').map(s => s.trim());
-        } else if (clean.startsWith('Weakness:')) {
-            const v = clean.replace('Weakness:', '').trim();
-            partial.weaknesses = v === '-' ? [] : v.split(',').map(s => s.trim());
-        } else if (clean.startsWith('Might:')) {
-            partial.characteristics.might = parseInt(clean.replace('Might:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Free Strike:')) {
-            partial.freeStrike = parseInt(clean.replace('Free Strike:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Agility:')) {
-            partial.characteristics.agility = parseInt(clean.replace('Agility:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Reason:')) {
-            partial.characteristics.reason = parseInt(clean.replace('Reason:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Intuition:')) {
-            partial.characteristics.intuition = parseInt(clean.replace('Intuition:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Size:')) {
-            partial.size = clean.replace('Size:', '').trim();
-        } else if (clean.startsWith('Presence:')) {
-            partial.characteristics.presence = parseInt(clean.replace('Presence:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('Stability:')) {
-            partial.stability = parseInt(clean.replace('Stability:', '').trim(), 10) || 0;
-        } else if (clean.startsWith('With Captain:')) {
-            const v = clean.replace('With Captain:', '').trim();
-            if (v !== '-') partial.withCaptain = v;
-        } else if (clean.startsWith('Movement:')) {
-            const v = clean.replace('Movement:', '').trim();
-            if (v !== '-') partial.movement = v;
-        } else if (clean.startsWith('Melee:')) {
-            const v = clean.replace('Melee:', '').trim();
-            if (v !== '-') partial.meleeDistance = +v || 0;
-        } else if (clean.startsWith('Ranged:')) {
-            const v = clean.replace('Ranged:', '').trim();
-            if (v !== '-') partial.rangedDistance = +v || 0;
-        } else if (!clean.includes(':')) {
-            partial.name = clean;
         }
     }
 }
