@@ -1,12 +1,11 @@
 # Changelog
 
-## WIP
+## 0.0.35
 
-- villain action moved to cost
-
-TODO 
-
-- add icon
+- Villain action moved to cost
+- Support for writing icons in markdown
+- Readers/writers updated to support new format
+- Test data updated
 
 ## 0.0.34
 
