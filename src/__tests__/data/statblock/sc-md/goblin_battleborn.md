@@ -3,7 +3,7 @@
 | Goblin, Humanoid, Mystic Goblin |           -           |      Level 2      |     HORDE, BRUTE      |         EV 4         |
 |:-------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
 |         **1L**<br>Size          |    **6**<br>Speed     | **25**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
-|       **-**<br>Immunities       | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|        **-**<br>Immunity        | **climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
 |         **+2**<br>Might         |   **+1**<br>Agility   | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
 > ⭐️ **Cunning**

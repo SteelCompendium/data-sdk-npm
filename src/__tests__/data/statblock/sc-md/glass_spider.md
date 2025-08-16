@@ -1,10 +1,10 @@
 ###### GLASS SPIDER
 
-|      Construct      |           -           |      Level 1      |   ELITE, SKIRMISHER   |           EV 12           |
-|:-------------------:|:---------------------:|:-----------------:|:---------------------:|:-------------------------:|
-|    **3**<br>Size    |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   |   **4**<br>Free Strike    |
-| **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **Sonic 5**<br>Weaknesses |
-|   **+2**<br>Might   |   **+1**<br>Agility   | **-4**<br>Reason  |  **+0**<br>Intuition  |    **-3**<br>Presence     |
+|     Construct     |           -           |      Level 1      |   ELITE, SKIRMISHER   |          EV 12          |
+|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:-----------------------:|
+|   **3**<br>Size   |    **7**<br>Speed     | **60**<br>Stamina |  **2**<br>Stability   |  **4**<br>Free Strike   |
+| **-**<br>Immunity | **climb**<br>Movement |         -         | **-**<br>With Captain | **Sonic 5**<br>Weakness |
+|  **+2**<br>Might  |   **+1**<br>Agility   | **-4**<br>Reason  |  **+0**<br>Intuition  |   **-3**<br>Presence    |
 
 > 🗡 **Bite (Signature Ability)**
 > 

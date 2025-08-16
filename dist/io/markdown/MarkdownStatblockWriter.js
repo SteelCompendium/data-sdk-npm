@@ -36,8 +36,8 @@ class MarkdownStatblockWriter {
         // Add abilities
         if (data.abilities && data.abilities.length > 0) {
             parts.push(""); // Empty line for spacing
-            parts.push("---"); // Separator
-            parts.push(""); // Empty line for spacing
+            // parts.push("---"); // Separator
+            // parts.push(""); // Empty line for spacing
             for (const ability of data.abilities) {
                 parts.push(this.abilityWriter.write(ability, true));
                 parts.push(""); // Empty line between abilities
@@ -72,7 +72,7 @@ class MarkdownStatblockWriter {
         const separator = (widths) => '|' + widths.map(w => ':' + '-'.repeat(Math.max(3, w)) + ':').join('|') + '|';
         const cell = (val, label) => `**${val !== null && val !== void 0 ? val : '-'}**<br>${label}`;
         // ---- build rows (same as before) ----
-        const name = `**${(_a = data.name) !== null && _a !== void 0 ? _a : 'Unnamed'}**`;
+        const name = `###### ${(_a = data.name) !== null && _a !== void 0 ? _a : 'Unnamed'}`;
         const ancestry = ((_b = data.ancestry) === null || _b === void 0 ? void 0 : _b.length) ? data.ancestry.join(', ') : '-';
         const blankDash = '-';
         const levelCell = `Level ${(_c = data.level) !== null && _c !== void 0 ? _c : 0}`;

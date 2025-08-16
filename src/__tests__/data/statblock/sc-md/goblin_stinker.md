@@ -1,10 +1,10 @@
 ###### GOBLIN STINKER
 
-|  Goblin, Humanoid   |           -           |      Level 1      |   HORDE, CONTROLLER   |         EV 3         |
-|:-------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
-|   **1S**<br>Size    |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
-| **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
-|   **-2**<br>Might   |   **+1**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |
+| Goblin, Humanoid  |           -           |      Level 1      |   HORDE, CONTROLLER   |         EV 3         |
+|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
+|  **1S**<br>Size   |    **5**<br>Speed     | **10**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
+| **-**<br>Immunity | **climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
+|  **-2**<br>Might  |   **+1**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |
 
 > ⭐️ **Crafty**
 > 

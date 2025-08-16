@@ -186,6 +186,9 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                     case 'immunities':
                         partial.immunities = setList(valueRaw);
                         break;
+                    case 'immunity':
+                        partial.immunities = setList(valueRaw);
+                        break;
 
                     case 'movement':
                         if (valueRaw !== '-') partial.movement = valueRaw;
@@ -196,6 +199,9 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                         break;
 
                     case 'weaknesses':
+                        partial.weaknesses = setList(valueRaw);
+                        break;
+                    case 'weakness':
                         partial.weaknesses = setList(valueRaw);
                         break;
 

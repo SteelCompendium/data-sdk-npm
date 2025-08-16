@@ -1,10 +1,10 @@
 ###### HUMAN BRAWLER
 
-|              Human, Humanoid              |         -         |      Level 1      |    PLATOON, BRUTE     |         EV 6         |
-|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
-|              **1M**<br>Size               |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |
-| **Corruption 1, Psychic 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
-|              **+2**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |
+|             Human, Humanoid             |         -         |      Level 1      |    PLATOON, BRUTE     |         EV 6         |
+|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|             **1M**<br>Size              |  **5**<br>Speed   | **40**<br>Stamina |  **0**<br>Stability   | **4**<br>Free Strike |
+| **Corruption 1, Psychic 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
+|             **+2**<br>Might             | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |
 
 > ⭐️ **Shoot the Hostage**
 > 

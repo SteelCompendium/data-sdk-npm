@@ -3,7 +3,7 @@
 | Humanoid, Radenwight |           -           |     Level 1      |           MINION, AMBUSHER           | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:------------------------------------:|:---------------------:|
 |    **1S**<br>Size    |    **7**<br>Speed     | **4**<br>Stamina |          **0**<br>Stability          | **2**<br>Free Strike  |
-| **-**<br>Immunities  | **climb**<br>Movement |                  | **Strike damage +1**<br>With Captain |  **-**<br>Weaknesses  |
+|  **-**<br>Immunity   | **climb**<br>Movement |        -         | **Strike damage +1**<br>With Captain |   **-**<br>Weakness   |
 |   **-1**<br>Might    |   **+2**<br>Agility   | **+0**<br>Reason |         **+1**<br>Intuition          |  **+0**<br>Presence   |
 
 > ⚔️ **Dagger Dance (Signature Ability)**

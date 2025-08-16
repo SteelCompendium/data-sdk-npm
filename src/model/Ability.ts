@@ -39,7 +39,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     }
 
     public isTrait() {
-        console.log(this);
         return (!this.keywords || this.keywords?.length == 0) && !this.type && !this.distance && !this.target;
     }
 }

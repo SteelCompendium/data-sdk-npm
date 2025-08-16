@@ -1,10 +1,10 @@
 ###### HUMAN BANDIT CHIEF
 
-|              Human, Humanoid              |         -         |      Level 3       |        LEADER         |        EV 20         |
-|:-----------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
-|              **1 M**<br>Size              |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
-| **Corruption 4, Psychic 4**<br>Immunities | **-**<br>Movement |                    | **-**<br>With Captain | **-**<br>Weaknesses  |
-|              **+2**<br>Might              | **+3**<br>Agility |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |
+|             Human, Humanoid             |         -         |      Level 3       |        LEADER         |        EV 20         |
+|:---------------------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
+|             **1 M**<br>Size             |  **5**<br>Speed   | **120**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
+| **Corruption 4, Psychic 4**<br>Immunity | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |
+|             **+2**<br>Might             | **+3**<br>Agility |  **+2**<br>Reason  |  **+3**<br>Intuition  |  **+2**<br>Presence  |
 
 > ⭐️ **End Effect**
 > 

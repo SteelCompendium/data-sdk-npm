@@ -106,11 +106,11 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         const weaknesses = data.weaknesses?.length ? data.weaknesses.join(', ') : '-';
         const withCaptain = data.withCaptain ?? '-';
         const row2 = [
-            cell(immunities, 'Immunities'),
+            cell(immunities, 'Immunity'),
             cell(data.movement ?? '-', 'Movement'),
-            '', // center blank
+            '-', // center blank
             cell(withCaptain, 'With Captain'),
-            cell(weaknesses, 'Weaknesses'),
+            cell(weaknesses, 'Weakness'),
         ];
 
         const ch = data.characteristics;

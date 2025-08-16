@@ -1,10 +1,10 @@
 ###### DAME CORNELIA
 
-|                  Undead                   |         -         |      Level 1      |        LEADER         |        EV 12         |
-|:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
-|              **1M**<br>Size               |  **5**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |
-| **Corruption 2, Psychic 2**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
-|              **+3**<br>Might              | **+2**<br>Agility | **+2**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |
+|                 Undead                  |         -         |      Level 1      |        LEADER         |        EV 12         |
+|:---------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|             **1M**<br>Size              |  **5**<br>Speed   | **80**<br>Stamina |  **2**<br>Stability   | **4**<br>Free Strike |
+| **Corruption 2, Psychic 2**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
+|             **+3**<br>Might             | **+2**<br>Agility | **+2**<br>Reason  |  **+0**<br>Intuition  |  **+2**<br>Presence  |
 
 > ⭐️ **End Effect**
 > 

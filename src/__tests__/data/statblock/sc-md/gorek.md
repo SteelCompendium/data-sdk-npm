@@ -3,7 +3,7 @@
 | Humanoid, Dwarf, Rival |         -         |      Level 2       |     ELITE, BRUTE      |        EV 16         |
 |:----------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
 |     **1M**<br>Size     |  **5**<br>Speed   | **100**<br>Stamina |  **2**<br>Stability   | **5**<br>Free Strike |
-|  **-**<br>Immunities   | **-**<br>Movement |                    | **-**<br>With Captain | **-**<br>Weaknesses  |
+|   **-**<br>Immunity    | **-**<br>Movement |         -          | **-**<br>With Captain |  **-**<br>Weakness   |
 |    **+2**<br>Might     | **+1**<br>Agility |  **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |
 
 > ⭐️ **Overwhelm**

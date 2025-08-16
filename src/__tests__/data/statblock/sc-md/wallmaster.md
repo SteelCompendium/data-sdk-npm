@@ -1,10 +1,10 @@
 ###### WALLMASTER
 
-|   Construct, Ruinborn    |         -         |      Level 1      |    ELITE, DEFENDER    |          EV 12           |
-|:------------------------:|:-----------------:|:-----------------:|:---------------------:|:------------------------:|
-|      **1L**<br>Size      |  **0**<br>Speed   | **80**<br>Stamina |  **3**<br>Stability   |   **4**<br>Free Strike   |
-| **holy 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **acid 3**<br>Weaknesses |
-|     **+2**<br>Might      | **-5**<br>Agility | **-3**<br>Reason  |  **+2**<br>Intuition  |    **-3**<br>Presence    |
+|  Construct, Ruinborn   |         -         |      Level 1      |    ELITE, DEFENDER    |         EV 12          |
+|:----------------------:|:-----------------:|:-----------------:|:---------------------:|:----------------------:|
+|     **1L**<br>Size     |  **0**<br>Speed   | **80**<br>Stamina |  **3**<br>Stability   |  **4**<br>Free Strike  |
+| **holy 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain | **acid 3**<br>Weakness |
+|    **+2**<br>Might     | **-5**<br>Agility | **-3**<br>Reason  |  **+2**<br>Intuition  |   **-3**<br>Presence   |
 
 > ⭐️ **Living Labyrinth**
 > 

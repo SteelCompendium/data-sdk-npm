@@ -3,7 +3,7 @@
 | Humanoid, Radenwight |           -           |      Level 1      |        LEADER         |        EV 12         |
 |:--------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
 |    **1S**<br>Size    |    **5**<br>Speed     | **80**<br>Stamina |  **1**<br>Stability   | **4**<br>Free Strike |
-| **-**<br>Immunities  | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|  **-**<br>Immunity   | **climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
 |   **-2**<br>Might    |   **+2**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+3**<br>Presence  |
 
 > ⭐️ **End Effect**

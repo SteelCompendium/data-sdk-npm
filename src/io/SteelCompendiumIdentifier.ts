@@ -3,7 +3,6 @@ import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
 import { XmlAbilityReader } from './xml';
-import { PrereleasePdfAbilityReader, PrereleasePdfStatblockReader } from './text';
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
 import { XMLParser } from 'fast-xml-parser';
@@ -14,7 +13,6 @@ export enum SteelCompendiumFormat {
     Yaml = "yaml",
     Xml = "xml",
     Markdown = "markdown",
-    PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown",
 }
 
@@ -181,22 +179,6 @@ export class SteelCompendiumIdentifier {
                 format: SteelCompendiumFormat.Markdown,
                 model: Ability,
                 getReader: () => new MarkdownAbilityReader(),
-            };
-        }
-
-        if (this.isStatblock(source)) {
-            return {
-                format: SteelCompendiumFormat.PrereleasePdfText,
-                model: Statblock,
-                getReader: () => new PrereleasePdfStatblockReader(),
-            };
-        }
-
-        if (this.isAbility(source)) {
-            return {
-                format: SteelCompendiumFormat.PrereleasePdfText,
-                model: Ability,
-                getReader: () => new PrereleasePdfAbilityReader(),
             };
         }
 

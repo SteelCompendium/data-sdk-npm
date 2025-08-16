@@ -1,10 +1,10 @@
 ###### GHOUL
 
-|                  Undead                  |         -         |      Level 1      |    HORDE, HARRIER     |         EV 3         |
-|:----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
-|              **1M**<br>Size              |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
-| **corruption 1, poison 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
-|             **+0**<br>Might              | **+2**<br>Agility | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |
+|                 Undead                 |         -         |      Level 1      |    HORDE, HARRIER     |         EV 3         |
+|:--------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
+|             **1M**<br>Size             |  **7**<br>Speed   | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
+| **corruption 1, poison 1**<br>Immunity | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
+|            **+0**<br>Might             | **+2**<br>Agility | **-2**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |
 
 > ⭐️ **Hunger**
 > 
@@ -17,7 +17,7 @@
 > 🗡 **Razor Claws (Signature Ability)**
 > 
 > | **Charge, Melee, Strike, Weapon** |               **Main action** |
-> |---------------------------------- |------------------------------:|
+> | --------------------------------- | -----------------------------:|
 > | **📏 Melee 1**                    | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -29,7 +29,7 @@
 > 👤 **Leap**
 > 
 > | **—**       | **Maneuver** |
-> |------------ |-------------:|
+> | ----------- | ------------:|
 > | **📏 Self** |  **🎯 Self** |
 > 
 > **Effect:** The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is knocked prone and the ghoul makes a free strike against them.

@@ -51,7 +51,8 @@ class MarkdownAbilityWriter {
         if (data.name) {
             const prefix = '**';
             const suffix = '**';
-            let title = `${prefix}${data.name}`;
+            const iconPrefix = for_statblock ? this.getIconPrefix(data) : '';
+            let title = `${iconPrefix}${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
@@ -130,6 +131,43 @@ class MarkdownAbilityWriter {
             md = md.replace(/^/gm, linePrefix);
         }
         return md;
+    }
+    getIconPrefix(a) {
+        var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+        if (a.isTrait()) {
+            return '⭐️ ';
+        }
+        if ((_a = a.cost) === null || _a === void 0 ? void 0 : _a.toLowerCase().includes("villain action")) {
+            return '☠️ ';
+        }
+        else if ((_b = a.type) === null || _b === void 0 ? void 0 : _b.toLowerCase().includes("triggered")) {
+            return '❗️ ';
+        }
+        else if (((_c = a.distance) === null || _c === void 0 ? void 0 : _c.toLowerCase().includes("melee")) && ((_d = a.distance) === null || _d === void 0 ? void 0 : _d.toLowerCase().includes("ranged"))) {
+            return '⚔️ ';
+        }
+        else if ((_e = a.distance) === null || _e === void 0 ? void 0 : _e.toLowerCase().includes("melee")) {
+            return '🗡 ';
+        }
+        else if ((_f = a.distance) === null || _f === void 0 ? void 0 : _f.toLowerCase().includes("ranged")) {
+            return '🏹 ';
+        }
+        else if ((_g = a.distance) === null || _g === void 0 ? void 0 : _g.toLowerCase().includes("self")) {
+            return '👤 ';
+        }
+        else if ((_h = a.distance) === null || _h === void 0 ? void 0 : _h.toLowerCase().includes("special")) {
+            return '🌀 ';
+        }
+        else if (((_j = a.distance) === null || _j === void 0 ? void 0 : _j.toLowerCase().includes("burst"))
+            || ((_k = a.distance) === null || _k === void 0 ? void 0 : _k.toLowerCase().includes("aura"))) {
+            return '❇️ ';
+        }
+        else if (((_l = a.distance) === null || _l === void 0 ? void 0 : _l.toLowerCase().includes("cube"))
+            || ((_m = a.distance) === null || _m === void 0 ? void 0 : _m.toLowerCase().includes("line"))
+            || ((_o = a.distance) === null || _o === void 0 ? void 0 : _o.toLowerCase().includes("wall"))) {
+            return '🔳 ';
+        }
+        return '';
     }
     writeEffect(effect, includeEffectToken) {
         if (effect instanceof model_1.MundaneEffect) {

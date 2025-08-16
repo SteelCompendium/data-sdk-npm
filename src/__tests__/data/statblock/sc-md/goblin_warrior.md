@@ -1,10 +1,10 @@
 ###### GOBLIN WARRIOR
 
-|  Goblin, Humanoid   |           -           |      Level 1      |    HORDE, HARRIER     |         EV 3         |
-|:-------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
-|   **1S**<br>Size    |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
-| **-**<br>Immunities | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
-|   **-2**<br>Might   |   **+2**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |
+| Goblin, Humanoid  |           -           |      Level 1      |    HORDE, HARRIER     |         EV 3         |
+|:-----------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
+|  **1S**<br>Size   |    **6**<br>Speed     | **15**<br>Stamina |  **0**<br>Stability   | **1**<br>Free Strike |
+| **-**<br>Immunity | **climb**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
+|  **-2**<br>Might  |   **+2**<br>Agility   | **+0**<br>Reason  |  **+0**<br>Intuition  |  **-1**<br>Presence  |
 
 > ⭐️ **Crafty**
 > 

@@ -3,7 +3,7 @@
 | Humanoid, Human, Rival |         -         |      Level 2      |   ELITE, CONTROLLER   |        EV 16         |
 |:----------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
 |     **1M**<br>Size     |  **5**<br>Speed   | **60**<br>Stamina |  **1**<br>Stability   | **5**<br>Free Strike |
-|  **-**<br>Immunities   | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
+|   **-**<br>Immunity    | **-**<br>Movement |         -         | **-**<br>With Captain |  **-**<br>Weakness   |
 |    **+0**<br>Might     | **+0**<br>Agility | **+2**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
 > ⭐️ **Determination**
@@ -17,7 +17,7 @@
 > 🏹 **The Writhing Green (Signature Ability)**
 > 
 > | **Green, Magic, Ranged, Strike** |                 **Main action** |
-> |----------------------------------|--------------------------------:|
+> | -------------------------------- | -------------------------------:|
 > | **📏 Ranged 10**                 | **🎯 Two creatures or objects** |
 > 
 > **Power Roll + 2:**
@@ -29,7 +29,7 @@
 > 🔳 **The Earth Devours (3 Malice)**
 > 
 > | **Area, Green, Magic**  |                **Main action** |
-> |-------------------------|-------------------------------:|
+> | ----------------------- | ------------------------------:|
 > | **📏 3 cube within 10** | **🎯 All enemies in the cube** |
 > 
 > **Power Roll + 2:**
@@ -43,7 +43,7 @@
 > ❗️ **Jaws of the Void**
 > 
 > | **Magic, Void** | **Triggered action** |
-> |-----------------|---------------------:|
+> | --------------- | --------------------:|
 > | **📏 Self**     |          **🎯 Self** |
 > 
 > **Trigger:** Mara takes damage.
