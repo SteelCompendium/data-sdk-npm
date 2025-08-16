@@ -17,7 +17,7 @@
 > ❇️ **Zweihander Swing (Signature Ability)**
 > 
 > | **Area, Melee, Weapon** |                 **Main action** |
-> |-------------------------|--------------------------------:|
+> | ----------------------- | ------------------------------: |
 > | **📏 1 burst**          | **🎯 All enemies in the burst** |
 > 
 > **Power Roll + 3:**
@@ -33,7 +33,7 @@
 > 🏹 **You!**
 > 
 > | **—**            |     **Maneuver** |
-> |------------------|-----------------:|
+> | ---------------- | ---------------: |
 > | **📏 Ranged 10** | **🎯 One enemy** |
 > 
 > **Effect:** The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.
@@ -41,7 +41,7 @@
 > ❗️ **Parry!**
 > 
 > | **—**          |    **Triggered action** |
-> |----------------|------------------------:|
+> | -------------- | ----------------------: |
 > | **📏 Melee 1** | **🎯 Self or one ally** |
 > 
 > **Trigger:** A creature targets the blackguard or an ally adjacent to Cornelia with a strike.
@@ -51,7 +51,7 @@
 > ☠️ **Advance! (Villain Action 1)**
 > 
 > | **—**       |       **-** |
-> |-------------|------------:|
+> | ----------- | ----------: |
 > | **📏 Self** | **🎯 Self** |
 > 
 > **Effect:** Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.
@@ -59,7 +59,7 @@
 > ☠️ **Back! (Villain Action 2)**
 > 
 > | **Area, Magic** |                           **-** |
-> |-----------------|--------------------------------:|
+> | --------------- | ------------------------------: |
 > | **📏 5 burst**  | **🎯 All enemies in the burst** |
 > 
 > **Effect:** Slide 5.
@@ -67,7 +67,7 @@
 > ☠️ **I Can Throw My Blade and So Should You! (Villain Action 3)**
 > 
 > | **Area, Magic, Ranged, Weapon** |                         **-** |
-> |---------------------------------|------------------------------:|
+> | ------------------------------- | ----------------------------: |
 > | **📏 3 cube within 5**          | **🎯 Each enemy in the cube** |
 > 
 > **Effect:** Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally).

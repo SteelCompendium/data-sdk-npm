@@ -9,7 +9,7 @@
 > ⚔️ **Dagger Dance (Signature Ability)**
 > 
 > | **Melee, Strike, Weapon**  |                **Main action** |
-> |----------------------------|-------------------------------:|
+> | -------------------------- | -----------------------------: |
 > | **📏 Melee 1 or Ranged 5** | **🎯 One creature per minion** |
 > 
 > **Power Roll + 2:**
@@ -23,7 +23,7 @@
 > ❗️ **Ready Rodent**
 > 
 > | **Melee, Weapon** | **Triggered action** |
-> |-------------------|---------------------:|
+> | ----------------- | -------------------: |
 > | **📏 Melee 1**    |  **🎯 One creature** |
 > 
 > **Trigger:** An ally deals damage to the target.

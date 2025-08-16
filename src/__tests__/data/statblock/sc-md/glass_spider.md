@@ -9,7 +9,7 @@
 > 🗡 **Bite (Signature Ability)**
 > 
 > | **Melee, Strike, Weapon** |               **Main action** |
-> |---------------------------|------------------------------:|
+> | ------------------------- | ----------------------------: |
 > | **📏 Melee 1**            | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -23,7 +23,7 @@
 > 🗡 **Slashing Leg**
 > 
 > | **Melee, Strike, Weapon** |                 **Main action** |
-> |---------------------------|--------------------------------:|
+> | ------------------------- | ------------------------------: |
 > | **📏 Melee 1**            | **🎯 Two creatures or objects** |
 > 
 > **Power Roll + 2:**
@@ -35,7 +35,7 @@
 > 👤 **Trample (5 Malice)**
 > 
 > | **—**       | **Main action** |
-> |-------------|----------------:|
+> | ----------- | --------------: |
 > | **📏 Self** |     **🎯 Self** |
 > 
 > **Effect:** The spider shifts up to their speed and makes a Slashing Leg strike against each creature who comes within 1 of the spider during the move. The spider makes one power roll against all targets.
@@ -43,7 +43,7 @@
 > 🔳 **Web**
 > 
 > | **Area, Weapon**       |                     **Maneuver** |
-> |------------------------|---------------------------------:|
+> | ---------------------- | -------------------------------: |
 > | **📏 3 cube within 1** | **🎯 All creatures in the cube** |
 > 
 > **Power Roll + 2:**
@@ -55,7 +55,7 @@
 > ❗️ **Skitter**
 > 
 > | **—**       | **Triggered action** |
-> |-------------|---------------------:|
+> | ----------- | -------------------: |
 > | **📏 Self** |          **🎯 Self** |
 > 
 > **Trigger:** The spider takes damage.

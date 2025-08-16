@@ -31,7 +31,7 @@
 > 🗡 **Accursed Bite (Signature Ability)**
 > 
 > | **Charge, Melee, Strike, Weapon** |             **Main action** |
-> |-----------------------------------|----------------------------:|
+> | --------------------------------- | --------------------------: |
 > | **📏 Melee 1**                    | **🎯 1 creature or object** |
 > 
 > **Power Roll + 3:**
@@ -47,7 +47,7 @@
 > 🗡 **Ripping Claws**
 > 
 > | **Melee, Strike, Weapon** |                 **Main action** |
-> |---------------------------|--------------------------------:|
+> | ------------------------- | ------------------------------: |
 > | **📏 Melee 1**            | **🎯 Two creatures or objects** |
 > 
 > **Power Roll + 3:**
@@ -59,7 +59,7 @@
 > ❇️ **Berserker Slash (3 Malice)**
 > 
 > | **Area, Melee, Weapon** |                             **Main action** |
-> |-------------------------|--------------------------------------------:|
+> | ----------------------- | ------------------------------------------: |
 > | **📏 1 burst**          | **🎯 All enemies and objects in the burst** |
 > 
 > **Power Roll + 3:**
@@ -73,7 +73,7 @@
 > 👤 **Wall Leap**
 > 
 > | **—**       | **Maneuver** |
-> |-------------|-------------:|
+> | ----------- | -----------: |
 > | **📏 Self** |  **🎯 Self** |
 > 
 > **Effect:** The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone.
@@ -81,7 +81,7 @@
 > ❗️ **Facepalm and Head Slam (2 Malice)**
 > 
 > | **—**          | **Triggered action** |
-> |----------------|---------------------:|
+> | -------------- | -------------------: |
 > | **📏 Melee 1** |    **🎯 1 creature** |
 > 
 > **Trigger:** The target targets the werewolf with a melee ability after charging or moving 2 or more squares in a straight line towards them.
@@ -91,7 +91,7 @@
 > ☠️ **Howl (Villain Action 1)**
 > 
 > | **Area**       |                           **-** |
-> |----------------|--------------------------------:|
+> | -------------- | ------------------------------: |
 > | **📏 5 burst** | **🎯 All enemies in the burst** |
 > 
 > **Each target makes an Intuition test.:**
@@ -105,7 +105,7 @@
 > ☠️ **Full Wolf (Villain Action 2)**
 > 
 > | **—**       |       **-** |
-> |-------------|------------:|
+> | ----------- | ----------: |
 > | **📏 Self** | **🎯 Self** |
 > 
 > **Effect:** The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1.
@@ -113,7 +113,7 @@
 > ☠️ **Rampage (Villain Action 3)**
 > 
 > | **Area, Melee, Weapon** |                             **-** |
-> |-------------------------|----------------------------------:|
+> | ----------------------- | --------------------------------: |
 > | **📏 2 burst**          | **🎯 All creatures in the burst** |
 > 
 > **Power Roll + 3:**

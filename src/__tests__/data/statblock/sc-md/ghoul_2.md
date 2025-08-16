@@ -17,7 +17,7 @@
 > 🗡 **Razor Claws (Signature Ability)**
 > 
 > | **Charge, Melee, Strike, Weapon** |               **Main action** |
-> |-----------------------------------|------------------------------:|
+> | --------------------------------- | ----------------------------: |
 > | **📏 Melee 1**                    | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -29,7 +29,7 @@
 > 👤 **Leap**
 > 
 > | **—**       | **Maneuver** |
-> |-------------|-------------:|
+> | ----------- | -----------: |
 > | **📏 Self** |  **🎯 Self** |
 > 
 > **Effect:** The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is knocked prone and the ghoul makes a free strike against them.

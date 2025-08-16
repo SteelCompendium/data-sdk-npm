@@ -17,7 +17,7 @@
 > 🏹 **The Writhing Green (Signature Ability)**
 > 
 > | **Green, Magic, Ranged, Strike** |                 **Main action** |
-> |----------------------------------|--------------------------------:|
+> |----------------------------------|-------------------------------: |
 > | **📏 Ranged 10**                 | **🎯 Two creatures or objects** |
 > 
 > **Power Roll + 2:**
@@ -29,7 +29,7 @@
 > 🔳 **The Earth Devours (3 Malice)**
 > 
 > | **Area, Green, Magic**  |                **Main action** |
-> |-------------------------|-------------------------------:|
+> |-------------------------|------------------------------: |
 > | **📏 3 cube within 10** | **🎯 All enemies in the cube** |
 > 
 > **Power Roll + 2:**
@@ -43,7 +43,7 @@
 > ❗️ **Jaws of the Void**
 > 
 > | **Magic, Void** | **Triggered action** |
-> |-----------------|---------------------:|
+> |-----------------|--------------------: |
 > | **📏 Self**     |          **🎯 Self** |
 > 
 > **Trigger:** Mara takes damage.

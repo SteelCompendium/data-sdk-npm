@@ -9,7 +9,7 @@
 > 🏹 **Eyes-On-Me Shot (Signature Ability)**
 > 
 > | **Ranged, Strike, Weapon** |                          **Main action** |
-> |----------------------------|-----------------------------------------:|
+> | -------------------------- | ---------------------------------------: |
 > | **📏 Ranged 10**           | **🎯 One creature or object per minion** |
 > 
 > **Power Roll + 2:**
@@ -23,7 +23,7 @@
 > ❗️ **Ready Rodent**
 > 
 > | **Melee, Weapon** | **Triggered action** |
-> |-------------------|---------------------:|
+> | ----------------- | -------------------: |
 > | **📏 Melee 1**    |  **🎯 One creature** |
 > 
 > **Trigger:** An ally deals damage to the target.

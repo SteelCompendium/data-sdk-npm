@@ -41,8 +41,8 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // Add abilities
         if (data.abilities && data.abilities.length > 0) {
             parts.push(""); // Empty line for spacing
-            parts.push("---"); // Separator
-            parts.push(""); // Empty line for spacing
+            // parts.push("---"); // Separator
+            // parts.push(""); // Empty line for spacing
 
             for (const ability of data.abilities) {
                 parts.push(this.abilityWriter.write(ability, true));
@@ -85,7 +85,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             `**${val ?? '-'}**<br>${label}`;
 
         // ---- build rows (same as before) ----
-        const name = `**${data.name ?? 'Unnamed'}**`;
+        const name = `###### ${data.name ?? 'Unnamed'}`;
 
         const ancestry = data.ancestry?.length ? data.ancestry.join(', ') : '-';
         const blankDash = '-';

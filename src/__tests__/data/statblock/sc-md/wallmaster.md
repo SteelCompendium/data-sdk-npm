@@ -13,7 +13,7 @@
 > 🗡 **Wall Slam (Signature Ability)**
 > 
 > | **Melee, Strike, Weapon** |                 **Main action** |
-> |---------------------------|--------------------------------:|
+> | ------------------------- | ------------------------------: |
 > | **📏 Melee 1 (Special)**  | **🎯 Two creatures or objects** |
 > 
 > **Effect:** The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.
@@ -29,7 +29,7 @@
 > 🗡 **Dead End**
 > 
 > | **Area, Weapon**         |                **Maneuver** |
-> |--------------------------|----------------------------:|
+> | ------------------------ | --------------------------: |
 > | **📏 Melee 1 (Special)** | **🎯 1 creature or object** |
 > 
 > **Effect:** The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.
@@ -43,7 +43,7 @@
 > 🏹 **The Wall Sees All (5 Malice)**
 > 
 > | **Magic**        | **Maneuver** |
-> |------------------|-------------:|
+> | ---------------- | -----------: |
 > | **📏 Ranged 10** |  **🎯 Self** |
 > 
 > **Effect:** The wallmaster teleports to a wall within distance and affixes itself to it.
@@ -51,7 +51,7 @@
 > ❗️ **Wall Redirect**
 > 
 > | **—**          | **Triggered action** |
-> |----------------|---------------------:|
+> | -------------- | -------------------: |
 > | **📏 Melee 1** |        **🎯 1 ally** |
 > 
 > **Trigger:** A creature damages the wall with a strike.
