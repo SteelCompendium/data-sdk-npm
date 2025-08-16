@@ -64,6 +64,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         while (i < mainLines.length && mainLines[i].trim() === '') i++;
 
         const traits: Trait[] = [];
+        const abilities: Ability[] = [];
         while (i < mainLines.length) {
             if (/^\s*>\s?/.test(mainLines[i])) {
                 const block: string[] = [];
@@ -71,26 +72,18 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                     block.push(mainLines[i].replace(/^\s*>\s?/, ''));
                     i++;
                 }
-                const traitAbility = this.abilityReader.read(block.join('\n').trim());
-                traits.push(new Trait({ name: traitAbility.name, effects: traitAbility.effects }));
+                const feature = this.abilityReader.read(block.join('\n').trim());
+                if (feature.isTrait()) {
+                    traits.push(new Trait({ name: feature.name, effects: feature.effects }));
+                } else {
+                    abilities.push(feature);
+                }
             } else {
                 i++;
             }
         }
         partial.traits = traits;
-
-        // ── 3) Abilities (after ---), each as a block-quote chunk
-        if (abilitiesContent) {
-            const abilityBlocks: string[] = [];
-            let buf: string[] = [];
-            const pushBuf = () => { if (buf.length) { abilityBlocks.push(buf.join('\n').trim()); buf = []; } };
-            for (const line of abilitiesContent.split('\n')) {
-                if (/^\s*>\s?/.test(line)) buf.push(line.replace(/^\s*>\s?/, ''));
-                else pushBuf();
-            }
-            pushBuf();
-            partial.abilities = abilityBlocks.map(b => this.abilityReader.read(b));
-        }
+        partial.abilities = abilities;
 
         return new Statblock(partial as any);
     }

@@ -37,4 +37,8 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     public toXmlDTO(): Partial<AbilityXmlDTO> {
         return AbilityXmlDTO.partialFromModel(this);
     }
+
+    public isTrait() {
+        return (!this.keywords || this.keywords?.length == 0) && !this.type && !this.distance && !this.target;
+    }
 }
