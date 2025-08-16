@@ -1,4 +1,4 @@
-####### RADENWIGHT REDEYE
+###### RADENWIGHT REDEYE
 
 | Humanoid, Radenwight |           -           |     Level 1      |          MINION, ARTILLERY          | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:-----------------------------------:|:---------------------:|

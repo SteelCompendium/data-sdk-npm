@@ -1,4 +1,4 @@
-####### RADENWIGHT MISCHIEVER
+###### RADENWIGHT MISCHIEVER
 
 | Humanoid, Radenwight |           -           |     Level 1      |           MINION, AMBUSHER           | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:------------------------------------:|:---------------------:|

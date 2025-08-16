@@ -1,4 +1,4 @@
-####### RADENWIGHT SWIFTPAW
+###### RADENWIGHT SWIFTPAW
 
 | Humanoid, Radenwight |           -           |     Level 1      |           MINION, HARRIER           | EV 3 for four minions |
 |:--------------------:|:---------------------:|:----------------:|:-----------------------------------:|:---------------------:|

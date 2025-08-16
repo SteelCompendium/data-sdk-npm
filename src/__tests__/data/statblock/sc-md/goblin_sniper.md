@@ -1,4 +1,4 @@
-####### GOBLIN SNIPER
+###### GOBLIN SNIPER
 
 |  Goblin, Humanoid   |           -           |     Level 1      |           MINION, ARTILLERY            | EV 3 for four minions |
 |:-------------------:|:---------------------:|:----------------:|:--------------------------------------:|:---------------------:|

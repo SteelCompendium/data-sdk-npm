@@ -1,4 +1,4 @@
-####### GOBLIN BATTLEBORN
+###### GOBLIN BATTLEBORN
 
 | Goblin, Humanoid, Mystic Goblin |           -           |      Level 2      |     HORDE, BRUTE      |         EV 4         |
 |:-------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
