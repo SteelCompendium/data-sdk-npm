@@ -9,7 +9,7 @@
 > ⚔️ **Concussive Bolts (Signature Ability)**
 > 
 > | **Charge, Melee, Ranged, Strike, Weapon** |             **Main action** |
-> | ----------------------------------------- | --------------------------: |
+> | ----------------------------------------- | ---------------------------:|
 > | **📏 Melee 1 or Ranged 10**               | **🎯 1 creature or object** |
 > 
 > **Power Roll + 2:**
@@ -23,7 +23,7 @@
 > 🔳 **Steam Powered Snare (3 Malice)**
 > 
 > | **Area, Ranged**       |                   **Maneuver** |
-> | ---------------------- | -----------------------------: |
+> | ---------------------- | ------------------------------:|
 > | **📏 3 cube within 5** | **🎯 All enemies in the cube** |
 > 
 > **Each target makes a Might test.:**

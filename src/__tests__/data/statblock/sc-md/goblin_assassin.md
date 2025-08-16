@@ -17,7 +17,7 @@
 > 🗡 **Sword Stab (Signature Ability)**
 > 
 > | **Melee, Strike, Weapon** |               **Main action** |
-> | ------------------------- | ----------------------------: |
+> | ------------------------- | -----------------------------:|
 > | **📏 Melee 1**            | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -31,7 +31,7 @@
 > 🏹 **Shadow Chains (3 Malice)**
 > 
 > | **Magic, Ranged** |        **Main action** |
-> | ----------------- | ---------------------: |
+> | ----------------- | ----------------------:|
 > | **📏 Ranged 10**  | **🎯 Three creatures** |
 > 
 > **Power Roll + 2:**

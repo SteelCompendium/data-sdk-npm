@@ -13,7 +13,7 @@
 > 🗡 **Clobber and Clutch (Signature Ability)**
 > 
 > | **Melee, Strike, Weapon** |               **Main action** |
-> | ------------------------- | ----------------------------: |
+> | ------------------------- | -----------------------------:|
 > | **📏 Melee 1**            | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -27,7 +27,7 @@
 > ❇️ **Zombie Dust (3 Malice)**
 > 
 > | **Area, Melee** |                   **Maneuver** |
-> | --------------- | -----------------------------: |
+> | --------------- | ------------------------------:|
 > | **📏 2 burst**  | **🎯 Each enemy in the burst** |
 > 
 > **Effect:** The zombie falls prone, expelling a wave of rot and dust.

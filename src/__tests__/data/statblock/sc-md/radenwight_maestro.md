@@ -13,7 +13,7 @@
 > ❇️ **Cacophony (Signature Ability)**
 > 
 > | **Area, Magic** |                 **Main action** |
-> | --------------- | ------------------------------: |
+> | --------------- | -------------------------------:|
 > | **📏 5 burst**  | **🎯 All enemies in the burst** |
 > 
 > **Power Roll + 3:**
@@ -27,7 +27,7 @@
 > 🏹 **Tempo Change**
 > 
 > | **Magic, Ranged** |       **Maneuver** |
-> | ----------------- | -----------------: |
+> | ----------------- | ------------------:|
 > | **📏 Ranged 10**  | **🎯 Two enemies** |
 > 
 > **Power Roll + 3:**
@@ -41,7 +41,7 @@
 > ❗️ **Ever Ready Rodent (2 Malice)**
 > 
 > | **Magic, Melee, Ranged** | **Free Triggered action** |
-> | ------------------------ | ------------------------: |
+> | ------------------------ | -------------------------:|
 > | **📏 Ranged 5**          |       **🎯 One creature** |
 > 
 > **Trigger:** The target deals damage to an ally or takes damage from an ally.
@@ -51,7 +51,7 @@
 > ☠️ **Overture (Villain Action 1)**
 > 
 > | **Area**        |                          **-** |
-> | --------------- | -----------------------------: |
+> | --------------- | ------------------------------:|
 > | **📏 10 burst** | **🎯 All allies in the burst** |
 > 
 > **Effect:** Each target shifts up to their speed or takes the Defend main action.
@@ -59,7 +59,7 @@
 > ☠️ **Solo Act (Villain Action 2)**
 > 
 > | **Ranged**       |               **-** |
-> | ---------------- | ------------------: |
+> | ---------------- | -------------------:|
 > | **📏 Ranged 15** | **🎯 One creature** |
 > 
 > **Effect:** Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled.
@@ -67,7 +67,7 @@
 > ☠️ **Rondo of Rat (Villain Action 3)**
 > 
 > | **Area**        |                               **-** |
-> | --------------- | ----------------------------------: |
+> | --------------- | -----------------------------------:|
 > | **📏 10 burst** | **🎯 All dead allies in the burst** |
 > 
 > **Effect:** Each target stands, makes a free strike, then collapses again. Allies of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.

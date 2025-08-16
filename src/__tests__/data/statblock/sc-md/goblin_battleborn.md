@@ -13,7 +13,7 @@
 > 🗡 **Spear Charge (Signature Ability)**
 > 
 > | **Charge, Melee, Strike, Weapon** |               **Main action** |
-> | --------------------------------- | ----------------------------: |
+> | --------------------------------- | -----------------------------:|
 > | **📏 Melee 1**                    | **🎯 One creature or object** |
 > 
 > **Power Roll + 2:**
@@ -25,7 +25,7 @@
 > ❇️ **Battle Flurry (3 Malice)**
 > 
 > | **Area, Melee, Weapon** |                              **Main action** |
-> | ----------------------- | -------------------------------------------: |
+> | ----------------------- | --------------------------------------------:|
 > | **📏 1 Burst**          | **🎯 Each creature and object in the burst** |
 > 
 > **Power Roll + 2:**
