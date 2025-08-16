@@ -1,8 +1,8 @@
-import { Ability } from "../../model/Ability";
-import { IDataWriter } from "../IDataWriter";
-import { Effect } from "../../model/Effect";
-import { MundaneEffect } from "../../model";
-import { PowerRollEffect } from "../../model";
+import {Ability} from "../../model/Ability";
+import {IDataWriter} from "../IDataWriter";
+import {Effect} from "../../model/Effect";
+import {MundaneEffect} from "../../model";
+import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
@@ -21,7 +21,8 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         if (data.name) {
             const prefix = '**';
             const suffix = '**';
-            let title = `${prefix}${data.name}`;
+            const iconPrefix = for_statblock ? this.getIconPrefix(data) : '';
+            let title = `${iconPrefix}${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
@@ -111,6 +112,36 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         }
 
         return md;
+    }
+
+    private getIconPrefix(a: Ability): string {
+        if (a.isTrait()) {
+            return '⭐️ ';
+        }
+        if (a.cost?.toLowerCase().includes("villain action")) {
+            return '☠️ ';
+        } else if (a.type?.toLowerCase().includes("triggered")) {
+            return '❗️ ';
+        } else if (a.distance?.toLowerCase().includes("melee") && a.distance?.toLowerCase().includes("ranged")) {
+            return '⚔️ ';
+        } else if (a.distance?.toLowerCase().includes("melee")) {
+            return '🗡 ';
+        } else if (a.distance?.toLowerCase().includes("ranged")) {
+            return '🏹 ';
+        } else if (a.distance?.toLowerCase().includes("self")) {
+            return '👤 ';
+        } else if (a.distance?.toLowerCase().includes("special")) {
+            return '🌀 ';
+        } else if (a.distance?.toLowerCase().includes("burst")
+            || a.distance?.toLowerCase().includes("aura")) {
+            return '❇️ ';
+        } else if (a.distance?.toLowerCase().includes("cube")
+            || a.distance?.toLowerCase().includes("line")
+            || a.distance?.toLowerCase().includes("wall")) {
+            return '🔳 ';
+        }
+
+        return '';
     }
 
     private writeEffect(effect: Effect, includeEffectToken: boolean): string {

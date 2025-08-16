@@ -19,7 +19,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
                 // Build the trait block, then prefix each line with "> "
                 const tLines: string[] = [];
 
-                tLines.push(`> **${trait.name}**`);
+                tLines.push(`> ⭐️ **${trait.name}**`);
 
                 if (trait.effects && trait.effects.effects.length > 0) {
                     const effectLines = trait.effects.effects
