@@ -31,15 +31,15 @@
   </traits>
   <abilities>
     <name>Sword Stab</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature or object</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>4 damage</t1>
       <t2>6 damage</t2>
       <t3>7 damage</t3>
@@ -53,11 +53,11 @@
     <cost>3 Malice</cost>
     <keywords>Magic</keywords>
     <keywords>Ranged</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Ranged 10</distance>
     <target>Three creatures</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>2 corruption damage; A&lt;0 restrained (save ends)</t1>
       <t2>4 corruption damage; A&lt;1 restrained (save ends)</t2>
       <t3>5 corruption damage; A&lt;2 restrained (save ends)</t3>

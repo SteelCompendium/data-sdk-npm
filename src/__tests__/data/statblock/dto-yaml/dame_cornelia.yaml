@@ -32,7 +32,7 @@ abilities:
       - Area
       - Melee
       - Weapon
-    type: Action
+    type: Main action
     distance: 1 burst
     target: All enemies in the burst
     effects:

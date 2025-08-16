@@ -18,17 +18,17 @@
   <presence>0</presence>
   <abilities>
     <name>Concussive Bolts</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Charge</keywords>
     <keywords>Melee</keywords>
     <keywords>Ranged</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1 or Ranged 10</distance>
     <target>1 creature or object</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>5 damage; push 2</t1>
       <t2>7 damage; push 4</t2>
       <t3>9 damage; push 6</t3>

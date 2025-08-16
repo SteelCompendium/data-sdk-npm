@@ -32,7 +32,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: One creature or object
     effects:
@@ -46,7 +46,7 @@ abilities:
     keywords:
       - Magic
       - Ranged
-    type: Action
+    type: Main action
     distance: Ranged 10
     target: Three creatures
     effects:

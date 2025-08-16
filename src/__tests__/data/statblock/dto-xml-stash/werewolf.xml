@@ -53,16 +53,16 @@
   </traits>
   <abilities>
     <name>Accursed Bite</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Charge</keywords>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>1 creature or object</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>9 damage; 2 rage</t1>
       <t2>13 damage; 4 rage</t2>
       <t3>16 damage; 5 rage</t3>
@@ -80,11 +80,11 @@
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>Two creatures or objects</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>8 damage; M&lt;1 bleeding (save ends)</t1>
       <t2>11 damage; 1 rage; M&lt;2 bleeding (save ends)</t2>
       <t3>14 damage; 3 rage; M&lt;3 bleeding (save ends)</t3>
@@ -96,11 +96,11 @@
     <keywords>Area</keywords>
     <keywords>Melee</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>1 burst</distance>
     <target>All enemies and objects in the burst</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>4 damage; push 2</t1>
       <t2>6 damage; 1 rage; push 3</t2>
       <t3>7 damage; 3 rage; slide 3</t3>
@@ -134,7 +134,7 @@
   <abilities>
     <name>Howl</name>
     <keywords>Area</keywords>
-    <type>Villain Action 1</type>
+    <cost>Villain Action 1</cost>
     <distance>5 burst</distance>
     <target>All enemies in the burst</target>
     <effects>
@@ -150,7 +150,7 @@
   <abilities>
     <name>Full Wolf</name>
     <keywords>—</keywords>
-    <type>Villain Action 2</type>
+    <cost>Villain Action 2</cost>
     <distance>Self</distance>
     <target>Self</target>
     <effects>
@@ -162,11 +162,11 @@
     <keywords>Area</keywords>
     <keywords>Melee</keywords>
     <keywords>Weapon</keywords>
-    <type>Villain Action 3</type>
+    <cost>Villain Action 3</cost>
     <distance>2 burst</distance>
     <target>All creatures in the burst</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>5 damage; 2 rage; M&lt;1 bleeding (save ends)</t1>
       <t2>8 damage; 4 rage; M&lt;2 bleeding (save ends)</t2>
       <t3>11 damage; 8 rage; M&lt;3 bleeding (save ends)</t3>

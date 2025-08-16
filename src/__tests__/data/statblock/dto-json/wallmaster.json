@@ -45,7 +45,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1 (Special)",
       "target": "Two creatures or objects",
       "effects": [

@@ -1,5 +1,13 @@
 # Changelog
 
+## WIP
+
+- villain action moved to cost
+
+TODO 
+
+- add icon
+
 ## 0.0.34
 
 - Adds support for `sc-convert` to convert statblocks (except xml)

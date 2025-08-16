@@ -31,16 +31,16 @@
   </traits>
   <abilities>
     <name>The Writhing Green</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Green</keywords>
     <keywords>Magic</keywords>
     <keywords>Ranged</keywords>
     <keywords>Strike</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Ranged 10</distance>
     <target>Two creatures or objects</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>7 damage; slide 1</t1>
       <t2>10 damage; slide 2</t2>
       <t3>13 damage; slide 3</t3>
@@ -52,11 +52,11 @@
     <keywords>Area</keywords>
     <keywords>Green</keywords>
     <keywords>Magic</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>3 cube within 10</distance>
     <target>All enemies in the cube</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>3 damage</t1>
       <t2>5 damage; restrained (EoT)</t2>
       <t3>8 damage; restrained (save ends)</t3>

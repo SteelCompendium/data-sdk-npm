@@ -25,15 +25,15 @@
   </traits>
   <abilities>
     <name>Clobber and Clutch</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature or object</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>4 damage</t1>
       <t2>6 damage</t2>
       <t3>7 damage; grabbed</t3>
@@ -54,7 +54,7 @@
       <effect>The zombie falls prone, expelling a wave of rot and dust.</effect>
     </effects>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>2 corruption damage</t1>
       <t2>3 corruption damage; M&lt;1 weakened (save ends)</t2>
       <t3>4 corruption damage; M&lt;2 dazed (save ends)</t3>

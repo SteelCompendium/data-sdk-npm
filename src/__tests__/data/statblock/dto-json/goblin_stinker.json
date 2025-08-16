@@ -40,7 +40,7 @@
         "Magic",
         "Ranged"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "3 cube within 15",
       "target": "Each enemy in the cube",
       "effects": [

@@ -33,7 +33,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -56,7 +56,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
@@ -74,7 +74,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Self",
       "target": "Self",
       "effects": [

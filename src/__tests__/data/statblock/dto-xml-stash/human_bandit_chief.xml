@@ -31,16 +31,16 @@
   </traits>
   <abilities>
     <name>Whip &amp; Magic Longsword</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Magic</keywords>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 3</distance>
     <target>Two enemies or objects</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>8 damage; pull 1</t1>
       <t2>12 damage; pull 2</t2>
       <t3>15 damage; pull 3</t3>
@@ -61,7 +61,7 @@
     <distance>Melee 1</distance>
     <target>One enemy or object</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>Push 1; M&lt;1 prone</t1>
       <t2>Push 2; M&lt;2 prone</t2>
       <t3>Push 4; M&lt;3 prone</t3>
@@ -85,7 +85,7 @@
   <abilities>
     <name>Shoot!</name>
     <keywords>Area</keywords>
-    <type>Villain Action 1</type>
+    <cost>Villain Action 1</cost>
     <distance>10 burst</distance>
     <target>All allies in the burst</target>
     <effects>
@@ -95,7 +95,7 @@
   <abilities>
     <name>Form Up!</name>
     <keywords>Area</keywords>
-    <type>Villain Action 2</type>
+    <cost>Villain Action 2</cost>
     <distance>10 burst</distance>
     <target>All allies in the burst</target>
     <effects>
@@ -105,7 +105,7 @@
   <abilities>
     <name>Lead From the Front</name>
     <keywords>—</keywords>
-    <type>Villain Action 3</type>
+    <cost>Villain Action 3</cost>
     <distance>Self</distance>
     <target>Self</target>
     <effects>

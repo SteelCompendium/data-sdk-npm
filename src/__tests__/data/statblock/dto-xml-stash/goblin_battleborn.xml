@@ -26,16 +26,16 @@
   </traits>
   <abilities>
     <name>Spear Charge</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Charge</keywords>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature or object</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>5 damage</t1>
       <t2>6 damage</t2>
       <t3>8 damage; prone; the battleborn continues charging up to their speed or until they can make a free strike against another creature or object</t3>
@@ -47,11 +47,11 @@
     <keywords>Area</keywords>
     <keywords>Melee</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>1 Burst</distance>
     <target>Each creature and object in the burst</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>3 damage; M&lt;0 bleeding (save ends)</t1>
       <t2>4 damage; M&lt;1 bleeding (save ends)</t2>
       <t3>5 damage; M&lt;2 bleeding (save ends)</t3>

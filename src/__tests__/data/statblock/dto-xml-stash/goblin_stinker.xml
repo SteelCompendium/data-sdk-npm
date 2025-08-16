@@ -25,15 +25,15 @@
   </traits>
   <abilities>
     <name>Toxic Winds</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Area</keywords>
     <keywords>Magic</keywords>
     <keywords>Ranged</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>3 cube within 15</distance>
     <target>Each enemy in the cube</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>1 poison damage; slide 1</t1>
       <t2>2 poison damage; slide 2</t2>
       <t3>3 poison damage; slide 3</t3>

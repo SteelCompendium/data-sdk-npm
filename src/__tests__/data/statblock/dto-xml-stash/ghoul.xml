@@ -31,16 +31,16 @@
   </traits>
   <abilities>
     <name>Razor Claws</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Charge</keywords>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature or object</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>3 damage</t1>
       <t2>4 damage</t2>
       <t3>5 damage; M&lt;2 bleeding (save ends)</t3>

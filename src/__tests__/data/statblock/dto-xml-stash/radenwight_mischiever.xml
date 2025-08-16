@@ -20,15 +20,15 @@
   <presence>0</presence>
   <abilities>
     <name>Dagger Dance</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1 or Ranged 5</distance>
     <target>One creature per minion</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>2 damage</t1>
       <t2>4 damage</t2>
       <t3>5 damage</t3>

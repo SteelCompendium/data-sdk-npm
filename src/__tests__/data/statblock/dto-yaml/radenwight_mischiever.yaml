@@ -27,7 +27,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1 or Ranged 5
     target: One creature per minion
     effects:

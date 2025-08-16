@@ -27,7 +27,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: One creature or object
     effects:
@@ -42,7 +42,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: Two creatures or objects
     effects:
@@ -54,7 +54,7 @@ abilities:
     cost: 5 Malice
     keywords:
       - —
-    type: Action
+    type: Main action
     distance: Self
     target: Self
     effects:

@@ -44,7 +44,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: 1 creature or object
     effects:
@@ -60,7 +60,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: Two creatures or objects
     effects:
@@ -74,7 +74,7 @@ abilities:
       - Area
       - Melee
       - Weapon
-    type: Action
+    type: Main action
     distance: 1 burst
     target: All enemies and objects in the burst
     effects:

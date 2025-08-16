@@ -24,14 +24,14 @@
   </traits>
   <abilities>
     <name>Cacophony</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Area</keywords>
     <keywords>Magic</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>5 burst</distance>
     <target>All enemies in the burst</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>3 sonic damage; slide 1; shift 1</t1>
       <t2>6 sonic damage; slide 3; shift 3</t2>
       <t3>8 sonic damage; slide 5; shift 5</t3>
@@ -48,7 +48,7 @@
     <distance>Ranged 10</distance>
     <target>Two enemies</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>P&lt;1 Slowed (save ends)</t1>
       <t2>P&lt;2 Slowed (save ends)</t2>
       <t3>P&lt;3 Slowed (save ends)</t3>
@@ -75,7 +75,7 @@
   <abilities>
     <name>Overture</name>
     <keywords>Area</keywords>
-    <type>Villain Action 1</type>
+    <cost>Villain Action 1</cost>
     <distance>10 burst</distance>
     <target>All allies in the burst</target>
     <effects>
@@ -85,7 +85,7 @@
   <abilities>
     <name>Solo Act</name>
     <keywords>Ranged</keywords>
-    <type>Villain Action 2</type>
+    <cost>Villain Action 2</cost>
     <distance>Ranged 15</distance>
     <target>One creature</target>
     <effects>
@@ -95,7 +95,7 @@
   <abilities>
     <name>Rondo of Rat</name>
     <keywords>Area</keywords>
-    <type>Villain Action 3</type>
+    <cost>Villain Action 3</cost>
     <distance>10 burst</distance>
     <target>All dead allies in the burst</target>
     <effects>

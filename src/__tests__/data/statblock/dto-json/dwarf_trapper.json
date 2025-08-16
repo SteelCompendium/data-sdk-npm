@@ -32,7 +32,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1 or Ranged 10",
       "target": "1 creature or object",
       "effects": [

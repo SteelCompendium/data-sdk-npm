@@ -26,18 +26,18 @@
   </traits>
   <abilities>
     <name>Wall Slam</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1 (Special)</distance>
     <target>Two creatures or objects</target>
     <effects>
       <effect>The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.</effect>
     </effects>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>6 damage</t1>
       <t2>9 damage; A&lt;1 prone</t2>
       <t3>12 damage; A&lt;2 prone can’t stand (EoT)</t3>
@@ -58,7 +58,7 @@
       <effect>The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.</effect>
     </effects>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>Push 2</t1>
       <t2>Push 4</t2>
       <t3>Push 5</t3>

@@ -20,15 +20,15 @@
   <presence>-1</presence>
   <abilities>
     <name>Rapier Flunge</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature or object per minion</target>
     <effects>
-      <roll>2d10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>1 damage; slide 1; shift 1</t1>
       <t2>2 damage; slide 2; shift 2</t2>
       <t3>3 damage; slide 3; shift 3</t3>

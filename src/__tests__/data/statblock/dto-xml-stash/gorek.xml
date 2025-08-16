@@ -37,11 +37,11 @@
   </traits>
   <abilities>
     <name>Brutal Impact</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>Two creatures or objects</target>
     <effects>
@@ -61,7 +61,7 @@
     <keywords>Melee</keywords>
     <keywords>Strike</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>Melee 1</distance>
     <target>One creature the fury’s size or smaller</target>
     <effects>

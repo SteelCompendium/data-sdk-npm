@@ -30,15 +30,15 @@
   </traits>
   <abilities>
     <name>Zweihander Swing</name>
-    <cost>Signature</cost>
+    <cost>Signature Ability</cost>
     <keywords>Area</keywords>
     <keywords>Melee</keywords>
     <keywords>Weapon</keywords>
-    <type>Action</type>
+    <type>Main action</type>
     <distance>1 burst</distance>
     <target>All enemies in the burst</target>
     <effects>
-      <roll>2d10 + 3</roll>
+      <roll>Power Roll + 3</roll>
       <t1>3 damage; M&lt;1 slowed (save ends)</t1>
       <t2>6 damage; M&lt;2 slowed (save ends)</t2>
       <t3>8 damage; M&lt;3 slowed (save ends)</t3>
@@ -75,7 +75,7 @@
   <abilities>
     <name>Advance!</name>
     <keywords>—</keywords>
-    <type>Villain Action 1</type>
+    <cost>Villain Action 1</cost>
     <distance>Self</distance>
     <target>Self</target>
     <effects>
@@ -86,7 +86,7 @@
     <name>Back!</name>
     <keywords>Area</keywords>
     <keywords>Magic</keywords>
-    <type>Villain Action 2</type>
+    <cost>Villain Action 2</cost>
     <distance>5 burst</distance>
     <target>All enemies in the burst</target>
     <effects>
@@ -99,7 +99,7 @@
     <keywords>Magic</keywords>
     <keywords>Ranged</keywords>
     <keywords>Weapon</keywords>
-    <type>Villain Action 3</type>
+    <cost>Villain Action 3</cost>
     <distance>3 cube within 5</distance>
     <target>Each enemy in the cube</target>
     <effects>

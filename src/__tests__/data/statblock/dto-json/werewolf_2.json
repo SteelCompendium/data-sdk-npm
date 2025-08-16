@@ -77,7 +77,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1",
       "target": "1 creature or object",
       "effects": [
@@ -103,7 +103,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
@@ -123,7 +123,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "1 burst",
       "target": "All enemies and objects in the burst",
       "effects": [

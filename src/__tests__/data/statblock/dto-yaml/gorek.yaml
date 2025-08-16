@@ -35,7 +35,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: Two creatures or objects
     effects:
@@ -51,7 +51,7 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Action
+    type: Main action
     distance: Melee 1
     target: One creature the fury’s size or smaller
     effects:

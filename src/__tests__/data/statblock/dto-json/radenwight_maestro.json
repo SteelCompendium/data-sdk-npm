@@ -38,7 +38,7 @@
         "Area",
         "Magic"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [

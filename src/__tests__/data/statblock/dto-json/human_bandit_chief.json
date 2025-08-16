@@ -51,7 +51,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Action",
+      "type": "Main action",
       "distance": "Melee 3",
       "target": "Two enemies or objects",
       "effects": [

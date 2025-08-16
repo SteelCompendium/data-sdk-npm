@@ -33,7 +33,7 @@ abilities:
       - Magic
       - Ranged
       - Strike
-    type: Action
+    type: Main action
     distance: Ranged 10
     target: Two creatures or objects
     effects:
@@ -47,7 +47,7 @@ abilities:
       - Area
       - Green
       - Magic
-    type: Action
+    type: Main action
     distance: 3 cube within 10
     target: All enemies in the cube
     effects:
