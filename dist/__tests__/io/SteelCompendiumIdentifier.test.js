@@ -63,9 +63,6 @@ describe('SteelCompendiumIdentifier', () => {
         if (filePath.includes('sc_md')) {
             return __1.SteelCompendiumFormat.Markdown;
         }
-        if (filePath.includes('prerelease-pdf')) {
-            return __1.SteelCompendiumFormat.PrereleasePdfText;
-        }
         return __1.SteelCompendiumFormat.Unknown;
     };
     const getExpectedModel = (filePath) => {

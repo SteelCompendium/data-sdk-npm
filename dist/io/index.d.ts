@@ -4,6 +4,5 @@ export * from './yaml';
 export * from './json';
 export * from './xml';
 export * from './markdown';
-export * from './text';
 export * from './SteelCompendiumIdentifier';
 export * from './AutoDataReader';
