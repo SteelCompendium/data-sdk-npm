@@ -17,7 +17,7 @@ class MarkdownStatblockWriter {
                     continue;
                 // Build the trait block, then prefix each line with "> "
                 const tLines = [];
-                tLines.push(`> **${trait.name}**`);
+                tLines.push(`> ⭐️ **${trait.name}**`);
                 if (trait.effects && trait.effects.effects.length > 0) {
                     const effectLines = trait.effects.effects
                         .filter(e => e.effectType() === 'MundaneEffect')
@@ -90,11 +90,11 @@ class MarkdownStatblockWriter {
         const weaknesses = ((_m = data.weaknesses) === null || _m === void 0 ? void 0 : _m.length) ? data.weaknesses.join(', ') : '-';
         const withCaptain = (_o = data.withCaptain) !== null && _o !== void 0 ? _o : '-';
         const row2 = [
-            cell(immunities, 'Immunities'),
+            cell(immunities, 'Immunity'),
             cell((_p = data.movement) !== null && _p !== void 0 ? _p : '-', 'Movement'),
-            '', // center blank
+            '-', // center blank
             cell(withCaptain, 'With Captain'),
-            cell(weaknesses, 'Weaknesses'),
+            cell(weaknesses, 'Weakness'),
         ];
         const ch = data.characteristics;
         const row3 = [

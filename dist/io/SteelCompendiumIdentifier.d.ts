@@ -5,7 +5,6 @@ export declare enum SteelCompendiumFormat {
     Yaml = "yaml",
     Xml = "xml",
     Markdown = "markdown",
-    PrereleasePdfText = "prerelease-pdf-text",
     Unknown = "unknown"
 }
 export interface IdentificationResult {

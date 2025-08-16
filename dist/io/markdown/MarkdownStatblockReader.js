@@ -178,6 +178,9 @@ class MarkdownStatblockReader {
                     case 'immunities':
                         partial.immunities = setList(valueRaw);
                         break;
+                    case 'immunity':
+                        partial.immunities = setList(valueRaw);
+                        break;
                     case 'movement':
                         if (valueRaw !== '-')
                             partial.movement = valueRaw;
@@ -187,6 +190,9 @@ class MarkdownStatblockReader {
                             partial.withCaptain = valueRaw;
                         break;
                     case 'weaknesses':
+                        partial.weaknesses = setList(valueRaw);
+                        break;
+                    case 'weakness':
                         partial.weaknesses = setList(valueRaw);
                         break;
                     case 'might':

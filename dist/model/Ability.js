@@ -23,7 +23,6 @@ class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     }
     isTrait() {
         var _a;
-        console.log(this);
         return (!this.keywords || ((_a = this.keywords) === null || _a === void 0 ? void 0 : _a.length) == 0) && !this.type && !this.distance && !this.target;
     }
 }

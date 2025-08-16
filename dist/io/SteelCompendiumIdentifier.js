@@ -5,7 +5,6 @@ const yaml_1 = require("yaml");
 const json_1 = require("./json");
 const yaml_2 = require("./yaml");
 const xml_1 = require("./xml");
-const text_1 = require("./text");
 const MarkdownAbilityReader_1 = require("./markdown/MarkdownAbilityReader");
 const model_1 = require("../model");
 const fast_xml_parser_1 = require("fast-xml-parser");
@@ -16,7 +15,6 @@ var SteelCompendiumFormat;
     SteelCompendiumFormat["Yaml"] = "yaml";
     SteelCompendiumFormat["Xml"] = "xml";
     SteelCompendiumFormat["Markdown"] = "markdown";
-    SteelCompendiumFormat["PrereleasePdfText"] = "prerelease-pdf-text";
     SteelCompendiumFormat["Unknown"] = "unknown";
 })(SteelCompendiumFormat || (exports.SteelCompendiumFormat = SteelCompendiumFormat = {}));
 class SteelCompendiumIdentifier {
@@ -174,20 +172,6 @@ class SteelCompendiumIdentifier {
                 format: SteelCompendiumFormat.Markdown,
                 model: model_1.Ability,
                 getReader: () => new MarkdownAbilityReader_1.MarkdownAbilityReader(),
-            };
-        }
-        if (this.isStatblock(source)) {
-            return {
-                format: SteelCompendiumFormat.PrereleasePdfText,
-                model: model_1.Statblock,
-                getReader: () => new text_1.PrereleasePdfStatblockReader(),
-            };
-        }
-        if (this.isAbility(source)) {
-            return {
-                format: SteelCompendiumFormat.PrereleasePdfText,
-                model: model_1.Ability,
-                getReader: () => new text_1.PrereleasePdfAbilityReader(),
             };
         }
         return {
