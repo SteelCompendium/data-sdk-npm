@@ -9,6 +9,7 @@ const text_1 = require("./text");
 const MarkdownAbilityReader_1 = require("./markdown/MarkdownAbilityReader");
 const model_1 = require("../model");
 const fast_xml_parser_1 = require("fast-xml-parser");
+const markdown_1 = require("./markdown");
 var SteelCompendiumFormat;
 (function (SteelCompendiumFormat) {
     SteelCompendiumFormat["Json"] = "json";
@@ -19,6 +20,82 @@ var SteelCompendiumFormat;
     SteelCompendiumFormat["Unknown"] = "unknown";
 })(SteelCompendiumFormat || (exports.SteelCompendiumFormat = SteelCompendiumFormat = {}));
 class SteelCompendiumIdentifier {
+    static parse(format, model) {
+        if (format === SteelCompendiumFormat.Markdown) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Markdown,
+                    model: model_1.Ability,
+                    getReader: () => new MarkdownAbilityReader_1.MarkdownAbilityReader(),
+                };
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Markdown,
+                    model: model_1.Statblock,
+                    getReader: () => new markdown_1.MarkdownStatblockReader(),
+                };
+            }
+        }
+        if (format === SteelCompendiumFormat.Json) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: model_1.Ability,
+                    getReader: () => new json_1.JsonReader(model_1.Ability.modelDTOAdapter),
+                };
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: model_1.Statblock,
+                    getReader: () => new json_1.JsonReader(model_1.Statblock.modelDTOAdapter),
+                };
+            }
+        }
+        if (format === SteelCompendiumFormat.Yaml) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: model_1.Ability,
+                    getReader: () => new yaml_2.YamlReader(model_1.Ability.modelDTOAdapter),
+                };
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: model_1.Statblock,
+                    getReader: () => new yaml_2.YamlReader(model_1.Statblock.modelDTOAdapter),
+                };
+            }
+        }
+        if (format === SteelCompendiumFormat.Xml) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Xml,
+                    model: model_1.Ability,
+                    getReader: () => new xml_1.XmlAbilityReader(),
+                };
+            }
+            console.log("statblocks dont currently support xml");
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Xml,
+                    model: model_1.Statblock,
+                    getReader: () => {
+                        throw new Error("Unknown format, cannot provide a reader.");
+                    }
+                };
+            }
+        }
+        return {
+            format: SteelCompendiumFormat.Unknown,
+            model: null,
+            getReader: () => {
+                throw new Error("Unknown format, cannot provide a reader.");
+            }
+        };
+    }
     static identify(source) {
         try {
             const data = JSON.parse(source);

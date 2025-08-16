@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.34
+
+- Adds support for `sc-convert` to convert statblocks (except xml)
+
 ## 0.0.33
 
 - Updates the markdown reader/writer to support the new format

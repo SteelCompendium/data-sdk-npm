@@ -14,6 +14,7 @@ export interface IdentificationResult {
     getReader(): IDataReader<Ability | Statblock>;
 }
 export declare class SteelCompendiumIdentifier {
+    static parse(format: string, model: string): IdentificationResult;
     static identify(source: string): IdentificationResult;
     private static identifyModelType;
     private static isMarkdownAbility;

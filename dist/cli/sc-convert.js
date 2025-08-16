@@ -7,7 +7,9 @@
  *   sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--output <outpath>] <input>
  *
  * Example:
- *   npm run build && npm link && sc-convert --from markdown --to json ../data-gen/staging/heroes/9_formatted/Abilities/Introduction/1st-Level\ Features/This\ Is\ An\ H8\ Header.md --output ./tmp
+ *   npm run build && npm link && sc-convert --from markdown --to json --type ability ../data-gen/staging/heroes/8_formatted_md/Abilities/Fury/1st-Level\ Features/Back.md --output ./tmp
+ *
+ *   npm run build && npm link && sc-convert --from markdown --to json --type statblock ../data-gen/staging/monsters/8_formatted_md/Monsters/Angulotls/Statblocks/Angulotl\ Pollywog.md --output ./tmp
  */
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -21,12 +23,12 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs_1 = require("fs");
 const path_1 = require("path");
-const JsonWriter_1 = require("../io/json/JsonWriter"); // :contentReference[oaicite:0]{index=0}
-const YamlWriter_1 = require("../io/yaml/YamlWriter"); // :contentReference[oaicite:1]{index=1}
-const markdown_1 = require("../io/markdown"); // :contentReference[oaicite:2]{index=2}
-const SteelCompendiumIdentifier_1 = require("../io/SteelCompendiumIdentifier"); // :contentReference[oaicite:3]{index=3}
+const JsonWriter_1 = require("../io/json/JsonWriter");
+const YamlWriter_1 = require("../io/yaml/YamlWriter");
+const markdown_1 = require("../io/markdown");
+const SteelCompendiumIdentifier_1 = require("../io/SteelCompendiumIdentifier");
 const model_1 = require("../model");
-const xml_1 = require("../io/xml"); // :contentReference[oaicite:4]{index=4}
+const xml_1 = require("../io/xml");
 function parseArgs() {
     const args = process.argv.slice(2);
     const cli = { from: undefined, to: undefined };
@@ -38,6 +40,9 @@ function parseArgs() {
                 break;
             case '--to':
                 cli.to = args[++i];
+                break;
+            case '--type':
+                cli.type = args[++i];
                 break;
             case '--output':
                 cli.output = args[++i];
@@ -51,24 +56,25 @@ function parseArgs() {
         }
     }
     if (rest.length !== 1 || !cli.from || !cli.to) {
-        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--output <out>] <input>`);
+        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--type <ability|statblock>] [--output <out>] <input>`);
         process.exit(1);
     }
     return {
         from: cli.from,
         to: cli.to,
+        type: cli.type,
         output: cli.output,
         input: rest[0],
     };
 }
-function convertPath(inPath, outBase, from, to) {
-    return __awaiter(this, void 0, void 0, function* () {
+function convertPath(inPath_1, outBase_1, from_1, to_1) {
+    return __awaiter(this, arguments, void 0, function* (inPath, outBase, from, to, type = 'ability') {
         const stat = yield fs_1.promises.stat(inPath);
         if (stat.isDirectory()) {
             // Recurse into directory
             const entries = yield fs_1.promises.readdir(inPath);
             for (const name of entries) {
-                yield convertPath((0, path_1.join)(inPath, name), outBase ? (0, path_1.join)(outBase, name) : undefined, from, to);
+                yield convertPath((0, path_1.join)(inPath, name), outBase ? (0, path_1.join)(outBase, name) : undefined, from, to, type);
             }
         }
         else {
@@ -85,28 +91,8 @@ function convertPath(inPath, outBase, from, to) {
             if (!validExts.includes(ext))
                 return;
             const source = yield fs_1.promises.readFile(inPath, 'utf8');
-            // TODO - this identifier is wrong (markdown/prereleasetext), ignore for now
-            const idRes = SteelCompendiumIdentifier_1.SteelCompendiumIdentifier.identify(source);
-            if (idRes.format !== from) {
-                console.warn(`⚠️  Warning: detected format "${idRes.format}" but --from="${from}" was given.`);
-            }
+            const idRes = SteelCompendiumIdentifier_1.SteelCompendiumIdentifier.parse(from, type);
             const model = idRes.getReader().read(source);
-            // // This was hard-coded for abilities only
-            // let reader: any;
-            // switch (from) {
-            //     case SteelCompendiumFormat.Json:
-            //         reader = new JsonReader(Ability.modelDTOAdapter);
-            //         break;
-            //     case SteelCompendiumFormat.Yaml:
-            //         reader = new YamlReader(Statblock.modelDTOAdapter);
-            //         break;
-            //     case SteelCompendiumFormat.Markdown:
-            //         reader = new MarkdownAbilityReader();
-            //         break;
-            //     default:
-            //         throw new Error(`Unsupported --from format "${from}"`);
-            // }
-            // const model = reader.read(source);
             // Pick the correct writer
             let writer;
             switch (to) {
@@ -160,9 +146,9 @@ function convertPath(inPath, outBase, from, to) {
 }
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const { input, output, from, to } = parseArgs();
+        const { input, output, from, to, type } = parseArgs();
         const outBase = output;
-        yield convertPath(input, outBase, from, to);
+        yield convertPath(input, outBase, from, to, type);
     });
 }
 main().catch(err => {

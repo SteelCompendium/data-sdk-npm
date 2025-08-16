@@ -7,6 +7,7 @@ import { PrereleasePdfAbilityReader, PrereleasePdfStatblockReader } from './text
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
 import { XMLParser } from 'fast-xml-parser';
+import {MarkdownStatblockReader} from "./markdown";
 
 export enum SteelCompendiumFormat {
     Json = "json",
@@ -24,6 +25,83 @@ export interface IdentificationResult {
 }
 
 export class SteelCompendiumIdentifier {
+    public static parse(format: string, model: string): IdentificationResult {
+        if (format === SteelCompendiumFormat.Markdown) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Markdown,
+                    model: Ability,
+                    getReader: () => new MarkdownAbilityReader(),
+                }
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Markdown,
+                    model: Statblock,
+                    getReader: () => new MarkdownStatblockReader(),
+                }
+            }
+        }
+        if (format === SteelCompendiumFormat.Json) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: Ability,
+                    getReader: () => new JsonReader(Ability.modelDTOAdapter),
+                }
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: Statblock,
+                    getReader: () => new JsonReader(Statblock.modelDTOAdapter),
+                }
+            }
+        }
+        if (format === SteelCompendiumFormat.Yaml) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: Ability,
+                    getReader: () => new YamlReader(Ability.modelDTOAdapter),
+                }
+            }
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: Statblock,
+                    getReader: () => new YamlReader(Statblock.modelDTOAdapter),
+                }
+            }
+        }
+        if (format === SteelCompendiumFormat.Xml) {
+            if (model === "ability") {
+                return {
+                    format: SteelCompendiumFormat.Xml,
+                    model: Ability,
+                    getReader: () => new XmlAbilityReader(),
+                }
+            }
+            console.log("statblocks dont currently support xml");
+            if (model === "statblock") {
+                return {
+                    format: SteelCompendiumFormat.Xml,
+                    model: Statblock,
+                    getReader: () => {
+                        throw new Error("Unknown format, cannot provide a reader.");
+                    }
+                }
+            }
+        }
+        return {
+            format: SteelCompendiumFormat.Unknown,
+            model: null,
+            getReader: () => {
+                throw new Error("Unknown format, cannot provide a reader.");
+            }
+        };
+    }
+
     public static identify(source: string): IdentificationResult {
         try {
             const data = JSON.parse(source);
