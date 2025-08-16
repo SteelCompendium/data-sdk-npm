@@ -11,6 +11,25 @@ class MarkdownStatblockReader {
         const partial = {
             characteristics: { might: 0, agility: 0, reason: 0, intuition: 0, presence: 0 },
         };
+        // Find the end of the frontmatter
+        let lines = content.split('\n');
+        let frontmatterEndIndex = -1;
+        if (lines[0].trim() === '---') {
+            frontmatterEndIndex = lines.slice(1).findIndex(line => line.trim() === '---');
+            if (frontmatterEndIndex !== -1) {
+                const frontmatterLines = lines.slice(1, frontmatterEndIndex + 1).join('\n');
+                try {
+                    // partial.metadata = yaml.load(frontmatterLines) as Record<string, any>;
+                }
+                catch (e) {
+                    console.error("Error parsing frontmatter:", e);
+                }
+                // The index is in the sliced array, so we add 1 to get the index in the original array
+                // and another 1 to get the line after the '---'
+                lines = lines.slice(frontmatterEndIndex + 2);
+            }
+        }
+        content = lines.join("\n");
         // ── Split main vs. abilities (after ---)
         const sep = '\n---\n';
         const sepIdx = content.indexOf(sep);
@@ -22,7 +41,7 @@ class MarkdownStatblockReader {
         while (i < mainLines.length && mainLines[i].trim() === '')
             i++;
         if (i < mainLines.length) {
-            const m = mainLines[i].match(/^\s*\*\*(.+?)\*\*\s*$/);
+            const m = mainLines[i].match(/^###### (.+?)$/);
             if (m) {
                 partial.name = m[1].trim();
                 i++;
