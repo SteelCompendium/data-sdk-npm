@@ -104,7 +104,7 @@ abilities:
   - name: Howl
     keywords:
       - Area
-    type: -
+    type: "-"
     cost: Villain Action 1
     distance: 5 burst
     target: All enemies in the burst
@@ -117,7 +117,7 @@ abilities:
   - name: Full Wolf
     keywords:
       - —
-    type: -
+    type: "-"
     cost: Villain Action 2
     distance: Self
     target: Self
@@ -128,7 +128,7 @@ abilities:
       - Area
       - Melee
       - Weapon
-    type: -
+    type: "-"
     cost: Villain Action 3
     distance: 2 burst
     target: All creatures in the burst

@@ -65,7 +65,7 @@ abilities:
   - name: Overture
     keywords:
       - Area
-    type: -
+    type: "-"
     cost: Villain Action 1
     distance: 10 burst
     target: All allies in the burst
@@ -74,7 +74,7 @@ abilities:
   - name: Solo Act
     keywords:
       - Ranged
-    type: -
+    type: "-"
     cost: Villain Action 2
     distance: Ranged 15
     target: One creature
@@ -83,7 +83,7 @@ abilities:
   - name: Rondo of Rat
     keywords:
       - Area
-    type: -
+    type: "-"
     cost: Villain Action 3
     distance: 10 burst
     target: All dead allies in the burst

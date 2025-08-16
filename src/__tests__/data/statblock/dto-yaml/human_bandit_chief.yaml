@@ -71,7 +71,7 @@ abilities:
   - name: Shoot!
     keywords:
       - Area
-    type: -
+    type: "-"
     cost: Villain Action 1
     distance: 10 burst
     target: All allies in the burst
@@ -80,7 +80,7 @@ abilities:
   - name: Form Up!
     keywords:
       - Area
-    type: -
+    type: "-"
     cost: Villain Action 2
     distance: 10 burst
     target: All allies in the burst
@@ -89,7 +89,7 @@ abilities:
   - name: Lead From the Front
     keywords:
       - —
-    type: -
+    type: "-"
     cost: Villain Action 3
     distance: Self
     target: Self
