@@ -173,6 +173,7 @@
       "keywords": [
         "Area"
       ],
+      "type": "-",
       "cost": "Villain Action 1",
       "distance": "5 burst",
       "target": "All enemies in the burst",
@@ -193,6 +194,7 @@
       "keywords": [
         "—"
       ],
+      "type": "-",
       "cost": "Villain Action 2",
       "distance": "Self",
       "target": "Self",
@@ -209,6 +211,7 @@
         "Melee",
         "Weapon"
       ],
+      "type": "-",
       "cost": "Villain Action 3",
       "distance": "2 burst",
       "target": "All creatures in the burst",

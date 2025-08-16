@@ -21,6 +21,10 @@ class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     toXmlDTO() {
         return AbilityXmlDTO_1.AbilityXmlDTO.partialFromModel(this);
     }
+    isTrait() {
+        var _a;
+        return (!this.keywords || ((_a = this.keywords) === null || _a === void 0 ? void 0 : _a.length) == 0) && !this.type && !this.distance && !this.target;
+    }
 }
 exports.Ability = Ability;
 Ability.modelDTOAdapter = (source) => new dto_1.AbilityDTO(source).toModel();

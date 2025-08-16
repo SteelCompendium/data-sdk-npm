@@ -98,6 +98,7 @@
       "keywords": [
         "Area"
       ],
+      "type": "-",
       "cost": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
@@ -112,6 +113,7 @@
       "keywords": [
         "Ranged"
       ],
+      "type": "-",
       "cost": "Villain Action 2",
       "distance": "Ranged 15",
       "target": "One creature",
@@ -126,6 +128,7 @@
       "keywords": [
         "Area"
       ],
+      "type": "-",
       "cost": "Villain Action 3",
       "distance": "10 burst",
       "target": "All dead allies in the burst",

@@ -18,4 +18,5 @@ export declare class Ability extends SteelCompendiumModel<AbilityDTO> {
     static fromDTO(dto: AbilityDTO): Ability;
     toDTO(): Partial<AbilityDTO>;
     toXmlDTO(): Partial<AbilityXmlDTO>;
+    isTrait(): boolean;
 }

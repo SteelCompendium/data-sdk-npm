@@ -102,6 +102,7 @@
       "keywords": [
         "—"
       ],
+      "type": "-",
       "cost": "Villain Action 1",
       "distance": "Self",
       "target": "Self",
@@ -117,6 +118,7 @@
         "Area",
         "Magic"
       ],
+      "type": "-",
       "cost": "Villain Action 2",
       "distance": "5 burst",
       "target": "All enemies in the burst",
@@ -134,6 +136,7 @@
         "Ranged",
         "Weapon"
       ],
+      "type": "-",
       "cost": "Villain Action 3",
       "distance": "3 cube within 5",
       "target": "Each enemy in the cube",
