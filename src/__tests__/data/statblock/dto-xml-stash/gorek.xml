@@ -45,7 +45,7 @@
     <distance>Melee 1</distance>
     <target>Two creatures or objects</target>
     <effects>
-      <roll>2D10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>7 damage; push 1</t1>
       <t2>11 damage; push 2</t2>
       <t3>14 damage; push 3</t3>
@@ -65,7 +65,7 @@
     <distance>Melee 1</distance>
     <target>One creature the fury’s size or smaller</target>
     <effects>
-      <roll>2D10 + 2</roll>
+      <roll>Power Roll + 2</roll>
       <t1>8 damage; M&lt;0 grabbed</t1>
       <t2>13 damage; M&lt;1 grabbed</t2>
       <t3>16 damage; M&lt;2 grabbed</t3>

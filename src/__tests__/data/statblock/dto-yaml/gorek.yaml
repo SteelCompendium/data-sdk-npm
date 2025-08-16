@@ -39,7 +39,7 @@ abilities:
     distance: Melee 1
     target: Two creatures or objects
     effects:
-      - roll: 2D10 + 2
+      - roll: Power Roll + 2
         t1: 7 damage; push 1
         t2: 11 damage; push 2
         t3: 14 damage; push 3
@@ -55,7 +55,7 @@ abilities:
     distance: Melee 1
     target: One creature the fury’s size or smaller
     effects:
-      - roll: 2D10 + 2
+      - roll: Power Roll + 2
         t1: 8 damage; M<0 grabbed
         t2: 13 damage; M<1 grabbed
         t3: 16 damage; M<2 grabbed
