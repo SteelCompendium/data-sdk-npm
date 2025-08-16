@@ -25,7 +25,7 @@ traits:
       - effect: The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.
 abilities:
   - name: Clobber and Clutch
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Melee
       - Strike
@@ -34,7 +34,7 @@ abilities:
     distance: Melee 1
     target: One creature or object
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 4 damage
         t2: 6 damage
         t3: 7 damage; grabbed
@@ -49,7 +49,7 @@ abilities:
     target: Each enemy in the burst
     effects:
       - effect: The zombie falls prone, expelling a wave of rot and dust.
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 2 corruption damage
         t2: 3 corruption damage; M<1 weakened (save ends)
         t3: 4 corruption damage; M<2 dazed (save ends)

@@ -39,7 +39,7 @@
   "abilities": [
     {
       "name": "Wall Slam",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",
@@ -53,7 +53,7 @@
           "effect": "The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed."
         },
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "6 damage",
           "t2": "9 damage; A<1 prone",
           "t3": "12 damage; A<2 prone can’t stand (EoT)"
@@ -78,7 +78,7 @@
           "effect": "The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind."
         },
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "Push 2",
           "t2": "Push 4",
           "t3": "Push 5"
@@ -105,7 +105,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Triggered Action",
+      "type": "Triggered action",
       "distance": "Melee 1",
       "target": "1 ally",
       "trigger": "A creature damages the wall with a strike.",

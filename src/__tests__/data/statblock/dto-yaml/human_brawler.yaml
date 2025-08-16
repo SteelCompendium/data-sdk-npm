@@ -29,7 +29,7 @@ traits:
       - effect: The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
 abilities:
   - name: Haymaker
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Melee
       - Strike
@@ -38,7 +38,7 @@ abilities:
     distance: Melee 1
     target: One creature or object
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 6 damage
         t2: 9 damage
         t3: 12 damage; M<2 grabbed, target has a bane on escaping the grab

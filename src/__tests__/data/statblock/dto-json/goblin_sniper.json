@@ -35,7 +35,7 @@
   "abilities": [
     {
       "name": "Bow",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Ranged",
         "Strike",
@@ -46,7 +46,7 @@
       "target": "One creature or object per minion",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "2 damage",
           "t2": "4 damage",
           "t3": "5 damage"

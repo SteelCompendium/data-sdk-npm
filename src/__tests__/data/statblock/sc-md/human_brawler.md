@@ -1,4 +1,4 @@
-**HUMAN BRAWLER**
+####### HUMAN BRAWLER
 
 |              Human, Humanoid              |         -         |      Level 1      |    PLATOON, BRUTE     |         EV 6         |
 |:-----------------------------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
@@ -6,23 +6,21 @@
 | **Corruption 1, Psychic 1**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
 |              **+2**<br>Might              | **+1**<br>Agility | **+0**<br>Reason  |  **+0**<br>Intuition  |  **+0**<br>Presence  |
 
-> **Shoot the Hostage**
+> ⭐️ **Shoot the Hostage**
 > 
 > The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage.
 
-> **Supernatural Insight**
+> ⭐️ **Supernatural Insight**
 > 
 > The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
 
----
-
-> **Haymaker (Signature)**
+> 🗡 **Haymaker (Signature Ability)**
 > 
-> | **Melee, Strike, Weapon** |                    **Action** |
-> | ------------------------- | -----------------------------:|
+> | **Melee, Strike, Weapon** |               **Main action** |
+> |---------------------------|------------------------------:|
 > | **📏 Melee 1**            | **🎯 One creature or object** |
 > 
-> **2d10 + 2:**
+> **Power Roll + 2:**
 > 
 > - **≤11:** 6 damage
 > - **12-16:** 9 damage
@@ -30,10 +28,10 @@
 > 
 > **Effect:** brawler deals an additional 2 damage if the target is already grabbed.
 
-> **Throw (1 Malice)**
+> 🗡 **Throw (1 Malice)**
 > 
 > | **—**          |                               **Maneuver** |
-> | -------------- | ------------------------------------------:|
+> |----------------|-------------------------------------------:|
 > | **📏 Melee 1** | **🎯 One creature grabbed by the brawler** |
 > 
 > **Effect:** Push 5.

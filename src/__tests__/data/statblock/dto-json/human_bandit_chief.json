@@ -44,7 +44,7 @@
   "abilities": [
     {
       "name": "Whip & Magic Longsword",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Magic",
         "Melee",
@@ -56,7 +56,7 @@
       "target": "Two enemies or objects",
       "effects": [
         {
-          "roll": "2d10 + 3",
+          "roll": "Power Roll + 3",
           "t1": "8 damage; pull 1",
           "t2": "12 damage; pull 2",
           "t3": "15 damage; pull 3"
@@ -81,7 +81,7 @@
       "target": "One enemy or object",
       "effects": [
         {
-          "roll": "2d10 + 3",
+          "roll": "Power Roll + 3",
           "t1": "Push 1; M<1 prone",
           "t2": "Push 2; M<2 prone",
           "t3": "Push 4; M<3 prone"
@@ -97,7 +97,7 @@
       "keywords": [
         "Magic"
       ],
-      "type": "Triggered Action",
+      "type": "Triggered action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The bandit chief makes a power roll.",
@@ -112,7 +112,7 @@
       "keywords": [
         "Area"
       ],
-      "type": "Villain Action 1",
+      "cost": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -126,7 +126,7 @@
       "keywords": [
         "Area"
       ],
-      "type": "Villain Action 2",
+      "cost": "Villain Action 2",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -140,7 +140,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Villain Action 3",
+      "cost": "Villain Action 3",
       "distance": "Self",
       "target": "Self",
       "effects": [

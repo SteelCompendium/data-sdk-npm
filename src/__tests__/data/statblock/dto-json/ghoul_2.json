@@ -44,7 +44,7 @@
   "abilities": [
     {
       "name": "Razor Claws",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Charge",
         "Melee",
@@ -56,7 +56,7 @@
       "target": "One creature or object",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "3 damage",
           "t2": "4 damage",
           "t3": "5 damage; M<2 bleeding (save ends)"

@@ -27,7 +27,7 @@ traits:
       - effect: The wallmaster starts combat affixed to a wall. At the start of each round of combat while affixed to a wall, the wallmaster creates a 20 wall of stone within a distance of 10 squares. Any walls created by the wallmaster in the previous round are destroyed or replaced by the new walls.
 abilities:
   - name: Wall Slam
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Melee
       - Strike
@@ -37,7 +37,7 @@ abilities:
     target: Two creatures or objects
     effects:
       - effect: The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 6 damage
         t2: 9 damage; A<1 prone
         t3: 12 damage; A<2 prone can’t stand (EoT)
@@ -52,7 +52,7 @@ abilities:
     target: 1 creature or object
     effects:
       - effect: The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: Push 2
         t2: Push 4
         t3: Push 5
@@ -68,7 +68,7 @@ abilities:
   - name: Wall Redirect
     keywords:
       - —
-    type: Triggered Action
+    type: Triggered action
     distance: Melee 1
     target: 1 ally
     trigger: A creature damages the wall with a strike.

@@ -33,7 +33,7 @@
   "abilities": [
     {
       "name": "Cacophony",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Area",
         "Magic"
@@ -43,7 +43,7 @@
       "target": "All enemies in the burst",
       "effects": [
         {
-          "roll": "2d10 + 3",
+          "roll": "Power Roll + 3",
           "t1": "3 sonic damage; slide 1; shift 1",
           "t2": "6 sonic damage; slide 3; shift 3",
           "t3": "8 sonic damage; slide 5; shift 5"
@@ -64,7 +64,7 @@
       "target": "Two enemies",
       "effects": [
         {
-          "roll": "2d10 + 3",
+          "roll": "Power Roll + 3",
           "t1": "P<1 Slowed (save ends)",
           "t2": "P<2 Slowed (save ends)",
           "t3": "P<3 Slowed (save ends)"
@@ -83,7 +83,7 @@
         "Melee",
         "Ranged"
       ],
-      "type": "Free Triggered Action",
+      "type": "Free Triggered action",
       "distance": "Ranged 5",
       "target": "One creature",
       "trigger": "The target deals damage to an ally or takes damage from an ally.",
@@ -98,7 +98,7 @@
       "keywords": [
         "Area"
       ],
-      "type": "Villain Action 1",
+      "cost": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -112,7 +112,7 @@
       "keywords": [
         "Ranged"
       ],
-      "type": "Villain Action 2",
+      "cost": "Villain Action 2",
       "distance": "Ranged 15",
       "target": "One creature",
       "effects": [
@@ -126,7 +126,7 @@
       "keywords": [
         "Area"
       ],
-      "type": "Villain Action 3",
+      "cost": "Villain Action 3",
       "distance": "10 burst",
       "target": "All dead allies in the burst",
       "effects": [

@@ -20,7 +20,7 @@ presence: 0
 traits: []
 abilities:
   - name: Concussive Bolts
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Charge
       - Melee
@@ -31,7 +31,7 @@ abilities:
     distance: Melee 1 or Ranged 10
     target: 1 creature or object
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 5 damage; push 2
         t2: 7 damage; push 4
         t3: 9 damage; push 6

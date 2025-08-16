@@ -1,4 +1,4 @@
-**GOBLIN BATTLEBORN**
+####### GOBLIN BATTLEBORN
 
 | Goblin, Humanoid, Mystic Goblin |           -           |      Level 2      |     HORDE, BRUTE      |         EV 4         |
 |:-------------------------------:|:---------------------:|:-----------------:|:---------------------:|:--------------------:|
@@ -6,31 +6,29 @@
 |       **-**<br>Immunities       | **climb**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
 |         **+2**<br>Might         |   **+1**<br>Agility   | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
-> **Cunning**
+> ⭐️ **Cunning**
 > 
 > The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whenever the battleborn is adjacent to an enemy and willingly moves to a space no longer adjacent to that enemy, the battleborn can make an opportunity attack against them as a triggered action.
 
----
-
-> **Spear Charge (Signature)**
+> 🗡 **Spear Charge (Signature Ability)**
 > 
-> | **Charge, Melee, Strike, Weapon** |                    **Action** |
-> | --------------------------------- | -----------------------------:|
+> | **Charge, Melee, Strike, Weapon** |               **Main action** |
+> |-----------------------------------|------------------------------:|
 > | **📏 Melee 1**                    | **🎯 One creature or object** |
 > 
-> **2d10 + 2:**
+> **Power Roll + 2:**
 > 
 > - **≤11:** 5 damage
 > - **12-16:** 6 damage
 > - **17+:** 8 damage; prone; the battleborn continues charging up to their speed or until they can make a free strike against another creature or object
 
-> **Battle Flurry (3 Malice)**
+> ❇️ **Battle Flurry (3 Malice)**
 > 
-> | **Area, Melee, Weapon** |                                   **Action** |
-> | ----------------------- | --------------------------------------------:|
+> | **Area, Melee, Weapon** |                              **Main action** |
+> |-------------------------|---------------------------------------------:|
 > | **📏 1 Burst**          | **🎯 Each creature and object in the burst** |
 > 
-> **2d10 + 2:**
+> **Power Roll + 2:**
 > 
 > - **≤11:** 3 damage; M<0 bleeding (save ends)
 > - **12-16:** 4 damage; M<1 bleeding (save ends)

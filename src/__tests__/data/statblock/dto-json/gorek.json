@@ -50,7 +50,7 @@
   "abilities": [
     {
       "name": "Brutal Impact",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

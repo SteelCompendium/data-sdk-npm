@@ -22,7 +22,7 @@ presence: -1
 traits: []
 abilities:
   - name: Rapier Flunge
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Melee
       - Strike
@@ -31,7 +31,7 @@ abilities:
     distance: Melee 1
     target: One creature or object per minion
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 1 damage; slide 1; shift 1
         t2: 2 damage; slide 2; shift 2
         t3: 3 damage; slide 3; shift 3
@@ -39,7 +39,7 @@ abilities:
     keywords:
       - Melee
       - Weapon
-    type: Triggered Action
+    type: Triggered action
     distance: Melee 1
     target: One creature
     trigger: An ally deals damage to the target.

@@ -34,7 +34,7 @@
   "abilities": [
     {
       "name": "Toxic Winds",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Area",
         "Magic",
@@ -45,7 +45,7 @@
       "target": "Each enemy in the cube",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "1 poison damage; slide 1",
           "t2": "2 poison damage; slide 2",
           "t3": "3 poison damage; slide 3"

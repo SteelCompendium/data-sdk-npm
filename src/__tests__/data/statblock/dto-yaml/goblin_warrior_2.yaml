@@ -24,7 +24,7 @@ traits:
       - effect: The warrior doesn’t provoke opportunity attacks by moving.
 abilities:
   - name: Spear Charge
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Charge
       - Melee
@@ -34,7 +34,7 @@ abilities:
     distance: Melee 1
     target: One creature or object
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 3 damage
         t2: 4 damage
         t3: 5 damage
@@ -48,7 +48,7 @@ abilities:
     distance: Melee 1
     target: One creature
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 5 damage; M<0 bleeding (save ends)
         t2: 6 damage; M<1 bleeding (save ends)
         t3: 7 damage; M<2 bleeding (save ends)

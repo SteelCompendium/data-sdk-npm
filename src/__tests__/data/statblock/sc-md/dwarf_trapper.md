@@ -1,4 +1,4 @@
-**DWARF TRAPPER**
+####### DWARF TRAPPER
 
 |   Dwarf, Humanoid   |         -         |      Level 1      |   PLATOON, HARRIER    |         EV 6         |
 |:-------------------:|:-----------------:|:-----------------:|:---------------------:|:--------------------:|
@@ -6,15 +6,13 @@
 | **-**<br>Immunities | **-**<br>Movement |                   | **-**<br>With Captain | **-**<br>Weaknesses  |
 |   **+0**<br>Might   | **+2**<br>Agility | **+0**<br>Reason  |  **+1**<br>Intuition  |  **+0**<br>Presence  |
 
----
-
-> **Concussive Bolts (Signature)**
+> ⚔️ **Concussive Bolts (Signature Ability)**
 > 
-> | **Charge, Melee, Ranged, Strike, Weapon** |                  **Action** |
-> | ----------------------------------------- | ---------------------------:|
+> | **Charge, Melee, Ranged, Strike, Weapon** |             **Main action** |
+> |-------------------------------------------|----------------------------:|
 > | **📏 Melee 1 or Ranged 10**               | **🎯 1 creature or object** |
 > 
-> **2d10 + 2:**
+> **Power Roll + 2:**
 > 
 > - **≤11:** 5 damage; push 2
 > - **12-16:** 7 damage; push 4
@@ -22,10 +20,10 @@
 > 
 > **Effect:** A target restrained by a dwarf can be pushed by this ability.
 
-> **Steam Powered Snare (3 Malice)**
+> 🔳 **Steam Powered Snare (3 Malice)**
 > 
 > | **Area, Ranged**       |                   **Maneuver** |
-> | ---------------------- | ------------------------------:|
+> |------------------------|-------------------------------:|
 > | **📏 3 cube within 5** | **🎯 All enemies in the cube** |
 > 
 > **Each target makes a Might test.:**

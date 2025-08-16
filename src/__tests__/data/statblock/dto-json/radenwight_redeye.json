@@ -26,7 +26,7 @@
   "abilities": [
     {
       "name": "Eyes-On-Me Shot",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Ranged",
         "Strike",
@@ -37,7 +37,7 @@
       "target": "One creature or object per minion",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "2 damage",
           "t2": "4 damage",
           "t3": "5 damage"
@@ -53,7 +53,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Triggered Action",
+      "type": "Triggered action",
       "distance": "Melee 1",
       "target": "One creature",
       "trigger": "An ally deals damage to the target.",

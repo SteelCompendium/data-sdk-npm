@@ -27,7 +27,7 @@
   "abilities": [
     {
       "name": "Bite",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",
@@ -38,7 +38,7 @@
       "target": "One creature or object",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "7 damage",
           "t2": "11 damage",
           "t3": "14 damage; A<2 bleeding (save ends)"
@@ -61,7 +61,7 @@
       "target": "Two creatures or objects",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "6 damage",
           "t2": "9 damage",
           "t3": "12 damage"
@@ -94,7 +94,7 @@
       "target": "All creatures in the cube",
       "effects": [
         {
-          "roll": "2d10 + 2",
+          "roll": "Power Roll + 2",
           "t1": "A<0 r estrained (save ends)",
           "t2": "A<1 r estrained (save ends)",
           "t3": "A<2 r estrained (save ends)"
@@ -106,7 +106,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Triggered Action",
+      "type": "Triggered action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The spider takes damage.",

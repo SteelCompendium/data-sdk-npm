@@ -1,4 +1,4 @@
-**WEREWOLF**
+####### WEREWOLF
 
 | Accursed, Humanoid, Werebeast |         -         |      Level 1       |         SOLO          |        EV 36         |
 |:-----------------------------:|:-----------------:|:------------------:|:---------------------:|:--------------------:|
@@ -6,37 +6,35 @@
 |      **-**<br>Immunities      | **-**<br>Movement |                    | **-**<br>With Captain | **-**<br>Weaknesses  |
 |        **+3**<br>Might        | **+2**<br>Agility |  **-1**<br>Reason  |  **+1**<br>Intuition  |  **+1**<br>Presence  |
 
-> **Solo Monster**
+> ⭐️ **Solo Monster**
 > 
 > **Solo Turns:** The werewolf takes up to two turns each round. They can’t take turns consecutively.
 > 
 > **End Effect:** At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.
 
-> **Shapeshifter**
+> ⭐️ **Shapeshifter**
 > 
 > The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability.
 
-> **Shared Ferocity**
+> ⭐️ **Shared Ferocity**
 > 
 > The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf.
 
-> **Accursed Rage**
+> ⭐️ **Accursed Rage**
 > 
 > The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite.
 
-> **Vukenstep**
+> ⭐️ **Vukenstep**
 > 
 > The werewolf ignores difficult terrain.
 
----
-
-> **Accursed Bite (Signature)**
+> 🗡 **Accursed Bite (Signature Ability)**
 > 
-> | **Charge, Melee, Strike, Weapon** |                  **Action** |
-> | --------------------------------- | ---------------------------:|
+> | **Charge, Melee, Strike, Weapon** |             **Main action** |
+> |-----------------------------------|----------------------------:|
 > | **📏 Melee 1**                    | **🎯 1 creature or object** |
 > 
-> **2d10 + 3:**
+> **Power Roll + 3:**
 > 
 > - **≤11:** 9 damage; 2 rage
 > - **12-16:** 13 damage; 4 rage
@@ -46,25 +44,25 @@
 > 
 > **Effect:** A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition.
 
-> **Ripping Claws**
+> 🗡 **Ripping Claws**
 > 
-> | **Melee, Strike, Weapon** |                      **Action** |
-> | ------------------------- | -------------------------------:|
+> | **Melee, Strike, Weapon** |                 **Main action** |
+> |---------------------------|--------------------------------:|
 > | **📏 Melee 1**            | **🎯 Two creatures or objects** |
 > 
-> **2d10 + 3:**
+> **Power Roll + 3:**
 > 
 > - **≤11:** 8 damage; M<1 bleeding (save ends)
 > - **12-16:** 11 damage; 1 rage; M<2 bleeding (save ends)
 > - **17+:** 14 damage; 3 rage; M<3 bleeding (save ends)
 
-> **Berserker Slash (3 Malice)**
+> ❇️ **Berserker Slash (3 Malice)**
 > 
-> | **Area, Melee, Weapon** |                                  **Action** |
-> | ----------------------- | -------------------------------------------:|
+> | **Area, Melee, Weapon** |                             **Main action** |
+> |-------------------------|--------------------------------------------:|
 > | **📏 1 burst**          | **🎯 All enemies and objects in the burst** |
 > 
-> **2d10 + 3:**
+> **Power Roll + 3:**
 > 
 > - **≤11:** 4 damage; push 2
 > - **12-16:** 6 damage; 1 rage; push 3
@@ -72,28 +70,28 @@
 > 
 > **Effect:** The werewolf shifts up to their speed before using this ability.
 
-> **Wall Leap**
+> 👤 **Wall Leap**
 > 
 > | **—**       | **Maneuver** |
-> | ----------- | ------------:|
+> |-------------|-------------:|
 > | **📏 Self** |  **🎯 Self** |
 > 
 > **Effect:** The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone.
 
-> **Facepalm and Head Slam (2 Malice)**
+> ❗️ **Facepalm and Head Slam (2 Malice)**
 > 
-> | **—**          | **Triggered Action** |
-> | -------------- | --------------------:|
+> | **—**          | **Triggered action** |
+> |----------------|---------------------:|
 > | **📏 Melee 1** |    **🎯 1 creature** |
 > 
 > **Trigger:** The target targets the werewolf with a melee ability after charging or moving 2 or more squares in a straight line towards them.
 > 
 > **Effect:** The target is knocked prone and takes 5 damage before executing the ability.
 
-> **Howl**
+> ☠️ **Howl (Villain Action 1)**
 > 
-> | **Area**       |            **Villain Action 1** |
-> | -------------- | -------------------------------:|
+> | **Area**       |                           **-** |
+> |----------------|--------------------------------:|
 > | **📏 5 burst** | **🎯 All enemies in the burst** |
 > 
 > **Each target makes an Intuition test.:**
@@ -104,21 +102,21 @@
 > 
 > **Effect:** Enemies that have 1 or more rage gain 4 rage and howl along with the werewolf.
 
-> **Full Wolf**
+> ☠️ **Full Wolf (Villain Action 2)**
 > 
-> | **—**       | **Villain Action 2** |
-> | ----------- | --------------------:|
-> | **📏 Self** |          **🎯 Self** |
+> | **—**       |       **-** |
+> |-------------|------------:|
+> | **📏 Self** | **🎯 Self** |
 > 
 > **Effect:** The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1.
 
-> **Rampage**
+> ☠️ **Rampage (Villain Action 3)**
 > 
-> | **Area, Melee, Weapon** |              **Villain Action 3** |
-> | ----------------------- | ---------------------------------:|
+> | **Area, Melee, Weapon** |                             **-** |
+> |-------------------------|----------------------------------:|
 > | **📏 2 burst**          | **🎯 All creatures in the burst** |
 > 
-> **2d10 + 3:**
+> **Power Roll + 3:**
 > 
 > - **≤11:** 5 damage; 2 rage; M<1 bleeding (save ends)
 > - **12-16:** 8 damage; 4 rage; M<2 bleeding (save ends)

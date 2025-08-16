@@ -43,7 +43,7 @@
   "abilities": [
     {
       "name": "Zweihander Swing",
-      "cost": "Signature",
+      "cost": "Signature Ability",
       "keywords": [
         "Area",
         "Melee",
@@ -54,7 +54,7 @@
       "target": "All enemies in the burst",
       "effects": [
         {
-          "roll": "2d10 + 3",
+          "roll": "Power Roll + 3",
           "t1": "3 damage; M<1 slowed (save ends)",
           "t2": "6 damage; M<2 slowed (save ends)",
           "t3": "8 damage; M<3 slowed (save ends)"
@@ -87,7 +87,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Triggered Action",
+      "type": "Triggered action",
       "distance": "Melee 1",
       "target": "Self or one ally",
       "trigger": "A creature targets the blackguard or an ally adjacent to Cornelia with a strike.",
@@ -102,7 +102,7 @@
       "keywords": [
         "—"
       ],
-      "type": "Villain Action 1",
+      "cost": "Villain Action 1",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -117,7 +117,7 @@
         "Area",
         "Magic"
       ],
-      "type": "Villain Action 2",
+      "cost": "Villain Action 2",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -134,7 +134,7 @@
         "Ranged",
         "Weapon"
       ],
-      "type": "Villain Action 3",
+      "cost": "Villain Action 3",
       "distance": "3 cube within 5",
       "target": "Each enemy in the cube",
       "effects": [

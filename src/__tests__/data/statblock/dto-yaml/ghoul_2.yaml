@@ -28,7 +28,7 @@ traits:
       - effect: The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 1 Stamina and fall prone.
 abilities:
   - name: Razor Claws
-    cost: Signature
+    cost: Signature Ability
     keywords:
       - Charge
       - Melee
@@ -38,7 +38,7 @@ abilities:
     distance: Melee 1
     target: One creature or object
     effects:
-      - roll: 2d10 + 2
+      - roll: Power Roll + 2
         t1: 3 damage
         t2: 4 damage
         t3: 5 damage; M<2 bleeding (save ends)

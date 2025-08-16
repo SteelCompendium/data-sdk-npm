@@ -1,4 +1,4 @@
-**GOBLIN SNIPER**
+####### GOBLIN SNIPER
 
 |  Goblin, Humanoid   |           -           |     Level 1      |           MINION, ARTILLERY            | EV 3 for four minions |
 |:-------------------:|:---------------------:|:----------------:|:--------------------------------------:|:---------------------:|
@@ -6,19 +6,17 @@
 | **-**<br>Immunities | **climb**<br>Movement |                  | **Ranged distance +5**<br>With Captain |  **-**<br>Weaknesses  |
 |   **-2**<br>Might   |   **+2**<br>Agility   | **+0**<br>Reason |          **+0**<br>Intuition           |  **-1**<br>Presence   |
 
-> **Crafty**
+> ⭐️ **Crafty**
 > 
 > The sniper doesn’t provoke opportunity attacks by moving.
 
----
-
-> **Bow (Signature)**
+> 🏹 **Bow (Signature Ability)**
 > 
-> | **Ranged, Strike, Weapon** |                               **Action** |
-> | -------------------------- | ----------------------------------------:|
+> | **Ranged, Strike, Weapon** |                          **Main action** |
+> |----------------------------|-----------------------------------------:|
 > | **📏 Ranged 10**           | **🎯 One creature or object per minion** |
 > 
-> **2d10 + 2:**
+> **Power Roll + 2:**
 > 
 > - **≤11:** 2 damage
 > - **12-16:** 4 damage
