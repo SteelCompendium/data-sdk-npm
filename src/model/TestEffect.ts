@@ -1,6 +1,8 @@
 import { Effect } from './Effect';
 
 export class TestEffect extends Effect {
+    name?: string;
+    cost?: string;
     effect?: string;
     t1?: string;
     t2?: string;
@@ -15,6 +17,8 @@ export class TestEffect extends Effect {
     public static fromDTO(dto: any): TestEffect {
         const data: any = dto;
         return new TestEffect({
+            name: data.name,
+            cost: data.cost,
             effect: data.effect,
             t1: data.t1 ?? data["tier 1"] ?? data["11 or lower"] ?? data["≤11"],
             t2: data.t2 ?? data["tier 2"] ?? data["12-16"] ?? data["12–16"],
@@ -25,6 +29,8 @@ export class TestEffect extends Effect {
 
     public toDTO(): any {
         const dto: any = {};
+        if (this.name !== undefined) dto.name = this.name;
+        if (this.cost !== undefined) dto.cost = this.cost;
         if (this.effect !== undefined) dto.effect = this.effect;
         if (this.t1 !== undefined) dto.t1 = this.t1;
         if (this.t2 !== undefined) dto.t2 = this.t2;
@@ -36,6 +42,8 @@ export class TestEffect extends Effect {
     public toXmlDTO() {
         return {
             '@_type': 'test',
+            name: this.name,
+            cost: this.cost,
             effect: this.effect,
             t1: this.t1,
             t2: this.t2,

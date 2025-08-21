@@ -1,5 +1,7 @@
 import { Effect } from './Effect';
 export declare class TestEffect extends Effect {
+    name?: string;
+    cost?: string;
     effect?: string;
     t1?: string;
     t2?: string;
@@ -10,6 +12,8 @@ export declare class TestEffect extends Effect {
     toDTO(): any;
     toXmlDTO(): {
         '@_type': string;
+        name: string | undefined;
+        cost: string | undefined;
         effect: string | undefined;
         t1: string | undefined;
         t2: string | undefined;

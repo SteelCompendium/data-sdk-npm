@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.37
+
+- Corrects a bug with TestEffects being parsed with the name in the effect
+- TestEffects now support a `name` and `cost` field
+- Effects with name "Effect" are no longer parsed without populating the `name` field
+
 ## 0.0.36
 
 - Adds a new "Effect" type: Test Effects

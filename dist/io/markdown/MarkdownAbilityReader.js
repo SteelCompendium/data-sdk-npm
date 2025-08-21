@@ -96,21 +96,9 @@ class MarkdownAbilityReader {
         // Effects
         while (i < lines.length) {
             const line = lines[i];
-            if (line.startsWith('**')) {
-                let hasTiers = false;
-                // Peek ahead to see if there are roll tiers
-                if (i + 1 < lines.length) {
-                    const nextLine = lines[i + 1].trim();
-                    if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                        hasTiers = true;
-                    }
-                }
-                if (!hasTiers && i + 2 < lines.length) {
-                    const nextLine = lines[i + 2].trim();
-                    if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                        hasTiers = true;
-                    }
-                }
+            // Power Roll Effect
+            if (line.startsWith('**') && line.endsWith(':**')) {
+                let hasTiers = this.peekToCheckForTiers(i, lines);
                 if (hasTiers) {
                     let tierEffect;
                     if (line.includes("Power Roll") || line.includes("2d10")) {
@@ -122,29 +110,12 @@ class MarkdownAbilityReader {
                         tierEffect.effect = line.replace(/\*\*|:/g, '').trim();
                     }
                     i++;
-                    while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
-                        const rollLine = lines[i].trim();
-                        if (rollLine === '') {
-                            i++;
-                            continue;
-                        }
-                        const separatorIndex = rollLine.indexOf(':');
-                        const tier = rollLine.substring(0, separatorIndex);
-                        const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
-                        if (tier.includes('≤11'))
-                            tierEffect.t1 = description.trim();
-                        else if (tier.includes('12-16'))
-                            tierEffect.t2 = description.trim();
-                        else if (tier.includes('17+'))
-                            tierEffect.t3 = description.trim();
-                        else if (tier.includes('19-20'))
-                            tierEffect.crit = description.trim();
-                        i++;
-                    }
+                    i = this.parseTiers(i, lines, tierEffect);
                     effects.push(tierEffect);
                     continue;
                 }
             }
+            // Trigger
             if (line.startsWith('**Trigger:**')) {
                 let triggerText = line.substring('**Trigger:**'.length).trim();
                 i++;
@@ -161,7 +132,7 @@ class MarkdownAbilityReader {
                 const nameAndCost = effectMatch[1];
                 let effect = effectMatch[2];
                 i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
+                while (i < lines.length && !lines[i].startsWith('**') && !lines[i].startsWith('- **')) {
                     effect += '\n' + lines[i];
                     i++;
                 }
@@ -169,7 +140,7 @@ class MarkdownAbilityReader {
                 if (nameAndCost.trim().match(/\d+\+*\s*\w+/)) {
                     effectProps.cost = nameAndCost.trim();
                 }
-                else if (nameAndCost.trim().toLowerCase() !== 'effect') {
+                else {
                     effectProps.name = nameAndCost.trim();
                 }
                 // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
@@ -183,7 +154,20 @@ class MarkdownAbilityReader {
                 // if (name.toLowerCase() !== 'effect') {
                 //     effectProps.name = name;
                 // }
-                effects.push(new model_1.MundaneEffect(effectProps));
+                // If we find tiers, rewrite the effect as Test Effect
+                let hasTiers = this.peekToCheckForTiers(i, lines);
+                if (hasTiers) {
+                    let tierEffect = new TestEffect_1.TestEffect({
+                        name: effectProps.name,
+                        cost: effectProps.cost,
+                        effect: effectProps.effect
+                    });
+                    i = this.parseTiers(i, lines, tierEffect);
+                    effects.push(tierEffect);
+                }
+                else {
+                    effects.push(new model_1.MundaneEffect(effectProps));
+                }
                 continue;
             }
             // If we've reached here and the line is not empty, it must be a simple effect
@@ -203,6 +187,45 @@ class MarkdownAbilityReader {
         const ability = new model_1.Ability(partial);
         ability.effects = new Effects_1.Effects(effects);
         return ability;
+    }
+    parseTiers(i, lines, tierEffect) {
+        while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
+            const rollLine = lines[i].trim();
+            if (rollLine === '') {
+                i++;
+                continue;
+            }
+            const separatorIndex = rollLine.indexOf(':');
+            const tier = rollLine.substring(0, separatorIndex);
+            const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
+            if (tier.includes('≤11'))
+                tierEffect.t1 = description.trim();
+            else if (tier.includes('12-16'))
+                tierEffect.t2 = description.trim();
+            else if (tier.includes('17+'))
+                tierEffect.t3 = description.trim();
+            else if (tier.includes('19-20'))
+                tierEffect.crit = description.trim();
+            i++;
+        }
+        return i;
+    }
+    peekToCheckForTiers(i, lines) {
+        let hasTiers = false;
+        // Peek ahead to see if there are roll tiers
+        if (i + 1 < lines.length) {
+            const nextLine = lines[i + 1].trim();
+            if (nextLine.startsWith('- **') && nextLine.includes(':')) {
+                hasTiers = true;
+            }
+        }
+        if (!hasTiers && i + 2 < lines.length) {
+            const nextLine = lines[i + 2].trim();
+            if (nextLine.startsWith('- **') && nextLine.includes(':')) {
+                hasTiers = true;
+            }
+        }
+        return hasTiers;
     }
 }
 exports.MarkdownAbilityReader = MarkdownAbilityReader;

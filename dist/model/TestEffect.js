@@ -11,6 +11,8 @@ class TestEffect extends Effect_1.Effect {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k;
         const data = dto;
         return new TestEffect({
+            name: data.name,
+            cost: data.cost,
             effect: data.effect,
             t1: (_c = (_b = (_a = data.t1) !== null && _a !== void 0 ? _a : data["tier 1"]) !== null && _b !== void 0 ? _b : data["11 or lower"]) !== null && _c !== void 0 ? _c : data["≤11"],
             t2: (_f = (_e = (_d = data.t2) !== null && _d !== void 0 ? _d : data["tier 2"]) !== null && _e !== void 0 ? _e : data["12-16"]) !== null && _f !== void 0 ? _f : data["12–16"],
@@ -20,6 +22,10 @@ class TestEffect extends Effect_1.Effect {
     }
     toDTO() {
         const dto = {};
+        if (this.name !== undefined)
+            dto.name = this.name;
+        if (this.cost !== undefined)
+            dto.cost = this.cost;
         if (this.effect !== undefined)
             dto.effect = this.effect;
         if (this.t1 !== undefined)
@@ -35,6 +41,8 @@ class TestEffect extends Effect_1.Effect {
     toXmlDTO() {
         return {
             '@_type': 'test',
+            name: this.name,
+            cost: this.cost,
             effect: this.effect,
             t1: this.t1,
             t2: this.t2,

@@ -1,6 +1,6 @@
 {
   "name": "steel-compendium-sdk",
-  "version": "0.0.36",
+  "version": "0.0.37",
   "description": "A Software Development Kit for Steel Compendium data.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
