@@ -1,6 +1,7 @@
 import { Effect } from './Effect';
 import { MundaneEffect } from './MundaneEffect';
 import { PowerRollEffect } from './PowerRollEffect';
+import {TestEffect} from "./TestEffect";
 
 export class Effects {
     effects: Effect[];
@@ -34,10 +35,14 @@ export function effectFromDTO(effect_data: any): Effect {
         return new MundaneEffect({ effect: effect_data['#text'], name: effect_data['@_name'], cost: effect_data['@_cost'] });
     } else if (effect_data['@_type'] === "roll") {
         return PowerRollEffect.fromDTO(effect_data);
+    } else if (effect_data['@_type'] === "test") {
+        return TestEffect.fromDTO(effect_data);
     } else if (effect_data.type === "mundane") {
         return new MundaneEffect({ effect: effect_data.text, name: effect_data.name, cost: effect_data.cost });
     } else if (effect_data.roll) {
         return PowerRollEffect.fromDTO(effect_data);
+    } else if (effect_data.test && effect_data.t1) {
+        return TestEffect.fromDTO(effect_data);
     } else if (typeof effect_data === "string") {
         return new MundaneEffect({ effect: effect_data });
     } else if (effect_data.effect) {

@@ -37,6 +37,7 @@ exports.MarkdownAbilityReader = void 0;
 const model_1 = require("../../model");
 const Effects_1 = require("../../model/Effects");
 const yaml = __importStar(require("js-yaml"));
+const TestEffect_1 = require("../../model/TestEffect");
 class MarkdownAbilityReader {
     constructor() { }
     read(content) {
@@ -95,24 +96,31 @@ class MarkdownAbilityReader {
         // Effects
         while (i < lines.length) {
             const line = lines[i];
-            if (line.startsWith('**') && line.endsWith(':**')) {
-                let isPowerRoll = false;
+            if (line.startsWith('**')) {
+                let hasTiers = false;
                 // Peek ahead to see if there are roll tiers
                 if (i + 1 < lines.length) {
                     const nextLine = lines[i + 1].trim();
                     if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                        isPowerRoll = true;
+                        hasTiers = true;
                     }
                 }
-                if (!isPowerRoll && i + 2 < lines.length) {
+                if (!hasTiers && i + 2 < lines.length) {
                     const nextLine = lines[i + 2].trim();
                     if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                        isPowerRoll = true;
+                        hasTiers = true;
                     }
                 }
-                if (isPowerRoll) {
-                    const powerRollEffect = new model_1.PowerRollEffect({});
-                    powerRollEffect.roll = line.replace(/\*\*|:/g, '').trim();
+                if (hasTiers) {
+                    let tierEffect;
+                    if (line.includes("Power Roll") || line.includes("2d10")) {
+                        tierEffect = new model_1.PowerRollEffect({});
+                        tierEffect.roll = line.replace(/\*\*|:/g, '').trim();
+                    }
+                    else {
+                        tierEffect = new TestEffect_1.TestEffect({});
+                        tierEffect.effect = line.replace(/\*\*|:/g, '').trim();
+                    }
                     i++;
                     while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
                         const rollLine = lines[i].trim();
@@ -124,16 +132,16 @@ class MarkdownAbilityReader {
                         const tier = rollLine.substring(0, separatorIndex);
                         const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
                         if (tier.includes('≤11'))
-                            powerRollEffect.t1 = description.trim();
+                            tierEffect.t1 = description.trim();
                         else if (tier.includes('12-16'))
-                            powerRollEffect.t2 = description.trim();
+                            tierEffect.t2 = description.trim();
                         else if (tier.includes('17+'))
-                            powerRollEffect.t3 = description.trim();
+                            tierEffect.t3 = description.trim();
                         else if (tier.includes('19-20'))
-                            powerRollEffect.crit = description.trim();
+                            tierEffect.crit = description.trim();
                         i++;
                     }
-                    effects.push(powerRollEffect);
+                    effects.push(tierEffect);
                     continue;
                 }
             }

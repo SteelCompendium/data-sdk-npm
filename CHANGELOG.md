@@ -1,5 +1,24 @@
 # Changelog
 
+## 0.0.36
+
+- Adds a new "Effect" type: Test Effects
+  - Use case is to handle abilities with an effect where the target rolls a Power Roll. Like this:
+
+```markdown
+> ☠️ **Howl (Villain Action 1)**
+>
+> | **Area**       |                         **-** |
+> | -------------- | ----------------------------: |
+> | **📏 5 burst** | **🎯 Each enemy in the area** |
+>
+> **Effect:** Each target makes an Intuition test.
+>
+> - **≤11:** The target must move their speed in a straight line away from the werewolf; frightened (save ends)
+> - **12-16:** Frightened (EoT)
+> - **17+:** No effect
+```
+
 ## 0.0.35
 
 - Villain action moved to cost

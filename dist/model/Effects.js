@@ -4,6 +4,7 @@ exports.Effects = void 0;
 exports.effectFromDTO = effectFromDTO;
 const MundaneEffect_1 = require("./MundaneEffect");
 const PowerRollEffect_1 = require("./PowerRollEffect");
+const TestEffect_1 = require("./TestEffect");
 class Effects {
     constructor(effects) {
         this.effects = effects;
@@ -33,11 +34,17 @@ function effectFromDTO(effect_data) {
     else if (effect_data['@_type'] === "roll") {
         return PowerRollEffect_1.PowerRollEffect.fromDTO(effect_data);
     }
+    else if (effect_data['@_type'] === "test") {
+        return TestEffect_1.TestEffect.fromDTO(effect_data);
+    }
     else if (effect_data.type === "mundane") {
         return new MundaneEffect_1.MundaneEffect({ effect: effect_data.text, name: effect_data.name, cost: effect_data.cost });
     }
     else if (effect_data.roll) {
         return PowerRollEffect_1.PowerRollEffect.fromDTO(effect_data);
+    }
+    else if (effect_data.test && effect_data.t1) {
+        return TestEffect_1.TestEffect.fromDTO(effect_data);
     }
     else if (typeof effect_data === "string") {
         return new MundaneEffect_1.MundaneEffect({ effect: effect_data });
