@@ -190,20 +190,19 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
     }
 
     private peekToCheckForTiers(i: number, lines: string[]) {
-        let hasTiers = false;
         // Peek ahead to see if there are roll tiers
         if (i + 1 < lines.length) {
             const nextLine = lines[i + 1].trim();
             if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                hasTiers = true;
+                return true
             }
         }
-        if (!hasTiers && i + 2 < lines.length) {
+        if (i + 2 < lines.length) {
             const nextLine = lines[i + 2].trim();
             if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                hasTiers = true;
+                return true
             }
         }
-        return hasTiers;
+        return false;
     }
 }
