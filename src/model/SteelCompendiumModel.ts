@@ -27,6 +27,7 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> im
     public abstract toDTO(): Partial<D>;
 }
 
+// Pseudo Models are for objects that are not directly mapped to a DTO
 export interface SteelCompendiumPseudoModel { }
 
 export type ModelDTOAdapter<M extends SteelCompendiumModel<T>, T extends SteelCompendiumDTO<M>> = (source: Partial<T>) => M;

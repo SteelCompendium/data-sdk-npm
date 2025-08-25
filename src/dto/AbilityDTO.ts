@@ -11,7 +11,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     trigger?: string;
     effects!: any[];
     flavor?: string;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, any>[];
 
     public constructor(source: Partial<AbilityDTO>) {
         super(source);

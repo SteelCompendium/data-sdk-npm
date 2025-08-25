@@ -3,6 +3,7 @@ import { Effects } from "./Effects";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 
+// Abilities as currently implemented blend the line of Ability and Trait...
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
     cost?: string;
@@ -13,11 +14,12 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     target?: string;
     trigger?: string;
     effects: Effects;
-    metadata?: Record<string, any>;
+    metadata?: Record<string, any>[];
 
     public constructor(source: Partial<Ability>) {
         super();
         Object.assign(this, source);
+        this.metadata = source.metadata ?? [];
         this.effects = source.effects ?? new Effects([]);
     }
 
@@ -38,6 +40,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
         return AbilityXmlDTO.partialFromModel(this);
     }
 
+    // This is not comprehensive
     public isTrait() {
         return (!this.keywords || this.keywords?.length == 0) && !this.type && !this.distance && !this.target;
     }

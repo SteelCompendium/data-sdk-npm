@@ -1,6 +1,6 @@
-import { TraitDTO } from "../dto";
-import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
-import { Effects } from "./Effects";
+import {TraitDTO} from "../dto";
+import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
+import {Effects} from "./Effects";
 
 export class Trait extends SteelCompendiumModel<TraitDTO> {
     name?: string;
@@ -12,10 +12,14 @@ export class Trait extends SteelCompendiumModel<TraitDTO> {
         this.effects = source.effects ?? new Effects([]);
     }
 
+    public featureType(): string {
+        return "Trait";
+    }
+
     public static modelDTOAdapter: ModelDTOAdapter<Trait, TraitDTO> = (source: Partial<TraitDTO>) => new TraitDTO(source).toModel();
 
     public static fromDTO(dto: TraitDTO): Trait {
-        const newDto = { ...dto };
+        const newDto = {...dto};
         if (newDto.name) {
             newDto.name = newDto.name.trim();
         }

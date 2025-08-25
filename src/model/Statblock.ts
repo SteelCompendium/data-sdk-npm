@@ -1,8 +1,8 @@
-import { Ability } from "./Ability";
-import { Trait } from "./Trait";
-import { Characteristics } from "./Characteristics";
-import { StatblockDTO } from "../dto";
-import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import {Ability} from "./Ability";
+import {Trait} from "./Trait";
+import {Characteristics} from "./Characteristics";
+import {StatblockDTO} from "../dto";
+import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
 
 export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     name!: string;

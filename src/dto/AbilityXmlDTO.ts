@@ -1,6 +1,5 @@
 import { SteelCompendiumDTO } from "./SteelCompendiumDTO";
 import { Ability, Effects } from "../model";
-import { MundaneEffect } from "../model";
 
 export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
     name!: string;
