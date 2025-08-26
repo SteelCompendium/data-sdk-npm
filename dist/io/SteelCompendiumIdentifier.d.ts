@@ -1,5 +1,6 @@
 import { IDataReader } from './IDataReader';
 import { Ability, Statblock } from '../model';
+import { Featureblock } from '../model/Featureblock';
 export declare enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
@@ -9,8 +10,8 @@ export declare enum SteelCompendiumFormat {
 }
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
-    model: typeof Ability | typeof Statblock | null;
-    getReader(): IDataReader<Ability | Statblock>;
+    model: typeof Ability | typeof Statblock | typeof Featureblock | null;
+    getReader(): IDataReader<Ability | Statblock | Featureblock>;
 }
 export declare class SteelCompendiumIdentifier {
     static parse(format: string, model: string): IdentificationResult;

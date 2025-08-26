@@ -9,7 +9,7 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     flavor?: string;
     stamina?: string;
     size?: string;
-    stats?: Record<string, any>[];
+    stats?: Record<string, any>;
     features!: any[];
 
     public constructor(source: Partial<FeatureblockDTO>) {

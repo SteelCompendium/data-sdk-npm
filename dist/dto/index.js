@@ -15,6 +15,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./AbilityDTO"), exports);
+__exportStar(require("./FeatureblockDTO"), exports);
 __exportStar(require("./StatblockDTO"), exports);
 __exportStar(require("./SteelCompendiumDTO"), exports);
 __exportStar(require("./TraitDTO"), exports);

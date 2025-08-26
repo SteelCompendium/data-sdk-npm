@@ -56,7 +56,7 @@ function parseArgs() {
         }
     }
     if (rest.length !== 1 || !cli.from || !cli.to) {
-        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--type <ability|statblock>] [--output <out>] <input>`);
+        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--type <ability|statblock|featureblock>] [--output <out>] <input>`);
         process.exit(1);
     }
     return {

@@ -7,6 +7,8 @@ import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Ability, Statblock } from '../model';
 import { XMLParser } from 'fast-xml-parser';
 import {MarkdownStatblockReader} from "./markdown";
+import { Featureblock } from '../model/Featureblock';
+import {MarkdownFeatureblockReader} from "./markdown/MarkdownFeatureblockReader";
 
 export enum SteelCompendiumFormat {
     Json = "json",
@@ -18,8 +20,8 @@ export enum SteelCompendiumFormat {
 
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
-    model: typeof Ability | typeof Statblock | null;
-    getReader(): IDataReader<Ability | Statblock>;
+    model: typeof Ability | typeof Statblock | typeof Featureblock | null;
+    getReader(): IDataReader<Ability | Statblock | Featureblock>;
 }
 
 export class SteelCompendiumIdentifier {
@@ -39,6 +41,13 @@ export class SteelCompendiumIdentifier {
                     getReader: () => new MarkdownStatblockReader(),
                 }
             }
+            if (model === "featureblock") {
+                return {
+                    format: SteelCompendiumFormat.Markdown,
+                    model: Featureblock,
+                    getReader: () => new MarkdownFeatureblockReader(),
+                }
+            }
         }
         if (format === SteelCompendiumFormat.Json) {
             if (model === "ability") {
@@ -53,6 +62,13 @@ export class SteelCompendiumIdentifier {
                     format: SteelCompendiumFormat.Json,
                     model: Statblock,
                     getReader: () => new JsonReader(Statblock.modelDTOAdapter),
+                }
+            }
+            if (model === "featureblock") {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: Featureblock,
+                    getReader: () => new JsonReader(Featureblock.modelDTOAdapter),
                 }
             }
         }
@@ -71,6 +87,13 @@ export class SteelCompendiumIdentifier {
                     getReader: () => new YamlReader(Statblock.modelDTOAdapter),
                 }
             }
+            if (model === "featureblock") {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: Featureblock,
+                    getReader: () => new YamlReader(Featureblock.modelDTOAdapter),
+                }
+            }
         }
         if (format === SteelCompendiumFormat.Xml) {
             if (model === "ability") {
@@ -80,11 +103,20 @@ export class SteelCompendiumIdentifier {
                     getReader: () => new XmlAbilityReader(),
                 }
             }
-            console.log("statblocks dont currently support xml");
+            console.log("statblocks and featureblocks dont currently support xml");
             if (model === "statblock") {
                 return {
                     format: SteelCompendiumFormat.Xml,
                     model: Statblock,
+                    getReader: () => {
+                        throw new Error("Unknown format, cannot provide a reader.");
+                    }
+                }
+            }
+            if (model === "featureblock") {
+                return {
+                    format: SteelCompendiumFormat.Xml,
+                    model: Featureblock,
                     getReader: () => {
                         throw new Error("Unknown format, cannot provide a reader.");
                     }
@@ -100,6 +132,7 @@ export class SteelCompendiumIdentifier {
         };
     }
 
+    // TODO - this logic is flawed and doesnt work
     public static identify(source: string): IdentificationResult {
         try {
             const data = JSON.parse(source);

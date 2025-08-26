@@ -5,6 +5,7 @@ export declare class Trait extends SteelCompendiumModel<TraitDTO> {
     name?: string;
     effects: Effects;
     constructor(source: Partial<Trait>);
+    featureType(): string;
     static modelDTOAdapter: ModelDTOAdapter<Trait, TraitDTO>;
     static fromDTO(dto: TraitDTO): Trait;
     toDTO(): Partial<TraitDTO>;

@@ -11,6 +11,9 @@ class Trait extends SteelCompendiumModel_1.SteelCompendiumModel {
         Object.assign(this, source);
         this.effects = (_a = source.effects) !== null && _a !== void 0 ? _a : new Effects_1.Effects([]);
     }
+    featureType() {
+        return "Trait";
+    }
     static fromDTO(dto) {
         const newDto = Object.assign({}, dto);
         if (newDto.name) {

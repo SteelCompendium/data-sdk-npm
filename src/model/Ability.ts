@@ -14,7 +14,7 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     target?: string;
     trigger?: string;
     effects: Effects;
-    metadata?: Record<string, any>[];
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<Ability>) {
         super();
