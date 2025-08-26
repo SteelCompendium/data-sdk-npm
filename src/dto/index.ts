@@ -1,5 +1,5 @@
 export * from './AbilityDTO';
-export * from './FeatureBlockDTO';
+export * from './FeatureblockDTO';
 export * from './StatblockDTO';
 export * from './SteelCompendiumDTO';
 export * from './TraitDTO'; 

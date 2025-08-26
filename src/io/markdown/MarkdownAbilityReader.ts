@@ -19,7 +19,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
             if (frontmatterEndIndex !== -1) {
                 const frontmatterLines = lines.slice(1, frontmatterEndIndex + 1).join('\n');
                 try {
-                    partial.metadata = yaml.load(frontmatterLines) as Record<string, any>;
+                    partial.metadata = yaml.load(frontmatterLines) as Record<string, any>[];
                 } catch (e) {
                     console.error("Error parsing frontmatter:", e);
                 }

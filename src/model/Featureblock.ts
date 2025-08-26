@@ -1,8 +1,8 @@
 import { Ability } from "./Ability";
-import { FeatureBlockDTO } from "../dto";
+import { FeatureblockDTO } from "../dto";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 
-export class FeatureBlock extends SteelCompendiumModel<FeatureBlockDTO> {
+export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     name!: string;
     type?: string;
     level?: number;
@@ -13,23 +13,23 @@ export class FeatureBlock extends SteelCompendiumModel<FeatureBlockDTO> {
     stats?: Record<string, any>[];
     features!: Ability[];
 
-    public constructor(source: Partial<FeatureBlock>) {
+    public constructor(source: Partial<Featureblock>) {
         super();
         Object.assign(this, source);
         this.stats = source.stats ?? [];
         this.features = source.features ?? [];
     }
 
-    public static modelDTOAdapter: ModelDTOAdapter<FeatureBlock, FeatureBlockDTO> = (source: Partial<FeatureBlockDTO>) => new FeatureBlockDTO(source).toModel();
+    public static modelDTOAdapter: ModelDTOAdapter<Featureblock, FeatureblockDTO> = (source: Partial<FeatureblockDTO>) => new FeatureblockDTO(source).toModel();
 
-    public static fromDTO(dto: FeatureBlockDTO): FeatureBlock {
-        return new FeatureBlock({
+    public static fromDTO(dto: FeatureblockDTO): Featureblock {
+        return new Featureblock({
             ...dto,
             features: dto.features?.map(f => Ability.fromDTO(f)) ?? [],
         });
     }
 
-    public toDTO(): Partial<FeatureBlockDTO> {
-        return FeatureBlockDTO.partialFromModel(this);
+    public toDTO(): Partial<FeatureblockDTO> {
+        return FeatureblockDTO.partialFromModel(this);
     }
 }

@@ -1,7 +1,7 @@
-import {FeatureBlock} from '../model/FeatureBlock';
+import {Featureblock} from '../model/Featureblock';
 import {SteelCompendiumDTO} from './SteelCompendiumDTO';
 
-export class FeatureBlockDTO extends SteelCompendiumDTO<FeatureBlock> {
+export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     name!: string;
     type?: string;
     level?: number;
@@ -12,14 +12,14 @@ export class FeatureBlockDTO extends SteelCompendiumDTO<FeatureBlock> {
     stats?: Record<string, any>[];
     features!: any[];
 
-    public constructor(source: Partial<FeatureBlockDTO>) {
+    public constructor(source: Partial<FeatureblockDTO>) {
         super(source);
         this.stats = source.stats ?? [];
         this.features = source.features ?? [];
     }
 
-    static partialFromModel(model: FeatureBlock): Partial<FeatureBlockDTO> {
-        const data: Partial<FeatureBlockDTO> = {}
+    static partialFromModel(model: Featureblock): Partial<FeatureblockDTO> {
+        const data: Partial<FeatureblockDTO> = {}
         if (model.name !== undefined) data.name = model.name;
         if (model.level !== undefined) data.level = model.level;
         if (model.ev !== undefined) data.ev = model.ev;
@@ -30,11 +30,11 @@ export class FeatureBlockDTO extends SteelCompendiumDTO<FeatureBlock> {
         return data;
     }
 
-    public static fromModel(model: FeatureBlock): FeatureBlockDTO {
-        return new FeatureBlockDTO(model.toDTO());
+    public static fromModel(model: Featureblock): FeatureblockDTO {
+        return new FeatureblockDTO(model.toDTO());
     }
 
-    public toModel(): FeatureBlock {
-        return FeatureBlock.fromDTO(this);
+    public toModel(): Featureblock {
+        return Featureblock.fromDTO(this);
     }
 } 
