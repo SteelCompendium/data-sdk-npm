@@ -41,7 +41,7 @@ This mechanism acts as a trigger for another linked mechanism, and is skillfully
 <!-- -->
 > ⭐️ **Upgrade**
 >
-> **Tripwire (−1 EV)** The pressure plate is a tripwire, which can trigger once and must be manually reset. A concealed tripwire can be discovered with an **easy Intuition test**.
+> **Tripwire (−1 EV):** The pressure plate is a tripwire, which can trigger once and must be manually reset. A concealed tripwire can be discovered with an **easy Intuition test**.
 
 <!-- -->
 > ⭐️ **Hidden**

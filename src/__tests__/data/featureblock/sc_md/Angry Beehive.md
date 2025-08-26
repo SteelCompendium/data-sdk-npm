@@ -35,6 +35,6 @@ This beehive is full of angry bees who swarm and attack with little provocation.
 <!-- -->
 > ⭐️ **Upgrades**
 >
-> **Concealed Hive (+1 EV)** The hive is hidden until the swarm is unleashed.
+> **Concealed Hive (+1 EV):** The hive is hidden until the swarm is unleashed.
 >
-> **Killer Bees (+2 EV)** The bees are a particularly aggressive and dangerous species. The hive triggers even if a creature shifts into or while adjacent to it, and the swarm deals 1d6 + 3 poison damage.
+> **Killer Bees (+2 EV):** The bees are a particularly aggressive and dangerous species. The hive triggers even if a creature shifts into or while adjacent to it, and the swarm deals 1d6 + 3 poison damage.
