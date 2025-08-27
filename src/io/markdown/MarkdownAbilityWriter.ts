@@ -88,22 +88,23 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         }
 
         if (data.effects && (data.effects.effects || data.effects)) {
-            const effectParts = data.effects.effects.map(e => this.writeEffect(e));
-            // const allEffects = (data.effects.effects || data.effects) as any[];
-            //
-            // if (allEffects.length === 0) {
-            //     return parts.join('\n\n');
-            // }
-            //
-            // // TODO this should be something else...
-            // const mappedEffects = allEffects.map(e => {
-            //     if (e instanceof Effect) return e;
-            //     if (e.roll) return new PowerRollEffect(e);
-            //     if (e.effect && e.t1) return new TestEffect(e);
-            //     return new MundaneEffect(e);
-            // });
+            // TODO - this doesnt work... likely because there is confusion in serilaization with effects.effects?
+            // const effectParts = data.effects.effects?.map(e => this.writeEffect(e));
 
-            // const effectParts = mappedEffects.map(e => this.writeEffect(e));
+            const allEffects = (data.effects.effects || data.effects) as any[];
+
+            if (allEffects.length === 0) {
+                return parts.join('\n\n');
+            }
+
+            // TODO this should be something else...
+            const mappedEffects = allEffects.map(e => {
+                if (e instanceof Effect) return e;
+                if (e.roll) return new PowerRollEffect(e);
+                if (e.effect && e.t1) return new TestEffect(e);
+                return new MundaneEffect(e);
+            });
+            const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
 
