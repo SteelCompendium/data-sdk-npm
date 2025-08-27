@@ -1,0 +1,7 @@
+# Build output folders
+/dist
+/lib
+/release
+
+# Dependencies
+/node_modules
