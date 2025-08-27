@@ -40,9 +40,9 @@ const model_3 = require("../../model");
 const yaml = __importStar(require("js-yaml"));
 const model_4 = require("../../model");
 class MarkdownAbilityWriter {
-    write(data, for_statblock = false) {
+    write(data, blockquote_output = false) {
         const parts = [];
-        const linePrefix = for_statblock ? '> ' : '';
+        const linePrefix = blockquote_output ? '> ' : '';
         if (data.metadata && Object.keys(data.metadata).length > 0) {
             const yamlString = yaml.dump(data.metadata);
             parts.push(`---\n${yamlString.trim()}\n---`);
@@ -50,7 +50,8 @@ class MarkdownAbilityWriter {
         if (data.name) {
             const prefix = '**';
             const suffix = '**';
-            const iconPrefix = for_statblock ? this.getIconPrefix(data) : '';
+            // TODO - No icons on non-blockquote?  Hero Abilities dont have icons... so for now, yes?
+            const iconPrefix = blockquote_output ? this.getIconPrefix(data) : '';
             let title = `${iconPrefix}${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
@@ -119,6 +120,8 @@ class MarkdownAbilityWriter {
                     return e;
                 if (e.roll)
                     return new model_3.PowerRollEffect(e);
+                if (e.effect && e.t1)
+                    return new model_4.TestEffect(e);
                 return new model_2.MundaneEffect(e);
             });
             const effectParts = mappedEffects.map(e => this.writeEffect(e));

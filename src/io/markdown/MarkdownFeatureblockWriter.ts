@@ -65,9 +65,9 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
         // 4) Features (each as a contiguous blockquote group)
         if ((data.features ?? []).length) {
             for (const ability of data.features) {
-                const raw = this.abilityWriter.write(ability, true).trimEnd();
                 parts.push("");
-                parts.push(raw);
+                parts.push("<!-- -->");
+                parts.push(this.abilityWriter.write(ability, true).trimEnd());
             }
         }
 

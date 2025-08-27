@@ -7,9 +7,9 @@ import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    write(data: Ability, for_statblock: boolean = false): string {
+    write(data: Ability, blockquote_output: boolean = false): string {
         const parts: string[] = [];
-        const linePrefix = for_statblock ? '> ' : '';
+        const linePrefix = blockquote_output ? '> ' : '';
 
 
         if (data.metadata && Object.keys(data.metadata).length > 0) {
@@ -20,7 +20,8 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         if (data.name) {
             const prefix = '**';
             const suffix = '**';
-            const iconPrefix = for_statblock ? this.getIconPrefix(data) : '';
+            // TODO - No icons on non-blockquote?  Hero Abilities dont have icons... so for now, yes?
+            const iconPrefix = blockquote_output ? this.getIconPrefix(data) : '';
             let title = `${iconPrefix}${prefix}${data.name}`;
             if (data.cost) {
                 title += ` (${data.cost})`;
@@ -93,9 +94,11 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
                 return parts.join('\n\n');
             }
 
+            // TODO this should be something else...
             const mappedEffects = allEffects.map(e => {
                 if (e instanceof Effect) return e;
                 if (e.roll) return new PowerRollEffect(e);
+                if (e.effect && e.t1) return new TestEffect(e);
                 return new MundaneEffect(e);
             });
 

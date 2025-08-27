@@ -1,7 +1,7 @@
 import { Ability } from "../../model";
 import { IDataWriter } from "../IDataWriter";
 export declare class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    write(data: Ability, for_statblock?: boolean): string;
+    write(data: Ability, blockquote_output?: boolean): string;
     private getIconPrefix;
     private writeEffect;
     private writeMundaneEffect;

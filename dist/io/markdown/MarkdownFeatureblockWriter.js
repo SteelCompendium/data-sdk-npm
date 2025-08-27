@@ -63,9 +63,9 @@ class MarkdownFeatureblockWriter extends IDataWriter_1.IDataWriter {
         // 4) Features (each as a contiguous blockquote group)
         if (((_a = data.features) !== null && _a !== void 0 ? _a : []).length) {
             for (const ability of data.features) {
-                const raw = this.abilityWriter.write(ability, true).trimEnd();
                 parts.push("");
-                parts.push(raw);
+                parts.push("<!-- -->");
+                parts.push(this.abilityWriter.write(ability, true).trimEnd());
             }
         }
         return parts.join("\n").trimEnd() + "\n";

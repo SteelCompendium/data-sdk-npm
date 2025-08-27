@@ -10,26 +10,26 @@ This mechanism acts as a trigger for another linked mechanism, and is skillfully
 
 <!-- -->
 > 🌀 **Deactivate**
->
+> 
 > As a maneuver, a creature adjacent to a pressure plate can make an **Agility test**.
->
+> 
 > - **≤11:** The creature triggers the pressure plate.
 > - **12-16:** The pressure plate is deactivated but the creature is slowed (EoT).
 > - **17+:** The pressure plate is deactivated and doesn't trigger.
 
 <!-- -->
 > ❕ **Activate**
->
+> 
 > The pressure plate is calibrated to be triggered by creatures or objects of a particular size. The pressure plate triggers when a creature or object of the appropriate size enters its area.
->
+> 
 > **Effect:** The linked mechanism is activated. A pressure plate automatically resets and can be triggered repeatedly.
 
 <!-- -->
 > ⭐️ **Upgrade**
->
+> 
 > **Tripwire (−1 EV):** The pressure plate is a tripwire, which can trigger once and must be manually reset. A concealed tripwire can be discovered with an **easy Intuition test**.
 
 <!-- -->
 > ⭐️ **Hidden**
->
+> 
 > The pressure plate is hidden until triggered or detected.
