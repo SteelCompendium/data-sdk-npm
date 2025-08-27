@@ -2,10 +2,12 @@
 
 At the start of Ajax's turn, you can spend Malice to activate one of the following features.
 
+<!-- -->
 > 👤 **Reason (2 Malice)**
 > 
 > Ajax attempts to instill doubt into a creature within line of effect through logic and reason. The creature and Ajax make an opposed Reason test. If Ajax wins, he chooses to either deal 11 extra damage to one target on his next strike or to gain an additional triggered action during the current round. Ajax can't use this feature against the same creature during the same encounter.
 
+<!-- -->
 > 🌀 **Nexus Jewel (5 Malice)**
 > 
 > Until the end of the round, Ajax chooses one of the following environments he has previously visited and overlays that environment on top of the encounter map, temporarily merging multiple realities.
@@ -16,10 +18,12 @@ At the start of Ajax's turn, you can spend Malice to activate one of the followi
 > 
 > **Volcanic Canyon:** The air is stiflingly hot. Each enemy takes 5 fire damage for each square they enter.
 
+<!-- -->
 > ☠️ **Solo Action (5 Malice)**
 > 
 > Ajax takes an additional main action on his turn. He can use this feature even if he is dazed.
 
+<!-- -->
 > 🔳 **Draw Steel (10 Malice)**
 > 
 > | **Area, Magic, Ranged, Weapon** |                          **Main Action** |
