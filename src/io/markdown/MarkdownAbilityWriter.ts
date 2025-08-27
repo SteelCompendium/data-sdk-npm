@@ -114,6 +114,9 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     }
 
     private getIconPrefix(a: Ability): string {
+        if (a.icon) {
+            return `${a.icon} `;
+        }
         if (a.isTrait()) {
             return '⭐️ ';
         }

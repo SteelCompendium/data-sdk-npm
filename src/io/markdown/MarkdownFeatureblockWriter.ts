@@ -65,9 +65,9 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
         // 4) Features (each as a contiguous blockquote group)
         if ((data.features ?? []).length) {
             for (const ability of data.features) {
-                const raw = this.abilityWriter.write(ability).trimEnd();
+                const raw = this.abilityWriter.write(ability, true).trimEnd();
                 parts.push("");
-                parts.push(quoteBlock(raw));
+                parts.push(raw);
             }
         }
 
@@ -94,14 +94,4 @@ function toInline(v: any): string {
 }
 function normalizeKey(k: string): string {
     return k.replace(/\s+/g, " ").trim().toLowerCase();
-}
-function quoteBlock(md: string): string {
-    // Ensure every line is blockquoted; strip any existing leading '>' to avoid double quoting
-    return md
-        .split(/\r?\n/)
-        .map(line => {
-            const stripped = line.replace(/^\s*>\s?/, "");
-            return stripped.length ? `> ${stripped}` : ">"; // keep blank lines inside quote
-        })
-        .join("\n");
 }

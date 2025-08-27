@@ -133,6 +133,9 @@ class MarkdownAbilityWriter {
     }
     getIconPrefix(a) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o;
+        if (a.icon) {
+            return `${a.icon} `;
+        }
         if (a.isTrait()) {
             return '⭐️ ';
         }

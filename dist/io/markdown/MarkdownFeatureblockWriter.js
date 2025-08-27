@@ -63,9 +63,9 @@ class MarkdownFeatureblockWriter extends IDataWriter_1.IDataWriter {
         // 4) Features (each as a contiguous blockquote group)
         if (((_a = data.features) !== null && _a !== void 0 ? _a : []).length) {
             for (const ability of data.features) {
-                const raw = this.abilityWriter.write(ability).trimEnd();
+                const raw = this.abilityWriter.write(ability, true).trimEnd();
                 parts.push("");
-                parts.push(quoteBlock(raw));
+                parts.push(raw);
             }
         }
         return parts.join("\n").trimEnd() + "\n";
@@ -97,15 +97,5 @@ function toInline(v) {
 }
 function normalizeKey(k) {
     return k.replace(/\s+/g, " ").trim().toLowerCase();
-}
-function quoteBlock(md) {
-    // Ensure every line is blockquoted; strip any existing leading '>' to avoid double quoting
-    return md
-        .split(/\r?\n/)
-        .map(line => {
-        const stripped = line.replace(/^\s*>\s?/, "");
-        return stripped.length ? `> ${stripped}` : ">"; // keep blank lines inside quote
-    })
-        .join("\n");
 }
 //# sourceMappingURL=MarkdownFeatureblockWriter.js.map
