@@ -8,6 +8,7 @@ const gray_matter_1 = __importDefault(require("gray-matter"));
 const IDataReader_1 = require("../IDataReader");
 const Featureblock_1 = require("../../model/Featureblock");
 const steel_compendium_sdk_1 = require("steel-compendium-sdk");
+const model_1 = require("../../model");
 class MarkdownFeatureblockReader extends IDataReader_1.IDataReader {
     constructor() {
         super(...arguments);
@@ -46,7 +47,7 @@ class MarkdownFeatureblockReader extends IDataReader_1.IDataReader {
             stamina,
             size,
             flavor: flavor || undefined,
-            stats: extras.length ? extras.map(kv => ({ [kv.key]: kv.value })) : [],
+            stats: extras.length ? extras.map(kv => new model_1.FeatureStat(kv.key, kv.value)) : [],
             features,
         });
     }

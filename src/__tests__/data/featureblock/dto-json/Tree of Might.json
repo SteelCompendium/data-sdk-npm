@@ -8,7 +8,8 @@
   "size": "3",
   "stats": [
     {
-      "Immunity": "5 to all damage except corruption or fire damage"
+      "name": "Immunity",
+      "value": "5 to all damage except corruption or fire damage"
     }
   ],
   "features": [

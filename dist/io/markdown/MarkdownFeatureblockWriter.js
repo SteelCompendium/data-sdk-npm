@@ -9,7 +9,7 @@ class MarkdownFeatureblockWriter extends IDataWriter_1.IDataWriter {
         this.abilityWriter = new MarkdownAbilityWriter_1.MarkdownAbilityWriter();
     }
     write(data) {
-        var _a;
+        var _a, _b;
         const parts = [];
         // 1) Title: "###### Name (Level X Type)" | "###### Name (Type)" | "###### Name"
         const meta = [];
@@ -32,36 +32,42 @@ class MarkdownFeatureblockWriter extends IDataWriter_1.IDataWriter {
             bullets.push(["Stamina", String(data.stamina).trim()]);
         if (truthy(data.size))
             bullets.push(["Size", String(data.size).trim()]);
-        // Normalize to an array of objects
-        const statsArr = Array.isArray(data.stats)
-            ? data.stats
-            : data.stats && typeof data.stats === "object"
-                ? [data.stats]
-                : [];
-        const core = new Set(["ev", "stamina", "size"]);
-        const extras = [];
-        for (const obj of statsArr) {
-            for (const [k, v] of Object.entries(obj)) {
-                const nk = normalizeKey(k);
-                if (core.has(nk))
-                    continue;
-                const val = toInline(v);
-                if (!val)
-                    continue;
-                extras.push([k, val]);
-            }
-        }
-        // Sort extras by key for stable output
-        extras.sort((a, b) => a[0].localeCompare(b[0]));
-        const allStats = bullets.concat(extras);
-        if (allStats.length) {
+        (_a = data.stats) === null || _a === void 0 ? void 0 : _a.forEach(s => bullets.push([s.name, s.value]));
+        // type KV = Record<string, unknown>;
+        //
+        // // Normalize to an array of objects
+        // const statsArr: KV[] = Array.isArray(data.stats)
+        //     ? (data.stats as KV[])
+        //     : data.stats && typeof data.stats === "object"
+        //         ? [data.stats as KV]
+        //         : [];
+        //
+        // const core = new Set(["ev", "stamina", "size"]);
+        //
+        // const extras: Array<[string, string]> = [];
+        // for (const obj of statsArr) {
+        //     for (const [k, v] of Object.entries(obj)) {
+        //         const nk = normalizeKey(k);
+        //         if (core.has(nk)) continue;
+        //
+        //         const val = toInline(v);
+        //         if (!val) continue;
+        //
+        //         extras.push([k, val]);
+        //     }
+        // }
+        // // Sort extras by key for stable output
+        // extras.sort((a, b) => a[0].localeCompare(b[0]));
+        //
+        // const allStats = bullets.concat(extras);
+        if (bullets.length) {
             parts.push("");
-            for (const [k, v] of allStats) {
+            for (const [k, v] of bullets) {
                 parts.push(`- **${k}:** ${v}`);
             }
         }
         // 4) Features (each as a contiguous blockquote group)
-        if (((_a = data.features) !== null && _a !== void 0 ? _a : []).length) {
+        if (((_b = data.features) !== null && _b !== void 0 ? _b : []).length) {
             for (const ability of data.features) {
                 parts.push("");
                 parts.push("<!-- -->");

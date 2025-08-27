@@ -1,6 +1,7 @@
 import { Ability } from "./Ability";
 import { FeatureblockDTO } from "../dto";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import { FeatureStat } from "./FeatureStat";
 export declare class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     name: string;
     type?: string;
@@ -9,7 +10,7 @@ export declare class Featureblock extends SteelCompendiumModel<FeatureblockDTO> 
     flavor?: string;
     stamina?: string;
     size: string;
-    stats?: Record<string, any>;
+    stats?: FeatureStat[];
     features: Ability[];
     constructor(source: Partial<Featureblock>);
     static modelDTOAdapter: ModelDTOAdapter<Featureblock, FeatureblockDTO>;

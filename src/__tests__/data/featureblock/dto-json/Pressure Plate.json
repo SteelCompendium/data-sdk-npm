@@ -8,10 +8,12 @@
   "size": "Any area",
   "stats": [
     {
-      "Typical Space": "One square, up to a 4 x 4-square area"
+      "name": "Typical Space",
+      "value": "One square, up to a 4 x 4-square area"
     },
     {
-      "Link": "A pressure plate is linked to another mechanism that it activates when triggered."
+      "name": "Link",
+      "value": "A pressure plate is linked to another mechanism that it activates when triggered."
     }
   ],
   "features": [

@@ -9,12 +9,11 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     flavor?: string;
     stamina?: string;
     size?: string;
-    stats?: Record<string, any>;
+    stats?: any[];
     features!: any[];
 
     public constructor(source: Partial<FeatureblockDTO>) {
         super(source);
-        this.stats = source.stats ?? [];
         this.features = source.features ?? [];
     }
 

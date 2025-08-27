@@ -25,4 +25,5 @@ __exportStar(require("./Statblock"), exports);
 __exportStar(require("./SteelCompendiumModel"), exports);
 __exportStar(require("./Trait"), exports);
 __exportStar(require("./Featureblock"), exports);
+__exportStar(require("./FeatureStat"), exports);
 //# sourceMappingURL=index.js.map

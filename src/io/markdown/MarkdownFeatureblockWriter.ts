@@ -28,36 +28,38 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
         if (truthy(data.stamina)) bullets.push(["Stamina", String(data.stamina).trim()]);
         if (truthy(data.size)) bullets.push(["Size", String(data.size).trim()]);
 
-        type KV = Record<string, unknown>;
+        data.stats?.forEach(s => bullets.push([s.name, s.value]))
 
-        // Normalize to an array of objects
-        const statsArr: KV[] = Array.isArray(data.stats)
-            ? (data.stats as KV[])
-            : data.stats && typeof data.stats === "object"
-                ? [data.stats as KV]
-                : [];
-
-        const core = new Set(["ev", "stamina", "size"]);
-
-        const extras: Array<[string, string]> = [];
-        for (const obj of statsArr) {
-            for (const [k, v] of Object.entries(obj)) {
-                const nk = normalizeKey(k);
-                if (core.has(nk)) continue;
-
-                const val = toInline(v);
-                if (!val) continue;
-
-                extras.push([k, val]);
-            }
-        }
-        // Sort extras by key for stable output
-        extras.sort((a, b) => a[0].localeCompare(b[0]));
-
-        const allStats = bullets.concat(extras);
-        if (allStats.length) {
+        // type KV = Record<string, unknown>;
+        //
+        // // Normalize to an array of objects
+        // const statsArr: KV[] = Array.isArray(data.stats)
+        //     ? (data.stats as KV[])
+        //     : data.stats && typeof data.stats === "object"
+        //         ? [data.stats as KV]
+        //         : [];
+        //
+        // const core = new Set(["ev", "stamina", "size"]);
+        //
+        // const extras: Array<[string, string]> = [];
+        // for (const obj of statsArr) {
+        //     for (const [k, v] of Object.entries(obj)) {
+        //         const nk = normalizeKey(k);
+        //         if (core.has(nk)) continue;
+        //
+        //         const val = toInline(v);
+        //         if (!val) continue;
+        //
+        //         extras.push([k, val]);
+        //     }
+        // }
+        // // Sort extras by key for stable output
+        // extras.sort((a, b) => a[0].localeCompare(b[0]));
+        //
+        // const allStats = bullets.concat(extras);
+        if (bullets.length) {
             parts.push("");
-            for (const [k, v] of allStats) {
+            for (const [k, v] of bullets) {
                 parts.push(`- **${k}:** ${v}`);
             }
         }

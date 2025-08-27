@@ -2,7 +2,7 @@ import matter from "gray-matter";
 import {IDataReader} from "../IDataReader";
 import {Featureblock} from "../../model/Featureblock";
 import {MarkdownAbilityReader} from "steel-compendium-sdk";
-import {Ability} from "../../model";
+import {Ability, FeatureStat} from "../../model";
 
 type KeyVal = { key: string; value: string };
 
@@ -48,7 +48,7 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
             stamina,
             size,
             flavor: flavor || undefined,
-            stats: extras.length ? extras.map(kv => ({ [kv.key]: kv.value })) : [],
+            stats: extras.length ? extras.map(kv => new FeatureStat(kv.key, kv.value)) : [],
             features,
         });
     }

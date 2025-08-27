@@ -5,10 +5,9 @@ const Featureblock_1 = require("../model/Featureblock");
 const SteelCompendiumDTO_1 = require("./SteelCompendiumDTO");
 class FeatureblockDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
     constructor(source) {
-        var _a, _b;
+        var _a;
         super(source);
-        this.stats = (_a = source.stats) !== null && _a !== void 0 ? _a : [];
-        this.features = (_b = source.features) !== null && _b !== void 0 ? _b : [];
+        this.features = (_a = source.features) !== null && _a !== void 0 ? _a : [];
     }
     static partialFromModel(model) {
         const data = {};

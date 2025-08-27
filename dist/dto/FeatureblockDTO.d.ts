@@ -8,7 +8,7 @@ export declare class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     flavor?: string;
     stamina?: string;
     size?: string;
-    stats?: Record<string, any>;
+    stats?: any[];
     features: any[];
     constructor(source: Partial<FeatureblockDTO>);
     static partialFromModel(model: Featureblock): Partial<FeatureblockDTO>;
