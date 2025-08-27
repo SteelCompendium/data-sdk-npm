@@ -22,12 +22,16 @@ presence: -1
 traits:
   - name: Hunger
     effects:
-      - effect: If the ghoul charges, their speed increases by 2 until the end of their turn.
+      - effect: If the ghoul charges, their speed increases by 2 until the end of their
+          turn.
   - name: Arise
     effects:
-      - effect: The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 1 Stamina and fall prone.
+      - effect: The first time the ghoul is reduced to Stamina 0 by damage that isn’t
+          fire damage or holy damage and their body isn’t destroyed, they regain
+          1 Stamina and fall prone.
 abilities:
   - name: Razor Claws
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Charge
@@ -43,11 +47,13 @@ abilities:
         t2: 4 damage
         t3: 5 damage; M<2 bleeding (save ends)
   - name: Leap
+    icon: 👤
     keywords:
       - —
     type: Maneuver
     distance: Self
     target: Self
     effects:
-      - effect: The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is knocked prone and the ghoul makes a free strike against them.
+      - effect: The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is
+          knocked prone and the ghoul makes a free strike against them.
         name: Effect

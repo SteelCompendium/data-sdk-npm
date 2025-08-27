@@ -14,16 +14,21 @@ movement: climb
 size: 1L
 stability: 2
 free_strike: 5
+might: 2
+agility: 1
+reason: 0
+intuition: 1
+presence: 0
 traits:
   - name: Cunning
     effects:
-      - effect:
-          The battleborn doesn’t provoke opportunity attacks from enemies by
+      - effect: The battleborn doesn’t provoke opportunity attacks from enemies by
           moving. Whenever the battleborn is adjacent to an enemy and willingly
           moves to a space no longer adjacent to that enemy, the battleborn can
           make an opportunity attack against them as a triggered action.
 abilities:
   - name: Spear Charge
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Charge
@@ -37,10 +42,10 @@ abilities:
       - roll: Power Roll + 2
         t1: 5 damage
         t2: 6 damage
-        t3:
-          8 damage; prone; the battleborn continues charging up to their speed or
+        t3: 8 damage; prone; the battleborn continues charging up to their speed or
           until they can make a free strike against another creature or object
   - name: Battle Flurry
+    icon: ❇️
     cost: 3 Malice
     keywords:
       - Area
@@ -54,8 +59,3 @@ abilities:
         t1: 3 damage; M<0 bleeding (save ends)
         t2: 4 damage; M<1 bleeding (save ends)
         t3: 5 damage; M<2 bleeding (save ends)
-might: 2
-agility: 1
-reason: 0
-intuition: 1
-presence: 0

@@ -22,6 +22,7 @@ presence: 0
 traits: []
 abilities:
   - name: Dagger Dance
+    icon: ⚔️
     cost: Signature Ability
     keywords:
       - Melee
@@ -35,9 +36,11 @@ abilities:
         t1: 2 damage
         t2: 4 damage
         t3: 5 damage
-      - effect: If the mischiever is hidden when they use this ability, they can target two creatures.
+      - effect: If the mischiever is hidden when they use this ability, they can target
+          two creatures.
         name: Effect
   - name: Ready Rodent
+    icon: ❗️
     keywords:
       - Melee
       - Weapon

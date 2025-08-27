@@ -25,6 +25,7 @@ traits:
       - effect: The sniper doesn’t provoke opportunity attacks by moving.
 abilities:
   - name: Bow
+    icon: 🏹
     cost: Signature Ability
     keywords:
       - Ranged
@@ -38,5 +39,6 @@ abilities:
         t1: 2 damage
         t2: 4 damage
         t3: 5 damage
-      - effect: If the sniper doesn’t use a move action this turn, the ability has an edge.
+      - effect: If the sniper doesn’t use a move action this turn, the ability has an
+          edge.
         name: Effect

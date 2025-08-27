@@ -22,6 +22,7 @@ presence: -1
 traits: []
 abilities:
   - name: Rapier Flunge
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
@@ -36,6 +37,7 @@ abilities:
         t2: 2 damage; slide 2; shift 2
         t3: 3 damage; slide 3; shift 3
   - name: Ready Rodent
+    icon: ❗️
     keywords:
       - Melee
       - Weapon

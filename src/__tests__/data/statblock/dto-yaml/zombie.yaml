@@ -22,9 +22,12 @@ presence: 1
 traits:
   - name: Endless Knight
     effects:
-      - effect: The first time the zombie is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 10 Stamina and fall prone.
+      - effect: The first time the zombie is reduced to Stamina 0 by damage that isn’t
+          fire damage or holy damage and their body isn’t destroyed, they regain
+          10 Stamina and fall prone.
 abilities:
   - name: Clobber and Clutch
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
@@ -38,9 +41,13 @@ abilities:
         t1: 4 damage
         t2: 6 damage
         t3: 7 damage; grabbed
-      - effect: A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.
+      - effect: A target who starts their turn grabbed by the zombie takes 2 corruption
+          damage. If a creature takes 5 or more corruption damage this way, they
+          become insatiably hungry for flesh. The target must complete the Find
+          a Cure project to end this effect.
         name: Effect
   - name: Zombie Dust
+    icon: ❇️
     cost: 3 Malice
     keywords:
       - Area
@@ -49,8 +56,8 @@ abilities:
     distance: 2 burst
     target: Each enemy in the burst
     effects:
-      - effect: The zombie falls prone, expelling a wave of rot and dust.
-        name: Effect
+      - name: Effect
+        effect: The zombie falls prone, expelling a wave of rot and dust.
       - roll: Power Roll + 2
         t1: 2 corruption damage
         t2: 3 corruption damage; M<1 weakened (save ends)

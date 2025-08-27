@@ -22,6 +22,7 @@ presence: 0
 traits: []
 abilities:
   - name: Eyes-On-Me Shot
+    icon: 🏹
     cost: Signature Ability
     keywords:
       - Ranged
@@ -35,9 +36,11 @@ abilities:
         t1: 2 damage
         t2: 4 damage
         t3: 5 damage
-      - effect: An ally of the redeye within 2 squares of the target can shift up to 2 squares.
+      - effect: An ally of the redeye within 2 squares of the target can shift up to 2
+          squares.
         name: Effect
   - name: Ready Rodent
+    icon: ❗️
     keywords:
       - Melee
       - Weapon

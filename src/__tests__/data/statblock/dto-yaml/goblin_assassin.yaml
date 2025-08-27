@@ -27,6 +27,7 @@ traits:
       - effect: The assassin can take the Hide maneuver even while observed.
 abilities:
   - name: Sword Stab
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
@@ -40,9 +41,11 @@ abilities:
         t1: 4 damage
         t2: 6 damage
         t3: 7 damage
-      - effect: This ability deals an additional 2 damage if the assassin has an edge on the power roll.
+      - effect: This ability deals an additional 2 damage if the assassin has an edge on
+          the power roll.
         name: Effect
   - name: Shadow Chains
+    icon: 🏹
     cost: 3 Malice
     keywords:
       - Magic

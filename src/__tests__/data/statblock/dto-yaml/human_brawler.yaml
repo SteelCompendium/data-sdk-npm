@@ -23,12 +23,16 @@ presence: 0
 traits:
   - name: Shoot the Hostage
     effects:
-      - effect: The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage.
+      - effect: The brawler takes half damage from strikes if they have a creature or
+          object grabbed. The grabbed creature or object takes the other half of
+          the damage.
   - name: Supernatural Insight
     effects:
-      - effect: The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural.
+      - effect: The brawler ignores concealment if it’s granted by a supernatural
+          effect, or the target is supernatural.
 abilities:
   - name: Haymaker
+    icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
@@ -45,6 +49,7 @@ abilities:
       - effect: brawler deals an additional 2 damage if the target is already grabbed.
         name: Effect
   - name: Throw
+    icon: 🗡
     cost: 1 Malice
     keywords:
       - —

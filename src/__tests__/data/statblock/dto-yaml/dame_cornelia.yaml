@@ -21,12 +21,15 @@ presence: 2
 traits:
   - name: End Effect
     effects:
-      - effect: At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way.
+      - effect: At the end of her turn, Cornelia can take 5 damage to end one save ends
+          effect affecting her. This damage can’t be reduced in any way.
   - name: Death Void
     effects:
-      - effect: When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage.
+      - effect: When Cornelia is destroyed, each enemy within 2 squares of her takes 5
+          corruption damage.
 abilities:
   - name: Zweihander Swing
+    icon: ❇️
     cost: Signature Ability
     keywords:
       - Area
@@ -42,58 +45,69 @@ abilities:
         t3: 8 damage; M<3 slowed (save ends)
       - effect: An ally within 10 of Cornelia can make a free strike.
         name: Effect
-      - cost: 1 Malice
-        effect: The ally can use their signature action instead.
+      - effect: The ally can use their signature action instead.
+        cost: 1 Malice
   - name: You!
+    icon: 🏹
     keywords:
       - —
     type: Maneuver
     distance: Ranged 10
     target: One enemy
     effects:
-      - effect: The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.
+      - effect: The target is marked until the start of Cornelia’s next turn. Cornelia
+          and each of her allies gain an edge on abilities used against targets
+          marked by her.
         name: Effect
   - name: Parry!
+    icon: ❗️
     keywords:
       - —
     type: Triggered action
     distance: Melee 1
     target: Self or one ally
-    trigger: A creature targets the blackguard or an ally adjacent to Cornelia with a strike.
+    trigger: A creature targets the blackguard or an ally adjacent to Cornelia with
+      a strike.
     effects:
       - effect: The damage is halved.
         name: Effect
   - name: Advance!
+    icon: ☠️
+    cost: Villain Action 1
     keywords:
       - —
     type: "-"
-    cost: Villain Action 1
     distance: Self
     target: Self
     effects:
-      - effect: Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.
+      - effect: Cornelia shifts up to her speed. During or after this movement, she can
+          use Zweihander Swing twice.
         name: Effect
   - name: Back!
+    icon: ☠️
+    cost: Villain Action 2
     keywords:
       - Area
       - Magic
     type: "-"
-    cost: Villain Action 2
     distance: 5 burst
     target: All enemies in the burst
     effects:
       - effect: Slide 5.
         name: Effect
   - name: I Can Throw My Blade and So Should You!
+    icon: ☠️
+    cost: Villain Action 3
     keywords:
       - Area
       - Magic
       - Ranged
       - Weapon
     type: "-"
-    cost: Villain Action 3
     distance: 3 cube within 5
     target: Each enemy in the cube
     effects:
-      - effect: Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally).
+      - effect: Cornelia uses Zweihander Swing against each target. Then, each ally
+          within 5 of the area can make a free strike against a target (one
+          target per ally).
         name: Effect

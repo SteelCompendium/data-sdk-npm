@@ -21,12 +21,16 @@ presence: 0
 traits:
   - name: Determination
     effects:
-      - effect: If Mara is frightened, slowed, or weakened, she can use a maneuver to end the condition.
+      - effect: If Mara is frightened, slowed, or weakened, she can use a maneuver to
+          end the condition.
   - name: Rivalry
     effects:
-      - effect: Mara selects one creature within line of effect at the start of an encounter. Both Mara and the creature can add a 1d3 to all power rolls made against each other.
+      - effect: Mara selects one creature within line of effect at the start of an
+          encounter. Both Mara and the creature can add a 1d3 to all power rolls
+          made against each other.
 abilities:
   - name: The Writhing Green
+    icon: 🏹
     cost: Signature Ability
     keywords:
       - Green
@@ -42,6 +46,7 @@ abilities:
         t2: 10 damage; slide 2
         t3: 13 damage; slide 3
   - name: The Earth Devours
+    icon: 🔳
     cost: 3 Malice
     keywords:
       - Area
@@ -55,9 +60,11 @@ abilities:
         t1: 3 damage
         t2: 5 damage; restrained (EoT)
         t3: 8 damage; restrained (save ends)
-      - effect: The affected area is difficult terrain for enemies. An enemy has acid weakness 2 while occupying an affected square.
+      - effect: The affected area is difficult terrain for enemies. An enemy has acid
+          weakness 2 while occupying an affected square.
         name: Effect
   - name: Jaws of the Void
+    icon: ❗️
     keywords:
       - Magic
       - Void
@@ -66,5 +73,6 @@ abilities:
     target: Self
     trigger: Mara takes damage.
     effects:
-      - effect: Mara teleports 2 squares. Each creature adjacent to her original space takes 2 corruption damage.
+      - effect: Mara teleports 2 squares. Each creature adjacent to her original space
+          takes 2 corruption damage.
         name: Effect
