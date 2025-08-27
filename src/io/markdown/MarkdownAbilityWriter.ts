@@ -1,15 +1,13 @@
-import {Ability} from "../../model/Ability";
+import {Ability} from "../../model";
 import {IDataWriter} from "../IDataWriter";
-import {Effect} from "../../model/Effect";
+import {Effect} from "../../model";
 import {MundaneEffect} from "../../model";
 import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
-import {TestEffect} from "../../model/TestEffect";
+import {TestEffect} from "../../model";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     write(data: Ability, for_statblock: boolean = false): string {
-        // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
-        const includeEffectsToken: boolean = !!(data.keywords && data.keywords.length > 0);
         const parts: string[] = [];
         const linePrefix = for_statblock ? '> ' : '';
 
@@ -101,7 +99,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
                 return new MundaneEffect(e);
             });
 
-            const effectParts = mappedEffects.map(e => this.writeEffect(e, includeEffectsToken));
+            const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
 
@@ -145,9 +143,9 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         return '';
     }
 
-    private writeEffect(effect: Effect, includeEffectToken: boolean): string {
+    private writeEffect(effect: Effect): string {
         if (effect instanceof MundaneEffect) {
-            return this.writeMundaneEffect(effect, includeEffectToken);
+            return this.writeMundaneEffect(effect);
         } else if (effect instanceof PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         } else if (effect instanceof TestEffect) {
@@ -156,7 +154,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         return '';
     }
 
-    private writeMundaneEffect(effect: MundaneEffect, includeEffectToken: boolean): string {
+    private writeMundaneEffect(effect: MundaneEffect): string {
         let name;
         if (effect.name) {
             name = effect.name;
@@ -167,7 +165,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             name = effect.cost;
         }
 
-        if (!effect.name && !effect.cost && !includeEffectToken) {
+        if (!effect.name && !effect.cost) {
             return effect.effect.trim();
         }
         return `**${name}:** ${effect.effect.trim()}`
