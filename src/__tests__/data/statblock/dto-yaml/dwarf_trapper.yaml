@@ -46,7 +46,7 @@ abilities:
     distance: 3 cube within 5
     target: All enemies in the cube
     effects:
-      - roll: Each target makes a Might test.
+      - effect: Each target makes a Might test.
         t1: 7 damage; restrained (EoT)
         t2: 5 damage; slowed (EoT)
         t3: No effect

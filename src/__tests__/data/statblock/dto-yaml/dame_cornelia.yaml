@@ -41,6 +41,7 @@ abilities:
         t2: 6 damage; M<2 slowed (save ends)
         t3: 8 damage; M<3 slowed (save ends)
       - effect: An ally within 10 of Cornelia can make a free strike.
+        name: Effect
       - cost: 1 Malice
         effect: The ally can use their signature action instead.
   - name: You!

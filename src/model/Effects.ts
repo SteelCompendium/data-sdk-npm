@@ -41,7 +41,7 @@ export function effectFromDTO(effect_data: any): Effect {
         return new MundaneEffect({ effect: effect_data.text, name: effect_data.name, cost: effect_data.cost });
     } else if (effect_data.roll) {
         return PowerRollEffect.fromDTO(effect_data);
-    } else if (effect_data.test && effect_data.t1) {
+    } else if (effect_data.effect && effect_data.t1) {
         return TestEffect.fromDTO(effect_data);
     } else if (typeof effect_data === "string") {
         return new MundaneEffect({ effect: effect_data });
