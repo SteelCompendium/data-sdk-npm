@@ -12,7 +12,7 @@ const yamlTestPath = path.join(__dirname, '..', '..', 'data', 'statblock', 'dto-
 describe('YamlWriter', () => {
     const files = glob.sync('*.json', { cwd: jsonTestPath });
 
-    test.each(files)('should correctly convert %s to YAML', (file) => {
+    test.each(files)('should correctly write to yaml (read from %s)', (file) => {
         const jsonReader = new JsonReader(Statblock.modelDTOAdapter);
         const yamlWriter = new YamlWriter();
 

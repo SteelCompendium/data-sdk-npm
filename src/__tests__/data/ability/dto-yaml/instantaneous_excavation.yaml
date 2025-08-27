@@ -15,6 +15,7 @@ effects:
       When the holes open, make a separate power roll for each creature on the
       ground above a hole and small enough to fall in. (You can’t score a
       critical hit with this ability because it uses a maneuver.)
+    name: Effect
   - roll: Power Roll + Reason
     t1: The target can shift 1 square from the edge of the hole to the nearest
       unoccupied space of their choice.

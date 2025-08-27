@@ -17,6 +17,6 @@
       <t2>5 damage</t2>
       <t3>7 damage</t3>
     </effect>
-    <effect type="mundane">The ground beneath the area is difficult terrain for enemies.</effect>
+    <effect type="mundane" name="Effect">The ground beneath the area is difficult terrain for enemies.</effect>
   </effects>
 </ability>

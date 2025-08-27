@@ -13,7 +13,7 @@
   <distance>Ranged 10</distance>
   <target>One creature or object</target>
   <effects>
-    <effect type="mundane">Until the start of your next turn, the target has the following benefits:
+    <effect type="mundane" name="Effect">Until the start of your next turn, the target has the following benefits:
 - Their size and stability increase by 2, with any size 1 target becoming size 3. Each creature who is within the target&apos;s new space slides to the nearest unoccupied space, ignoring stability. If the target doesn&apos;t have space to grow, they grow as much as they can and become restrained until the effect ends.
 - They have fire immunity 10.
 - Their strikes deal extra fire damage equal to twice your Reason score.

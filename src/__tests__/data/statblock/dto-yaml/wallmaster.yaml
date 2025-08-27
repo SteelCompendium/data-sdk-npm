@@ -37,6 +37,7 @@ abilities:
     target: Two creatures or objects
     effects:
       - effect: The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.
+        name: Effect
       - roll: Power Roll + 2
         t1: 6 damage
         t2: 9 damage; A<1 prone
@@ -52,6 +53,7 @@ abilities:
     target: 1 creature or object
     effects:
       - effect: The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.
+        name: Effect
       - roll: Power Roll + 2
         t1: Push 2
         t2: Push 4
@@ -65,6 +67,7 @@ abilities:
     target: Self
     effects:
       - effect: The wallmaster teleports to a wall within distance and affixes itself to it.
+        name: Effect
   - name: Wall Redirect
     keywords:
       - —
@@ -74,3 +77,4 @@ abilities:
     trigger: A creature damages the wall with a strike.
     effects:
       - effect: The wall redirects the strike to the target creature and isn’t targeted by the strike.
+        name: Effect

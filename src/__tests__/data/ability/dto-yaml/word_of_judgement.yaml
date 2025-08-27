@@ -9,5 +9,6 @@ target: One ally
 trigger: The target would take damage from an ability that uses a power roll.
 effects:
   - effect: The power roll takes a bane against the target.
+    name: Effect
   - effect: The power roll has a double bane against the target.
     cost: Spend 1 Piety

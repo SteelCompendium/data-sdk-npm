@@ -29,6 +29,7 @@ effects:
 
       - They can use their highest characteristic instead of Might for Might
       power rolls.
+    name: Effect
   - roll: Power Roll + Reason
     t1: You teleport the target up to 4 squares.
     t2: You teleport the target up to 6 squares.

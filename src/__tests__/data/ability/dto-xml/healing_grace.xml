@@ -9,7 +9,7 @@
   <distance>Ranged 10</distance>
   <target>Self or one ally</target>
   <effects>
-    <effect type="mundane">The target can spend a Recovery.</effect>
+    <effect type="mundane" name="Effect">The target can spend a Recovery.</effect>
     <effect type="mundane" cost="Spend 1+ Piety">For each piety spent, choose one of the following enhancements:
 • You can target one additional ally within distance.
 • You can end one condition or effect on a target that is ended by a saving throw or that ends at the end of their turn.

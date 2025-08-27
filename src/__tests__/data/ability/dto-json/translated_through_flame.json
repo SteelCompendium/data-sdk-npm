@@ -3,7 +3,8 @@
     "type": "Main Action",
     "effects": [
         {
-            "effect": "The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target’s new space."
+            "effect": "The target is teleported to another space within distance. Make a power roll that affects each enemy adjacent to the target’s new space.",
+            "name": "Effect"
         },
         {
             "roll": "Power Roll + Reason",

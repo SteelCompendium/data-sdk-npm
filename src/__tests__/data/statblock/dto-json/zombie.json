@@ -53,7 +53,8 @@
           "t3": "7 damage; grabbed"
         },
         {
-          "effect": "A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect."
+          "effect": "A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.",
+          "name": "Effect"
         }
       ]
     },
@@ -69,7 +70,8 @@
       "target": "Each enemy in the burst",
       "effects": [
         {
-          "effect": "The zombie falls prone, expelling a wave of rot and dust."
+          "effect": "The zombie falls prone, expelling a wave of rot and dust.",
+          "name": "Effect"
         },
         {
           "roll": "Power Roll + 2",

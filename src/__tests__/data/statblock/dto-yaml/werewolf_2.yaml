@@ -55,6 +55,7 @@ abilities:
       - cost: 2 Malice
         effect: The target has P<0 lycanthropy. The potency of this ability increases by 1 each time the werewolf forces the same target to resist it.
       - effect: A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition.
+        name: Effect
   - name: Ripping Claws
     keywords:
       - Melee
@@ -83,6 +84,7 @@ abilities:
         t2: 6 damage; 1 rage; push 3
         t3: 7 damage; 3 rage; slide 3
       - effect: The werewolf shifts up to their speed before using this ability.
+        name: Effect
   - name: Wall Leap
     keywords:
       - —
@@ -91,6 +93,7 @@ abilities:
     target: Self
     effects:
       - effect: The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone.
+        name: Effect
   - name: Facepalm and Head Slam
     cost: 2 Malice
     keywords:
@@ -101,6 +104,7 @@ abilities:
     trigger: The target targets the werewolf with a melee ability after charging or moving 2 or more squares in a straight line towards them.
     effects:
       - effect: The target is knocked prone and takes 5 damage before executing the ability.
+        name: Effect
   - name: Howl
     keywords:
       - Area
@@ -109,11 +113,12 @@ abilities:
     distance: 5 burst
     target: All enemies in the burst
     effects:
-      - roll: Each target makes an Intuition test.
+      - effect: Each target makes an Intuition test.
         t1: Target moves up to their speed away from the werewolf; frightened (save ends)
         t2: Frightened (EoT)
         t3: no effect
       - effect: Enemies that have 1 or more rage gain 4 rage and howl along with the werewolf.
+        name: Effect
   - name: Full Wolf
     keywords:
       - —
@@ -123,6 +128,7 @@ abilities:
     target: Self
     effects:
       - effect: The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1.
+        name: Effect
   - name: Rampage
     keywords:
       - Area
@@ -138,3 +144,4 @@ abilities:
         t2: 8 damage; 4 rage; M<2 bleeding (save ends)
         t3: 11 damage; 8 rage; M<3 bleeding (save ends)
       - effect: The werewolf shifts up to their speed before and after using this ability.
+        name: Effect

@@ -11,7 +11,8 @@
     "target": "One ally",
     "effects": [
         {
-            "effect": "The power roll takes a bane against the target."
+            "effect": "The power roll takes a bane against the target.",
+            "name": "Effect"
         },
         {
             "cost": "Spend 1 Piety",

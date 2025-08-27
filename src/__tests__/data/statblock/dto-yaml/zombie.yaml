@@ -39,6 +39,7 @@ abilities:
         t2: 6 damage
         t3: 7 damage; grabbed
       - effect: A target who starts their turn grabbed by the zombie takes 2 corruption damage. If a creature takes 5 or more corruption damage this way, they become insatiably hungry for flesh. The target must complete the Find a Cure project to end this effect.
+        name: Effect
   - name: Zombie Dust
     cost: 3 Malice
     keywords:
@@ -49,6 +50,7 @@ abilities:
     target: Each enemy in the burst
     effects:
       - effect: The zombie falls prone, expelling a wave of rot and dust.
+        name: Effect
       - roll: Power Roll + 2
         t1: 2 corruption damage
         t2: 3 corruption damage; M<1 weakened (save ends)

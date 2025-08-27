@@ -50,7 +50,8 @@
       "target": "Two creatures or objects",
       "effects": [
         {
-          "effect": "The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed."
+          "effect": "The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.",
+          "name": "Effect"
         },
         {
           "roll": "Power Roll + 2",
@@ -75,7 +76,8 @@
       "target": "1 creature or object",
       "effects": [
         {
-          "effect": "The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind."
+          "effect": "The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.",
+          "name": "Effect"
         },
         {
           "roll": "Power Roll + 2",
@@ -96,7 +98,8 @@
       "target": "Self",
       "effects": [
         {
-          "effect": "The wallmaster teleports to a wall within distance and affixes itself to it."
+          "effect": "The wallmaster teleports to a wall within distance and affixes itself to it.",
+          "name": "Effect"
         }
       ]
     },
@@ -111,7 +114,8 @@
       "trigger": "A creature damages the wall with a strike.",
       "effects": [
         {
-          "effect": "The wall redirects the strike to the target creature and isn’t targeted by the strike."
+          "effect": "The wall redirects the strike to the target creature and isn’t targeted by the strike.",
+          "name": "Effect"
         }
       ]
     }
