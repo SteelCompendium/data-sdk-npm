@@ -19,7 +19,6 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     public constructor(source: Partial<Ability>) {
         super();
         Object.assign(this, source);
-        this.metadata = source.metadata ?? [];
         this.effects = source.effects ?? new Effects([]);
     }
 
