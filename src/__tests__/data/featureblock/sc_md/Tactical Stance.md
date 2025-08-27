@@ -1,17 +1,3 @@
----
-file_basename: Tactical Stance
-file_dpath: Monsters/Ajax the Invincible/Features
-item_id: tactical-stance-ajax-feature
-item_index: '14'
-item_name: Tactical Stance (Ajax Feature)
-scc:
-  - mcdm.monsters.v1:monster.feature:tactical-stance-ajax-feature
-scdc:
-  - 1.1.1:2.2:14
-source: mcdm.monsters.v1
-type: monster/feature
----
-
 ###### Tactical Stance (Ajax Feature)
 
 At the start of each round, Ajax chooses a new stance from one of the following options and gains its benefits:

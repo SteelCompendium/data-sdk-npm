@@ -157,7 +157,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     }
 
     private writeMundaneEffect(effect: MundaneEffect, includeEffectToken: boolean): string {
-        let name = "Effect";
+        let name;
         if (effect.name) {
             name = effect.name;
             if (effect.cost) {

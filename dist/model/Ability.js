@@ -8,11 +8,10 @@ const AbilityXmlDTO_1 = require("../dto/AbilityXmlDTO");
 // Abilities as currently implemented blend the line of Ability and Trait...
 class Ability extends SteelCompendiumModel_1.SteelCompendiumModel {
     constructor(source) {
-        var _a, _b;
+        var _a;
         super();
         Object.assign(this, source);
-        this.metadata = (_a = source.metadata) !== null && _a !== void 0 ? _a : [];
-        this.effects = (_b = source.effects) !== null && _b !== void 0 ? _b : new Effects_1.Effects([]);
+        this.effects = (_a = source.effects) !== null && _a !== void 0 ? _a : new Effects_1.Effects([]);
     }
     static fromDTO(dto) {
         return new Ability(Object.assign(Object.assign({}, dto), { effects: Effects_1.Effects.fromDTO(dto.effects) }));

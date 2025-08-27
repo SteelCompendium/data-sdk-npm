@@ -1,17 +1,3 @@
----
-file_basename: The Throne of A An
-file_dpath: Dynamic Terrain/Supernatural Objects
-item_id: the-throne-of-aan-level-4-relic-controller
-item_index: '03'
-item_name: The Throne of A'An (Level 4 Relic Controller)
-scc:
-  - mcdm.monsters.v1:dynamic-terrain.supernatural-object:the-throne-of-aan-level-4-relic-controller
-scdc:
-  - 1.1.1:4.6:03
-source: mcdm.monsters.v1
-type: dynamic-terrain/supernatural-object
----
-
 ###### The Throne of A'An (Level 4 Relic Controller)
 
 The throne of A'An, sun god of the Antical Protectorate in what is now Vanigar, retains some of her power from the age before she was slain to end the Age of Suns-and plunge the region into eternal winter.
@@ -58,7 +44,7 @@ The throne of A'An, sun god of the Antical Protectorate in what is now Vanigar, 
 > 🏹 **Primordial Flare**
 >
 > | **Magic, Ranged, Strike** |                  **Maneuver** |
-> | ------------------------- | ----------------------------: |
+> | ------------------------- | -----------------------------:|
 > | **📏 Ranged 20**          | **🎯 One creature or object** |
 >
 > **Power Roll + 2:**
@@ -73,7 +59,7 @@ The throne of A'An, sun god of the Antical Protectorate in what is now Vanigar, 
 > ❗️ **Solar Accretion**
 >
 > | **Magic, Ranged** | **Free triggered action** |
-> | ----------------- | ------------------------: |
+> | ----------------- | -------------------------:|
 > | **📏 Ranged 10**  |       **🎯 One creature** |
 >
 > **Trigger:** A target within distance is made winded or is reduced to 0 Stamina by fire damage.
@@ -84,7 +70,7 @@ The throne of A'An, sun god of the Antical Protectorate in what is now Vanigar, 
 > ❗️ **Nova**
 >
 > | **Area, Magic** |                   **Free triggered action** |
-> | --------------- | ------------------------------------------: |
+> | --------------- | -------------------------------------------:|
 > | **📏 10 burst** | **🎯 Each creature and object in the area** |
 >
 > **Trigger:** The throne is destroyed or the hierophant obtains a tier 1 outcome on the test to deactivate it.

@@ -1,17 +1,3 @@
----
-file_basename: Angry Beehive
-file_dpath: Dynamic Terrain/Environmental Hazards
-item_id: angry-beehive-level-2-hazard-hexer
-item_index: '04'
-item_name: Angry Beehive (Level 2 Hazard Hexer)
-scc:
-  - mcdm.monsters.v1:dynamic-terrain.environmental-hazard:angry-beehive-level-2-hazard-hexer
-scdc:
-  - 1.1.1:4.5:04
-source: mcdm.monsters.v1
-type: dynamic-terrain/environmental-hazard
----
-
 ###### Angry Beehive (Level 2 Hazard Hexer)
 
 This beehive is full of angry bees who swarm and attack with little provocation.

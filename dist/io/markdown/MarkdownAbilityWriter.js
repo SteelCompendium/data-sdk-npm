@@ -38,6 +38,7 @@ const Effect_1 = require("../../model/Effect");
 const model_1 = require("../../model");
 const model_2 = require("../../model");
 const yaml = __importStar(require("js-yaml"));
+const TestEffect_1 = require("../../model/TestEffect");
 class MarkdownAbilityWriter {
     write(data, for_statblock = false) {
         // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
@@ -176,6 +177,9 @@ class MarkdownAbilityWriter {
         else if (effect instanceof model_2.PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         }
+        else if (effect instanceof TestEffect_1.TestEffect) {
+            return this.writeTestEffect(effect);
+        }
         return '';
     }
     writeMundaneEffect(effect, includeEffectToken) {
@@ -198,6 +202,38 @@ class MarkdownAbilityWriter {
         const rollParts = [];
         if (effect.roll) {
             rollParts.push(`**${effect.roll}:**\n`);
+        }
+        if (effect.t1) {
+            rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
+        }
+        if (effect.t2) {
+            rollParts.push(`- **12-16:** ${effect.t2.trim()}`);
+        }
+        if (effect.t3) {
+            rollParts.push(`- **17+:** ${effect.t3.trim()}`);
+        }
+        if (effect.crit) {
+            rollParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
+        }
+        return rollParts.join('\n');
+    }
+    writeTestEffect(effect) {
+        const rollParts = [];
+        let name;
+        if (effect.name) {
+            name = effect.name;
+            if (effect.cost) {
+                name += ` (${effect.cost})`;
+            }
+        }
+        else if (effect.cost) {
+            name = effect.cost;
+        }
+        if (!effect.name && !effect.cost) {
+            rollParts.push(`${effect.effect.trim()}\n`);
+        }
+        else {
+            rollParts.push(`**${name}:** ${effect.effect.trim()}\n`);
         }
         if (effect.t1) {
             rollParts.push(`- **≤11:** ${effect.t1.trim()}`);

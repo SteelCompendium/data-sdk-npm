@@ -43,7 +43,7 @@ function effectFromDTO(effect_data) {
     else if (effect_data.roll) {
         return PowerRollEffect_1.PowerRollEffect.fromDTO(effect_data);
     }
-    else if (effect_data.test && effect_data.t1) {
+    else if (effect_data.effect && effect_data.t1) {
         return TestEffect_1.TestEffect.fromDTO(effect_data);
     }
     else if (typeof effect_data === "string") {

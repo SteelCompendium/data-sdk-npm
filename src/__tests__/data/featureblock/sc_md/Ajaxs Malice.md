@@ -1,17 +1,3 @@
----
-file_basename: Ajaxs Malice
-file_dpath: Monsters/Ajax the Invincible/Features
-item_id: ajaxs-malice-malice-features
-item_index: '15'
-item_name: Ajax's Malice (Malice Features)
-scc:
-  - mcdm.monsters.v1:monster.feature:ajaxs-malice-malice-features
-scdc:
-  - 1.1.1:2.2:15
-source: mcdm.monsters.v1
-type: monster/feature
----
-
 ###### Ajax's Malice (Malice Features)
 
 At the start of Ajax's turn, you can spend Malice to activate one of the following features.
@@ -41,7 +27,7 @@ At the start of Ajax's turn, you can spend Malice to activate one of the followi
 > 🔳 **Draw Steel (10 Malice)**
 >
 > | **Area, Magic, Ranged, Weapon** |                          **Main Action** |
-> | ------------------------------- | ---------------------------------------: |
+> | ------------------------------- | ----------------------------------------:|
 > | **📏 Four 3 cubes within 10**   | **🎯 Each enemy and object in the area** |
 >
 > **Effect:** Each target makes a test using their highest characteristic.

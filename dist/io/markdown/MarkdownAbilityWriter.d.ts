@@ -6,4 +6,5 @@ export declare class MarkdownAbilityWriter implements IDataWriter<Ability> {
     private writeEffect;
     private writeMundaneEffect;
     private writePowerRollEffect;
+    private writeTestEffect;
 }

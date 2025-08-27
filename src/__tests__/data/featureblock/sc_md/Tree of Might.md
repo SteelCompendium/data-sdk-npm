@@ -1,17 +1,3 @@
----
-file_basename: Tree of Might
-file_dpath: Dynamic Terrain/Power Fixtures
-item_id: tree-of-might-level-5-hazard-hexer
-item_index: '03'
-item_name: Tree of Might (Level 5 Hazard Hexer)
-scc:
-  - mcdm.monsters.v1:dynamic-terrain.power-fixture:tree-of-might-level-5-hazard-hexer
-scdc:
-  - 1.1.1:4.4:03
-source: mcdm.monsters.v1
-type: dynamic-terrain/power-fixture
----
-
 ###### Tree of Might (Level 5 Hazard Hexer)
 
 A gnarled tree has unearthed roots that writhe and curl.
