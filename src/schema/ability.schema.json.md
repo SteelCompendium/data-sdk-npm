@@ -6,18 +6,19 @@ This document describes the JSON schema for Draw Steel abilities, which represen
 
 The root object represents a complete ability with the following properties:
 
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | The title or description of the ability |
-| `type` | string | Yes | Ability type (e.g., "Action", "Maneuver", "Triggered Action", "Villain Action 1") |
-| `cost` | string | No | Cost to use the ability (e.g., "5 Essence", "Signature", "2 Malice") |
-| `keywords` | string[] | No | Keywords associated with the ability (e.g., ["Magic", "Earth", "Melee"]) |
-| `distance` | string | No | Distance or area (e.g., "Ranged 5", "2 burst", "Melee 1") |
-| `target` | string | No | Who or what is targeted (e.g., "All enemies", "One creature", "Self") |
-| `trigger` | string | No | Trigger condition for triggered actions |
-| `effects` | Effect[] | Yes | List of effects (flexible formats) |
-| `flavor` | string | No | Flavor text of the ability |
-| `metadata` | object | No | Key-value pairs for additional data, often used for frontmatter in markdown |
+| Property   | Type     | Required | Description                                                                       |
+|------------|----------|----------|-----------------------------------------------------------------------------------|
+| `name`     | string   | Yes      | The title or description of the ability                                           |
+| `icon`     | string   | No       | The icon of the ability (ex: "🏹")                                                |
+| `type`     | string   | Yes      | Ability type (e.g., "Action", "Maneuver", "Triggered Action", "Villain Action 1") |
+| `cost`     | string   | No       | Cost to use the ability (e.g., "5 Essence", "Signature", "2 Malice")              |
+| `keywords` | string[] | No       | Keywords associated with the ability (e.g., ["Magic", "Earth", "Melee"])          |
+| `distance` | string   | No       | Distance or area (e.g., "Ranged 5", "2 burst", "Melee 1")                         |
+| `target`   | string   | No       | Who or what is targeted (e.g., "All enemies", "One creature", "Self")             |
+| `trigger`  | string   | No       | Trigger condition for triggered actions                                           |
+| `effects`  | Effect[] | Yes      | List of effects (flexible formats)                                                |
+| `flavor`   | string   | No       | Flavor text of the ability                                                        |
+| `metadata` | object   | No       | Key-value pairs for additional data, often used for frontmatter in markdown       |
 
 ## Effect Types
 
