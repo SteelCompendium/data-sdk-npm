@@ -42,6 +42,28 @@ Example:
 }
 ```
 
+### Test Effect
+
+A test effect represents a test against the targets with different outcomes based on the result.
+
+| Property | Type   | Required | Description                                                          |
+|----------|--------|----------|----------------------------------------------------------------------|
+| `name`   | string | Yes      | Name of the test effect                                              |
+| `cost`   | string | Yes      | Cost to trigger this test effect                                     |
+| `effect` | string | Yes      | Description of the test effect                                       |
+| `[tier]` | string | No       | Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.) |
+
+Example:
+```json
+{
+  "effect": "Targets make a Might test",
+  "name": "Effect",
+  "11 or lower": "3 sonic damage; slide 1; shift 1",
+  "12-16": "6 sonic damage; slide 3; shift 3",
+  "17+": "8 sonic damage; slide 5; shift 5"
+}
+```
+
 ### Named Effect with Cost
 
 An effect that has a name and requires a cost to trigger.

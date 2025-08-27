@@ -1,170 +1,302 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "Steel Compendium Ability",
-    "type": "object",
-    "required": [
-        "name",
-        "type",
-        "effects"
-    ],
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "The title or description of the ability"
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Steel Compendium Ability",
+  "type": "object",
+  "required": [
+    "name",
+    "type",
+    "effects"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The title or description of the ability"
+    },
+    "type": {
+      "type": "string",
+      "description": "Ability type (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+    },
+    "cost": {
+      "type": "string",
+      "description": "Cost to use the ability (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Keywords associated with the ability (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
+    },
+    "distance": {
+      "type": "string",
+      "description": "Distance or area (e.g., \"Ranged 5\", \"2 burst\", \"Melee 1\")"
+    },
+    "target": {
+      "type": "string",
+      "description": "Who or what is targeted (e.g., \"All enemies\", \"One creature\", \"Self\")"
+    },
+    "trigger": {
+      "type": "string",
+      "description": "Trigger condition for triggered actions"
+    },
+    "effects": {
+      "$ref": "#/definitions/effectsArray"
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Flavor text of the ability"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata for the ability, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "effectsArray": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of effects (flexible formats)",
+      "items": {
+        "oneOf": [
+          {
+            "$ref": "#/definitions/powerRollEffect"
+          },
+          {
+            "$ref": "#/definitions/testEffect"
+          },
+          {
+            "$ref": "#/definitions/namedEffectWithCost"
+          },
+          {
+            "$ref": "#/definitions/namedEffect"
+          },
+          {
+            "$ref": "#/definitions/costedEffect"
+          },
+          {
+            "$ref": "#/definitions/namelessEffect"
+          }
+        ]
+      }
+    },
+    "powerRollEffect": {
+      "type": "object",
+      "required": [
+        "roll"
+      ],
+      "properties": {
+        "roll": {
+          "type": "string",
+          "description": "Power Roll expression (e.g., \"2d10 + 3\")"
         },
-        "type": {
-            "type": "string",
-            "description": "Ability type (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+        "t1": { "type": "string"},
+        "t2": { "type": "string"},
+        "t3": { "type": "string"},
+        "crit": { "type": "string"},
+        "11 or lower": { "type": "string"},
+        "12-16": { "type": "string"},
+        "17+": { "type": "string"},
+        "nat 19-20": { "type": "string"}
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "effect"
+            ]
+          },
+          {
+            "required": [
+              "name"
+            ]
+          }
+        ]
+      },
+      "additionalProperties": {
+        "type": "string",
+        "description": "Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.)"
+      }
+    },
+    "testEffect": {
+      "type": "object",
+      "required": [
+        "effect"
+      ],
+      "properties": {
+        "effect": {
+          "type": "string",
+          "description": "Test expression (e.g., \"All targets make a Might test.\")"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the effect"
         },
         "cost": {
-            "type": "string",
-            "description": "Cost to use the ability (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
+          "type": "string",
+          "description": "Cost to trigger this effect"
         },
-        "keywords": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Keywords associated with the ability (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
-        },
-        "distance": {
-            "type": "string",
-            "description": "Distance or area (e.g., \"Ranged 5\", \"2 burst\", \"Melee 1\")"
-        },
-        "target": {
-            "type": "string",
-            "description": "Who or what is targeted (e.g., \"All enemies\", \"One creature\", \"Self\")"
-        },
-        "trigger": {
-            "type": "string",
-            "description": "Trigger condition for triggered actions"
-        },
-        "effects": {
-            "$ref": "#/definitions/effectsArray"
-        },
-        "flavor": {
-            "type": "string",
-            "description": "Flavor text of the ability"
-        },
-        "metadata": {
-            "type": "object",
-            "description": "Metadata for the ability, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
-            "additionalProperties": true
-        }
+        "t1": { "type": "string"},
+        "t2": { "type": "string"},
+        "t3": { "type": "string"},
+        "crit": { "type": "string"},
+        "11 or lower": { "type": "string"},
+        "12-16": { "type": "string"},
+        "17+": { "type": "string"},
+        "nat 19-20": { "type": "string"}
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "roll"
+            ]
+          }
+        ]
+      },
+      "anyOf": [
+        { "required": ["t1"] },
+        { "required": ["t2"] },
+        { "required": ["t3"] },
+        { "required": ["crit"] },
+        { "required": ["11 or lower"] },
+        { "required": ["12-16"] },
+        { "required": ["17+"] },
+        { "required": ["nat 19-20"] }
+      ],
+      "additionalProperties": {
+        "type": "string",
+        "description": "Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.)"
+      }
     },
-    "additionalProperties": false,
-    "definitions": {
-        "effectsArray": {
-            "type": "array",
-            "minItems": 1,
-            "description": "List of effects (flexible formats)",
-            "items": {
-                "oneOf": [
-                    {
-                        "$ref": "#/definitions/powerRollEffect"
-                    },
-                    {
-                        "$ref": "#/definitions/namedEffectWithCost"
-                    },
-                    {
-                        "$ref": "#/definitions/namedEffect"
-                    },
-                    {
-                        "$ref": "#/definitions/costedEffect"
-                    },
-                    {
-                        "$ref": "#/definitions/namelessEffect"
-                    }
-                ]
-            }
+    "namedEffectWithCost": {
+      "type": "object",
+      "required": [
+        "name",
+        "cost",
+        "effect"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the effect"
         },
-        "powerRollEffect": {
-            "type": "object",
-            "required": [
-                "roll"
-            ],
-            "properties": {
-                "roll": {
-                    "type": "string",
-                    "description": "Power Roll expression (e.g., \"2d10 + 3\")"
-                }
-            },
-            "additionalProperties": {
-                "type": "string",
-                "description": "Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.)"
-            }
+        "cost": {
+          "type": "string",
+          "description": "Cost to trigger this effect"
         },
-        "namedEffectWithCost": {
-            "type": "object",
-            "required": [
-                "name",
-                "cost",
-                "effect"
-            ],
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "Name of the effect"
-                },
-                "cost": {
-                    "type": "string",
-                    "description": "Cost to trigger this effect"
-                },
-                "effect": {
-                    "type": "string",
-                    "description": "Description of what the effect does"
-                }
-            },
-            "additionalProperties": false
-        },
-        "costedEffect": {
-            "type": "object",
-            "required": [
-                "cost",
-                "effect"
-            ],
-            "properties": {
-                "cost": {
-                    "type": "string",
-                    "description": "Cost to trigger this effect"
-                },
-                "effect": {
-                    "type": "string",
-                    "description": "Description of what the effect does"
-                }
-            },
-            "additionalProperties": false
-        },
-        "namedEffect": {
-            "type": "object",
-            "required": [
-                "name",
-                "effect"
-            ],
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "Name of the effect"
-                },
-                "effect": {
-                    "type": "string",
-                    "description": "Description of what the effect does"
-                }
-            },
-            "additionalProperties": false
-        },
-        "namelessEffect": {
-            "type": "object",
-            "required": [
-                "effect"
-            ],
-            "properties": {
-                "effect": {
-                    "type": "string",
-                    "description": "Description of what the effect does"
-                }
-            },
-            "additionalProperties": false
+        "effect": {
+          "type": "string",
+          "description": "Description of what the effect does"
         }
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "t1"
+            ]
+          },
+          {
+            "required": [
+              "11 or lower"
+            ]
+          }
+        ]
+      },
+      "additionalProperties": false
+    },
+    "costedEffect": {
+      "type": "object",
+      "required": [
+        "cost",
+        "effect"
+      ],
+      "properties": {
+        "cost": {
+          "type": "string",
+          "description": "Cost to trigger this effect"
+        },
+        "effect": {
+          "type": "string",
+          "description": "Description of what the effect does"
+        }
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "t1"
+            ]
+          },
+          {
+            "required": [
+              "11 or lower"
+            ]
+          }
+        ]
+      },
+      "additionalProperties": false
+    },
+    "namedEffect": {
+      "type": "object",
+      "required": [
+        "name",
+        "effect"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the effect"
+        },
+        "effect": {
+          "type": "string",
+          "description": "Description of what the effect does"
+        }
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "t1"
+            ]
+          },
+          {
+            "required": [
+              "11 or lower"
+            ]
+          }
+        ]
+      },
+      "additionalProperties": false
+    },
+    "namelessEffect": {
+      "type": "object",
+      "required": [
+        "effect"
+      ],
+      "properties": {
+        "effect": {
+          "type": "string",
+          "description": "Description of what the effect does"
+        }
+      },
+      "not": {
+        "anyOf": [
+          {
+            "required": [
+              "t1"
+            ]
+          },
+          {
+            "required": [
+              "11 or lower"
+            ]
+          }
+        ]
+      },
+      "additionalProperties": false
     }
+  }
 }
