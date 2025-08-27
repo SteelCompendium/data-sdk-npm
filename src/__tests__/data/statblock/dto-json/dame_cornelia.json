@@ -60,7 +60,8 @@
           "t3": "8 damage; M<3 slowed (save ends)"
         },
         {
-          "effect": "An ally within 10 of Cornelia can make a free strike."
+          "effect": "An ally within 10 of Cornelia can make a free strike.",
+          "name": "Effect"
         },
         {
           "cost": "1 Malice",
@@ -78,7 +79,8 @@
       "target": "One enemy",
       "effects": [
         {
-          "effect": "The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her."
+          "effect": "The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.",
+          "name": "Effect"
         }
       ]
     },
@@ -93,7 +95,8 @@
       "trigger": "A creature targets the blackguard or an ally adjacent to Cornelia with a strike.",
       "effects": [
         {
-          "effect": "The damage is halved."
+          "effect": "The damage is halved.",
+          "name": "Effect"
         }
       ]
     },
@@ -108,7 +111,8 @@
       "target": "Self",
       "effects": [
         {
-          "effect": "Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice."
+          "effect": "Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.",
+          "name": "Effect"
         }
       ]
     },
@@ -124,7 +128,8 @@
       "target": "All enemies in the burst",
       "effects": [
         {
-          "effect": "Slide 5."
+          "effect": "Slide 5.",
+          "name": "Effect"
         }
       ]
     },
@@ -142,7 +147,8 @@
       "target": "Each enemy in the cube",
       "effects": [
         {
-          "effect": "Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally)."
+          "effect": "Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally).",
+          "name": "Effect"
         }
       ]
     }

@@ -59,6 +59,7 @@ abilities:
     target: Self
     effects:
       - effect: The spider shifts up to their speed and makes a Slashing Leg strike against each creature who comes within 1 of the spider during the move. The spider makes one power roll against all targets.
+        name: Effect
   - name: Web
     keywords:
       - Area
@@ -80,3 +81,4 @@ abilities:
     trigger: The spider takes damage.
     effects:
       - effect: The spider halves the damage, and then shifts 2 squares after the triggering effect resolves.
+        name: Effect

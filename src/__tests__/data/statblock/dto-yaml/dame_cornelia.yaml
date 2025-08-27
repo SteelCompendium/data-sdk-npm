@@ -51,6 +51,7 @@ abilities:
     target: One enemy
     effects:
       - effect: The target is marked until the start of Cornelia’s next turn. Cornelia and each of her allies gain an edge on abilities used against targets marked by her.
+        name: Effect
   - name: Parry!
     keywords:
       - —
@@ -60,6 +61,7 @@ abilities:
     trigger: A creature targets the blackguard or an ally adjacent to Cornelia with a strike.
     effects:
       - effect: The damage is halved.
+        name: Effect
   - name: Advance!
     keywords:
       - —
@@ -69,6 +71,7 @@ abilities:
     target: Self
     effects:
       - effect: Cornelia shifts up to her speed. During or after this movement, she can use Zweihander Swing twice.
+        name: Effect
   - name: Back!
     keywords:
       - Area
@@ -79,6 +82,7 @@ abilities:
     target: All enemies in the burst
     effects:
       - effect: Slide 5.
+        name: Effect
   - name: I Can Throw My Blade and So Should You!
     keywords:
       - Area
@@ -91,3 +95,4 @@ abilities:
     target: Each enemy in the cube
     effects:
       - effect: Cornelia uses Zweihander Swing against each target. Then, each ally within 5 of the area can make a free strike against a target (one target per ally).
+        name: Effect

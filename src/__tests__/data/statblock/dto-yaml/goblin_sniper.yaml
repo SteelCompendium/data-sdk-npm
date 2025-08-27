@@ -39,3 +39,4 @@ abilities:
         t2: 4 damage
         t3: 5 damage
       - effect: If the sniper doesn’t use a move action this turn, the ability has an edge.
+        name: Effect

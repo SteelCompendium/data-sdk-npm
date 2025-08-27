@@ -36,6 +36,7 @@ abilities:
         t2: 4 damage
         t3: 5 damage
       - effect: An ally of the redeye within 2 squares of the target can shift up to 2 squares.
+        name: Effect
   - name: Ready Rodent
     keywords:
       - Melee
@@ -46,3 +47,4 @@ abilities:
     trigger: An ally deals damage to the target.
     effects:
       - effect: The redeye makes a free strike against the target.
+        name: Effect

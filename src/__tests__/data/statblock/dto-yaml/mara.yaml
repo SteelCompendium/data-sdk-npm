@@ -56,6 +56,7 @@ abilities:
         t2: 5 damage; restrained (EoT)
         t3: 8 damage; restrained (save ends)
       - effect: The affected area is difficult terrain for enemies. An enemy has acid weakness 2 while occupying an affected square.
+        name: Effect
   - name: Jaws of the Void
     keywords:
       - Magic
@@ -66,3 +67,4 @@ abilities:
     trigger: Mara takes damage.
     effects:
       - effect: Mara teleports 2 squares. Each creature adjacent to her original space takes 2 corruption damage.
+        name: Effect

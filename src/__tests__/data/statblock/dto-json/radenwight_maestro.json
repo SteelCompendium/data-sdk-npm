@@ -49,7 +49,8 @@
           "t3": "8 sonic damage; slide 5; shift 5"
         },
         {
-          "effect": "Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round."
+          "effect": "Each ally within distance can use Ready Rodent as a free triggered action once before the end of the round.",
+          "name": "Effect"
         }
       ]
     },
@@ -89,7 +90,8 @@
       "trigger": "The target deals damage to an ally or takes damage from an ally.",
       "effects": [
         {
-          "effect": "The maestro makes a free strike against the target."
+          "effect": "The maestro makes a free strike against the target.",
+          "name": "Effect"
         }
       ]
     },
@@ -104,7 +106,8 @@
       "target": "All allies in the burst",
       "effects": [
         {
-          "effect": "Each target shifts up to their speed or takes the Defend main action."
+          "effect": "Each target shifts up to their speed or takes the Defend main action.",
+          "name": "Effect"
         }
       ]
     },
@@ -119,7 +122,8 @@
       "target": "One creature",
       "effects": [
         {
-          "effect": "Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled."
+          "effect": "Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled.",
+          "name": "Effect"
         }
       ]
     },
@@ -134,7 +138,8 @@
       "target": "All dead allies in the burst",
       "effects": [
         {
-          "effect": "Each target stands, makes a free strike, then collapses again. Allies of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes."
+          "effect": "Each target stands, makes a free strike, then collapses again. Allies of the targets can use Ready Rodent as a free triggered action once in conjunction with these free strikes.",
+          "name": "Effect"
         }
       ]
     }

@@ -43,6 +43,7 @@ abilities:
         t2: 9 damage
         t3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
       - effect: brawler deals an additional 2 damage if the target is already grabbed.
+        name: Effect
   - name: Throw
     cost: 1 Malice
     keywords:
@@ -52,3 +53,4 @@ abilities:
     target: One creature grabbed by the brawler
     effects:
       - effect: Push 5.
+        name: Effect

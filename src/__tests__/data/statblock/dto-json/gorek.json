@@ -91,7 +91,8 @@
           "t3": "16 damage; M<2 grabbed"
         },
         {
-          "effect": "Gorek has an edge on strikes against a grabbed creature."
+          "effect": "Gorek has an edge on strikes against a grabbed creature.",
+          "name": "Effect"
         }
       ]
     }

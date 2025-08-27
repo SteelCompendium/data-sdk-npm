@@ -36,6 +36,7 @@ abilities:
         t2: 7 damage; push 4
         t3: 9 damage; push 6
       - effect: A target restrained by a dwarf can be pushed by this ability.
+        name: Effect
   - name: Steam Powered Snare
     cost: 3 Malice
     keywords:
@@ -50,3 +51,4 @@ abilities:
         t2: 5 damage; slowed (EoT)
         t3: No effect
       - effect: The snare remains until the end of the encounter. An enemy that moves into an affected square for the first time on their turn must make the test.
+        name: Effect
