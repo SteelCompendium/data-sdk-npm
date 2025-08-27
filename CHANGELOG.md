@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.38
+
+- Adds support for Featureblocks
+- Ability and Traits now support the `icon` (`string`) field!
+- Lots of bugfixes with serialization
+- Minor fix to identification (its still not good)
+
 ## 0.0.37
 
 - Corrects a bug with TestEffects being parsed with the name in the effect
