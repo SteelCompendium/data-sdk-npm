@@ -95,6 +95,7 @@ class MarkdownAbilityReader {
         }
         const effects = [];
         // Effects
+        // TODO - this AI slop is so bad.  It needs to be rewritten to avoid so much code duplication.
         while (i < lines.length) {
             const line = lines[i];
             // Power Roll Effect
@@ -144,17 +145,6 @@ class MarkdownAbilityReader {
                 else {
                     effectProps.name = nameAndCost.trim();
                 }
-                // const nameCostMatch = nameAndCost.match(/(.*?) \((.*)\)/);
-                // let name: string | undefined;
-                // if (nameCostMatch) {
-                //     name = nameCostMatch[1].trim();
-                //     effectProps.cost = nameCostMatch[2].trim();
-                // } else {
-                //     name = nameAndCost.trim();
-                // }
-                // if (name.toLowerCase() !== 'effect') {
-                //     effectProps.name = name;
-                // }
                 // If we find tiers, rewrite the effect as Test Effect
                 let hasTiers = this.peekToCheckForTiers(i, lines);
                 if (hasTiers) {
@@ -171,16 +161,23 @@ class MarkdownAbilityReader {
                 }
                 continue;
             }
-            // If we've reached here and the line is not empty, it must be a simple effect
+            // If we've reached here and the line is not empty, it must be an effect without a name/cost
             if (line.trim()) {
                 let effect = line;
                 i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
+                while (i < lines.length && !lines[i].startsWith('**') && !lines[i].startsWith('- **')) {
                     effect += '\n' + lines[i];
                     i++;
                 }
-                const effectProps = { effect: effect.trim() };
-                effects.push(new model_1.MundaneEffect(effectProps));
+                let hasTiers = this.peekToCheckForTiers(i, lines);
+                if (hasTiers) {
+                    let tierEffect = new TestEffect_1.TestEffect({ effect: effect.trim() });
+                    i = this.parseTiers(i, lines, tierEffect);
+                    effects.push(tierEffect);
+                }
+                else {
+                    effects.push(new model_1.MundaneEffect({ effect: effect.trim() }));
+                }
                 continue;
             }
             i++;

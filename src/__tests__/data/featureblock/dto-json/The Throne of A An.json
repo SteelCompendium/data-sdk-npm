@@ -13,7 +13,10 @@
       "icon": "🌀",
       "effects": [
         {
-          "effect": "The throne of A'An can be deactivated only by the current hierophant of A'An (see **Sitting on the Throne**), who must succeed on a **Presence test** that takes a bane to do so.\n- **≤11:** The hierophant triggers the **Nova** ability.\n- **12-16:** The hierophant fails to deactivate the throne.\n- **17+:** The throne is deactivated until the end of the encounter."
+          "effect": "The throne of A'An can be deactivated only by the current hierophant of A'An (see **Sitting on the Throne**), who must succeed on a **Presence test** that takes a bane to do so.",
+          "t1": "The hierophant triggers the Nova ability.",
+          "t2": "The hierophant fails to deactivate the throne.",
+          "t3": "The throne is deactivated until the end of the encounter."
         }
       ]
     },
@@ -31,7 +34,13 @@
       "icon": "⭐️",
       "effects": [
         {
-          "effect": "Only a creature attuned to the throne can sit on it. A creature adjacent to the throne can use a main action to attune to it by succeeding on a **Presence test**.\n- **≤11:** The creature takes 11 fire damage.\n- **12-16:** The creature fails to attune to the throne.\n- **17+:** The creature attunes to the throne and can sit on it.\nA creature seated on the throne becomes the hierophant of A'An and gains the following benefits:\n- The hierophant and each of their allies within 10 squares of the throne have fire immunity 10.\n- The hierophant and each of their allies within 10 squares of the throne can choose to have their abilities deal fire damage instead of their usual damage.\n- The hierophant has a +5 bonus to stability, and any strike made against them takes a bane unless the attacker is also attuned to the throne.\n- The hierophant can use the **Primordial Flare** and **Solar Accretion** abilities."
+          "effect": "Only a creature attuned to the throne can sit on it. A creature adjacent to the throne can use a main action to attune to it by succeeding on a **Presence test**.",
+          "t1": "The creature takes 11 fire damage.",
+          "t2": "The creature fails to attune to the throne.",
+          "t3": "The creature attunes to the throne and can sit on it."
+        },
+        {
+          "effect": "A creature seated on the throne becomes the hierophant of A'An and gains the following benefits:\n- The hierophant and each of their allies within 10 squares of the throne have fire immunity 10.\n- The hierophant and each of their allies within 10 squares of the throne can choose to have their abilities deal fire damage instead of their usual damage.\n- The hierophant has a +5 bonus to stability, and any strike made against them takes a bane unless the attacker is also attuned to the throne.\n- The hierophant can use the **Primordial Flare** and **Solar Accretion** abilities."
         }
       ]
     },

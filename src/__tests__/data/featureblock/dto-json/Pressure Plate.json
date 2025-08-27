@@ -20,7 +20,10 @@
       "icon": "🌀",
       "effects": [
         {
-          "effect": "As a maneuver, a creature adjacent to a pressure plate can make an **Agility test**.\n- **≤11:** The creature triggers the pressure plate.\n- **12-16:** The pressure plate is deactivated but the creature is slowed (EoT).\n- **17+:** The pressure plate is deactivated and doesn't trigger."
+          "effect": "As a maneuver, a creature adjacent to a pressure plate can make an **Agility test**.",
+          "t1": "The creature triggers the pressure plate.",
+          "t2": "The pressure plate is deactivated but the creature is slowed (EoT).",
+          "t3": "The pressure plate is deactivated and doesn't trigger."
         }
       ]
     },
