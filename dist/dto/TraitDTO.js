@@ -13,6 +13,8 @@ class TraitDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
         const dto = {};
         if (model.name !== undefined)
             dto.name = model.name;
+        if (model.icon !== undefined)
+            dto.icon = model.icon;
         dto.effects = model.effects.toDTO();
         return dto;
     }

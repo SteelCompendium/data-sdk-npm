@@ -2,6 +2,7 @@ import { Ability } from '../model/Ability';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 export declare class AbilityDTO extends SteelCompendiumDTO<Ability> {
     name: string;
+    icon?: string;
     type: string;
     cost?: string;
     keywords?: string[];

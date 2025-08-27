@@ -34,15 +34,13 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarkdownAbilityWriter = void 0;
-const Effect_1 = require("../../model/Effect");
 const model_1 = require("../../model");
 const model_2 = require("../../model");
+const model_3 = require("../../model");
 const yaml = __importStar(require("js-yaml"));
-const TestEffect_1 = require("../../model/TestEffect");
+const model_4 = require("../../model");
 class MarkdownAbilityWriter {
     write(data, for_statblock = false) {
-        // Basically trying to differentiate abilities and features here. If there are keywords, its an ability
-        const includeEffectsToken = !!(data.keywords && data.keywords.length > 0);
         const parts = [];
         const linePrefix = for_statblock ? '> ' : '';
         if (data.metadata && Object.keys(data.metadata).length > 0) {
@@ -117,13 +115,13 @@ class MarkdownAbilityWriter {
                 return parts.join('\n\n');
             }
             const mappedEffects = allEffects.map(e => {
-                if (e instanceof Effect_1.Effect)
+                if (e instanceof model_1.Effect)
                     return e;
                 if (e.roll)
-                    return new model_2.PowerRollEffect(e);
-                return new model_1.MundaneEffect(e);
+                    return new model_3.PowerRollEffect(e);
+                return new model_2.MundaneEffect(e);
             });
-            const effectParts = mappedEffects.map(e => this.writeEffect(e, includeEffectsToken));
+            const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
         let md = parts.join('\n\n');
@@ -170,20 +168,20 @@ class MarkdownAbilityWriter {
         }
         return '';
     }
-    writeEffect(effect, includeEffectToken) {
-        if (effect instanceof model_1.MundaneEffect) {
-            return this.writeMundaneEffect(effect, includeEffectToken);
+    writeEffect(effect) {
+        if (effect instanceof model_2.MundaneEffect) {
+            return this.writeMundaneEffect(effect);
         }
-        else if (effect instanceof model_2.PowerRollEffect) {
+        else if (effect instanceof model_3.PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         }
-        else if (effect instanceof TestEffect_1.TestEffect) {
+        else if (effect instanceof model_4.TestEffect) {
             return this.writeTestEffect(effect);
         }
         return '';
     }
-    writeMundaneEffect(effect, includeEffectToken) {
-        let name = "Effect";
+    writeMundaneEffect(effect) {
+        let name;
         if (effect.name) {
             name = effect.name;
             if (effect.cost) {
@@ -193,7 +191,7 @@ class MarkdownAbilityWriter {
         else if (effect.cost) {
             name = effect.cost;
         }
-        if (!effect.name && !effect.cost && !includeEffectToken) {
+        if (!effect.name && !effect.cost) {
             return effect.effect.trim();
         }
         return `**${name}:** ${effect.effect.trim()}`;

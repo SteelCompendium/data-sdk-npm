@@ -19,8 +19,10 @@ __exportStar(require("./Characteristics"), exports);
 __exportStar(require("./Effect"), exports);
 __exportStar(require("./MundaneEffect"), exports);
 __exportStar(require("./PowerRollEffect"), exports);
+__exportStar(require("./TestEffect"), exports);
 __exportStar(require("./Effects"), exports);
 __exportStar(require("./Statblock"), exports);
 __exportStar(require("./SteelCompendiumModel"), exports);
 __exportStar(require("./Trait"), exports);
+__exportStar(require("./Featureblock"), exports);
 //# sourceMappingURL=index.js.map

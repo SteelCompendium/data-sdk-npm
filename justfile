@@ -1,7 +1,13 @@
 convert_statblocks_from_json_to_md:
-    just convert json markdown "src/__tests__/data/statblock/dto-json" "./tmp"
+    just convert json markdown statblock "src/__tests__/data/statblock/dto-json" "./tmp"
 
-convert from to input_dpath output_dpath:
+convert_test_statblocks_from_md_to_json:
+    just convert markdown json statblock "src/__tests__/data/statblock/sc-md" "./tmp"
+
+convert_test_statblocks_from_md_to_yaml:
+    just convert markdown yaml statblock "src/__tests__/data/statblock/sc-md" "./tmp"
+
+convert from to type input_dpath output_dpath:
     #!/usr/bin/env bash
     set -euo pipefail
     echo >&2 "Converting from '{{from}}' to '{{to}}'"
@@ -13,6 +19,6 @@ convert from to input_dpath output_dpath:
     find "{{input_dpath}}" -type f | while read -r fpath; do
         file_name=$(basename "$fpath")
         name="${file_name%.*}"
-        sc-convert --from "{{from}}" --to "{{to}}" --output "{{output_dpath}}/${name}.{{to}}" "$fpath"
+        sc-convert --from "{{from}}" --to "{{to}}" --type "{{type}}" --output "{{output_dpath}}/${name}.{{to}}" "$fpath"
     done
 

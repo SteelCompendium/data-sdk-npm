@@ -37,15 +37,16 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         const titleLine = lines[i++].trim();
         let titleMatch;
         if (titleLine.startsWith('###')) {
-            titleMatch = titleLine.match(/#+\s*(.*?)(?: \((.*?)\))?$/);
+            titleMatch = titleLine.match(/#+\s*(.*)\s*(.*?)(?: \((.*?)\))?$/);
         } else {
-            titleMatch = titleLine.match(/\*\*(.*?)(?: \((.*?)\))?\*\*/);
+            titleMatch = titleLine.match(/\s*(.*)\s*\*\*(.*?)(?: \((.*?)\))?\*\*/);
         }
 
         if (titleMatch) {
-            partial.name = titleMatch[1].trim();
-            if (titleMatch[2]) {
-                partial.cost = titleMatch[2].trim();
+            partial.icon = titleMatch[1].trim();
+            partial.name = titleMatch[2].trim();
+            if (titleMatch[3]) {
+                partial.cost = titleMatch[3].trim();
             }
         }
 

@@ -4,6 +4,7 @@ import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 export declare class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
+    icon?: string;
     cost?: string;
     flavor?: string;
     keywords?: string[];

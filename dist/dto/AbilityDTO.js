@@ -13,6 +13,8 @@ class AbilityDTO extends SteelCompendiumDTO_1.SteelCompendiumDTO {
         const dto = {};
         if (model.name !== undefined)
             dto.name = model.name;
+        if (model.icon !== undefined)
+            dto.icon = model.icon;
         if (model.cost !== undefined)
             dto.cost = model.cost;
         if (model.flavor !== undefined)

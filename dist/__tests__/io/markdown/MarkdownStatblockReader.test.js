@@ -23,7 +23,7 @@ const MarkdownStatblockReader_1 = require("../../../io/markdown/MarkdownStatbloc
     const jsonFiles = fs_1.default.readdirSync(outputsDir).filter(file => file.endsWith(".json"));
     const testFiles = mdFiles.filter(file => jsonFiles.includes(file.replace('.md', '.json')));
     testFiles.forEach(file => {
-        (0, globals_1.it)(`should correctly parse ${file}`, () => {
+        (0, globals_1.it)(`should correctly read ${file} (validated wth json)`, () => {
             const inputPath = path_1.default.join(inputsDir, file);
             const outputPath = path_1.default.join(outputsDir, file.replace(".md", ".json"));
             const inputText = fs_1.default.readFileSync(inputPath, "utf-8");

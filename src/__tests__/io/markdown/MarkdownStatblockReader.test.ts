@@ -23,7 +23,7 @@ describe("MarkdownStatblockReader", () => {
     const testFiles = mdFiles.filter(file => jsonFiles.includes(file.replace('.md', '.json')));
 
     testFiles.forEach(file => {
-        it(`should correctly parse ${file}`, () => {
+        it(`should correctly read ${file} (validated wth json)`, () => {
             const inputPath = path.join(inputsDir, file);
             const outputPath = path.join(outputsDir, file.replace(".md", ".json"));
 
