@@ -25,7 +25,7 @@
       "icon": "⭐️",
       "effects": [
         {
-          "effect": "In the Age of Suns, there was no darkness and no night. Even among the many suns of that time, the light of A'An was the brightest. The throne of A'An manifests the sun powers of that god, even when no one is seated in it. The following effects always occur within 10 squares of the throne:\n- The throne sheds bright light that negates all darkness and concealment, and which prevents creatures from being hidden.\n- Any creature with cold immunity has fire weakness 10.\n- Any creature who uses an ability that deals cold damage takes 11 fire damage."
+          "effect": "In the Age of Suns, there was no darkness and no night. Even among the many suns of that time, the light of A'An was the brightest. The throne of A'An manifests the sun powers of that god, even when no one is seated in it. The following effects always occur within 10 squares of the throne:\n\n- The throne sheds bright light that negates all darkness and concealment, and which prevents creatures from being hidden.\n- Any creature with cold immunity has fire weakness 10.\n- Any creature who uses an ability that deals cold damage takes 11 fire damage."
         }
       ]
     },
@@ -40,7 +40,7 @@
           "t3": "The creature attunes to the throne and can sit on it."
         },
         {
-          "effect": "A creature seated on the throne becomes the hierophant of A'An and gains the following benefits:\n- The hierophant and each of their allies within 10 squares of the throne have fire immunity 10.\n- The hierophant and each of their allies within 10 squares of the throne can choose to have their abilities deal fire damage instead of their usual damage.\n- The hierophant has a +5 bonus to stability, and any strike made against them takes a bane unless the attacker is also attuned to the throne.\n- The hierophant can use the **Primordial Flare** and **Solar Accretion** abilities."
+          "effect": "A creature seated on the throne becomes the hierophant of A'An and gains the following benefits:\n\n- The hierophant and each of their allies within 10 squares of the throne have fire immunity 10.\n- The hierophant and each of their allies within 10 squares of the throne can choose to have their abilities deal fire damage instead of their usual damage.\n- The hierophant has a +5 bonus to stability, and any strike made against them takes a bane unless the attacker is also attuned to the throne.\n- The hierophant can use the **Primordial Flare** and **Solar Accretion** abilities."
         }
       ]
     },

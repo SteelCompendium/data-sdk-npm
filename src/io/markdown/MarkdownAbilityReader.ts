@@ -143,7 +143,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
 
             // If we've reached here and the line is not empty, it must be an effect without a name/cost
             if (line.trim()) {
-                let effect = line;
+                let effect = line + '\n';
                 i++;
                 while (i < lines.length && !lines[i].startsWith('**') && !lines[i].startsWith('- **')) {
                     effect += '\n' + lines[i];
