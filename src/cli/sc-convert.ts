@@ -20,6 +20,8 @@ import {MarkdownAbilityWriter, MarkdownStatblockWriter} from '../io/markdown';
 import {SteelCompendiumIdentifier, SteelCompendiumFormat} from '../io/SteelCompendiumIdentifier';
 import {Ability, Statblock} from '../model';
 import {XmlAbilityWriter} from "../io/xml";
+import {Featureblock} from "../model/Featureblock";
+import {MarkdownFeatureblockWriter} from "../io/markdown/MarkdownFeatureblockWriter";
 
 interface CLIArgs {
     from: SteelCompendiumFormat;
@@ -120,6 +122,7 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
             case SteelCompendiumFormat.Markdown:
                 if (model instanceof Ability) writer = new MarkdownAbilityWriter();
                 else if (model instanceof Statblock) writer = new MarkdownStatblockWriter();
+                else if (model instanceof Featureblock) writer = new MarkdownFeatureblockWriter();
                 else throw new Error('No Markdown writer for this model');
                 break;
             default:

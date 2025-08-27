@@ -29,6 +29,8 @@ const markdown_1 = require("../io/markdown");
 const SteelCompendiumIdentifier_1 = require("../io/SteelCompendiumIdentifier");
 const model_1 = require("../model");
 const xml_1 = require("../io/xml");
+const Featureblock_1 = require("../model/Featureblock");
+const MarkdownFeatureblockWriter_1 = require("../io/markdown/MarkdownFeatureblockWriter");
 function parseArgs() {
     const args = process.argv.slice(2);
     const cli = { from: undefined, to: undefined };
@@ -114,6 +116,8 @@ function convertPath(inPath_1, outBase_1, from_1, to_1) {
                         writer = new markdown_1.MarkdownAbilityWriter();
                     else if (model instanceof model_1.Statblock)
                         writer = new markdown_1.MarkdownStatblockWriter();
+                    else if (model instanceof Featureblock_1.Featureblock)
+                        writer = new MarkdownFeatureblockWriter_1.MarkdownFeatureblockWriter();
                     else
                         throw new Error('No Markdown writer for this model');
                     break;
