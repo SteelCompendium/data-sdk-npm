@@ -26,7 +26,7 @@
 > | ---------------------- | ------------------------------:|
 > | **📏 3 cube within 5** | **🎯 All enemies in the cube** |
 > 
-> **Each target makes a Might test.:**
+> **Effect:** Each target makes a Might test.
 > 
 > - **≤11:** 7 damage; restrained (EoT)
 > - **12-16:** 5 damage; slowed (EoT)

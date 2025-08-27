@@ -94,7 +94,7 @@
 > | -------------- | -------------------------------:|
 > | **📏 5 burst** | **🎯 All enemies in the burst** |
 > 
-> **Each target makes an Intuition test.:**
+> **Effect:** Each target makes an Intuition test.
 > 
 > - **≤11:** Target moves up to their speed away from the werewolf; frightened (save ends)
 > - **12-16:** Frightened (EoT)

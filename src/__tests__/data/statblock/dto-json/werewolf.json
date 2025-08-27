@@ -184,6 +184,7 @@
       "effects": [
         {
           "effect": "Each target makes an Intuition test.",
+          "name": "Effect",
           "t1": "Target moves up to their speed away from the werewolf; frightened (save ends)",
           "t2": "Frightened (EoT)",
           "t3": "no effect"

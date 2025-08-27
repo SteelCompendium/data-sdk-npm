@@ -3,7 +3,7 @@ import { Effect } from './Effect';
 export class TestEffect extends Effect {
     name?: string;
     cost?: string;
-    effect?: string;
+    effect!: string;
     t1?: string;
     t2?: string;
     t3?: string;

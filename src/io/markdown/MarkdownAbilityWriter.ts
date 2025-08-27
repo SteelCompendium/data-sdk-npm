@@ -4,6 +4,7 @@ import {Effect} from "../../model/Effect";
 import {MundaneEffect} from "../../model";
 import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
+import {TestEffect} from "../../model/TestEffect";
 
 export class MarkdownAbilityWriter implements IDataWriter<Ability> {
     write(data: Ability, for_statblock: boolean = false): string {
@@ -149,6 +150,8 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
             return this.writeMundaneEffect(effect, includeEffectToken);
         } else if (effect instanceof PowerRollEffect) {
             return this.writePowerRollEffect(effect);
+        } else if (effect instanceof TestEffect) {
+            return this.writeTestEffect(effect);
         }
         return '';
     }
@@ -175,6 +178,39 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         if (effect.roll) {
             rollParts.push(`**${effect.roll}:**\n`);
         }
+        if (effect.t1) {
+            rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
+        }
+        if (effect.t2) {
+            rollParts.push(`- **12-16:** ${effect.t2.trim()}`);
+        }
+        if (effect.t3) {
+            rollParts.push(`- **17+:** ${effect.t3.trim()}`);
+        }
+        if (effect.crit) {
+            rollParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
+        }
+        return rollParts.join('\n');
+    }
+
+    private writeTestEffect(effect: TestEffect): string {
+        const rollParts: string[] = [];
+        let name;
+        if (effect.name) {
+            name = effect.name;
+            if (effect.cost) {
+                name += ` (${effect.cost})`;
+            }
+        } else if (effect.cost) {
+            name = effect.cost;
+        }
+
+        if (!effect.name && !effect.cost) {
+            rollParts.push(`${effect.effect.trim()}\n`);
+        } else {
+            rollParts.push(`**${name}:** ${effect.effect.trim()}\n`);
+        }
+
         if (effect.t1) {
             rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
         }

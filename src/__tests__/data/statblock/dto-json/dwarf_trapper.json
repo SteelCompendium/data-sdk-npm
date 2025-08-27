@@ -61,6 +61,7 @@
       "effects": [
         {
           "effect": "Each target makes a Might test.",
+          "name": "Effect",
           "t1": "7 damage; restrained (EoT)",
           "t2": "5 damage; slowed (EoT)",
           "t3": "No effect"
