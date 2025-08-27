@@ -207,7 +207,7 @@ export class SteelCompendiumIdentifier {
             // Not YAML
         }
 
-        if (this.isStatblockMarkdown(source)) {
+        if (this.isMarkdownStatblock(source)) {
             return {
                 format: SteelCompendiumFormat.Markdown,
                 model: Statblock,
@@ -271,7 +271,7 @@ export class SteelCompendiumIdentifier {
         return true;
     }
 
-    private static isStatblockMarkdown(text: string): boolean {
+    private static isMarkdownStatblock(text: string): boolean {
         return text.includes("<br>Might");
     }
 }
