@@ -3,6 +3,7 @@ import { Trait } from '../model/Trait';
 
 export class TraitDTO extends SteelCompendiumDTO<Trait> {
     name!: string;
+    icon?: string;
     effects!: any[];
 
     public constructor(source: Partial<TraitDTO>) {
@@ -13,6 +14,7 @@ export class TraitDTO extends SteelCompendiumDTO<Trait> {
     static partialFromModel(model: Trait): Partial<TraitDTO> {
         const dto: Partial<TraitDTO> = {};
         if (model.name !== undefined) dto.name = model.name;
+        if (model.icon !== undefined) dto.icon = model.icon;
         dto.effects = model.effects.toDTO();
         return dto;
     }

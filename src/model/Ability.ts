@@ -6,6 +6,7 @@ import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 // Abilities as currently implemented blend the line of Ability and Trait...
 export class Ability extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
+    icon?: string;
     cost?: string;
     flavor?: string;
     keywords?: string[];

@@ -4,6 +4,7 @@ import {Effects} from "./Effects";
 
 export class Trait extends SteelCompendiumModel<TraitDTO> {
     name?: string;
+    icon?: string;
     effects: Effects;
 
     public constructor(source: Partial<Trait>) {

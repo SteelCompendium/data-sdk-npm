@@ -3,6 +3,7 @@ import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 
 export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     name!: string;
+    icon?: string;
     type!: string;
     cost?: string;
     keywords?: string[];
@@ -21,6 +22,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
     public static partialFromModel(model: Ability): Partial<AbilityDTO> {
         const dto: Partial<AbilityDTO> = {};
         if (model.name !== undefined) dto.name = model.name;
+        if (model.icon !== undefined) dto.icon = model.icon;
         if (model.cost !== undefined) dto.cost = model.cost;
         if (model.flavor !== undefined) dto.flavor = model.flavor;
         if (model.keywords !== undefined) dto.keywords = model.keywords;
