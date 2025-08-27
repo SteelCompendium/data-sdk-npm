@@ -207,6 +207,14 @@ export class SteelCompendiumIdentifier {
             // Not YAML
         }
 
+        if (this.isStatblockMarkdown(source)) {
+            return {
+                format: SteelCompendiumFormat.Markdown,
+                model: Statblock,
+                getReader: () => new MarkdownStatblockReader(),
+            };
+        }
+
         if (this.isMarkdownAbility(source)) {
             return {
                 format: SteelCompendiumFormat.Markdown,
@@ -224,7 +232,10 @@ export class SteelCompendiumIdentifier {
         };
     }
 
-    private static identifyModelType(data: any): typeof Ability | typeof Statblock | null {
+    private static identifyModelType(data: any): typeof Ability | typeof Statblock | typeof Featureblock | null {
+        if ('features' in data) {
+            return Featureblock;
+        }
         if ('stamina' in data && 'level' in data) {
             return Statblock;
         }
@@ -260,41 +271,7 @@ export class SteelCompendiumIdentifier {
         return true;
     }
 
-    private static isStatblock(text: string): boolean {
-        const statblockKeywords = [
-            /level\s+\d+/i,
-            /stamina\s+\d+/i,
-            /might\s+[+-−]?\d+/i,
-            /agility\s+[+-−]?\d+/i,
-            /reason\s+[+-−]?\d+/i,
-            /intuition\s+[+-−]?\d+/i,
-            /presence\s+[+-−]?\d+/i,
-        ];
-        const scoreLine = /might\s+[+-−]?\d+.*agility\s+[+-−]?\d+.*reason\s+[+-−]?\d+.*intuition\s+[+-−]?\d+.*presence\s+[+-−]?\d+/i;
-
-        return statblockKeywords.filter(keyword => keyword.test(text)).length > 3 || scoreLine.test(text);
+    private static isStatblockMarkdown(text: string): boolean {
+        return text.includes("<br>Might");
     }
-
-    private static isAbility(text: string): boolean {
-        const abilityKeywords = [
-            /effect:/i,
-            /power roll/i,
-            /distance:/i,
-            /target:/i,
-            /\((main action|action|maneuver|triggered action|free triggered action)\)/i,
-            /\(\d+ piety\)/i,
-        ];
-
-        const lines = text.split('\n').map(l => l.trim());
-        const isAllUpperCase = (s: string) => s.length > 1 && s === s.toUpperCase() && s.toLowerCase() !== s.toUpperCase();
-        if (lines.some(isAllUpperCase)) {
-            return true;
-        }
-
-        if (this.isStatblock(text)) {
-            return false;
-        }
-
-        return abilityKeywords.some(keyword => keyword.test(text));
-    }
-} 
+}
