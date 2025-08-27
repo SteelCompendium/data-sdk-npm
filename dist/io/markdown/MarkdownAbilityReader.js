@@ -73,7 +73,9 @@ class MarkdownAbilityReader {
             titleMatch = titleLine.match(/\s*(.*)\s*\*\*(.*?)(?: \((.*?)\))?\*\*/);
         }
         if (titleMatch) {
-            partial.icon = titleMatch[1].trim();
+            if (titleMatch[1]) {
+                partial.icon = titleMatch[1].trim();
+            }
             partial.name = titleMatch[2].trim();
             if (titleMatch[3]) {
                 partial.cost = titleMatch[3].trim();
@@ -195,7 +197,7 @@ class MarkdownAbilityReader {
             }
             const separatorIndex = rollLine.indexOf(':');
             const tier = rollLine.substring(0, separatorIndex);
-            const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
+            const description = rollLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
             if (tier.includes('≤11'))
                 tierEffect.t1 = description.trim();
             else if (tier.includes('12-16'))

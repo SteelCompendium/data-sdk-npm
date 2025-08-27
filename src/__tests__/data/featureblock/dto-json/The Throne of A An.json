@@ -14,7 +14,7 @@
       "effects": [
         {
           "effect": "The throne of A'An can be deactivated only by the current hierophant of A'An (see **Sitting on the Throne**), who must succeed on a **Presence test** that takes a bane to do so.",
-          "t1": "The hierophant triggers the Nova ability.",
+          "t1": "The hierophant triggers the **Nova** ability.",
           "t2": "The hierophant fails to deactivate the throne.",
           "t3": "The throne is deactivated until the end of the encounter."
         }

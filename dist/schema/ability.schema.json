@@ -12,6 +12,10 @@
             "type": "string",
             "description": "The title or description of the ability"
         },
+        "icon": {
+            "type": "string",
+            "description": "The icon of the ability (ex: \"🏹\")"
+        },
         "type": {
             "type": "string",
             "description": "Ability type (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"

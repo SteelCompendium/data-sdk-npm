@@ -178,7 +178,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
             }
             const separatorIndex = rollLine.indexOf(':');
             const tier = rollLine.substring(0, separatorIndex);
-            const description = rollLine.substring(separatorIndex + 1).replace(/\*/g, '').trim();
+            const description = rollLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
             if (tier.includes('≤11')) tierEffect.t1 = description.trim();
             else if (tier.includes('12-16')) tierEffect.t2 = description.trim();
             else if (tier.includes('17+')) tierEffect.t3 = description.trim();

@@ -36,8 +36,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.MarkdownAbilityWriter = void 0;
 const model_1 = require("../../model");
 const model_2 = require("../../model");
-const yaml = __importStar(require("js-yaml"));
 const model_3 = require("../../model");
+const yaml = __importStar(require("js-yaml"));
+const model_4 = require("../../model");
 class MarkdownAbilityWriter {
     write(data, blockquote_output = false) {
         const parts = [];
@@ -110,21 +111,23 @@ class MarkdownAbilityWriter {
             parts.push(`**Trigger:** ${data.trigger}`);
         }
         if (data.effects && (data.effects.effects || data.effects)) {
-            const effectParts = data.effects.effects.map(e => this.writeEffect(e));
-            // const allEffects = (data.effects.effects || data.effects) as any[];
-            //
-            // if (allEffects.length === 0) {
-            //     return parts.join('\n\n');
-            // }
-            //
-            // // TODO this should be something else...
-            // const mappedEffects = allEffects.map(e => {
-            //     if (e instanceof Effect) return e;
-            //     if (e.roll) return new PowerRollEffect(e);
-            //     if (e.effect && e.t1) return new TestEffect(e);
-            //     return new MundaneEffect(e);
-            // });
-            // const effectParts = mappedEffects.map(e => this.writeEffect(e));
+            // TODO - this doesnt work... likely because there is confusion in serilaization with effects.effects?
+            // const effectParts = data.effects.effects?.map(e => this.writeEffect(e));
+            const allEffects = (data.effects.effects || data.effects);
+            if (allEffects.length === 0) {
+                return parts.join('\n\n');
+            }
+            // TODO this should be something else...
+            const mappedEffects = allEffects.map(e => {
+                if (e instanceof model_1.Effect)
+                    return e;
+                if (e.roll)
+                    return new model_3.PowerRollEffect(e);
+                if (e.effect && e.t1)
+                    return new model_4.TestEffect(e);
+                return new model_2.MundaneEffect(e);
+            });
+            const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
         let md = parts.join('\n\n');
@@ -175,13 +178,13 @@ class MarkdownAbilityWriter {
         return '';
     }
     writeEffect(effect) {
-        if (effect instanceof model_1.MundaneEffect) {
+        if (effect instanceof model_2.MundaneEffect) {
             return this.writeMundaneEffect(effect);
         }
-        else if (effect instanceof model_2.PowerRollEffect) {
+        else if (effect instanceof model_3.PowerRollEffect) {
             return this.writePowerRollEffect(effect);
         }
-        else if (effect instanceof model_3.TestEffect) {
+        else if (effect instanceof model_4.TestEffect) {
             return this.writeTestEffect(effect);
         }
         return '';
