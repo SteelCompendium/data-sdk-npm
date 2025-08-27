@@ -7,7 +7,7 @@ import { Ability } from "../../../model";
 describe("MarkdownAbilityWriter", () => {
     const writer = new MarkdownAbilityWriter();
     const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc_md");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
 
     const jsonFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const mdFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".md"));

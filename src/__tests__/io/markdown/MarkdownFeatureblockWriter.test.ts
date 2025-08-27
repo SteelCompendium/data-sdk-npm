@@ -7,7 +7,7 @@ import { Featureblock } from "../../../model";
 describe("MarkdownFeatureblockWriter", () => {
     const writer = new MarkdownFeatureblockWriter();
     const inputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "dto-json");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "sc_md");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "sc-md");
 
     const jsonFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const mdFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".md"));

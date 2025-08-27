@@ -11,7 +11,7 @@ const model_1 = require("../../../model");
 (0, globals_1.describe)("MarkdownAbilityWriter", () => {
     const writer = new MarkdownAbilityWriter_1.MarkdownAbilityWriter();
     const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "dto-json");
-    const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "sc_md");
+    const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "sc-md");
     const jsonFiles = fs_1.default.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const mdFiles = fs_1.default.readdirSync(outputsDir).filter(file => file.endsWith(".md"));
     const testFiles = jsonFiles.filter(file => mdFiles.includes(file.replace('.json', '.md')));

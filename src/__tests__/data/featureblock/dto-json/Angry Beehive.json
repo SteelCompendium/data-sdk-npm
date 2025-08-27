@@ -10,6 +10,7 @@
   "features": [
     {
       "name": "Deactivate",
+      "icon": "🌀",
       "effects": [
         {
           "effect": "The beehive can't be deactivated. If it takes damage or is destroyed, the hive unleashes a swarm of bees."
@@ -18,6 +19,7 @@
     },
     {
       "name": "Activate",
+      "icon": "❕",
       "effects": [
         {
           "effect": "A creature enters the hive's space or an adjacent space without shifting."
@@ -30,6 +32,7 @@
     },
     {
       "name": "Upgrades",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The hive is hidden until the swarm is unleashed.",

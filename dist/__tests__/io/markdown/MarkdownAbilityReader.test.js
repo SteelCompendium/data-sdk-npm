@@ -9,7 +9,7 @@ const path_1 = __importDefault(require("path"));
 const MarkdownAbilityReader_1 = require("../../../io/markdown/MarkdownAbilityReader");
 (0, globals_1.describe)("MarkdownAbilityReader", () => {
     const reader = new MarkdownAbilityReader_1.MarkdownAbilityReader();
-    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "sc_md");
+    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "sc-md");
     const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "ability", "dto-json");
     const mdFiles = fs_1.default.readdirSync(inputsDir).filter(file => file.endsWith(".md"));
     const jsonFiles = fs_1.default.readdirSync(outputsDir).filter(file => file.endsWith(".json"));

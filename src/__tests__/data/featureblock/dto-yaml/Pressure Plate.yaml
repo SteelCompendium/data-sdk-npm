@@ -12,6 +12,7 @@ stats:
       triggered.
 features:
   - name: Deactivate
+    icon: 🌀
     effects:
       - effect: >-
           As a maneuver, a creature adjacent to a pressure plate can make an
@@ -24,6 +25,7 @@ features:
 
           - **17+:** The pressure plate is deactivated and doesn't trigger.
   - name: Activate
+    icon: ❕
     effects:
       - effect: The pressure plate is calibrated to be triggered by creatures or objects
           of a particular size. The pressure plate triggers when a creature or
@@ -32,11 +34,13 @@ features:
           and can be triggered repeatedly.
         name: Effect
   - name: Upgrade
+    icon: ⭐️
     effects:
       - effect: The pressure plate is a tripwire, which can trigger once and must be
           manually reset. A concealed tripwire can be discovered with an **easy
           Intuition test**.
         cost: Tripwire (−1 EV)
   - name: Hidden
+    icon: ⭐️
     effects:
       - effect: The pressure plate is hidden until triggered or detected.

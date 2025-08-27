@@ -5,7 +5,7 @@ import { MarkdownAbilityReader } from "../../../io/markdown/MarkdownAbilityReade
 
 describe("MarkdownAbilityReader", () => {
     const reader = new MarkdownAbilityReader();
-    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc_md");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
     const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
 
     const mdFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".md"));

@@ -5,6 +5,7 @@ flavor: At the start of Ajax's turn, you can spend Malice to activate one of the
 stats: []
 features:
   - name: Reason
+    icon: 👤
     cost: 2 Malice
     effects:
       - effect: Ajax attempts to instill doubt into a creature within line of effect
@@ -14,6 +15,7 @@ features:
           during the current round. Ajax can't use this feature against the same
           creature during the same encounter.
   - name: Nexus Jewel
+    icon: 🌀
     cost: 5 Malice
     effects:
       - effect: Until the end of the round, Ajax chooses one of the following
@@ -30,11 +32,13 @@ features:
           square they enter.
         name: Volcanic Canyon
   - name: Solo Action
+    icon: ☠️
     cost: 5 Malice
     effects:
       - effect: Ajax takes an additional main action on his turn. He can use this
           feature even if he is dazed.
   - name: Draw Steel
+    icon: 🔳
     cost: 10 Malice
     keywords:
       - Area

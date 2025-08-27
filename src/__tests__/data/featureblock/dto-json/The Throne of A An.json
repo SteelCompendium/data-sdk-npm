@@ -10,6 +10,7 @@
   "features": [
     {
       "name": "Deactivate",
+      "icon": "🌀",
       "effects": [
         {
           "effect": "The throne of A'An can be deactivated only by the current hierophant of A'An (see **Sitting on the Throne**), who must succeed on a **Presence test** that takes a bane to do so.\n- **≤11:** The hierophant triggers the **Nova** ability.\n- **12-16:** The hierophant fails to deactivate the throne.\n- **17+:** The throne is deactivated until the end of the encounter."
@@ -18,6 +19,7 @@
     },
     {
       "name": "Light of the Northern Sun",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "In the Age of Suns, there was no darkness and no night. Even among the many suns of that time, the light of A'An was the brightest. The throne of A'An manifests the sun powers of that god, even when no one is seated in it. The following effects always occur within 10 squares of the throne:\n- The throne sheds bright light that negates all darkness and concealment, and which prevents creatures from being hidden.\n- Any creature with cold immunity has fire weakness 10.\n- Any creature who uses an ability that deals cold damage takes 11 fire damage."
@@ -26,6 +28,7 @@
     },
     {
       "name": "Sitting on the Throne",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "Only a creature attuned to the throne can sit on it. A creature adjacent to the throne can use a main action to attune to it by succeeding on a **Presence test**.\n- **≤11:** The creature takes 11 fire damage.\n- **12-16:** The creature fails to attune to the throne.\n- **17+:** The creature attunes to the throne and can sit on it.\nA creature seated on the throne becomes the hierophant of A'An and gains the following benefits:\n- The hierophant and each of their allies within 10 squares of the throne have fire immunity 10.\n- The hierophant and each of their allies within 10 squares of the throne can choose to have their abilities deal fire damage instead of their usual damage.\n- The hierophant has a +5 bonus to stability, and any strike made against them takes a bane unless the attacker is also attuned to the throne.\n- The hierophant can use the **Primordial Flare** and **Solar Accretion** abilities."
@@ -34,6 +37,7 @@
     },
     {
       "name": "Primordial Flare",
+      "icon": "🏹",
       "keywords": [
         "Magic",
         "Ranged",
@@ -57,6 +61,7 @@
     },
     {
       "name": "Solar Accretion",
+      "icon": "❗️",
       "keywords": [
         "Magic",
         "Ranged"
@@ -74,6 +79,7 @@
     },
     {
       "name": "Nova",
+      "icon": "❗️",
       "keywords": [
         "Area",
         "Magic"

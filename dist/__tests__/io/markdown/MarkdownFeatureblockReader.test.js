@@ -9,7 +9,7 @@ const path_1 = __importDefault(require("path"));
 const MarkdownFeatureblockReader_1 = require("../../../io/markdown/MarkdownFeatureblockReader");
 (0, globals_1.describe)("MarkdownFeatureblockReader", () => {
     const reader = new MarkdownFeatureblockReader_1.MarkdownFeatureblockReader();
-    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "featureblock", "sc_md");
+    const inputsDir = path_1.default.join(__dirname, "..", "..", "data", "featureblock", "sc-md");
     const outputsDir = path_1.default.join(__dirname, "..", "..", "data", "featureblock", "dto-json");
     const mdFiles = fs_1.default.readdirSync(inputsDir).filter(file => file.endsWith(".md"));
     const jsonFiles = fs_1.default.readdirSync(outputsDir).filter(file => file.endsWith(".json"));

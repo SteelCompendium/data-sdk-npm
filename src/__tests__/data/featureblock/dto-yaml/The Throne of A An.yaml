@@ -10,6 +10,7 @@ size: "2"
 stats: []
 features:
   - name: Deactivate
+    icon: 🌀
     effects:
       - effect: >-
           The throne of A'An can be deactivated only by the current hierophant
@@ -22,6 +23,7 @@ features:
 
           - **17+:** The throne is deactivated until the end of the encounter.
   - name: Light of the Northern Sun
+    icon: ⭐️
     effects:
       - effect: >-
           In the Age of Suns, there was no darkness and no night. Even among the
@@ -38,6 +40,7 @@ features:
           - Any creature who uses an ability that deals cold damage takes 11
           fire damage.
   - name: Sitting on the Throne
+    icon: ⭐️
     effects:
       - effect: >-
           Only a creature attuned to the throne can sit on it. A creature
@@ -67,6 +70,7 @@ features:
           - The hierophant can use the **Primordial Flare** and **Solar
           Accretion** abilities.
   - name: Primordial Flare
+    icon: 🏹
     keywords:
       - Magic
       - Ranged
@@ -83,6 +87,7 @@ features:
           turn.
         name: Effect
   - name: Solar Accretion
+    icon: ❗️
     keywords:
       - Magic
       - Ranged
@@ -97,6 +102,7 @@ features:
           Malice.
         name: Effect
   - name: Nova
+    icon: ❗️
     keywords:
       - Area
       - Magic

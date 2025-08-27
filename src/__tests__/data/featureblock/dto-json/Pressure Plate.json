@@ -17,6 +17,7 @@
   "features": [
     {
       "name": "Deactivate",
+      "icon": "🌀",
       "effects": [
         {
           "effect": "As a maneuver, a creature adjacent to a pressure plate can make an **Agility test**.\n- **≤11:** The creature triggers the pressure plate.\n- **12-16:** The pressure plate is deactivated but the creature is slowed (EoT).\n- **17+:** The pressure plate is deactivated and doesn't trigger."
@@ -25,6 +26,7 @@
     },
     {
       "name": "Activate",
+      "icon": "❕",
       "effects": [
         {
           "effect": "The pressure plate is calibrated to be triggered by creatures or objects of a particular size. The pressure plate triggers when a creature or object of the appropriate size enters its area."
@@ -37,6 +39,7 @@
     },
     {
       "name": "Upgrade",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The pressure plate is a tripwire, which can trigger once and must be manually reset. A concealed tripwire can be discovered with an **easy Intuition test**.",
@@ -46,6 +49,7 @@
     },
     {
       "name": "Hidden",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The pressure plate is hidden until triggered or detected."

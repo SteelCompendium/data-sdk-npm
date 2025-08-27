@@ -5,7 +5,7 @@ import { MarkdownFeatureblockReader } from "../../../io/markdown/MarkdownFeature
 
 describe("MarkdownFeatureblockReader", () => {
     const reader = new MarkdownFeatureblockReader();
-    const inputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "sc_md");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "sc-md");
     const outputsDir = path.join(__dirname, "..", "..", "data", "featureblock", "dto-json");
 
     const mdFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".md"));

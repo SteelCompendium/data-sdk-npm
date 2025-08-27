@@ -1,12 +1,26 @@
+# statblocks
 convert_statblocks_from_json_to_md:
+    rm -rf "./tmp"
     just convert json markdown statblock "src/__tests__/data/statblock/dto-json" "./tmp"
 
 convert_test_statblocks_from_md_to_json:
+    rm -rf "./tmp"
     just convert markdown json statblock "src/__tests__/data/statblock/sc-md" "./tmp"
 
 convert_test_statblocks_from_md_to_yaml:
+    rm -rf "./tmp"
     just convert markdown yaml statblock "src/__tests__/data/statblock/sc-md" "./tmp"
 
+# Featureblocks
+convert_test_featureblocks_from_md_to_json:
+    rm -rf "./tmp"
+    just convert markdown json featureblock "src/__tests__/data/featureblock/sc-md" "./tmp"
+
+convert_test_featureblocks_from_md_to_yaml:
+    rm -rf "./tmp"
+    just convert markdown yaml featureblock "src/__tests__/data/featureblock/sc-md" "./tmp"
+
+# generic
 convert from to type input_dpath output_dpath:
     #!/usr/bin/env bash
     set -euo pipefail

@@ -6,6 +6,7 @@
   "features": [
     {
       "name": "Reason",
+      "icon": "👤",
       "cost": "2 Malice",
       "effects": [
         {
@@ -15,6 +16,7 @@
     },
     {
       "name": "Nexus Jewel",
+      "icon": "🌀",
       "cost": "5 Malice",
       "effects": [
         {
@@ -36,6 +38,7 @@
     },
     {
       "name": "Solo Action",
+      "icon": "☠️",
       "cost": "5 Malice",
       "effects": [
         {
@@ -45,6 +48,7 @@
     },
     {
       "name": "Draw Steel",
+      "icon": "🔳",
       "cost": "10 Malice",
       "keywords": [
         "Area",
