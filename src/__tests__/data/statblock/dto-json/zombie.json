@@ -36,8 +36,8 @@
   "abilities": [
     {
       "name": "Clobber and Clutch",
-      "cost": "Signature Ability",
       "icon": "🗡",
+      "cost": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",
@@ -61,8 +61,8 @@
     },
     {
       "name": "Zombie Dust",
-      "cost": "3 Malice",
       "icon": "❇️",
+      "cost": "3 Malice",
       "keywords": [
         "Area",
         "Melee"
@@ -72,8 +72,8 @@
       "target": "Each enemy in the burst",
       "effects": [
         {
-          "effect": "The zombie falls prone, expelling a wave of rot and dust.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The zombie falls prone, expelling a wave of rot and dust."
         },
         {
           "roll": "Power Roll + 2",

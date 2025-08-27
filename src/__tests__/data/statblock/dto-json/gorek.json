@@ -50,6 +50,7 @@
   "abilities": [
     {
       "name": "Brutal Impact",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Melee",
@@ -67,13 +68,14 @@
           "t3": "14 damage; push 3"
         },
         {
-          "cost": "2 Malice",
-          "effect": "Each target is M<1 slowed (save ends)."
+          "effect": "Each target is M<1 slowed (save ends).",
+          "cost": "2 Malice"
         }
       ]
     },
     {
       "name": "Let’s Tussle",
+      "icon": "🗡",
       "cost": "2 Malice",
       "keywords": [
         "Melee",

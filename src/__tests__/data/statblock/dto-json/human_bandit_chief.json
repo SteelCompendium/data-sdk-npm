@@ -44,6 +44,7 @@
   "abilities": [
     {
       "name": "Whip & Magic Longsword",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Magic",
@@ -66,13 +67,14 @@
           "name": "Effect"
         },
         {
-          "cost": "2 Malice",
-          "effect": "The bandit chief targets an additional enemy or object."
+          "effect": "The bandit chief targets an additional enemy or object.",
+          "cost": "2 Malice"
         }
       ]
     },
     {
       "name": "Kneel, Peasant!",
+      "icon": "🗡",
       "keywords": [
         "Melee",
         "Weapon"
@@ -88,13 +90,14 @@
           "t3": "Push 4; M<3 prone"
         },
         {
-          "cost": "2 Malice",
-          "effect": "This ability targets each enemy adjacent to the bandit chief."
+          "effect": "This ability targets each enemy adjacent to the bandit chief.",
+          "cost": "2 Malice"
         }
       ]
     },
     {
       "name": "Bloodstones",
+      "icon": "❗️",
       "keywords": [
         "Magic"
       ],
@@ -111,11 +114,12 @@
     },
     {
       "name": "Shoot!",
+      "icon": "☠️",
+      "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
       "type": "-",
-      "cost": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -127,11 +131,12 @@
     },
     {
       "name": "Form Up!",
+      "icon": "☠️",
+      "cost": "Villain Action 2",
       "keywords": [
         "Area"
       ],
       "type": "-",
-      "cost": "Villain Action 2",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -143,11 +148,12 @@
     },
     {
       "name": "Lead From the Front",
+      "icon": "☠️",
+      "cost": "Villain Action 3",
       "keywords": [
         "—"
       ],
       "type": "-",
-      "cost": "Villain Action 3",
       "distance": "Self",
       "target": "Self",
       "effects": [

@@ -34,6 +34,7 @@
   "abilities": [
     {
       "name": "Toxic Winds",
+      "icon": "🔳",
       "cost": "Signature Ability",
       "keywords": [
         "Area",
@@ -51,13 +52,14 @@
           "t3": "3 poison damage; slide 3"
         },
         {
-          "cost": "1+ Malice",
-          "effect": "Increase the slide for one target by 1 square for each malice spent."
+          "effect": "Increase the slide for one target by 1 square for each malice spent.",
+          "cost": "1+ Malice"
         }
       ]
     },
     {
       "name": "Swamp Gas",
+      "icon": "🔳",
       "keywords": [
         "Area",
         "Magic",

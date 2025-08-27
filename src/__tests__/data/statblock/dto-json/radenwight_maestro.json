@@ -33,6 +33,7 @@
   "abilities": [
     {
       "name": "Cacophony",
+      "icon": "❇️",
       "cost": "Signature Ability",
       "keywords": [
         "Area",
@@ -56,6 +57,7 @@
     },
     {
       "name": "Tempo Change",
+      "icon": "🏹",
       "keywords": [
         "Magic",
         "Ranged"
@@ -71,13 +73,14 @@
           "t3": "P<3 Slowed (save ends)"
         },
         {
-          "cost": "3 Malice",
-          "effect": "Each ally within 3 of a target has their speed increased by 2 until the end of their next turn."
+          "effect": "Each ally within 3 of a target has their speed increased by 2 until the end of their next turn.",
+          "cost": "3 Malice"
         }
       ]
     },
     {
       "name": "Ever Ready Rodent",
+      "icon": "❗️",
       "cost": "2 Malice",
       "keywords": [
         "Magic",
@@ -97,11 +100,12 @@
     },
     {
       "name": "Overture",
+      "icon": "☠️",
+      "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
       "type": "-",
-      "cost": "Villain Action 1",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -113,11 +117,12 @@
     },
     {
       "name": "Solo Act",
+      "icon": "☠️",
+      "cost": "Villain Action 2",
       "keywords": [
         "Ranged"
       ],
       "type": "-",
-      "cost": "Villain Action 2",
       "distance": "Ranged 15",
       "target": "One creature",
       "effects": [
@@ -129,11 +134,12 @@
     },
     {
       "name": "Rondo of Rat",
+      "icon": "☠️",
+      "cost": "Villain Action 3",
       "keywords": [
         "Area"
       ],
       "type": "-",
-      "cost": "Villain Action 3",
       "distance": "10 burst",
       "target": "All dead allies in the burst",
       "effects": [

@@ -45,6 +45,7 @@
   "abilities": [
     {
       "name": "Haymaker",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Melee",
@@ -69,6 +70,7 @@
     },
     {
       "name": "Throw",
+      "icon": "🗡",
       "cost": "1 Malice",
       "keywords": [
         "—"

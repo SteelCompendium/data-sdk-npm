@@ -25,12 +25,12 @@
       "name": "Solo Monster",
       "effects": [
         {
-          "name": "Solo Turns",
-          "effect": "The werewolf takes up to two turns each round. They can’t take turns consecutively."
+          "effect": "The werewolf takes up to two turns each round. They can’t take turns consecutively.",
+          "name": "Solo Turns"
         },
         {
-          "name": "End Effect",
-          "effect": "At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way."
+          "effect": "At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.",
+          "name": "End Effect"
         }
       ]
     },
@@ -70,6 +70,7 @@
   "abilities": [
     {
       "name": "Accursed Bite",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Charge",
@@ -88,8 +89,8 @@
           "t3": "16 damage; 5 rage"
         },
         {
-          "cost": "2 Malice",
-          "effect": "The target has P<0 lycanthropy. The potency of this ability increases by 1 each time the werewolf forces the same target to resist it."
+          "effect": "The target has P<0 lycanthropy. The potency of this ability increases by 1 each time the werewolf forces the same target to resist it.",
+          "cost": "2 Malice"
         },
         {
           "effect": "A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition.",
@@ -99,6 +100,7 @@
     },
     {
       "name": "Ripping Claws",
+      "icon": "🗡",
       "keywords": [
         "Melee",
         "Strike",
@@ -118,6 +120,7 @@
     },
     {
       "name": "Berserker Slash",
+      "icon": "❇️",
       "cost": "3 Malice",
       "keywords": [
         "Area",
@@ -142,6 +145,7 @@
     },
     {
       "name": "Wall Leap",
+      "icon": "👤",
       "keywords": [
         "—"
       ],
@@ -157,6 +161,7 @@
     },
     {
       "name": "Facepalm and Head Slam",
+      "icon": "❗️",
       "cost": "2 Malice",
       "keywords": [
         "—"
@@ -174,17 +179,18 @@
     },
     {
       "name": "Howl",
+      "icon": "☠️",
+      "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
       "type": "-",
-      "cost": "Villain Action 1",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
         {
-          "effect": "Each target makes an Intuition test.",
           "name": "Effect",
+          "effect": "Each target makes an Intuition test.",
           "t1": "Target moves up to their speed away from the werewolf; frightened (save ends)",
           "t2": "Frightened (EoT)",
           "t3": "no effect"
@@ -197,11 +203,12 @@
     },
     {
       "name": "Full Wolf",
+      "icon": "☠️",
+      "cost": "Villain Action 2",
       "keywords": [
         "—"
       ],
       "type": "-",
-      "cost": "Villain Action 2",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -213,13 +220,14 @@
     },
     {
       "name": "Rampage",
+      "icon": "☠️",
+      "cost": "Villain Action 3",
       "keywords": [
         "Area",
         "Melee",
         "Weapon"
       ],
       "type": "-",
-      "cost": "Villain Action 3",
       "distance": "2 burst",
       "target": "All creatures in the burst",
       "effects": [

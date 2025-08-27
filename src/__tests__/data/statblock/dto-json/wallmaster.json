@@ -39,6 +39,7 @@
   "abilities": [
     {
       "name": "Wall Slam",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Melee",
@@ -50,8 +51,8 @@
       "target": "Two creatures or objects",
       "effects": [
         {
-          "effect": "The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The wallmaster chooses two wall segments within 10 squares. Each segment falls on a single target within distance, and is then destroyed."
         },
         {
           "roll": "Power Roll + 2",
@@ -60,13 +61,14 @@
           "t3": "12 damage; A<2 prone can’t stand (EoT)"
         },
         {
-          "cost": "3+ Malice",
-          "effect": "The wallmaster chooses an additional wall segment and target for every 3 malice spent."
+          "effect": "The wallmaster chooses an additional wall segment and target for every 3 malice spent.",
+          "cost": "3+ Malice"
         }
       ]
     },
     {
       "name": "Dead End",
+      "icon": "🗡",
       "keywords": [
         "Area",
         "Weapon"
@@ -76,8 +78,8 @@
       "target": "1 creature or object",
       "effects": [
         {
-          "effect": "The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The wallmaster chooses one wall segment within 10 squares. The segment pushes a target within distance, and shifts into each square they leave behind."
         },
         {
           "roll": "Power Roll + 2",
@@ -89,6 +91,7 @@
     },
     {
       "name": "The Wall Sees All",
+      "icon": "🏹",
       "cost": "5 Malice",
       "keywords": [
         "Magic"
@@ -105,6 +108,7 @@
     },
     {
       "name": "Wall Redirect",
+      "icon": "❗️",
       "keywords": [
         "—"
       ],

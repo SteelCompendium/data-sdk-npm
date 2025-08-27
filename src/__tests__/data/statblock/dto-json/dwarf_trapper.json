@@ -24,6 +24,7 @@
   "abilities": [
     {
       "name": "Concussive Bolts",
+      "icon": "⚔️",
       "cost": "Signature Ability",
       "keywords": [
         "Charge",
@@ -50,6 +51,7 @@
     },
     {
       "name": "Steam Powered Snare",
+      "icon": "🔳",
       "cost": "3 Malice",
       "keywords": [
         "Area",
@@ -60,8 +62,8 @@
       "target": "All enemies in the cube",
       "effects": [
         {
-          "effect": "Each target makes a Might test.",
           "name": "Effect",
+          "effect": "Each target makes a Might test.",
           "t1": "7 damage; restrained (EoT)",
           "t2": "5 damage; slowed (EoT)",
           "t3": "No effect"

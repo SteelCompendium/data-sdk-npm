@@ -27,6 +27,7 @@
   "abilities": [
     {
       "name": "Bite",
+      "icon": "🗡",
       "cost": "Signature Ability",
       "keywords": [
         "Melee",
@@ -44,13 +45,14 @@
           "t3": "14 damage; A<2 bleeding (save ends)"
         },
         {
-          "cost": "2 Malice",
-          "effect": "A<3 bleeding (save ends)."
+          "effect": "A<3 bleeding (save ends).",
+          "cost": "2 Malice"
         }
       ]
     },
     {
       "name": "Slashing Leg",
+      "icon": "🗡",
       "keywords": [
         "Melee",
         "Strike",
@@ -70,6 +72,7 @@
     },
     {
       "name": "Trample",
+      "icon": "👤",
       "cost": "5 Malice",
       "keywords": [
         "—"
@@ -86,6 +89,7 @@
     },
     {
       "name": "Web",
+      "icon": "🔳",
       "keywords": [
         "Area",
         "Weapon"
@@ -104,6 +108,7 @@
     },
     {
       "name": "Skitter",
+      "icon": "❗️",
       "keywords": [
         "—"
       ],

@@ -43,6 +43,7 @@
   "abilities": [
     {
       "name": "Zweihander Swing",
+      "icon": "❇️",
       "cost": "Signature Ability",
       "keywords": [
         "Area",
@@ -64,13 +65,14 @@
           "name": "Effect"
         },
         {
-          "cost": "1 Malice",
-          "effect": "The ally can use their signature action instead."
+          "effect": "The ally can use their signature action instead.",
+          "cost": "1 Malice"
         }
       ]
     },
     {
       "name": "You!",
+      "icon": "🏹",
       "keywords": [
         "—"
       ],
@@ -86,6 +88,7 @@
     },
     {
       "name": "Parry!",
+      "icon": "❗️",
       "keywords": [
         "—"
       ],
@@ -102,11 +105,12 @@
     },
     {
       "name": "Advance!",
+      "icon": "☠️",
+      "cost": "Villain Action 1",
       "keywords": [
         "—"
       ],
       "type": "-",
-      "cost": "Villain Action 1",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -118,12 +122,13 @@
     },
     {
       "name": "Back!",
+      "icon": "☠️",
+      "cost": "Villain Action 2",
       "keywords": [
         "Area",
         "Magic"
       ],
       "type": "-",
-      "cost": "Villain Action 2",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -135,6 +140,8 @@
     },
     {
       "name": "I Can Throw My Blade and So Should You!",
+      "icon": "☠️",
+      "cost": "Villain Action 3",
       "keywords": [
         "Area",
         "Magic",
@@ -142,7 +149,6 @@
         "Weapon"
       ],
       "type": "-",
-      "cost": "Villain Action 3",
       "distance": "3 cube within 5",
       "target": "Each enemy in the cube",
       "effects": [
