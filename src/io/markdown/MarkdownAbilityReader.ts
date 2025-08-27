@@ -43,7 +43,9 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         }
 
         if (titleMatch) {
-            partial.icon = titleMatch[1].trim();
+            if (titleMatch[1]) {
+                partial.icon = titleMatch[1].trim();
+            }
             partial.name = titleMatch[2].trim();
             if (titleMatch[3]) {
                 partial.cost = titleMatch[3].trim();
