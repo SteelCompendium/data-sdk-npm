@@ -50,12 +50,12 @@
         "ev": {
             "type": "string",
             "description": "Encounter Value (EV) of the creature.",
-            "default": "0"
+            "default": ""
         },
         "stamina": {
             "type": "string",
             "description": "The creature's max stamina.",
-            "default": 0
+            "default": ""
         },
         "immunities": {
             "type": "array",
@@ -76,7 +76,7 @@
         "speed": {
             "type": "integer",
             "description": "Movement speed of the creature (e.g., 5).",
-            "default": ""
+            "default": 0
         },
         "movement": {
             "type": "string",
