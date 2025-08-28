@@ -33,24 +33,12 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         lines = lines.filter(line => line.trim() !== '');
         let i = 0;
 
-        // Title and Cost
-        const titleLine = lines[i++].trim();
-        let titleMatch;
-        if (titleLine.startsWith('###')) {
-            titleMatch = titleLine.match(/#+\s*(.*)\s*(.*?)(?: \((.*?)\))?$/);
-        } else {
-            titleMatch = titleLine.match(/\s*(.*)\s*\*\*(.*?)(?: \((.*?)\))?\*\*/);
-        }
-
-        if (titleMatch) {
-            if (titleMatch[1]) {
-                partial.icon = titleMatch[1].trim();
-            }
-            partial.name = titleMatch[2].trim();
-            if (titleMatch[3]) {
-                partial.cost = titleMatch[3].trim();
-            }
-        }
+        // Title, icon, and Cost
+        const titleLine = lines[i++];
+        const parsed = this.parseTitleLine(titleLine);
+        if (parsed.icon) partial.icon = parsed.icon;
+        partial.name = parsed.name;
+        if (parsed.cost) partial.cost = parsed.cost;
 
         // Flavor Text
         if (i < lines.length && lines[i].startsWith('*') && !lines[i].startsWith('**')) {
@@ -167,6 +155,33 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         const ability = new Ability(partial);
         ability.effects = new Effects(effects);
         return ability;
+    }
+
+    // Parse a single line into { icon?, name, cost? }
+    private parseTitleLine(raw: string) {
+        // 1) Trim and strip leading markdown header hashes
+        let s = raw.trim().replace(/^#{1,9}\s*/, "");
+
+        // 2) Optional leading icon token (e.g., 📏) before the title/bold
+        //    We treat any leading run of non-word, non-space, non-#/* chars as an "icon"
+        let icon = "";
+        const iconMatch = s.match(/^([^\w\s#*][^\w\s#*]*)\s+/u);
+        if (iconMatch) {
+            icon = iconMatch[1].trim();
+            s = s.slice(iconMatch[0].length);
+        }
+
+        // 3) If the whole remainder is **bold**, unwrap it
+        const boldMatch = s.match(/^\*\*(.+?)\*\*$/);
+        if (boldMatch) s = boldMatch[1];
+
+        // 4) Split into name + optional trailing (cost)
+        //    Captures the final parenthesized chunk as cost if present.
+        const m = s.match(/^(.*?)(?:\s*\(([^()]+)\))?$/);
+        const name = (m?.[1] ?? s).trim();
+        const cost = m?.[2]?.trim();
+
+        return { icon: icon || undefined, name, cost: cost || undefined };
     }
 
     private parseTiers(i: number, lines: string[], tierEffect: TestEffect | PowerRollEffect) {

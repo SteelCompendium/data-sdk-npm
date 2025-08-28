@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.39
+
+- Corrects bug that produced empty `name` for abilities
+
 ## 0.0.38
 
 - Adds support for Featureblocks
