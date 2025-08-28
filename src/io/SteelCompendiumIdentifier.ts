@@ -95,6 +95,7 @@ export class SteelCompendiumIdentifier {
                 }
             }
         }
+        // Deprecated: XML support will be dropped in 1.0.0
         if (format === SteelCompendiumFormat.Xml) {
             if (model === "ability") {
                 return {
@@ -157,6 +158,7 @@ export class SteelCompendiumIdentifier {
             // Not JSON
         }
 
+        // Deprecated: XML support will be dropped in 1.0.0
         try {
             const parser = new XMLParser();
             const data = parser.parse(source);

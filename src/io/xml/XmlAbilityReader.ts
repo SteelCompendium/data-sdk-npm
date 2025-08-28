@@ -3,6 +3,7 @@ import { Ability } from "../../model";
 import { AbilityXmlDTO } from "../../dto/AbilityXmlDTO";
 import { XMLParser } from "fast-xml-parser";
 
+// Deprecated: XML support will be dropped in 1.0.0
 export class XmlAbilityReader extends IDataReader<Ability> {
     public read(source: string): Ability {
         const parser = new XMLParser({

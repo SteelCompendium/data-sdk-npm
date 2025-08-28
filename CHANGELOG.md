@@ -1,5 +1,12 @@
 # Changelog
 
+## Next
+
+- The XML format is Deprecated and scheduled for removal in `1.0.0` release
+  - If there is a need for xml, the user likely needs it in a highly specific format for their use case and will likely
+    need to convert from our data format any.  Since XML is annoying to build for, we are just going to drop support for
+    it until a significant demand for it is made.  Let us know if you have a need for XML.
+
 ## 0.0.39
 
 - Corrects bug that produced empty `name` for abilities

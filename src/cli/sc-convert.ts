@@ -114,6 +114,7 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
             case SteelCompendiumFormat.Yaml:
                 writer = new YamlWriter();
                 break;
+            // Deprecated: XML support will be dropped in 1.0.0
             case SteelCompendiumFormat.Xml:
                 if (model instanceof Ability) writer = new XmlAbilityWriter();
                 // else if (model instanceof Statblock) writer = new XmlWriter('statblock');

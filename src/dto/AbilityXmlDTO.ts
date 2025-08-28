@@ -1,6 +1,7 @@
 import { SteelCompendiumDTO } from "./SteelCompendiumDTO";
 import { Ability, Effects } from "../model";
 
+// Deprecated: XML support will be dropped in 1.0.0
 export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
     name!: string;
     type!: string;

@@ -2,6 +2,7 @@ import { IDataWriter } from "../IDataWriter";
 import { XMLBuilder } from "fast-xml-parser";
 import { Ability } from "../../model";
 
+// Deprecated: XML support will be dropped in 1.0.0
 export class XmlAbilityWriter extends IDataWriter<Ability> {
     write(data: Ability): string {
         const dto = data.toXmlDTO();
