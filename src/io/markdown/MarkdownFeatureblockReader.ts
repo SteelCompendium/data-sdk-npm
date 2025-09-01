@@ -48,7 +48,7 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
             stamina,
             size,
             flavor: flavor || undefined,
-            stats: extras.length ? extras.map(kv => new FeatureStat(kv.key, kv.value)) : [],
+            stats: extras.length ? extras.map(kv => new FeatureStat(kv.key, kv.value)) : undefined,
             features,
         });
     }

@@ -17,7 +17,6 @@ export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     public constructor(source: Partial<Featureblock>) {
         super();
         Object.assign(this, source);
-        this.stats = source.stats ?? [];
         this.features = source.features ?? [];
     }
 
@@ -26,7 +25,7 @@ export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     public static fromDTO(dto: FeatureblockDTO): Featureblock {
         return new Featureblock({
             ...dto,
-            stats: dto.stats?.map(s => FeatureStat.fromDTO(s)) ?? [],
+            stats: dto.stats?.map(s => FeatureStat.fromDTO(s)),
             features: dto.features?.map(f => Ability.fromDTO(f)) ?? [],
         });
     }

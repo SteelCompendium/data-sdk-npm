@@ -1,8 +1,9 @@
 # Changelog
 
-## Next
+## 0.0.40
 
-- The XML format is Deprecated and scheduled for removal in `1.0.0` release
+- Avoids empty `stats` array in Featureblocks
+- [DEPRECATION] The XML format is Deprecated and scheduled for removal in `1.0.0` release
   - If there is a need for xml, the user likely needs it in a highly specific format for their use case and will likely
     need to convert from our data format any.  Since XML is annoying to build for, we are just going to drop support for
     it until a significant demand for it is made.  Let us know if you have a need for XML.
