@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.43
+
+- Adds leniency for effects without colons
+
 ## 0.0.42
 
 - Properly exports `MarkdownFeatureblockWriter` and `MarkdownFeatureblockReader`

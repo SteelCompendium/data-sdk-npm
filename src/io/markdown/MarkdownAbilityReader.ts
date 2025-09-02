@@ -96,7 +96,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
             }
 
             // Effects (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
-            const effectMatch = line.match(/\*\*(.+?):\*\* (.*)/);
+            const effectMatch = line.match(/^\*\*(.+?):?\*\* (.*)/);
             if (effectMatch) {
                 const nameAndCost = effectMatch[1];
                 let effect = effectMatch[2];
