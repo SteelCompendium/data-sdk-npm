@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.41
+
+- Updates Ability reader to handle name+cost effects better
+
 ## 0.0.40
 
 - Avoids empty `stats` array in Featureblocks

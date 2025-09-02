@@ -107,11 +107,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
                 }
 
                 const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
-                if (nameAndCost.trim().match(/\d+\+*\s*\w+/)) {
-                    effectProps.cost = nameAndCost.trim();
-                } else {
-                    effectProps.name = nameAndCost.trim();
-                }
+                this.parseNameAndCost(nameAndCost.trim(), effectProps);
 
                 // If we find tiers, rewrite the effect as Test Effect
                 let hasTiers = this.peekToCheckForTiers(i, lines);
@@ -155,6 +151,26 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
         const ability = new Ability(partial);
         ability.effects = new Effects(effects);
         return ability;
+    }
+
+    private parseNameAndCost(nameAndCost: string, effectProps: Partial<MundaneEffect>) {
+        // Just cost (ex: `1+ Piety`)
+        if (nameAndCost.match(/^\d+\+*\s*\w+/) || nameAndCost.match(/^Spend \d+\+*\s*\w+/)) {
+            effectProps.cost = nameAndCost;
+            return;
+        }
+
+        // Name and cost (ex: `Eat (1 Piety)`)
+        const nameWithCost = nameAndCost.match(/^(.*)\s*\((.*)\)/);
+        if (nameWithCost) {
+            effectProps.name = nameWithCost[1].trim();
+            effectProps.cost = nameWithCost[2].trim();
+            return;
+        }
+
+        // Just name (ex: `Eat`)
+        effectProps.name = nameAndCost;
+        return;
     }
 
     // Parse a single line into { icon?, name, cost? }

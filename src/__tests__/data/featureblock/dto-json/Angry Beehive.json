@@ -35,11 +35,13 @@
       "effects": [
         {
           "effect": "The hive is hidden until the swarm is unleashed.",
-          "cost": "Concealed Hive (+1 EV)"
+          "name": "Concealed Hive",
+          "cost": "+1 EV"
         },
         {
           "effect": "The bees are a particularly aggressive and dangerous species. The hive triggers even if a creature shifts into or while adjacent to it, and the swarm deals 1d6 + 3 poison damage.",
-          "cost": "Killer Bees (+2 EV)"
+          "name": "Killer Bees",
+          "cost": "+2 EV"
         }
       ]
     }
