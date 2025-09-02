@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.42
+
+- Properly exports `MarkdownFeatureblockWriter` and `MarkdownFeatureblockReader`
+
 ## 0.0.41
 
 - Updates Ability reader to handle name+cost effects better
