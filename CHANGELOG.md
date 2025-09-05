@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.44
+
+- Adds bin dir to package files
+
 ## 0.0.43
 
 - Adds leniency for effects without colons
