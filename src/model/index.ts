@@ -1,4 +1,4 @@
-export * from './Ability';
+export * from './Feature';
 export * from './Characteristics';
 export * from './Effect';
 export * from './MundaneEffect';

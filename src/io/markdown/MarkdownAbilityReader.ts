@@ -1,16 +1,16 @@
-import { Ability, MundaneEffect, PowerRollEffect, Effect } from "../../model";
+import { Feature, MundaneEffect, PowerRollEffect, Effect } from "../../model";
 import { Effects } from "../../model/Effects";
 import { IDataReader } from "../IDataReader";
 import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model/TestEffect";
 
-export class MarkdownAbilityReader implements IDataReader<Ability> {
+export class MarkdownAbilityReader implements IDataReader<Feature> {
     public constructor() { }
 
-    read(content: string): Ability {
+    read(content: string): Feature {
         let lines = content.split('\n');
         lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
-        const partial: Partial<Ability> = {};
+        const partial: Partial<Feature> = {};
 
         // Find the end of the frontmatter
         let frontmatterEndIndex = -1;
@@ -148,7 +148,7 @@ export class MarkdownAbilityReader implements IDataReader<Ability> {
             i++;
         }
 
-        const ability = new Ability(partial);
+        const ability = new Feature(partial);
         ability.effects = new Effects(effects);
         return ability;
     }

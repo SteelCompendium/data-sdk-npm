@@ -2,7 +2,7 @@ import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
 import { MarkdownAbilityWriter } from "../../../io/markdown/MarkdownAbilityWriter";
-import { Ability } from "../../../model";
+import { Feature } from "../../../model";
 
 describe("MarkdownAbilityWriter", () => {
     const writer = new MarkdownAbilityWriter();
@@ -21,7 +21,7 @@ describe("MarkdownAbilityWriter", () => {
             const inputText = fs.readFileSync(inputPath, "utf-8");
             const expectedOutput = fs.readFileSync(outputPath, "utf-8");
 
-            const ability = new Ability(JSON.parse(inputText));
+            const ability = new Feature(JSON.parse(inputText));
             const result = writer.write(ability);
 
             expect(result.trim()).toEqual(expectedOutput.trim());

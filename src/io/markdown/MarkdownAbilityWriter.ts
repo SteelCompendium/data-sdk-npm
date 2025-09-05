@@ -1,4 +1,4 @@
-import {Ability} from "../../model";
+import {Feature} from "../../model";
 import {IDataWriter} from "../IDataWriter";
 import {Effect} from "../../model";
 import {MundaneEffect} from "../../model";
@@ -6,8 +6,8 @@ import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model";
 
-export class MarkdownAbilityWriter implements IDataWriter<Ability> {
-    write(data: Ability, blockquote_output: boolean = false): string {
+export class MarkdownAbilityWriter implements IDataWriter<Feature> {
+    write(data: Feature, blockquote_output: boolean = false): string {
         const parts: string[] = [];
         const linePrefix = blockquote_output ? '> ' : '';
 
@@ -118,7 +118,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Ability> {
         return md;
     }
 
-    private getIconPrefix(a: Ability): string {
+    private getIconPrefix(a: Feature): string {
         if (a.icon) {
             return `${a.icon} `;
         }

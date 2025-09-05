@@ -1,8 +1,8 @@
 import { SteelCompendiumDTO } from "./SteelCompendiumDTO";
-import { Ability, Effects } from "../model";
+import { Feature, Effects } from "../model";
 
 // Deprecated: XML support will be dropped in 1.0.0
-export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
+export class AbilityXmlDTO extends SteelCompendiumDTO<Feature> {
     name!: string;
     type!: string;
     cost?: string;
@@ -18,7 +18,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
         super(source);
     }
 
-    public static partialFromModel(model: Ability): Partial<AbilityXmlDTO> {
+    public static partialFromModel(model: Feature): Partial<AbilityXmlDTO> {
         const dto: Partial<AbilityXmlDTO> = {};
         if (model.name !== undefined) dto.name = model.name;
         if (model.cost !== undefined) dto.cost = model.cost;
@@ -36,7 +36,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
         return dto;
     }
 
-    public toModel(): Ability {
+    public toModel(): Feature {
         // flatten your keyword list as before
         const keywords = this.keywords
             ? [this.keywords.keyword].flat().filter(Boolean)
@@ -45,7 +45,7 @@ export class AbilityXmlDTO extends SteelCompendiumDTO<Ability> {
         // pull out the ordered array of raw effects (or [] if absent)
         const es = this.effects ? [this.effects.effect].flat() : [];
 
-        return new Ability({
+        return new Feature({
             name: this.name,
             type: this.type,
             cost: this.cost,

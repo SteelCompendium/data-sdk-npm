@@ -1,7 +1,7 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import {Ability, Statblock} from "../../../model";
+import {Feature, Statblock} from "../../../model";
 import {XmlAbilityWriter} from "../../../io/xml";
 import {JsonReader} from "../../../io";
 
@@ -16,7 +16,7 @@ describe("XmlAbilityWriter", () => {
 
     testFiles.forEach(file => {
         it(`should correctly write ${file}`, () => {
-            const jsonReader = new JsonReader(Ability.modelDTOAdapter);
+            const jsonReader = new JsonReader(Feature.modelDTOAdapter);
             const inputPath = path.join(inputsDir, file);
             const outputPath = path.join(outputsDir, file.replace(".json", ".xml"));
 

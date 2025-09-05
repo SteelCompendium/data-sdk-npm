@@ -1,12 +1,12 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import {Ability} from "../../../model";
+import {Feature} from "../../../model";
 import {JsonReader} from "../../../io";
 import { parse } from 'yaml';
 
 describe("JsonAbilityReader", () => {
-    const reader = new JsonReader(Ability.modelDTOAdapter);
+    const reader = new JsonReader(Feature.modelDTOAdapter);
     const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
     const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-yaml");
 

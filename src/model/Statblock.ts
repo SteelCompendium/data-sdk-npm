@@ -1,4 +1,4 @@
-import {Ability} from "./Ability";
+import {Feature} from "./Feature";
 import {Trait} from "./Trait";
 import {Characteristics} from "./Characteristics";
 import {StatblockDTO} from "../dto";
@@ -23,7 +23,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     withCaptain?: string;
     characteristics!: Characteristics;
     traits!: Trait[];
-    abilities!: Ability[];
+    abilities!: Feature[];
 
     public constructor(source: Partial<Statblock>) {
         super();
@@ -42,7 +42,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
             withCaptain: dto.with_captain,
             characteristics: new Characteristics(dto.might, dto.agility, dto.reason, dto.intuition, dto.presence),
             traits: dto.traits?.map(t => Trait.fromDTO(t)) ?? [],
-            abilities: dto.abilities?.map(a => Ability.fromDTO(a)) ?? [],
+            abilities: dto.abilities?.map(a => Feature.fromDTO(a)) ?? [],
         });
     }
 

@@ -1,7 +1,7 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import {Ability, Statblock} from "../../../model";
+import {Feature, Statblock} from "../../../model";
 import {JsonReader, JsonWriter, YamlReader} from "../../../io";
 
 describe("JsonAbilityWriter", () => {
@@ -15,7 +15,7 @@ describe("JsonAbilityWriter", () => {
 
     testFiles.forEach(file => {
         it(`should correctly write ${file} (json validation)`, () => {
-            const yamlReader = new YamlReader(Ability.modelDTOAdapter);
+            const yamlReader = new YamlReader(Feature.modelDTOAdapter);
             const inputPath = path.join(inputsDir, file);
             const outputPath = path.join(outputsDir, file.replace(".yaml", ".json"));
 

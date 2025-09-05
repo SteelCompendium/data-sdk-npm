@@ -1,7 +1,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 import { Statblock } from '../src/model/Statblock';
-import { Ability } from '../src/model/Ability';
+import { Feature } from '../src/model/Feature';
 import { Trait } from '../src/model/Trait';
 import { Characteristics } from '../src/model/Characteristics';
 import { Effect, PowerRollEffect, MundaneEffect } from '../src/model/Effect';
@@ -10,7 +10,7 @@ import { stringify } from 'yaml';
 
 const models: { [key: string]: any } = {
     'statblock': Statblock,
-    'ability': Ability,
+    'ability': Feature,
     'trait': Trait,
     'characteristics': Characteristics,
     'powerrolleffect': PowerRollEffect,

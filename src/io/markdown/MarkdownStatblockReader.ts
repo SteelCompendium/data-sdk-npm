@@ -1,4 +1,4 @@
-import { Statblock, Trait, MundaneEffect, Effects, Ability } from "../../model";
+import { Statblock, Trait, MundaneEffect, Effects, Feature } from "../../model";
 import { IDataReader } from "../IDataReader";
 import { MarkdownAbilityReader } from "./MarkdownAbilityReader";
 
@@ -64,7 +64,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         while (i < mainLines.length && mainLines[i].trim() === '') i++;
 
         const traits: Trait[] = [];
-        const abilities: Ability[] = [];
+        const abilities: Feature[] = [];
         while (i < mainLines.length) {
             if (/^\s*>\s?/.test(mainLines[i])) {
                 const block: string[] = [];

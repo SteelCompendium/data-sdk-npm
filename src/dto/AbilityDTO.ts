@@ -1,7 +1,7 @@
-import { Ability } from '../model/Ability';
+import { Feature } from '../model/Feature';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 
-export class AbilityDTO extends SteelCompendiumDTO<Ability> {
+export class AbilityDTO extends SteelCompendiumDTO<Feature> {
     name!: string;
     icon?: string;
     type!: string;
@@ -19,7 +19,7 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
         this.effects = source.effects ?? [];
     }
 
-    public static partialFromModel(model: Ability): Partial<AbilityDTO> {
+    public static partialFromModel(model: Feature): Partial<AbilityDTO> {
         const dto: Partial<AbilityDTO> = {};
         if (model.name !== undefined) dto.name = model.name;
         if (model.icon !== undefined) dto.icon = model.icon;
@@ -35,11 +35,11 @@ export class AbilityDTO extends SteelCompendiumDTO<Ability> {
         return dto;
     }
 
-    public static fromModel(model: Ability): AbilityDTO {
+    public static fromModel(model: Feature): AbilityDTO {
         return new AbilityDTO(model.toDTO());
     }
 
-    public toModel(): Ability {
-        return Ability.fromDTO(this);
+    public toModel(): Feature {
+        return Feature.fromDTO(this);
     }
 } 

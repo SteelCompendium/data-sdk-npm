@@ -37,7 +37,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
 const Statblock_1 = require("../src/model/Statblock");
-const Ability_1 = require("../src/model/Ability");
+const Ability_1 = require("../src/model/Feature");
 const Trait_1 = require("../src/model/Trait");
 const Characteristics_1 = require("../src/model/Characteristics");
 const Effect_1 = require("../src/model/Effect");
@@ -45,7 +45,7 @@ const yaml_1 = require("yaml");
 const yaml_2 = require("yaml");
 const models = {
     'statblock': Statblock_1.Statblock,
-    'ability': Ability_1.Ability,
+    'ability': Ability_1.Feature,
     'trait': Trait_1.Trait,
     'characteristics': Characteristics_1.Characteristics,
     'powerrolleffect': Effect_1.PowerRollEffect,

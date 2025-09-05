@@ -18,7 +18,7 @@ import {JsonWriter} from '../io/json/JsonWriter';
 import {YamlWriter} from '../io/yaml/YamlWriter';
 import {MarkdownAbilityWriter, MarkdownStatblockWriter} from '../io/markdown';
 import {SteelCompendiumIdentifier, SteelCompendiumFormat} from '../io/SteelCompendiumIdentifier';
-import {Ability, Statblock} from '../model';
+import {Feature, Statblock} from '../model';
 import {XmlAbilityWriter} from "../io/xml";
 import {Featureblock} from "../model/Featureblock";
 import {MarkdownFeatureblockWriter} from "../io/markdown/MarkdownFeatureblockWriter";
@@ -116,12 +116,12 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
                 break;
             // Deprecated: XML support will be dropped in 1.0.0
             case SteelCompendiumFormat.Xml:
-                if (model instanceof Ability) writer = new XmlAbilityWriter();
+                if (model instanceof Feature) writer = new XmlAbilityWriter();
                 // else if (model instanceof Statblock) writer = new XmlWriter('statblock');
                 else throw new Error('No XML writer for this model');
                 break;
             case SteelCompendiumFormat.Markdown:
-                if (model instanceof Ability) writer = new MarkdownAbilityWriter();
+                if (model instanceof Feature) writer = new MarkdownAbilityWriter();
                 else if (model instanceof Statblock) writer = new MarkdownStatblockWriter();
                 else if (model instanceof Featureblock) writer = new MarkdownFeatureblockWriter();
                 else throw new Error('No Markdown writer for this model');

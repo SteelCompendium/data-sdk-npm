@@ -1,10 +1,10 @@
 import { IDataWriter } from "../IDataWriter";
 import { XMLBuilder } from "fast-xml-parser";
-import { Ability } from "../../model";
+import { Feature } from "../../model";
 
 // Deprecated: XML support will be dropped in 1.0.0
-export class XmlAbilityWriter extends IDataWriter<Ability> {
-    write(data: Ability): string {
+export class XmlAbilityWriter extends IDataWriter<Feature> {
+    write(data: Feature): string {
         const dto = data.toXmlDTO();
 
         const cleanDTO = Object.entries(dto).reduce((acc: Record<string, any>, [key, value]) => {

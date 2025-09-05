@@ -4,7 +4,7 @@ import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 
 // Abilities as currently implemented blend the line of Ability and Trait...
-export class Ability extends SteelCompendiumModel<AbilityDTO> {
+export class Feature extends SteelCompendiumModel<AbilityDTO> {
     name?: string;
     icon?: string;
     cost?: string;
@@ -17,16 +17,16 @@ export class Ability extends SteelCompendiumModel<AbilityDTO> {
     effects: Effects;
     metadata?: Record<string, any>;
 
-    public constructor(source: Partial<Ability>) {
+    public constructor(source: Partial<Feature>) {
         super();
         Object.assign(this, source);
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static modelDTOAdapter: ModelDTOAdapter<Ability, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
+    public static modelDTOAdapter: ModelDTOAdapter<Feature, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
 
-    public static fromDTO(dto: AbilityDTO): Ability {
-        return new Ability({
+    public static fromDTO(dto: AbilityDTO): Feature {
+        return new Feature({
             ...dto,
             effects: Effects.fromDTO(dto.effects),
         });

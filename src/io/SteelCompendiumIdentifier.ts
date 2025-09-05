@@ -4,7 +4,7 @@ import { JsonReader } from './json';
 import { YamlReader } from './yaml';
 import { XmlAbilityReader } from './xml';
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
-import { Ability, Statblock } from '../model';
+import { Feature, Statblock } from '../model';
 import { XMLParser } from 'fast-xml-parser';
 import {MarkdownStatblockReader} from "./markdown";
 import { Featureblock } from '../model/Featureblock';
@@ -20,8 +20,8 @@ export enum SteelCompendiumFormat {
 
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
-    model: typeof Ability | typeof Statblock | typeof Featureblock | null;
-    getReader(): IDataReader<Ability | Statblock | Featureblock>;
+    model: typeof Feature | typeof Statblock | typeof Featureblock | null;
+    getReader(): IDataReader<Feature | Statblock | Featureblock>;
 }
 
 export class SteelCompendiumIdentifier {
@@ -30,7 +30,7 @@ export class SteelCompendiumIdentifier {
             if (model === "ability") {
                 return {
                     format: SteelCompendiumFormat.Markdown,
-                    model: Ability,
+                    model: Feature,
                     getReader: () => new MarkdownAbilityReader(),
                 }
             }
@@ -53,8 +53,8 @@ export class SteelCompendiumIdentifier {
             if (model === "ability") {
                 return {
                     format: SteelCompendiumFormat.Json,
-                    model: Ability,
-                    getReader: () => new JsonReader(Ability.modelDTOAdapter),
+                    model: Feature,
+                    getReader: () => new JsonReader(Feature.modelDTOAdapter),
                 }
             }
             if (model === "statblock") {
@@ -76,8 +76,8 @@ export class SteelCompendiumIdentifier {
             if (model === "ability") {
                 return {
                     format: SteelCompendiumFormat.Yaml,
-                    model: Ability,
-                    getReader: () => new YamlReader(Ability.modelDTOAdapter),
+                    model: Feature,
+                    getReader: () => new YamlReader(Feature.modelDTOAdapter),
                 }
             }
             if (model === "statblock") {
@@ -100,7 +100,7 @@ export class SteelCompendiumIdentifier {
             if (model === "ability") {
                 return {
                     format: SteelCompendiumFormat.Xml,
-                    model: Ability,
+                    model: Feature,
                     getReader: () => new XmlAbilityReader(),
                 }
             }
@@ -139,11 +139,11 @@ export class SteelCompendiumIdentifier {
             const data = JSON.parse(source);
             if (typeof data === 'object' && data !== null) {
                 const modelType = this.identifyModelType(data);
-                if (modelType === Ability) {
+                if (modelType === Feature) {
                     return {
                         format: SteelCompendiumFormat.Json,
-                        model: Ability,
-                        getReader: () => new JsonReader(Ability.modelDTOAdapter)
+                        model: Feature,
+                        getReader: () => new JsonReader(Feature.modelDTOAdapter)
                     };
                 }
                 if (modelType === Statblock) {
@@ -166,10 +166,10 @@ export class SteelCompendiumIdentifier {
 
             if (typeof root === 'object' && root !== null) {
                 const modelType = this.identifyModelType(root);
-                if (modelType === Ability) {
+                if (modelType === Feature) {
                     return {
                         format: SteelCompendiumFormat.Xml,
-                        model: Ability,
+                        model: Feature,
                         getReader: () => new XmlAbilityReader()
                     };
                 }
@@ -190,11 +190,11 @@ export class SteelCompendiumIdentifier {
             const data = parse(source);
             if (typeof data === 'object' && data !== null) {
                 const modelType = this.identifyModelType(data);
-                if (modelType === Ability) {
+                if (modelType === Feature) {
                     return {
                         format: SteelCompendiumFormat.Yaml,
-                        model: Ability,
-                        getReader: () => new YamlReader(Ability.modelDTOAdapter)
+                        model: Feature,
+                        getReader: () => new YamlReader(Feature.modelDTOAdapter)
                     };
                 }
                 if (modelType === Statblock) {
@@ -220,7 +220,7 @@ export class SteelCompendiumIdentifier {
         if (this.isMarkdownAbility(source)) {
             return {
                 format: SteelCompendiumFormat.Markdown,
-                model: Ability,
+                model: Feature,
                 getReader: () => new MarkdownAbilityReader(),
             };
         }
@@ -234,7 +234,7 @@ export class SteelCompendiumIdentifier {
         };
     }
 
-    private static identifyModelType(data: any): typeof Ability | typeof Statblock | typeof Featureblock | null {
+    private static identifyModelType(data: any): typeof Feature | typeof Statblock | typeof Featureblock | null {
         if ('features' in data) {
             return Featureblock;
         }
@@ -242,7 +242,7 @@ export class SteelCompendiumIdentifier {
             return Statblock;
         }
         if ('effects' in data || 'cost' in data) {
-            return Ability;
+            return Feature;
         }
         return null;
     }
