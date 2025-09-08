@@ -1,3 +1,5 @@
+type: feature
+feature_type: ability
 name: Magma Titan
 cost: 9 Essence
 flavor: Their body swells with lava, mud, and might, towering over their enemies.
@@ -7,11 +9,12 @@ keywords:
   - Magic
   - Ranged
   - Void
-type: Main action
+usage: Main action
 distance: Ranged 10
 target: One creature or object
 effects:
-  - effect: >-
+  - name: Effect
+    effect: >-
       Until the start of your next turn, the target has the following benefits:
 
       - Their size and stability increase by 2, with any size 1 target becoming
@@ -29,12 +32,10 @@ effects:
 
       - They can use their highest characteristic instead of Might for Might
       power rolls.
-    name: Effect
   - roll: Power Roll + Reason
     t1: You teleport the target up to 4 squares.
     t2: You teleport the target up to 6 squares.
     t3: You teleport the target up to 8 squares.
-  - effect:
-      The effect lasts until the start of your next turn. Additionally, at the
+  - effect: The effect lasts until the start of your next turn. Additionally, at the
       start of your turn, the target can spend 2 Recoveries.
     name: Persistent 2

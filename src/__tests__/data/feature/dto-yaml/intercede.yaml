@@ -1,10 +1,12 @@
+type: feature
+feature_type: ability
 name: INTERCEDE
 cost: 9 WRATH
 flavor: You take your ally’s place.
 keywords:
   - Magic
   - Ranged
-type: Free Triggered
+usage: Free Triggered
 distance: Ranged 10
 target: One ally
 trigger: A creature makes a strike against the target.

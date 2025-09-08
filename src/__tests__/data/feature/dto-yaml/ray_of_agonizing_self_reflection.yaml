@@ -1,3 +1,5 @@
+type: feature
+feature_type: ability
 name: RAY OF AGONIZING SELF-REFLECTION
 flavor: You inflict pain and doubt in equal measure.
 keywords:
@@ -5,7 +7,7 @@ keywords:
   - Ranged
   - Strike
   - Void
-type: Main Action
+usage: Main Action
 distance: Ranged 10
 target: One creature or object
 effects:

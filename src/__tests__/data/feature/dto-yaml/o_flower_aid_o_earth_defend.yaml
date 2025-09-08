@@ -1,3 +1,5 @@
+type: feature
+feature_type: ability
 name: O FLOWER AID, O EARTH DEFEND
 cost: 5 ESSENCE
 flavor: Revitalizing plants and jagged stones grow, helping allies and hindering foes.
@@ -7,7 +9,7 @@ keywords:
   - Green
   - Magic
   - Ranged
-type: Maneuver
+usage: Maneuver
 distance: 3 cube within 10
 target: Special
 effects:

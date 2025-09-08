@@ -25,6 +25,7 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
 
     public static partialFromModel(model: Feature): Partial<FeatureDTO> {
         const dto: Partial<FeatureDTO> = { type: "feature" };
+        dto.feature_type = model.isTrait() ? "trait" : "ability";
         if (model.name !== undefined) dto.name = model.name;
         if (model.icon !== undefined) dto.icon = model.icon;
         if (model.cost !== undefined) dto.cost = model.cost;
@@ -36,7 +37,6 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
         if (model.trigger !== undefined) dto.trigger = model.trigger;
         if (model.metadata !== undefined) dto.metadata = model.metadata;
         dto.effects = model.effects.toDTO();
-        dto.feature_type = model.isTrait() ? "trait" : "ability";
         return dto;
     }
 

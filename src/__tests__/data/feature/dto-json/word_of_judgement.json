@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "WORD OF JUDGMENT",
   "flavor": "Your holy word saps an attacking enemy’s strength.",
   "keywords": [
@@ -19,6 +20,5 @@
       "effect": "The power roll has a double bane against the target.",
       "cost": "Spend 1 Piety"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

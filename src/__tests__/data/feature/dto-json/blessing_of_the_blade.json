@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "BLESSING OF THE BLADE",
   "cost": "11 PIETY",
   "flavor": "“The power of the gods is within you, friends. Allow me to unleash it.”",
@@ -15,6 +16,5 @@
       "effect": "At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.",
       "name": "Effect"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

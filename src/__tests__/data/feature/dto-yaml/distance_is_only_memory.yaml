@@ -1,3 +1,5 @@
+type: feature
+feature_type: trait
 name: DISTANCE IS ONLY MEMORY
 effects:
   - effect: Each time you finish a respite, you can open a two-way portal that leads

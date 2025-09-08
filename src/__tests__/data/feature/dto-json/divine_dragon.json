@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "DIVINE DRAGON",
   "cost": "11 PIETY",
   "flavor": "From nothing but divine will, you create a powerful ally.",
@@ -31,6 +32,5 @@
       "t2": "5 + I damage",
       "t3": "8 + I damage"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

@@ -1,3 +1,5 @@
+type: feature
+feature_type: ability
 name: VISCOUS FIRE
 flavor: A jet of heavy fire erupts where you strike.
 keywords:
@@ -5,7 +7,7 @@ keywords:
   - Magic
   - Ranged
   - Strike
-type: Main Action
+usage: Main Action
 distance: Ranged 10
 target: One creature or object
 effects:

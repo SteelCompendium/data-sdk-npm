@@ -1,3 +1,5 @@
+type: feature
+feature_type: ability
 name: This is an H8 Header
 cost: 8 Energy
 flavor: You warp reality to grow a header for just a moment and make a single
@@ -5,17 +7,17 @@ flavor: You warp reality to grow a header for just a moment and make a single
 keywords:
   - Area
   - Psionic
-type: Main action
+usage: Main action
 distance: Ranged 10
 target: One creature or object
-effects:
-  - roll: Power Roll + Agility
-    t1: 12 psychic damage; push 3
-    t2: 17 psychic damage; push 5
-    t3: 23 psychic damage; push 7
 metadata:
   class: introduction
   cost: 8 Energy
   level: 1
   name: This Is An H8 Header
   type: ability
+effects:
+  - roll: Power Roll + Agility
+    t1: 12 psychic damage; push 3
+    t2: 17 psychic damage; push 5
+    t3: 23 psychic damage; push 7

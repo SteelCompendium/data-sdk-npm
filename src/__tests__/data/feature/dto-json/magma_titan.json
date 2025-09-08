@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "Magma Titan",
   "cost": "9 Essence",
   "flavor": "Their body swells with lava, mud, and might, towering over their enemies.",
@@ -28,6 +29,5 @@
       "effect": "The effect lasts until the start of your next turn. Additionally, at the start of your turn, the target can spend 2 Recoveries.",
       "name": "Persistent 2"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

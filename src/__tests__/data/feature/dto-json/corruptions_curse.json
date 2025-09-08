@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "CORRUPTION’S CURSE",
   "cost": "5 PIETY",
   "flavor": "Cursed by you, your enemy takes more damage from your allies.",
@@ -18,6 +19,5 @@
       "t2": "6 + I corruption damage; M < average, damage weakness 5 (save ends)",
       "t3": "9 + I corruption damage; M < strong, damage weakness 5 (save ends)"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

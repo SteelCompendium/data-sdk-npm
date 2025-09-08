@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "INSTANTANEOUS EXCAVATION",
   "cost": "5 ESSENCE",
   "flavor": "The surface of the world around you opens up to swallow foes.",
@@ -26,6 +27,5 @@
       "effect": "At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.",
       "name": "Persistent 1"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

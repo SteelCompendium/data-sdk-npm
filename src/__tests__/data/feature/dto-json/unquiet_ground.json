@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "UNQUIET GROUND",
   "flavor": "A sudden storm of detritus assaults your foes and leaves them struggling to move.",
   "keywords": [
@@ -22,6 +23,5 @@
       "effect": "The ground beneath the area is difficult terrain for enemies.",
       "name": "Effect"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }

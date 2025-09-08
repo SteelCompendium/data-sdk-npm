@@ -1,9 +1,11 @@
+type: feature
+feature_type: ability
 name: HEALING GRACE
 flavor: Your divine energy restores the righteous.
 keywords:
   - Magic
   - Ranged
-type: Maneuver
+usage: Maneuver
 distance: Ranged 10
 target: Self or one ally
 effects:

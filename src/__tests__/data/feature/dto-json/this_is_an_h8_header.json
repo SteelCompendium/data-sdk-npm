@@ -1,5 +1,6 @@
 {
   "type": "feature",
+  "feature_type": "ability",
   "name": "This is an H8 Header",
   "cost": "8 Energy",
   "flavor": "You warp reality to grow a header for just a moment and make a single devastating attack.",
@@ -24,6 +25,5 @@
       "t2": "17 psychic damage; push 5",
       "t3": "23 psychic damage; push 7"
     }
-  ],
-  "feature_type": "ability"
+  ]
 }
