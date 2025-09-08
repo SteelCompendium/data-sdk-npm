@@ -1,21 +1,23 @@
 {
-    "name": "CORRUPTION’S CURSE",
-    "cost": "5 PIETY",
-    "flavor": "Cursed by you, your enemy takes more damage from your allies.",
-    "keywords": [
-      "Magic",
-      "Ranged",
-      "Strike"
-    ],
-    "type": "Main Action",
-    "distance": "Ranged 10",
-    "target": "One creature or object",
-    "effects": [
-      {
-        "roll": "Power Roll + Intuition",
-        "t1": "3 + I corruption damage; M < weak, damage weakness 5 (save ends)",
-        "t2": "6 + I corruption damage; M < average, damage weakness 5 (save ends)",
-        "t3": "9 + I corruption damage; M < strong, damage weakness 5 (save ends)"
-      }
-    ]
-  }
+  "type": "feature",
+  "name": "CORRUPTION’S CURSE",
+  "cost": "5 PIETY",
+  "flavor": "Cursed by you, your enemy takes more damage from your allies.",
+  "keywords": [
+    "Magic",
+    "Ranged",
+    "Strike"
+  ],
+  "usage": "Main Action",
+  "distance": "Ranged 10",
+  "target": "One creature or object",
+  "effects": [
+    {
+      "roll": "Power Roll + Intuition",
+      "t1": "3 + I corruption damage; M < weak, damage weakness 5 (save ends)",
+      "t2": "6 + I corruption damage; M < average, damage weakness 5 (save ends)",
+      "t3": "9 + I corruption damage; M < strong, damage weakness 5 (save ends)"
+    }
+  ],
+  "feature_type": "ability"
+}

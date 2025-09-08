@@ -1,4 +1,5 @@
 {
+  "type": "feature",
   "name": "This is an H8 Header",
   "cost": "8 Energy",
   "flavor": "You warp reality to grow a header for just a moment and make a single devastating attack.",
@@ -6,9 +7,16 @@
     "Area",
     "Psionic"
   ],
-  "type": "Main action",
+  "usage": "Main action",
   "distance": "Ranged 10",
   "target": "One creature or object",
+  "metadata": {
+    "class": "introduction",
+    "cost": "8 Energy",
+    "level": 1,
+    "name": "This Is An H8 Header",
+    "type": "ability"
+  },
   "effects": [
     {
       "roll": "Power Roll + Agility",
@@ -17,11 +25,5 @@
       "t3": "23 psychic damage; push 7"
     }
   ],
-  "metadata":  {
-    "class": "introduction",
-    "cost": "8 Energy",
-    "level": 1,
-    "name": "This Is An H8 Header",
-    "type": "ability"
-  }
+  "feature_type": "ability"
 }
