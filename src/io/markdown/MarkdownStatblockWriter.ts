@@ -3,7 +3,7 @@ import { IDataWriter } from "../IDataWriter";
 import { MarkdownFeatureWriter } from "./MarkdownFeatureWriter";
 
 export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
-    private abilityWriter = new MarkdownFeatureWriter();
+    private featureWriter = new MarkdownFeatureWriter();
 
     write(data: Statblock): string {
         const parts: string[] = [];
@@ -17,9 +17,9 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
             // parts.push("---"); // Separator
             // parts.push(""); // Empty line for spacing
 
-            for (const ability of data.features) {
-                parts.push(this.abilityWriter.write(ability, true));
-                parts.push(""); // Empty line between abilities
+            for (const feature of data.features) {
+                parts.push(this.featureWriter.write(feature, true));
+                parts.push(""); // Empty line between features
             }
         }
 

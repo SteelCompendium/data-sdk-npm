@@ -3,7 +3,7 @@ import {IDataReader} from "../IDataReader";
 import {MarkdownFeatureReader} from "./MarkdownFeatureReader";
 
 export class MarkdownStatblockReader implements IDataReader<Statblock> {
-    private abilityReader = new MarkdownFeatureReader();
+    private featureReader = new MarkdownFeatureReader();
 
     public read(content: string): Statblock {
         const partial: Partial<Statblock> & { characteristics: any } = {
@@ -70,7 +70,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                     block.push(mainLines[i].replace(/^\s*>\s?/, ''));
                     i++;
                 }
-                const feature = this.abilityReader.read(block.join('\n').trim());
+                const feature = this.featureReader.read(block.join('\n').trim());
                 feature.feature_type = feature.isTrait() ? FeatureType.Trait : FeatureType.Ability;
             } else {
                 i++;

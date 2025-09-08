@@ -7,7 +7,7 @@ import {Feature, FeatureStat} from "../../model";
 type KeyVal = { key: string; value: string };
 
 export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
-    private abilityReader = new MarkdownFeatureReader();
+    private featureReader = new MarkdownFeatureReader();
 
     public read(source: string): Featureblock {
         const { data: fm, content } = matter(source);
@@ -38,7 +38,7 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
         const flavor = this.extractFlavor(preFeature);
 
         // 5) Feature callouts (blockquote groups) → Feature[]
-        const features: Feature[] = featureBlocks.map(md => this.abilityReader.read(md));
+        const features: Feature[] = featureBlocks.map(md => this.featureReader.read(md));
 
         return new Featureblock({
             name,

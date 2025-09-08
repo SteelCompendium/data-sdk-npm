@@ -150,9 +150,9 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             i++;
         }
 
-        const ability = new Feature(partial);
-        ability.effects = new Effects(effects);
-        return ability;
+        const feature = new Feature(partial);
+        feature.effects = new Effects(effects);
+        return feature;
     }
 
     private parseNameAndCost(nameAndCost: string, effectProps: Partial<MundaneEffect>) {

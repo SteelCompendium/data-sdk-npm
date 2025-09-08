@@ -3,7 +3,7 @@ import {IDataWriter} from "../IDataWriter";
 import {MarkdownFeatureWriter} from "./MarkdownFeatureWriter";
 
 export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
-    private abilityWriter = new MarkdownFeatureWriter();
+    private featureWriter = new MarkdownFeatureWriter();
 
     public write(data: Featureblock): string {
         const parts: string[] = [];
@@ -66,10 +66,10 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
 
         // 4) Features (each as a contiguous blockquote group)
         if ((data.features ?? []).length) {
-            for (const ability of data.features) {
+            for (const feature of data.features) {
                 parts.push("");
                 parts.push("<!-- -->");
-                parts.push(this.abilityWriter.write(ability, true).trimEnd());
+                parts.push(this.featureWriter.write(feature, true).trimEnd());
             }
         }
 

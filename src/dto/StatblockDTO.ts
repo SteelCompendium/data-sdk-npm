@@ -57,7 +57,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
             if (model.characteristics.intuition !== undefined) data.intuition = model.characteristics.intuition;
             if (model.characteristics.presence !== undefined) data.presence = model.characteristics.presence;
         }
-        if (model.features !== undefined) data.features = model.features.map(a => a.toDTO());
+        if (model.features !== undefined) data.features = model.features.map(f => f.toDTO());
         return data;
     }
 

@@ -40,7 +40,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
             freeStrike: dto.free_strike,
             withCaptain: dto.with_captain,
             characteristics: new Characteristics(dto.might, dto.agility, dto.reason, dto.intuition, dto.presence),
-            features: dto.features?.map(a => Feature.fromDTO(a)) ?? [],
+            features: dto.features?.map(f => Feature.fromDTO(f)) ?? [],
         });
     }
 
