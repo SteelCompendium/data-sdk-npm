@@ -39,7 +39,7 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
         } else if (dto.feature_type === FeatureType.Trait) {
             ft = FeatureType.Trait;
         } else {
-            throw new Error(`Unknown feature type: ${dto.feature_type}`);
+            ft = dto.isTrait() ? FeatureType.Trait : FeatureType.Ability;
         }
         return new Feature({
             ...dto,
