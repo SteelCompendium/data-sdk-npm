@@ -121,6 +121,13 @@ export class SteelCompendiumIdentifier {
                         getReader: () => new JsonReader(Statblock.modelDTOAdapter)
                     };
                 }
+                if (modelType === Featureblock) {
+                    return {
+                        format: SteelCompendiumFormat.Json,
+                        model: Featureblock,
+                        getReader: () => new JsonReader(Featureblock.modelDTOAdapter)
+                    };
+                }
             }
         } catch (e) {
             // Not JSON
@@ -142,6 +149,13 @@ export class SteelCompendiumIdentifier {
                         format: SteelCompendiumFormat.Yaml,
                         model: Statblock,
                         getReader: () => new YamlReader(Statblock.modelDTOAdapter)
+                    };
+                }
+                if (modelType === Featureblock) {
+                    return {
+                        format: SteelCompendiumFormat.Yaml,
+                        model: Featureblock,
+                        getReader: () => new YamlReader(Featureblock.modelDTOAdapter)
                     };
                 }
             }
