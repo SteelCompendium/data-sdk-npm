@@ -20,7 +20,7 @@ reason: -4
 intuition: 0
 presence: -3
 traits: []
-abilities:
+features:
   - name: Bite
     icon: 🗡
     cost: Signature Ability

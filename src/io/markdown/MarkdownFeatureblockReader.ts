@@ -1,13 +1,13 @@
 import matter from "gray-matter";
 import {IDataReader} from "../IDataReader";
 import {Featureblock} from "../../model/Featureblock";
-import {MarkdownAbilityReader} from "../markdown/MarkdownAbilityReader";
+import {MarkdownFeatureReader} from "./MarkdownFeatureReader";
 import {Feature, FeatureStat} from "../../model";
 
 type KeyVal = { key: string; value: string };
 
 export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
-    private abilityReader = new MarkdownAbilityReader();
+    private abilityReader = new MarkdownFeatureReader();
 
     public read(source: string): Featureblock {
         const { data: fm, content } = matter(source);

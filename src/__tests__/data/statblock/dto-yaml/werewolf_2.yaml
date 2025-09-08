@@ -46,7 +46,7 @@ traits:
   - name: Vukenstep
     effects:
       - effect: The werewolf ignores difficult terrain.
-abilities:
+features:
   - name: Accursed Bite
     icon: 🗡
     cost: Signature Ability

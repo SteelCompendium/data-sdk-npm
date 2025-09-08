@@ -32,7 +32,7 @@ traits:
       - effect: Gorek selects one creature within line of effect at the start of an
           encounter. Both Gorek and the creature can add a 1d3 to all power
           rolls made against each other.
-abilities:
+features:
   - name: Brutal Impact
     icon: 🗡
     cost: Signature Ability

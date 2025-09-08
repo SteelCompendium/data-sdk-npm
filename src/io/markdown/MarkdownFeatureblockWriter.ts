@@ -1,9 +1,9 @@
 import {Featureblock} from "../../model/Featureblock";
 import {IDataWriter} from "../IDataWriter";
-import {MarkdownAbilityWriter} from "./MarkdownAbilityWriter";
+import {MarkdownFeatureWriter} from "./MarkdownFeatureWriter";
 
 export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
-    private abilityWriter = new MarkdownAbilityWriter();
+    private abilityWriter = new MarkdownFeatureWriter();
 
     public write(data: Featureblock): string {
         const parts: string[] = [];

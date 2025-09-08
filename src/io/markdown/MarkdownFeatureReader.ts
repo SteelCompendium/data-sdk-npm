@@ -4,7 +4,7 @@ import {IDataReader} from "../IDataReader";
 import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model/TestEffect";
 
-export class MarkdownAbilityReader implements IDataReader<Feature> {
+export class MarkdownFeatureReader implements IDataReader<Feature> {
     public constructor() { }
 
     read(content: string): Feature {

@@ -25,7 +25,7 @@ traits:
   - name: Slip Away
     effects:
       - effect: The assassin can take the Hide maneuver even while observed.
-abilities:
+features:
   - name: Sword Stab
     icon: 🗡
     cost: Signature Ability

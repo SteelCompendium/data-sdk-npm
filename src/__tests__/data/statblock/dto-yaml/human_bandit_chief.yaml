@@ -29,7 +29,7 @@ traits:
     effects:
       - effect: The bandit chief ignores concealment if it’s granted by a supernatural
           effect, or the target is supernatural.
-abilities:
+features:
   - name: Whip & Magic Longsword
     icon: 🗡
     cost: Signature Ability

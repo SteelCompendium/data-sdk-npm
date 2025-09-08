@@ -1,9 +1,9 @@
 import {Feature, FeatureType, Statblock} from "../../model";
 import {IDataReader} from "../IDataReader";
-import {MarkdownAbilityReader} from "./MarkdownAbilityReader";
+import {MarkdownFeatureReader} from "./MarkdownFeatureReader";
 
 export class MarkdownStatblockReader implements IDataReader<Statblock> {
-    private abilityReader = new MarkdownAbilityReader();
+    private abilityReader = new MarkdownFeatureReader();
 
     public read(content: string): Statblock {
         const partial: Partial<Statblock> & { characteristics: any } = {

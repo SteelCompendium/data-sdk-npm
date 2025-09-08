@@ -1,11 +1,11 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import { MarkdownAbilityWriter } from "../../../io/markdown/MarkdownAbilityWriter";
+import { MarkdownFeatureWriter } from "../../../io/markdown/MarkdownFeatureWriter";
 import { Feature } from "../../../model";
 
 describe("MarkdownAbilityWriter", () => {
-    const writer = new MarkdownAbilityWriter();
+    const writer = new MarkdownFeatureWriter();
     const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
     const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
 

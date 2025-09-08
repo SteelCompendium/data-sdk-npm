@@ -6,7 +6,7 @@ import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model";
 
-export class MarkdownAbilityWriter implements IDataWriter<Feature> {
+export class MarkdownFeatureWriter implements IDataWriter<Feature> {
     write(data: Feature, blockquote_output: boolean = false): string {
         const parts: string[] = [];
         const linePrefix = blockquote_output ? '> ' : '';

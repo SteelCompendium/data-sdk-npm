@@ -30,7 +30,7 @@ traits:
     effects:
       - effect: The brawler ignores concealment if it’s granted by a supernatural
           effect, or the target is supernatural.
-abilities:
+features:
   - name: Haymaker
     icon: 🗡
     cost: Signature Ability

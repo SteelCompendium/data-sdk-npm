@@ -20,7 +20,7 @@ reason: 0
 intuition: 1
 presence: 0
 traits: []
-abilities:
+features:
   - name: Dagger Dance
     icon: ⚔️
     cost: Signature Ability

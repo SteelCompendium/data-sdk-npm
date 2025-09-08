@@ -16,7 +16,7 @@ import {dirname, extname, join, basename} from 'path';
 
 import {JsonWriter} from '../io/json/JsonWriter';
 import {YamlWriter} from '../io/yaml/YamlWriter';
-import {MarkdownAbilityWriter, MarkdownStatblockWriter} from '../io/markdown';
+import {MarkdownFeatureWriter, MarkdownStatblockWriter} from '../io/markdown';
 import {SteelCompendiumIdentifier, SteelCompendiumFormat} from '../io/SteelCompendiumIdentifier';
 import {Feature, Statblock} from '../model';
 import {Featureblock} from "../model/Featureblock";
@@ -113,7 +113,7 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
                 writer = new YamlWriter();
                 break;
             case SteelCompendiumFormat.Markdown:
-                if (model instanceof Feature) writer = new MarkdownAbilityWriter();
+                if (model instanceof Feature) writer = new MarkdownFeatureWriter();
                 else if (model instanceof Statblock) writer = new MarkdownStatblockWriter();
                 else if (model instanceof Featureblock) writer = new MarkdownFeatureblockWriter();
                 else throw new Error('No Markdown writer for this model');

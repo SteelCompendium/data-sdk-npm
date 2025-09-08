@@ -29,7 +29,7 @@ traits:
           wall of stone within a distance of 10 squares. Any walls created by
           the wallmaster in the previous round are destroyed or replaced by the
           new walls.
-abilities:
+features:
   - name: Wall Slam
     icon: 🗡
     cost: Signature Ability

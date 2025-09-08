@@ -1,9 +1,9 @@
 import { Statblock } from "../../model/Statblock";
 import { IDataWriter } from "../IDataWriter";
-import { MarkdownAbilityWriter } from "./MarkdownAbilityWriter";
+import { MarkdownFeatureWriter } from "./MarkdownFeatureWriter";
 
 export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
-    private abilityWriter = new MarkdownAbilityWriter();
+    private abilityWriter = new MarkdownFeatureWriter();
 
     write(data: Statblock): string {
         const parts: string[] = [];

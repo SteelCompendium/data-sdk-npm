@@ -2,7 +2,7 @@ import { parse } from 'yaml';
 import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
-import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
+import { MarkdownFeatureReader } from './markdown/MarkdownFeatureReader';
 import { Feature, Statblock } from '../model';
 import {MarkdownStatblockReader} from "./markdown";
 import { Featureblock } from '../model/Featureblock';
@@ -28,7 +28,7 @@ export class SteelCompendiumIdentifier {
                 return {
                     format: SteelCompendiumFormat.Markdown,
                     model: Feature,
-                    getReader: () => new MarkdownAbilityReader(),
+                    getReader: () => new MarkdownFeatureReader(),
                 }
             }
             if (model === "statblock") {
@@ -161,7 +161,7 @@ export class SteelCompendiumIdentifier {
             return {
                 format: SteelCompendiumFormat.Markdown,
                 model: Feature,
-                getReader: () => new MarkdownAbilityReader(),
+                getReader: () => new MarkdownFeatureReader(),
             };
         }
 

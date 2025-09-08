@@ -1,10 +1,10 @@
 import { describe, it, expect } from "@jest/globals";
 import fs from "fs";
 import path from "path";
-import { MarkdownAbilityReader } from "../../../io/markdown/MarkdownAbilityReader";
+import { MarkdownFeatureReader } from "../../../io/markdown/MarkdownFeatureReader";
 
 describe("MarkdownAbilityReader", () => {
-    const reader = new MarkdownAbilityReader();
+    const reader = new MarkdownFeatureReader();
     const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
     const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
 

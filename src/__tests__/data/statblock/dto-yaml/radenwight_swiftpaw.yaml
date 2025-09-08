@@ -20,7 +20,7 @@ reason: 1
 intuition: 0
 presence: -1
 traits: []
-abilities:
+features:
   - name: Rapier Flunge
     icon: 🗡
     cost: Signature Ability
