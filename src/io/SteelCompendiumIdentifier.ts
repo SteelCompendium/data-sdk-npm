@@ -2,10 +2,8 @@ import { parse } from 'yaml';
 import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
-import { XmlAbilityReader } from './xml';
 import { MarkdownAbilityReader } from './markdown/MarkdownAbilityReader';
 import { Feature, Statblock } from '../model';
-import { XMLParser } from 'fast-xml-parser';
 import {MarkdownStatblockReader} from "./markdown";
 import { Featureblock } from '../model/Featureblock';
 import {MarkdownFeatureblockReader} from "./markdown/MarkdownFeatureblockReader";
@@ -13,7 +11,6 @@ import {MarkdownFeatureblockReader} from "./markdown/MarkdownFeatureblockReader"
 export enum SteelCompendiumFormat {
     Json = "json",
     Yaml = "yaml",
-    Xml = "xml",
     Markdown = "markdown",
     Unknown = "unknown",
 }
@@ -95,35 +92,6 @@ export class SteelCompendiumIdentifier {
                 }
             }
         }
-        // Deprecated: XML support will be dropped in 1.0.0
-        if (format === SteelCompendiumFormat.Xml) {
-            if (model === "ability") {
-                return {
-                    format: SteelCompendiumFormat.Xml,
-                    model: Feature,
-                    getReader: () => new XmlAbilityReader(),
-                }
-            }
-            console.log("statblocks and featureblocks dont currently support xml");
-            if (model === "statblock") {
-                return {
-                    format: SteelCompendiumFormat.Xml,
-                    model: Statblock,
-                    getReader: () => {
-                        throw new Error("Unknown format, cannot provide a reader.");
-                    }
-                }
-            }
-            if (model === "featureblock") {
-                return {
-                    format: SteelCompendiumFormat.Xml,
-                    model: Featureblock,
-                    getReader: () => {
-                        throw new Error("Unknown format, cannot provide a reader.");
-                    }
-                }
-            }
-        }
         return {
             format: SteelCompendiumFormat.Unknown,
             model: null,
@@ -156,34 +124,6 @@ export class SteelCompendiumIdentifier {
             }
         } catch (e) {
             // Not JSON
-        }
-
-        // Deprecated: XML support will be dropped in 1.0.0
-        try {
-            const parser = new XMLParser();
-            const data = parser.parse(source);
-            const [_, root] = Object.entries(data)[0];
-
-            if (typeof root === 'object' && root !== null) {
-                const modelType = this.identifyModelType(root);
-                if (modelType === Feature) {
-                    return {
-                        format: SteelCompendiumFormat.Xml,
-                        model: Feature,
-                        getReader: () => new XmlAbilityReader()
-                    };
-                }
-                if (modelType === Statblock) {
-                    return {
-                        format: SteelCompendiumFormat.Xml,
-                        model: Statblock,
-                        // TODO - should be XmlStatblockReader, but that's not implemented yet'
-                        getReader: () => new XmlAbilityReader()
-                    };
-                }
-            }
-        } catch (e) {
-            // Not XML
         }
 
         try {

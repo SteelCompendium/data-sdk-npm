@@ -2,8 +2,10 @@ import {Featureblock} from '../model/Featureblock';
 import {SteelCompendiumDTO} from './SteelCompendiumDTO';
 
 export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
+    type = Featureblock.FEATUREBLOCK_TYPE;
+
     name!: string;
-    type?: string;
+    featureblock_type?: string;
     level?: number;
     ev?: string;
     flavor?: string;
@@ -13,14 +15,14 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     features!: any[];
 
     public constructor(source: Partial<FeatureblockDTO>) {
-        super(source);
+        super(source, Featureblock.FEATUREBLOCK_TYPE);
         this.features = source.features ?? [];
     }
 
     static partialFromModel(model: Featureblock): Partial<FeatureblockDTO> {
         const data: Partial<FeatureblockDTO> = {}
         if (model.name !== undefined) data.name = model.name;
-        if (model.type !== undefined) data.type = model.type;
+        if (model.featureblock_type !== undefined) data.featureblock_type = model.featureblock_type;
         if (model.level !== undefined) data.level = model.level;
         if (model.ev !== undefined) data.ev = model.ev;
         if (model.flavor !== undefined) data.flavor = model.flavor;

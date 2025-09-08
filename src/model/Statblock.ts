@@ -1,10 +1,12 @@
 import {Feature} from "./Feature";
-import {Trait} from "./Trait";
 import {Characteristics} from "./Characteristics";
 import {StatblockDTO} from "../dto";
 import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
 
 export class Statblock extends SteelCompendiumModel<StatblockDTO> {
+    public static STATBLOCK_TYPE = "static";
+
+    type = Statblock.STATBLOCK_TYPE;
     name!: string;
     level?: number;
     roles!: string[];
@@ -22,15 +24,13 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     rangedDistance?: number
     withCaptain?: string;
     characteristics!: Characteristics;
-    traits!: Trait[];
-    abilities!: Feature[];
+    features!: Feature[];
 
     public constructor(source: Partial<Statblock>) {
-        super();
+        super(Statblock.STATBLOCK_TYPE);
         Object.assign(this, source);
         this.characteristics = source.characteristics ?? new Characteristics(0, 0, 0, 0, 0);
-        this.traits = source.traits ?? [];
-        this.abilities = source.abilities ?? [];
+        this.features = source.features ?? [];
     }
 
     public static modelDTOAdapter: ModelDTOAdapter<Statblock, StatblockDTO> = (source: Partial<StatblockDTO>) => new StatblockDTO(source).toModel();
@@ -41,8 +41,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
             freeStrike: dto.free_strike,
             withCaptain: dto.with_captain,
             characteristics: new Characteristics(dto.might, dto.agility, dto.reason, dto.intuition, dto.presence),
-            traits: dto.traits?.map(t => Trait.fromDTO(t)) ?? [],
-            abilities: dto.abilities?.map(a => Feature.fromDTO(a)) ?? [],
+            features: dto.features?.map(a => Feature.fromDTO(a)) ?? [],
         });
     }
 

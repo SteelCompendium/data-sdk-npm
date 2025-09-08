@@ -39,12 +39,12 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         }
 
         // Add abilities
-        if (data.abilities && data.abilities.length > 0) {
+        if (data.features && data.features.length > 0) {
             parts.push(""); // Empty line for spacing
             // parts.push("---"); // Separator
             // parts.push(""); // Empty line for spacing
 
-            for (const ability of data.abilities) {
+            for (const ability of data.features) {
                 parts.push(this.abilityWriter.write(ability, true));
                 parts.push(""); // Empty line between abilities
             }

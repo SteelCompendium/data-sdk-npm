@@ -19,7 +19,6 @@ import {YamlWriter} from '../io/yaml/YamlWriter';
 import {MarkdownAbilityWriter, MarkdownStatblockWriter} from '../io/markdown';
 import {SteelCompendiumIdentifier, SteelCompendiumFormat} from '../io/SteelCompendiumIdentifier';
 import {Feature, Statblock} from '../model';
-import {XmlAbilityWriter} from "../io/xml";
 import {Featureblock} from "../model/Featureblock";
 import {MarkdownFeatureblockWriter} from "../io/markdown/MarkdownFeatureblockWriter";
 
@@ -96,8 +95,7 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
         const validExts = from === SteelCompendiumFormat.Json ? ['.json']
             : from === SteelCompendiumFormat.Yaml ? ['.yml', '.yaml']
                 : from === SteelCompendiumFormat.Markdown ? ['.md']
-                    : from === SteelCompendiumFormat.Xml ? ['.xml']
-                        : [];
+                    : [];
         if (!validExts.includes(ext)) return;
 
         const source = await fs.readFile(inPath, 'utf8');
@@ -113,12 +111,6 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
                 break;
             case SteelCompendiumFormat.Yaml:
                 writer = new YamlWriter();
-                break;
-            // Deprecated: XML support will be dropped in 1.0.0
-            case SteelCompendiumFormat.Xml:
-                if (model instanceof Feature) writer = new XmlAbilityWriter();
-                // else if (model instanceof Statblock) writer = new XmlWriter('statblock');
-                else throw new Error('No XML writer for this model');
                 break;
             case SteelCompendiumFormat.Markdown:
                 if (model instanceof Feature) writer = new MarkdownAbilityWriter();
@@ -140,8 +132,7 @@ async function convertPath(inPath: string, outBase: string | undefined, from: St
             const outExt = to === SteelCompendiumFormat.Json ? '.json'
                 : to === SteelCompendiumFormat.Yaml ? '.yaml'
                     : to === SteelCompendiumFormat.Markdown ? '.md'
-                        : to === SteelCompendiumFormat.Xml ? '.xml'
-                            : '';
+                        : '';
             const finalOut = stat.isDirectory()
                 ? outBase
                 : outBase.endsWith(outExt)

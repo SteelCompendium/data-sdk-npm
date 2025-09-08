@@ -1,12 +1,16 @@
 import { Feature } from '../model/Feature';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
+import {Featureblock} from "../model";
 
-export class AbilityDTO extends SteelCompendiumDTO<Feature> {
+export class FeatureDTO extends SteelCompendiumDTO<Feature> {
+    type = Feature.FEATURE_TYPE;
+
+    feature_type!: string;
     name!: string;
     icon?: string;
-    type!: string;
     cost?: string;
     keywords?: string[];
+    usage?: string;
     distance?: string;
     target?: string;
     trigger?: string;
@@ -14,29 +18,30 @@ export class AbilityDTO extends SteelCompendiumDTO<Feature> {
     flavor?: string;
     metadata?: Record<string, any>;
 
-    public constructor(source: Partial<AbilityDTO>) {
-        super(source);
+    public constructor(source: Partial<FeatureDTO>) {
+        super(source, Feature.FEATURE_TYPE);
         this.effects = source.effects ?? [];
     }
 
-    public static partialFromModel(model: Feature): Partial<AbilityDTO> {
-        const dto: Partial<AbilityDTO> = {};
+    public static partialFromModel(model: Feature): Partial<FeatureDTO> {
+        const dto: Partial<FeatureDTO> = { type: "feature" };
         if (model.name !== undefined) dto.name = model.name;
         if (model.icon !== undefined) dto.icon = model.icon;
         if (model.cost !== undefined) dto.cost = model.cost;
         if (model.flavor !== undefined) dto.flavor = model.flavor;
         if (model.keywords !== undefined) dto.keywords = model.keywords;
-        if (model.type !== undefined) dto.type = model.type;
+        if (model.usage !== undefined) dto.usage = model.usage;
         if (model.distance !== undefined) dto.distance = model.distance;
         if (model.target !== undefined) dto.target = model.target;
         if (model.trigger !== undefined) dto.trigger = model.trigger;
         if (model.metadata !== undefined) dto.metadata = model.metadata;
         dto.effects = model.effects.toDTO();
+        dto.feature_type = model.isTrait() ? "trait" : "ability";
         return dto;
     }
 
-    public static fromModel(model: Feature): AbilityDTO {
-        return new AbilityDTO(model.toDTO());
+    public static fromModel(model: Feature): FeatureDTO {
+        return new FeatureDTO(model.toDTO());
     }
 
     public toModel(): Feature {

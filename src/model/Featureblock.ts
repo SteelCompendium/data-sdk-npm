@@ -4,8 +4,11 @@ import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
 import {FeatureStat} from "./FeatureStat";
 
 export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
+    public static FEATUREBLOCK_TYPE = "featureblock";
+
+    type = Featureblock.FEATUREBLOCK_TYPE;
     name!: string;
-    type?: string;
+    featureblock_type?: string;
     level?: number;
     ev?: string;
     flavor?: string;
@@ -15,7 +18,7 @@ export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     features!: Feature[];
 
     public constructor(source: Partial<Featureblock>) {
-        super();
+        super(Featureblock.FEATUREBLOCK_TYPE);
         Object.assign(this, source);
         this.features = source.features ?? [];
     }

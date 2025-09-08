@@ -7,6 +7,5 @@ export * from './TestEffect';
 export * from './Effects';
 export * from './Statblock';
 export * from './SteelCompendiumModel';
-export * from './Trait';
 export * from './Featureblock';
 export * from './FeatureStat';

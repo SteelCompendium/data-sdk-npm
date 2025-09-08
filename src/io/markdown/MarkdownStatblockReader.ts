@@ -1,6 +1,6 @@
-import { Statblock, Trait, MundaneEffect, Effects, Feature } from "../../model";
-import { IDataReader } from "../IDataReader";
-import { MarkdownAbilityReader } from "./MarkdownAbilityReader";
+import {Feature, FeatureType, Statblock, Trait} from "../../model";
+import {IDataReader} from "../IDataReader";
+import {MarkdownAbilityReader} from "./MarkdownAbilityReader";
 
 export class MarkdownStatblockReader implements IDataReader<Statblock> {
     private abilityReader = new MarkdownAbilityReader();
@@ -35,7 +35,6 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         const sep = '\n---\n';
         const sepIdx = content.indexOf(sep);
         const mainContent      = sepIdx !== -1 ? content.substring(0, sepIdx) : content;
-        const abilitiesContent = sepIdx !== -1 ? content.substring(sepIdx + sep.length) : undefined;
 
         const mainLines = mainContent.split('\n');
 
@@ -63,8 +62,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         // ── 2) Traits: contiguous block-quote chunks after the table
         while (i < mainLines.length && mainLines[i].trim() === '') i++;
 
-        const traits: Trait[] = [];
-        const abilities: Feature[] = [];
+        const features: Feature[] = [];
         while (i < mainLines.length) {
             if (/^\s*>\s?/.test(mainLines[i])) {
                 const block: string[] = [];
@@ -73,17 +71,12 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                     i++;
                 }
                 const feature = this.abilityReader.read(block.join('\n').trim());
-                if (feature.isTrait()) {
-                    traits.push(new Trait({ name: feature.name, effects: feature.effects }));
-                } else {
-                    abilities.push(feature);
-                }
+                feature.feature_type = feature.isTrait() ? FeatureType.Trait : FeatureType.Ability;
             } else {
                 i++;
             }
         }
-        partial.traits = traits;
-        partial.abilities = abilities;
+        partial.features = features;
 
         return new Statblock(partial as any);
     }

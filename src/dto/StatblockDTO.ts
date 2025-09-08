@@ -2,6 +2,8 @@ import { SteelCompendiumDTO } from './SteelCompendiumDTO';
 import { Statblock } from '../model/Statblock';
 
 export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
+    type = Statblock.STATBLOCK_TYPE;
+
     name!: string;
     roles!: string[];
     ancestry!: string[];
@@ -23,13 +25,11 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     immunities?: string[];
     weaknesses?: string[];
     with_captain?: string;
-    traits?: any[];
-    abilities?: any[];
+    features?: any[];
 
     public constructor(source: Partial<StatblockDTO>) {
-        super(source);
-        this.traits = source.traits ?? [];
-        this.abilities = source.abilities ?? [];
+        super(source, Statblock.STATBLOCK_TYPE);
+        this.features = source.features ?? [];
     }
 
     static partialFromModel(model: Statblock): Partial<StatblockDTO> {
@@ -57,8 +57,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
             if (model.characteristics.intuition !== undefined) data.intuition = model.characteristics.intuition;
             if (model.characteristics.presence !== undefined) data.presence = model.characteristics.presence;
         }
-        if (model.traits !== undefined) data.traits = model.traits.map(t => t.toDTO());
-        if (model.abilities !== undefined) data.abilities = model.abilities.map(a => a.toDTO());
+        if (model.features !== undefined) data.features = model.features.map(a => a.toDTO());
         return data;
     }
 

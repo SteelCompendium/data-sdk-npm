@@ -1,16 +1,24 @@
-import { AbilityDTO } from "../dto";
+import { FeatureDTO } from "../dto";
 import { Effects } from "./Effects";
 import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
-import { AbilityXmlDTO } from "../dto/AbilityXmlDTO";
 
-// Abilities as currently implemented blend the line of Ability and Trait...
-export class Feature extends SteelCompendiumModel<AbilityDTO> {
+export enum FeatureType {
+    Ability = "Ability",
+    Trait = "Trait"
+}
+
+// Features are either an Ability and Trait...
+export class Feature extends SteelCompendiumModel<FeatureDTO> {
+    public static FEATURE_TYPE = "feature";
+
+    type = Feature.FEATURE_TYPE;
+    feature_type!: FeatureType;
     name?: string;
     icon?: string;
     cost?: string;
     flavor?: string;
     keywords?: string[];
-    type?: string;
+    usage?: string;
     distance?: string;
     target?: string;
     trigger?: string;
@@ -18,30 +26,27 @@ export class Feature extends SteelCompendiumModel<AbilityDTO> {
     metadata?: Record<string, any>;
 
     public constructor(source: Partial<Feature>) {
-        super();
+        super(Feature.FEATURE_TYPE);
         Object.assign(this, source);
         this.effects = source.effects ?? new Effects([]);
     }
 
-    public static modelDTOAdapter: ModelDTOAdapter<Feature, AbilityDTO> = (source: Partial<AbilityDTO>) => new AbilityDTO(source).toModel();
+    public static modelDTOAdapter: ModelDTOAdapter<Feature, FeatureDTO> = (source: Partial<FeatureDTO>) => new FeatureDTO(source).toModel();
 
-    public static fromDTO(dto: AbilityDTO): Feature {
+    public static fromDTO(dto: FeatureDTO): Feature {
         return new Feature({
             ...dto,
+            feature_type: this.feature_type.toString(),
             effects: Effects.fromDTO(dto.effects),
         });
     }
 
-    public toDTO(): Partial<AbilityDTO> {
-        return AbilityDTO.partialFromModel(this);
+    public toDTO(): Partial<FeatureDTO> {
+        return FeatureDTO.partialFromModel(this);
     }
 
-    public toXmlDTO(): Partial<AbilityXmlDTO> {
-        return AbilityXmlDTO.partialFromModel(this);
-    }
-
-    // This is not comprehensive
+    // A trait is defined as a feature without keywords, usage, distance, and target
     public isTrait() {
-        return (!this.keywords || this.keywords?.length == 0) && !this.type && !this.distance && !this.target;
+        return (!this.keywords || this.keywords?.length == 0) && !this.usage && !this.distance && !this.target;
     }
 }

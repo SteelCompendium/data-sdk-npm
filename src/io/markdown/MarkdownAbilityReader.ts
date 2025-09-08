@@ -1,6 +1,6 @@
-import { Feature, MundaneEffect, PowerRollEffect, Effect } from "../../model";
-import { Effects } from "../../model/Effects";
-import { IDataReader } from "../IDataReader";
+import {Effect, Feature, FeatureType, MundaneEffect, PowerRollEffect} from "../../model";
+import {Effects} from "../../model/Effects";
+import {IDataReader} from "../IDataReader";
 import * as yaml from 'js-yaml';
 import {TestEffect} from "../../model/TestEffect";
 
@@ -46,6 +46,7 @@ export class MarkdownAbilityReader implements IDataReader<Feature> {
         }
 
         // Table
+        partial.feature_type = FeatureType.Trait;
         if (i < lines.length && lines[i].includes('|')) {
             const headerCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
             partial.keywords = headerCells[0].split(', ').map(k => k.trim());
@@ -54,6 +55,7 @@ export class MarkdownAbilityReader implements IDataReader<Feature> {
             const dataCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
             partial.distance = dataCells[0].replace('📏', '').trim();
             partial.target = dataCells[1].replace('🎯', '').trim();
+            partial.feature_type = FeatureType.Ability;
         }
 
         const effects: Effect[] = [];
