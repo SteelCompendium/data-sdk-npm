@@ -175,13 +175,13 @@ export class SteelCompendiumIdentifier {
     }
 
     private static identifyModelType(data: any): typeof Feature | typeof Statblock | typeof Featureblock | null {
-        if ('features' in data) {
+        if ('featureblock_type' in data) {
             return Featureblock;
         }
         if ('stamina' in data && 'level' in data) {
             return Statblock;
         }
-        if ('effects' in data || 'cost' in data) {
+        if ('effects' in data || 'cost' in data || 'feature_type' in data) {
             return Feature;
         }
         return null;
