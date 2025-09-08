@@ -1,4 +1,4 @@
-import {Feature, FeatureType, Statblock, Trait} from "../../model";
+import {Feature, FeatureType, Statblock} from "../../model";
 import {IDataReader} from "../IDataReader";
 import {MarkdownAbilityReader} from "./MarkdownAbilityReader";
 

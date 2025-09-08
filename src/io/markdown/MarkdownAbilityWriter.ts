@@ -41,8 +41,8 @@ export class MarkdownAbilityWriter implements IDataWriter<Feature> {
             header1.push('');
         }
 
-        if (data.type) {
-            header1.push(`**${data.type}**`);
+        if (data.usage) {
+            header1.push(`**${data.usage}**`);
         } else {
             header1.push('');
         }
@@ -127,7 +127,7 @@ export class MarkdownAbilityWriter implements IDataWriter<Feature> {
         }
         if (a.cost?.toLowerCase().includes("villain action")) {
             return '☠️ ';
-        } else if (a.type?.toLowerCase().includes("triggered")) {
+        } else if (a.usage?.toLowerCase().includes("triggered")) {
             return '❗️ ';
         } else if (a.distance?.toLowerCase().includes("melee") && a.distance?.toLowerCase().includes("ranged")) {
             return '⚔️ ';

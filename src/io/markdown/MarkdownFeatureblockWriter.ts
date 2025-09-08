@@ -11,7 +11,7 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
         // 1) Title: "###### Name (Level X Type)" | "###### Name (Type)" | "###### Name"
         const meta: string[] = [];
         if (isFiniteNum(data.level)) meta.push(`Level ${data.level}`);
-        if (data.type && data.type.trim()) meta.push(data.type.trim());
+        if (data.featureblock_type && data.featureblock_type.trim()) meta.push(data.featureblock_type.trim());
         const title = meta.length ? `${data.name} (${meta.join(" ")})` : data.name;
         parts.push(`###### ${title}`);
 

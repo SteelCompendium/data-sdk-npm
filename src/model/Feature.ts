@@ -1,17 +1,16 @@
-import { FeatureDTO } from "../dto";
-import { Effects } from "./Effects";
-import { ModelDTOAdapter, SteelCompendiumModel } from "./SteelCompendiumModel";
+import {FeatureDTO} from "../dto";
+import {Effects} from "./Effects";
+import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
 
 export enum FeatureType {
-    Ability = "Ability",
-    Trait = "Trait"
+    Ability = "ability",
+    Trait = "trait"
 }
 
 // Features are either an Ability and Trait...
 export class Feature extends SteelCompendiumModel<FeatureDTO> {
-    public static FEATURE_TYPE = "feature";
+    public static readonly FEATURE_TYPE = "feature";
 
-    type = Feature.FEATURE_TYPE;
     feature_type!: FeatureType;
     name?: string;
     icon?: string;
@@ -26,7 +25,7 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
     metadata?: Record<string, any>;
 
     public constructor(source: Partial<Feature>) {
-        super(Feature.FEATURE_TYPE);
+        super();
         Object.assign(this, source);
         this.effects = source.effects ?? new Effects([]);
     }
@@ -34,15 +33,27 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
     public static modelDTOAdapter: ModelDTOAdapter<Feature, FeatureDTO> = (source: Partial<FeatureDTO>) => new FeatureDTO(source).toModel();
 
     public static fromDTO(dto: FeatureDTO): Feature {
+        let ft: FeatureType;
+        if (dto.feature_type === FeatureType.Ability) {
+            ft = FeatureType.Ability;
+        } else if (dto.feature_type === FeatureType.Trait) {
+            ft = FeatureType.Trait;
+        } else {
+            throw new Error(`Unknown feature type: ${dto.feature_type}`);
+        }
         return new Feature({
             ...dto,
-            feature_type: this.feature_type.toString(),
+            feature_type: ft,
             effects: Effects.fromDTO(dto.effects),
         });
     }
 
     public toDTO(): Partial<FeatureDTO> {
         return FeatureDTO.partialFromModel(this);
+    }
+
+    public modelType(): string {
+        return Feature.FEATURE_TYPE;
     }
 
     // A trait is defined as a feature without keywords, usage, distance, and target

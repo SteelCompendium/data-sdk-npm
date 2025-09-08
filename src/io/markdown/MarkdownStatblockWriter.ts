@@ -11,34 +11,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // Create the main statblock table
         parts.push(this.createStatblockTable(data));
 
-        // Add traits
-        if (data.traits && data.traits.length > 0) {
-            for (const trait of data.traits) {
-                if (!trait.name) continue;
-
-                // Build the trait block, then prefix each line with "> "
-                const tLines: string[] = [];
-
-                tLines.push(`> ⭐️ **${trait.name}**`);
-
-                if (trait.effects && trait.effects.effects.length > 0) {
-                    const effectLines = trait.effects.effects
-                        .filter(e => e.effectType() === 'MundaneEffect')
-                        .map((e: any) => {
-                            const label = e.name ? `**${e.name.trim()}:** ` : '';
-                            return `${label}${e.effect.trim()}`;      // no leading \n
-                        });
-                    tLines.push(...effectLines);
-                }
-
-                // Insert a blank line before each trait block (outside the quote)
-                parts.push('');
-                // Quote-prefix every line of this trait
-                parts.push(tLines.join('\n> \n> '));
-            }
-        }
-
-        // Add abilities
+        // Add features
         if (data.features && data.features.length > 0) {
             parts.push(""); // Empty line for spacing
             // parts.push("---"); // Separator

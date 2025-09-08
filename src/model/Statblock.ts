@@ -4,9 +4,8 @@ import {StatblockDTO} from "../dto";
 import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
 
 export class Statblock extends SteelCompendiumModel<StatblockDTO> {
-    public static STATBLOCK_TYPE = "static";
+    public static readonly STATBLOCK_TYPE = "statblock";
 
-    type = Statblock.STATBLOCK_TYPE;
     name!: string;
     level?: number;
     roles!: string[];
@@ -27,7 +26,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     features!: Feature[];
 
     public constructor(source: Partial<Statblock>) {
-        super(Statblock.STATBLOCK_TYPE);
+        super();
         Object.assign(this, source);
         this.characteristics = source.characteristics ?? new Characteristics(0, 0, 0, 0, 0);
         this.features = source.features ?? [];
@@ -47,5 +46,9 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
 
     public toDTO(): Partial<StatblockDTO> {
         return StatblockDTO.partialFromModel(this);
+    }
+
+    public modelType(): string {
+        return Statblock.STATBLOCK_TYPE;
     }
 }

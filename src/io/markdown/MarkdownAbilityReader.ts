@@ -50,7 +50,7 @@ export class MarkdownAbilityReader implements IDataReader<Feature> {
         if (i < lines.length && lines[i].includes('|')) {
             const headerCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
             partial.keywords = headerCells[0].split(', ').map(k => k.trim());
-            partial.type = headerCells[1];
+            partial.usage = headerCells[1];
             i++; // Skip separator
             const dataCells = lines[i++].split('|').map(c => c.replace(/\*/g, '').trim()).filter(Boolean);
             partial.distance = dataCells[0].replace('📏', '').trim();

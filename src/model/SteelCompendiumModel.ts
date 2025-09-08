@@ -1,16 +1,7 @@
 import { SteelCompendiumDTO } from "../dto/SteelCompendiumDTO";
 import { IDataReader, IDataWriter } from "../io";
-import {SteelCompendiumModel, SteelCompendiumPseudoModel} from "steel-compendium-sdk";
-import {type} from "node:os";
-import {writer} from "node:repl";
 
 export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> implements SteelCompendiumPseudoModel {
-    type!: string;
-
-    protected constructor(type: string) {
-        this.type = type;
-    }
-
     public static read<T extends SteelCompendiumModel<any>>(reader: IDataReader<T>, source: string): T {
         return reader.read(source);
     }
@@ -34,6 +25,7 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> im
     }
 
     public abstract toDTO(): Partial<D>;
+    public abstract modelType(): string;
 }
 
 // Pseudo Models are for objects that are not directly mapped to a DTO

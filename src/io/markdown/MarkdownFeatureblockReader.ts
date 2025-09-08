@@ -1,7 +1,7 @@
 import matter from "gray-matter";
 import {IDataReader} from "../IDataReader";
 import {Featureblock} from "../../model/Featureblock";
-import {MarkdownAbilityReader} from "steel-compendium-sdk";
+import {MarkdownAbilityReader} from "../markdown/MarkdownAbilityReader";
 import {Feature, FeatureStat} from "../../model";
 
 type KeyVal = { key: string; value: string };
@@ -17,7 +17,7 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
         if (!title) {
             throw new Error("FeatureblockMarkdownReader: could not find a title/header.");
         }
-        const { name, level, type } = this.parseTitle(title);
+        const { name, level, featureblock_type } = this.parseTitle(title);
 
         // 2) Slice content into pre-feature (flavor / stats) and features (blockquote groups)
         const blocks = this.splitIntoBlocks(content);
@@ -37,12 +37,12 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
         // 4) Flavor (preFeature without the bullet list)
         const flavor = this.extractFlavor(preFeature);
 
-        // 5) Feature callouts (blockquote groups) → Ability[]
+        // 5) Feature callouts (blockquote groups) → Feature[]
         const features: Feature[] = featureBlocks.map(md => this.abilityReader.read(md));
 
         return new Featureblock({
             name,
-            type,
+            featureblock_type,
             level,
             ev,
             stamina,
@@ -61,7 +61,7 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
         return m ? m[2].trim() : null;
     }
 
-    private parseTitle(title: string): { name: string; level?: number; type?: string } {
+    private parseTitle(title: string): { name: string; level?: number; featureblock_type?: string } {
         // Examples:
         // "Pressure Plate (Level 1 Trigger Support)" -> name="Pressure Plate", level=1, type="Trigger Support"
         // "Tree of Might (Level 5 Hazard Hexer)"     -> name="Tree of Might", level=5, type="Hazard Hexer"
@@ -75,10 +75,10 @@ export class MarkdownFeatureblockReader extends IDataReader<Featureblock> {
         if (lvl) {
             const level = parseInt(lvl[1], 10);
             const tail = (lvl[2] || "").trim();
-            const type = tail || undefined;
-            return { name: base, level: Number.isFinite(level) ? level : undefined, type };
+            const featureblock_type = tail || undefined;
+            return { name: base, level: Number.isFinite(level) ? level : undefined, featureblock_type };
         }
-        return { name: base, type: inside };
+        return { name: base, featureblock_type: inside };
     }
 
     private splitIntoBlocks(md: string): { pre: string; blocks: string[] } {
