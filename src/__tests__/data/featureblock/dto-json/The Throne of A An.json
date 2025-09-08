@@ -1,6 +1,7 @@
 {
+  "type": "featureblock",
+  "featureblock_type": "Relic Controller",
   "name": "The Throne of A'An",
-  "type": "Relic Controller",
   "level": 4,
   "ev": "24",
   "flavor": "The throne of A'An, sun god of the Antical Protectorate in what is now Vanigar, retains some of her power from the age before she was slain to end the Age of Suns-and plunge the region into eternal winter.",
@@ -8,6 +9,8 @@
   "size": "2",
   "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Deactivate",
       "icon": "🌀",
       "effects": [
@@ -20,6 +23,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Light of the Northern Sun",
       "icon": "⭐️",
       "effects": [
@@ -29,6 +34,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Sitting on the Throne",
       "icon": "⭐️",
       "effects": [
@@ -44,6 +51,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Primordial Flare",
       "icon": "🏹",
       "keywords": [
@@ -51,7 +60,7 @@
         "Ranged",
         "Strike"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Ranged 20",
       "target": "One creature or object",
       "effects": [
@@ -68,13 +77,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Solar Accretion",
       "icon": "❗️",
       "keywords": [
         "Magic",
         "Ranged"
       ],
-      "type": "Free triggered action",
+      "usage": "Free triggered action",
       "distance": "Ranged 10",
       "target": "One creature",
       "trigger": "A target within distance is made winded or is reduced to 0 Stamina by fire damage.",
@@ -86,13 +97,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Nova",
       "icon": "❗️",
       "keywords": [
         "Area",
         "Magic"
       ],
-      "type": "Free triggered action",
+      "usage": "Free triggered action",
       "distance": "10 burst",
       "target": "Each creature and object in the area",
       "trigger": "The throne is destroyed or the hierophant obtains a tier 1 outcome on the test to deactivate it.",

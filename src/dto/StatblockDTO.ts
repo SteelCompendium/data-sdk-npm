@@ -1,5 +1,5 @@
-import { SteelCompendiumDTO } from './SteelCompendiumDTO';
-import { Statblock } from '../model/Statblock';
+import {SteelCompendiumDTO} from './SteelCompendiumDTO';
+import {Statblock} from '../model/Statblock';
 
 export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     type = Statblock.STATBLOCK_TYPE;
@@ -33,7 +33,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     }
 
     static partialFromModel(model: Statblock): Partial<StatblockDTO> {
-        const data: Partial<StatblockDTO> = {}
+        const data: Partial<StatblockDTO> = { type: model.modelType() }
         if (model.name !== undefined) data.name = model.name;
         if (model.level !== undefined) data.level = model.level;
         if (model.roles !== undefined) data.roles = model.roles;

@@ -20,7 +20,7 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     }
 
     static partialFromModel(model: Featureblock): Partial<FeatureblockDTO> {
-        const data: Partial<FeatureblockDTO> = {}
+        const data: Partial<FeatureblockDTO> = { type: model.modelType() }
         if (model.featureblock_type !== undefined) data.featureblock_type = model.featureblock_type;
         if (model.name !== undefined) data.name = model.name;
         if (model.level !== undefined) data.level = model.level;

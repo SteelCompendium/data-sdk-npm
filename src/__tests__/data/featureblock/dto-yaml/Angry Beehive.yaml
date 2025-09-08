@@ -1,19 +1,23 @@
+type: featureblock
+featureblock_type: Hazard Hexer
 name: Angry Beehive
-type: Hazard Hexer
 level: 2
 ev: "2"
 flavor: This beehive is full of angry bees who swarm and attack with little
   provocation.
 stamina: "3"
 size: 1S
-stats: []
 features:
-  - name: Deactivate
+  - type: feature
+    feature_type: trait
+    name: Deactivate
     icon: 🌀
     effects:
       - effect: The beehive can't be deactivated. If it takes damage or is destroyed,
           the hive unleashes a swarm of bees.
-  - name: Activate
+  - type: feature
+    feature_type: trait
+    name: Activate
     icon: ❕
     effects:
       - effect: A creature enters the hive's space or an adjacent space without
@@ -26,12 +30,16 @@ features:
           squares, and so forth), preferring squares in a creature's space.
           After 3 rounds, the swarm dissipates.
         name: Effect
-  - name: Upgrades
+  - type: feature
+    feature_type: trait
+    name: Upgrades
     icon: ⭐️
     effects:
       - effect: The hive is hidden until the swarm is unleashed.
-        cost: Concealed Hive (+1 EV)
+        name: Concealed Hive
+        cost: +1 EV
       - effect: The bees are a particularly aggressive and dangerous species. The hive
           triggers even if a creature shifts into or while adjacent to it, and
           the swarm deals 1d6 + 3 poison damage.
-        cost: Killer Bees (+2 EV)
+        name: Killer Bees
+        cost: +2 EV

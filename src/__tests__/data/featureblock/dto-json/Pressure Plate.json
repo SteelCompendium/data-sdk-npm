@@ -1,6 +1,7 @@
 {
+  "type": "featureblock",
+  "featureblock_type": "Trigger Support",
   "name": "Pressure Plate",
-  "type": "Trigger Support",
   "level": 1,
   "ev": "2",
   "flavor": "This mechanism acts as a trigger for another linked mechanism, and is skillfully hidden from view in the floor.",
@@ -18,6 +19,8 @@
   ],
   "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Deactivate",
       "icon": "🌀",
       "effects": [
@@ -30,6 +33,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Activate",
       "icon": "❕",
       "effects": [
@@ -43,6 +48,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Upgrade",
       "icon": "⭐️",
       "effects": [
@@ -54,6 +61,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Hidden",
       "icon": "⭐️",
       "effects": [

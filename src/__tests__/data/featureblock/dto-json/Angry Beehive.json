@@ -1,6 +1,7 @@
 {
+  "type": "featureblock",
+  "featureblock_type": "Hazard Hexer",
   "name": "Angry Beehive",
-  "type": "Hazard Hexer",
   "level": 2,
   "ev": "2",
   "flavor": "This beehive is full of angry bees who swarm and attack with little provocation.",
@@ -8,6 +9,8 @@
   "size": "1S",
   "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Deactivate",
       "icon": "🌀",
       "effects": [
@@ -17,6 +20,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Activate",
       "icon": "❕",
       "effects": [
@@ -30,6 +35,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Upgrades",
       "icon": "⭐️",
       "effects": [
