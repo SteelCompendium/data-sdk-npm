@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN STINKER",
   "level": 1,
   "roles": [
@@ -21,18 +22,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": 2,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The stinker doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Toxic Winds",
       "icon": "🔳",
       "cost": "Signature Ability",
@@ -41,7 +45,7 @@
         "Magic",
         "Ranged"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "3 cube within 15",
       "target": "Each enemy in the cube",
       "effects": [
@@ -58,6 +62,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Swamp Gas",
       "icon": "🔳",
       "keywords": [
@@ -65,7 +71,7 @@
         "Magic",
         "Ranged"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "3 cube within 10",
       "target": "Special",
       "effects": [

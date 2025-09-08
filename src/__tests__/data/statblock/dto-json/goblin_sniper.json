@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN SNIPER",
   "level": 1,
   "roles": [
@@ -22,18 +23,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": -1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The sniper doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bow",
       "icon": "🏹",
       "cost": "Signature Ability",
@@ -42,7 +46,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Ranged 10",
       "target": "One creature or object per minion",
       "effects": [

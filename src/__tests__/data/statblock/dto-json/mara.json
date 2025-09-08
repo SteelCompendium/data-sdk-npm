@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "MARA",
   "level": 2,
   "roles": [
@@ -21,9 +22,12 @@
   "reason": 2,
   "intuition": 1,
   "presence": 0,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Determination",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "If Mara is frightened, slowed, or weakened, she can use a maneuver to end the condition."
@@ -31,16 +35,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Rivalry",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "Mara selects one creature within line of effect at the start of an encounter. Both Mara and the creature can add a 1d3 to all power rolls made against each other."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "The Writhing Green",
       "icon": "🏹",
       "cost": "Signature Ability",
@@ -50,7 +57,7 @@
         "Ranged",
         "Strike"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Ranged 10",
       "target": "Two creatures or objects",
       "effects": [
@@ -63,6 +70,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "The Earth Devours",
       "icon": "🔳",
       "cost": "3 Malice",
@@ -71,7 +80,7 @@
         "Green",
         "Magic"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "3 cube within 10",
       "target": "All enemies in the cube",
       "effects": [
@@ -88,13 +97,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Jaws of the Void",
       "icon": "❗️",
       "keywords": [
         "Magic",
         "Void"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Self",
       "target": "Self",
       "trigger": "Mara takes damage.",

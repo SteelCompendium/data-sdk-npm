@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "HUMAN BANDIT CHIEF",
   "level": 3,
   "roles": [
@@ -23,9 +24,12 @@
   "reason": 2,
   "intuition": 3,
   "presence": 2,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "End Effect",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "At the end of their turn, the bandit chief can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way."
@@ -33,16 +37,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Supernatural Insight",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The bandit chief ignores concealment if it’s granted by a supernatural effect, or the target is supernatural."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Whip & Magic Longsword",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -52,7 +59,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 3",
       "target": "Two enemies or objects",
       "effects": [
@@ -73,13 +80,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Kneel, Peasant!",
       "icon": "🗡",
       "keywords": [
         "Melee",
         "Weapon"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Melee 1",
       "target": "One enemy or object",
       "effects": [
@@ -96,12 +105,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bloodstones",
       "icon": "❗️",
       "keywords": [
         "Magic"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The bandit chief makes a power roll.",
@@ -113,13 +124,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Shoot!",
       "icon": "☠️",
       "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -130,13 +143,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Form Up!",
       "icon": "☠️",
       "cost": "Villain Action 2",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -147,13 +162,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Lead From the Front",
       "icon": "☠️",
       "cost": "Villain Action 3",
       "keywords": [
         "—"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "Self",
       "target": "Self",
       "effects": [

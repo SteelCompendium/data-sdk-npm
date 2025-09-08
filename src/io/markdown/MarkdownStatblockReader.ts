@@ -72,6 +72,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                 }
                 const feature = this.featureReader.read(block.join('\n').trim());
                 feature.feature_type = feature.isTrait() ? FeatureType.Trait : FeatureType.Ability;
+                features.push(feature);
             } else {
                 i++;
             }

@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOREK",
   "level": 2,
   "roles": [
@@ -21,9 +22,12 @@
   "reason": 0,
   "intuition": 0,
   "presence": 0,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Overwhelm",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "Once per turn, when Gorek force moves a target or shifts into a square adjacent to a creature or object, he can make a free strike against them."
@@ -31,7 +35,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Great Fortitude",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "Gorek can’t be weakened."
@@ -39,16 +46,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Rivalry",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "Gorek selects one creature within line of effect at the start of an encounter. Both Gorek and the creature can add a 1d3 to all power rolls made against each other."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Brutal Impact",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -57,7 +67,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
@@ -74,6 +84,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Let’s Tussle",
       "icon": "🗡",
       "cost": "2 Malice",
@@ -82,7 +94,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature the fury’s size or smaller",
       "effects": [

@@ -1,3 +1,4 @@
+type: statblock
 name: GHOUL
 level: 1
 roles:
@@ -19,18 +20,25 @@ agility: 2
 reason: -2
 intuition: 0
 presence: -1
-traits:
-  - name: Hunger
+features:
+  - type: feature
+    feature_type: trait
+    name: Hunger
+    icon: ⭐️
     effects:
       - effect: If the ghoul charges, their speed increases by 2 until the end of their
           turn.
-  - name: Arise
+  - type: feature
+    feature_type: trait
+    name: Arise
+    icon: ⭐️
     effects:
       - effect: The first time the ghoul is reduced to Stamina 0 by damage that isn’t
           fire damage or holy damage and their body isn’t destroyed, they regain
           1 Stamina and fall prone.
-features:
-  - name: Razor Claws
+  - type: feature
+    feature_type: ability
+    name: Razor Claws
     icon: 🗡
     cost: Signature Ability
     keywords:
@@ -38,7 +46,7 @@ features:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
@@ -46,11 +54,13 @@ features:
         t1: 3 damage
         t2: 4 damage
         t3: 5 damage; M<2 bleeding (save ends)
-  - name: Leap
+  - type: feature
+    feature_type: ability
+    name: Leap
     icon: 👤
     keywords:
       - —
-    type: Maneuver
+    usage: Maneuver
     distance: Self
     target: Self
     effects:

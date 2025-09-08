@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN WARRIOR",
   "level": 1,
   "roles": [
@@ -21,18 +22,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": -1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The warrior doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Spear Charge",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -42,7 +46,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -55,6 +59,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bury the Point",
       "icon": "🗡",
       "cost": "2 Malice",
@@ -63,7 +69,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature",
       "effects": [

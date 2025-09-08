@@ -1,3 +1,4 @@
+type: statblock
 name: GOBLIN STINKER
 level: 1
 roles:
@@ -18,19 +19,23 @@ agility: 1
 reason: 0
 intuition: 0
 presence: 2
-traits:
-  - name: Crafty
+features:
+  - type: feature
+    feature_type: trait
+    name: Crafty
+    icon: ⭐️
     effects:
       - effect: The stinker doesn’t provoke opportunity attacks by moving.
-features:
-  - name: Toxic Winds
+  - type: feature
+    feature_type: ability
+    name: Toxic Winds
     icon: 🔳
     cost: Signature Ability
     keywords:
       - Area
       - Magic
       - Ranged
-    type: Main action
+    usage: Main action
     distance: 3 cube within 15
     target: Each enemy in the cube
     effects:
@@ -40,13 +45,15 @@ features:
         t3: 3 poison damage; slide 3
       - effect: Increase the slide for one target by 1 square for each malice spent.
         cost: 1+ Malice
-  - name: Swamp Gas
+  - type: feature
+    feature_type: ability
+    name: Swamp Gas
     icon: 🔳
     keywords:
       - Area
       - Magic
       - Ranged
-    type: Maneuver
+    usage: Maneuver
     distance: 3 cube within 10
     target: Special
     effects:

@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GHOUL",
   "level": 1,
   "roles": [
@@ -23,9 +24,12 @@
   "reason": -2,
   "intuition": 0,
   "presence": -1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Hunger",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "If the ghoul charges, their speed increases by 2 until the end of their turn."
@@ -33,16 +37,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Arise",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The first time the ghoul is reduced to Stamina 0 by damage that isn’t fire damage or holy damage and their body isn’t destroyed, they regain 1 Stamina and fall prone."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Razor Claws",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -52,7 +59,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -65,12 +72,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Leap",
       "icon": "👤",
       "keywords": [
         "—"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Self",
       "target": "Self",
       "effects": [

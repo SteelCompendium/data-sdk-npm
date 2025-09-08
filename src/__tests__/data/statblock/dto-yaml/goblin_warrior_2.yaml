@@ -1,3 +1,4 @@
+type: statblock
 name: GOBLIN WARRIOR
 level: 1
 roles:
@@ -18,12 +19,16 @@ agility: 2
 reason: 0
 intuition: 0
 presence: -1
-traits:
-  - name: Crafty
+features:
+  - type: feature
+    feature_type: trait
+    name: Crafty
+    icon: ⭐️
     effects:
       - effect: The warrior doesn’t provoke opportunity attacks by moving.
-features:
-  - name: Spear Charge
+  - type: feature
+    feature_type: ability
+    name: Spear Charge
     icon: 🗡
     cost: Signature Ability
     keywords:
@@ -31,7 +36,7 @@ features:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
@@ -39,14 +44,16 @@ features:
         t1: 3 damage
         t2: 4 damage
         t3: 5 damage
-  - name: Bury the Point
+  - type: feature
+    feature_type: ability
+    name: Bury the Point
     icon: 🗡
     cost: 2 Malice
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature
     effects:

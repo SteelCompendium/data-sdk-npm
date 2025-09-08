@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "WEREWOLF",
   "level": 1,
   "roles": [
@@ -20,9 +21,12 @@
   "reason": -1,
   "intuition": 1,
   "presence": 1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Solo Monster",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf takes up to two turns each round. They can’t take turns consecutively.",
@@ -35,7 +39,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Shapeshifter",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability."
@@ -43,7 +50,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Shared Ferocity",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf."
@@ -51,7 +61,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Accursed Rage",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite."
@@ -59,16 +72,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Vukenstep",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf ignores difficult terrain."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Accursed Bite",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -78,7 +94,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "1 creature or object",
       "effects": [
@@ -99,6 +115,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Ripping Claws",
       "icon": "🗡",
       "keywords": [
@@ -106,7 +124,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
@@ -119,6 +137,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Berserker Slash",
       "icon": "❇️",
       "cost": "3 Malice",
@@ -127,7 +147,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "1 burst",
       "target": "All enemies and objects in the burst",
       "effects": [
@@ -144,12 +164,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Wall Leap",
       "icon": "👤",
       "keywords": [
         "—"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -160,13 +182,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Facepalm and Head Slam",
       "icon": "❗️",
       "cost": "2 Malice",
       "keywords": [
         "—"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Melee 1",
       "target": "1 creature",
       "trigger": "The target targets the werewolf with a melee ability after charging or moving 2 or more squares in a straight line towards them.",
@@ -178,13 +202,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Howl",
       "icon": "☠️",
       "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -202,13 +228,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Full Wolf",
       "icon": "☠️",
       "cost": "Villain Action 2",
       "keywords": [
         "—"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -219,6 +247,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Rampage",
       "icon": "☠️",
       "cost": "Villain Action 3",
@@ -227,7 +257,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "2 burst",
       "target": "All creatures in the burst",
       "effects": [

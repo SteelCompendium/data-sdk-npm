@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "HUMAN BRAWLER",
   "level": 1,
   "roles": [
@@ -24,9 +25,12 @@
   "reason": 0,
   "intuition": 0,
   "presence": 0,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Shoot the Hostage",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The brawler takes half damage from strikes if they have a creature or object grabbed. The grabbed creature or object takes the other half of the damage."
@@ -34,16 +38,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Supernatural Insight",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The brawler ignores concealment if it’s granted by a supernatural effect, or the target is supernatural."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Haymaker",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -52,7 +59,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -69,13 +76,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Throw",
       "icon": "🗡",
       "cost": "1 Malice",
       "keywords": [
         "—"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Melee 1",
       "target": "One creature grabbed by the brawler",
       "effects": [

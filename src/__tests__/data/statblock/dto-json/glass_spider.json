@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GLASS SPIDER",
   "level": 1,
   "roles": [
@@ -23,9 +24,10 @@
   "reason": -4,
   "intuition": 0,
   "presence": -3,
-  "traits": [],
   "features": [
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bite",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -34,7 +36,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -51,6 +53,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Slashing Leg",
       "icon": "🗡",
       "keywords": [
@@ -58,7 +62,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
@@ -71,13 +75,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Trample",
       "icon": "👤",
       "cost": "5 Malice",
       "keywords": [
         "—"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -88,13 +94,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Web",
       "icon": "🔳",
       "keywords": [
         "Area",
         "Weapon"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "3 cube within 1",
       "target": "All creatures in the cube",
       "effects": [
@@ -107,12 +115,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Skitter",
       "icon": "❗️",
       "keywords": [
         "—"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Self",
       "target": "Self",
       "trigger": "The spider takes damage.",

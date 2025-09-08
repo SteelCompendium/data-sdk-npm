@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "RADENWIGHT MISCHIEVER",
   "level": 1,
   "roles": [
@@ -22,9 +23,10 @@
   "reason": 0,
   "intuition": 1,
   "presence": 0,
-  "traits": [],
   "features": [
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Dagger Dance",
       "icon": "⚔️",
       "cost": "Signature Ability",
@@ -33,7 +35,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1 or Ranged 5",
       "target": "One creature per minion",
       "effects": [
@@ -50,13 +52,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Ready Rodent",
       "icon": "❗️",
       "keywords": [
         "Melee",
         "Weapon"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Melee 1",
       "target": "One creature",
       "trigger": "An ally deals damage to the target.",

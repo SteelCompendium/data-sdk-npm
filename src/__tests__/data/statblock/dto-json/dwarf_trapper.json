@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "DWARF TRAPPER",
   "level": 1,
   "roles": [
@@ -20,9 +21,10 @@
   "reason": 0,
   "intuition": 1,
   "presence": 0,
-  "traits": [],
   "features": [
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Concussive Bolts",
       "icon": "⚔️",
       "cost": "Signature Ability",
@@ -33,7 +35,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1 or Ranged 10",
       "target": "1 creature or object",
       "effects": [
@@ -50,6 +52,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Steam Powered Snare",
       "icon": "🔳",
       "cost": "3 Malice",
@@ -57,7 +61,7 @@
         "Area",
         "Ranged"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "3 cube within 5",
       "target": "All enemies in the cube",
       "effects": [

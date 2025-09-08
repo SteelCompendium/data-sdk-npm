@@ -1,3 +1,4 @@
+type: statblock
 name: HUMAN BANDIT CHIEF
 level: 3
 roles:
@@ -19,18 +20,25 @@ agility: 3
 reason: 2
 intuition: 3
 presence: 2
-traits:
-  - name: End Effect
+features:
+  - type: feature
+    feature_type: trait
+    name: End Effect
+    icon: ⭐️
     effects:
       - effect: At the end of their turn, the bandit chief can take 5 damage to end one
           save ends effect affecting them. This damage can’t be reduced in any
           way.
-  - name: Supernatural Insight
+  - type: feature
+    feature_type: trait
+    name: Supernatural Insight
+    icon: ⭐️
     effects:
       - effect: The bandit chief ignores concealment if it’s granted by a supernatural
           effect, or the target is supernatural.
-features:
-  - name: Whip & Magic Longsword
+  - type: feature
+    feature_type: ability
+    name: Whip & Magic Longsword
     icon: 🗡
     cost: Signature Ability
     keywords:
@@ -38,7 +46,7 @@ features:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 3
     target: Two enemies or objects
     effects:
@@ -51,12 +59,14 @@ features:
         name: Effect
       - effect: The bandit chief targets an additional enemy or object.
         cost: 2 Malice
-  - name: Kneel, Peasant!
+  - type: feature
+    feature_type: ability
+    name: Kneel, Peasant!
     icon: 🗡
     keywords:
       - Melee
       - Weapon
-    type: Maneuver
+    usage: Maneuver
     distance: Melee 1
     target: One enemy or object
     effects:
@@ -66,11 +76,13 @@ features:
         t3: Push 4; M<3 prone
       - effect: This ability targets each enemy adjacent to the bandit chief.
         cost: 2 Malice
-  - name: Bloodstones
+  - type: feature
+    feature_type: ability
+    name: Bloodstones
     icon: ❗️
     keywords:
       - Magic
-    type: Triggered action
+    usage: Triggered action
     distance: Self
     target: Self
     trigger: The bandit chief makes a power roll.
@@ -78,23 +90,27 @@ features:
       - effect: The bandit chief takes 4 corruption damage and increases the result of
           the power roll by one tier.
         name: Effect
-  - name: Shoot!
+  - type: feature
+    feature_type: ability
+    name: Shoot!
     icon: ☠️
     cost: Villain Action 1
     keywords:
       - Area
-    type: "-"
+    usage: "-"
     distance: 10 burst
     target: All allies in the burst
     effects:
       - effect: Each target makes a ranged free strike.
         name: Effect
-  - name: Form Up!
+  - type: feature
+    feature_type: ability
+    name: Form Up!
     icon: ☠️
     cost: Villain Action 2
     keywords:
       - Area
-    type: "-"
+    usage: "-"
     distance: 10 burst
     target: All allies in the burst
     effects:
@@ -102,12 +118,14 @@ features:
           the bandit chief and all allies have damage immunity 2 while adjacent
           to a target.
         name: Effect
-  - name: Lead From the Front
+  - type: feature
+    feature_type: ability
+    name: Lead From the Front
     icon: ☠️
     cost: Villain Action 3
     keywords:
       - —
-    type: "-"
+    usage: "-"
     distance: Self
     target: Self
     effects:

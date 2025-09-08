@@ -1,3 +1,4 @@
+type: statblock
 name: ZOMBIE
 level: 1
 roles:
@@ -19,21 +20,25 @@ agility: 1
 reason: -5
 intuition: -2
 presence: 1
-traits:
-  - name: Endless Knight
+features:
+  - type: feature
+    feature_type: trait
+    name: Endless Knight
+    icon: ⭐️
     effects:
       - effect: The first time the zombie is reduced to Stamina 0 by damage that isn’t
           fire damage or holy damage and their body isn’t destroyed, they regain
           10 Stamina and fall prone.
-features:
-  - name: Clobber and Clutch
+  - type: feature
+    feature_type: ability
+    name: Clobber and Clutch
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
@@ -46,13 +51,15 @@ features:
           become insatiably hungry for flesh. The target must complete the Find
           a Cure project to end this effect.
         name: Effect
-  - name: Zombie Dust
+  - type: feature
+    feature_type: ability
+    name: Zombie Dust
     icon: ❇️
     cost: 3 Malice
     keywords:
       - Area
       - Melee
-    type: Maneuver
+    usage: Maneuver
     distance: 2 burst
     target: Each enemy in the burst
     effects:

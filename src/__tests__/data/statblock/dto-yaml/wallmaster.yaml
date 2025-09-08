@@ -1,3 +1,4 @@
+type: statblock
 name: WALLMASTER
 level: 1
 roles:
@@ -21,23 +22,27 @@ agility: -5
 reason: -3
 intuition: 2
 presence: -3
-traits:
-  - name: Living Labyrinth
+features:
+  - type: feature
+    feature_type: trait
+    name: Living Labyrinth
+    icon: ⭐️
     effects:
       - effect: The wallmaster starts combat affixed to a wall. At the start of each
           round of combat while affixed to a wall, the wallmaster creates a 20
           wall of stone within a distance of 10 squares. Any walls created by
           the wallmaster in the previous round are destroyed or replaced by the
           new walls.
-features:
-  - name: Wall Slam
+  - type: feature
+    feature_type: ability
+    name: Wall Slam
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1 (Special)
     target: Two creatures or objects
     effects:
@@ -51,12 +56,14 @@ features:
       - effect: The wallmaster chooses an additional wall segment and target for every 3
           malice spent.
         cost: 3+ Malice
-  - name: Dead End
+  - type: feature
+    feature_type: ability
+    name: Dead End
     icon: 🗡
     keywords:
       - Area
       - Weapon
-    type: Maneuver
+    usage: Maneuver
     distance: Melee 1 (Special)
     target: 1 creature or object
     effects:
@@ -68,23 +75,27 @@ features:
         t1: Push 2
         t2: Push 4
         t3: Push 5
-  - name: The Wall Sees All
+  - type: feature
+    feature_type: ability
+    name: The Wall Sees All
     icon: 🏹
     cost: 5 Malice
     keywords:
       - Magic
-    type: Maneuver
+    usage: Maneuver
     distance: Ranged 10
     target: Self
     effects:
       - effect: The wallmaster teleports to a wall within distance and affixes itself to
           it.
         name: Effect
-  - name: Wall Redirect
+  - type: feature
+    feature_type: ability
+    name: Wall Redirect
     icon: ❗️
     keywords:
       - —
-    type: Triggered action
+    usage: Triggered action
     distance: Melee 1
     target: 1 ally
     trigger: A creature damages the wall with a strike.

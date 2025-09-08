@@ -1,5 +1,6 @@
 import {SteelCompendiumDTO} from './SteelCompendiumDTO';
 import {Statblock} from '../model/Statblock';
+import {Feature} from '../model/Feature';
 
 export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     type = Statblock.STATBLOCK_TYPE;
@@ -57,7 +58,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
             if (model.characteristics.intuition !== undefined) data.intuition = model.characteristics.intuition;
             if (model.characteristics.presence !== undefined) data.presence = model.characteristics.presence;
         }
-        if (model.features !== undefined) data.features = model.features.map(f => f.toDTO());
+        if (model.features !== undefined) data.features = model.features.map((f: Feature) => f.toDTO());
         return data;
     }
 

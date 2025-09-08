@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "RADENWIGHT MAESTRO",
   "level": 1,
   "roles": [
@@ -20,18 +21,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": 3,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "End Effect",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "At the end of their turn, the maestro can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Cacophony",
       "icon": "❇️",
       "cost": "Signature Ability",
@@ -39,7 +43,7 @@
         "Area",
         "Magic"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -56,13 +60,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Tempo Change",
       "icon": "🏹",
       "keywords": [
         "Magic",
         "Ranged"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Ranged 10",
       "target": "Two enemies",
       "effects": [
@@ -79,6 +85,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Ever Ready Rodent",
       "icon": "❗️",
       "cost": "2 Malice",
@@ -87,7 +95,7 @@
         "Melee",
         "Ranged"
       ],
-      "type": "Free Triggered action",
+      "usage": "Free Triggered action",
       "distance": "Ranged 5",
       "target": "One creature",
       "trigger": "The target deals damage to an ally or takes damage from an ally.",
@@ -99,13 +107,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Overture",
       "icon": "☠️",
       "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "10 burst",
       "target": "All allies in the burst",
       "effects": [
@@ -116,13 +126,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Solo Act",
       "icon": "☠️",
       "cost": "Villain Action 2",
       "keywords": [
         "Ranged"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "Ranged 15",
       "target": "One creature",
       "effects": [
@@ -133,13 +145,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Rondo of Rat",
       "icon": "☠️",
       "cost": "Villain Action 3",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "10 burst",
       "target": "All dead allies in the burst",
       "effects": [

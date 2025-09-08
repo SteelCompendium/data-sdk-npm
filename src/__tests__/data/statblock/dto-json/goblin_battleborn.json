@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN BATTLEBORN",
   "level": 2,
   "roles": [
@@ -22,18 +23,21 @@
   "reason": 0,
   "intuition": 1,
   "presence": 0,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Cunning",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The battleborn doesn’t provoke opportunity attacks from enemies by moving. Whenever the battleborn is adjacent to an enemy and willingly moves to a space no longer adjacent to that enemy, the battleborn can make an opportunity attack against them as a triggered action."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Spear Charge",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -43,7 +47,7 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
@@ -56,6 +60,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Battle Flurry",
       "icon": "❇️",
       "cost": "3 Malice",
@@ -64,7 +70,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "1 Burst",
       "target": "Each creature and object in the burst",
       "effects": [

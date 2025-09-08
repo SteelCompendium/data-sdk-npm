@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "DAME CORNELIA",
   "level": 1,
   "roles": [
@@ -22,9 +23,12 @@
   "reason": 2,
   "intuition": 0,
   "presence": 2,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "End Effect",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "At the end of her turn, Cornelia can take 5 damage to end one save ends effect affecting her. This damage can’t be reduced in any way."
@@ -32,16 +36,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Death Void",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "When Cornelia is destroyed, each enemy within 2 squares of her takes 5 corruption damage."
         }
       ]
-    }
-  ],
-  "features": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Zweihander Swing",
       "icon": "❇️",
       "cost": "Signature Ability",
@@ -50,7 +57,7 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "1 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -71,12 +78,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "You!",
       "icon": "🏹",
       "keywords": [
         "—"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Ranged 10",
       "target": "One enemy",
       "effects": [
@@ -87,12 +96,14 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Parry!",
       "icon": "❗️",
       "keywords": [
         "—"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Melee 1",
       "target": "Self or one ally",
       "trigger": "A creature targets the blackguard or an ally adjacent to Cornelia with a strike.",
@@ -104,13 +115,15 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Advance!",
       "icon": "☠️",
       "cost": "Villain Action 1",
       "keywords": [
         "—"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "Self",
       "target": "Self",
       "effects": [
@@ -121,6 +134,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Back!",
       "icon": "☠️",
       "cost": "Villain Action 2",
@@ -128,7 +143,7 @@
         "Area",
         "Magic"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
@@ -139,6 +154,8 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "I Can Throw My Blade and So Should You!",
       "icon": "☠️",
       "cost": "Villain Action 3",
@@ -148,7 +165,7 @@
         "Ranged",
         "Weapon"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "3 cube within 5",
       "target": "Each enemy in the cube",
       "effects": [
