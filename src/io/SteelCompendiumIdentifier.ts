@@ -24,7 +24,7 @@ export interface IdentificationResult {
 export class SteelCompendiumIdentifier {
     public static parse(format: string, model: string): IdentificationResult {
         if (format === SteelCompendiumFormat.Markdown) {
-            if (model === "ability") {
+            if (model === "feature") {
                 return {
                     format: SteelCompendiumFormat.Markdown,
                     model: Feature,
@@ -47,7 +47,7 @@ export class SteelCompendiumIdentifier {
             }
         }
         if (format === SteelCompendiumFormat.Json) {
-            if (model === "ability") {
+            if (model === "feature") {
                 return {
                     format: SteelCompendiumFormat.Json,
                     model: Feature,
@@ -70,7 +70,7 @@ export class SteelCompendiumIdentifier {
             }
         }
         if (format === SteelCompendiumFormat.Yaml) {
-            if (model === "ability") {
+            if (model === "feature") {
                 return {
                     format: SteelCompendiumFormat.Yaml,
                     model: Feature,
@@ -171,7 +171,7 @@ export class SteelCompendiumIdentifier {
             };
         }
 
-        if (this.isMarkdownAbility(source)) {
+        if (this.isMarkdownFeature(source)) {
             return {
                 format: SteelCompendiumFormat.Markdown,
                 model: Feature,
@@ -201,7 +201,7 @@ export class SteelCompendiumIdentifier {
         return null;
     }
 
-    private static isMarkdownAbility(text: string): boolean {
+    private static isMarkdownFeature(text: string): boolean {
         let lines = text.split('\n').map(l => l.trim());
 
         // Find the end of the frontmatter
@@ -217,7 +217,7 @@ export class SteelCompendiumIdentifier {
         lines = lines.filter(line => line.trim() !== '');
         const firstLine = lines[0];
 
-        // e.g. **Ability Name (Cost)** or ###### Ability Name (Cost)
+        // e.g. **Feature Name (Cost)** or ###### Feature Name (Cost)
         const h6TitleRegex = /^\s*#+\s*(.*?)(?: \((.*?)\))?\s*$/;
         const boldTitleRegex = /^\s*\*\*(.*?)(?: \((.*?)\))?\*\*\s*$/;
         if (!h6TitleRegex.test(firstLine) && !boldTitleRegex.test(firstLine)) {

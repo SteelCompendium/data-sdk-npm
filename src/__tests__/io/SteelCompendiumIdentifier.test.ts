@@ -34,7 +34,7 @@ describe('SteelCompendiumIdentifier', () => {
     };
 
     const getExpectedModel = (filePath: string): typeof Feature | typeof Statblock | null => {
-        if (filePath.includes('ability')) {
+        if (filePath.includes('feature')) {
             return Feature;
         }
         if (filePath.includes('statblock')) {

@@ -4,10 +4,10 @@ import path from "path";
 import { MarkdownFeatureWriter } from "../../../io/markdown/MarkdownFeatureWriter";
 import { Feature } from "../../../model";
 
-describe("MarkdownAbilityWriter", () => {
+describe("MarkdownFeatureWriter", () => {
     const writer = new MarkdownFeatureWriter();
-    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-json");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "feature", "sc-md");
 
     const jsonFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const mdFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".md"));
@@ -21,8 +21,8 @@ describe("MarkdownAbilityWriter", () => {
             const inputText = fs.readFileSync(inputPath, "utf-8");
             const expectedOutput = fs.readFileSync(outputPath, "utf-8");
 
-            const ability = new Feature(JSON.parse(inputText));
-            const result = writer.write(ability);
+            const feature = new Feature(JSON.parse(inputText));
+            const result = writer.write(feature);
 
             expect(result.trim()).toEqual(expectedOutput.trim());
         });

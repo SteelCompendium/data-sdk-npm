@@ -6,7 +6,7 @@
  *   sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--output <outpath>] <input>
  *
  * Example:
- *   npm run build && npm link && sc-convert --from markdown --to json --type ability ../data-gen/staging/heroes/8_formatted_md/Abilities/Fury/1st-Level\ Features/Back.md --output ./tmp
+ *   npm run build && npm link && sc-convert --from markdown --to json --type feature ../data-gen/staging/heroes/8_formatted_md/Abilities/Fury/1st-Level\ Features/Back.md --output ./tmp
  *
  *   npm run build && npm link && sc-convert --from markdown --to json --type statblock ../data-gen/staging/monsters/8_formatted_md/Monsters/Angulotls/Statblocks/Angulotl\ Pollywog.md --output ./tmp
  */
@@ -59,7 +59,7 @@ function parseArgs(): CLIArgs {
     }
 
     if (rest.length !== 1 || !cli.from || !cli.to) {
-        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--type <ability|statblock|featureblock>] [--output <out>] <input>`);
+        console.error(`Usage: sc-convert --from <yaml|json|markdown> --to <yaml|json|markdown> [--type <feature|statblock|featureblock>] [--output <out>] <input>`);
         process.exit(1);
     }
 
@@ -72,7 +72,7 @@ function parseArgs(): CLIArgs {
     };
 }
 
-async function convertPath(inPath: string, outBase: string | undefined, from: SteelCompendiumFormat, to: SteelCompendiumFormat, type: string = 'ability') {
+async function convertPath(inPath: string, outBase: string | undefined, from: SteelCompendiumFormat, to: SteelCompendiumFormat, type: string = 'feature') {
     const stat = await fs.stat(inPath);
     if (stat.isDirectory()) {
         // Recurse into directory

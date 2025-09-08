@@ -3,10 +3,10 @@ import fs from "fs";
 import path from "path";
 import { MarkdownFeatureReader } from "../../../io/markdown/MarkdownFeatureReader";
 
-describe("MarkdownAbilityReader", () => {
+describe("MarkdownFeatureReader", () => {
     const reader = new MarkdownFeatureReader();
-    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "sc-md");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "feature", "sc-md");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-json");
 
     const mdFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".md"));
     const jsonFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".json"));
