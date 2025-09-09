@@ -1,7 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "feature.schema.json",
-  "$version": "2.0.0",
+  "$id": "feature.schema.json-2.0.0",
   "title": "Steel Compendium Feature",
   "type": "object",
   "required": [

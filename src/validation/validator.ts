@@ -1,20 +1,20 @@
 import Ajv, { ErrorObject } from "ajv";
 import statblockSchema from "../schema/statblock.schema.json";
-import abilitySchema from "../schema/ability.schema.json";
+import featureSchema from "../schema/feature.schema.json";
 
 class Validator {
     private ajv: Ajv;
 
     constructor() {
         this.ajv = new Ajv({ allErrors: true });
-        this.ajv.addSchema(abilitySchema, "ability.schema.json");
+        this.ajv.addSchema(featureSchema, "feature.schema.json");
         this.ajv.addSchema(statblockSchema, "statblock.schema.json");
     }
 
     getAvailableSchemas(): string[] {
         // Ajv does not provide a direct way to list added schema keys.
         // We will return the names we used to add them.
-        return ["statblock.schema.json", "ability.schema.json"];
+        return ["statblock.schema.json", "feature.schema.json"];
     }
 
     async validateJSON(data: string | object, schemaName: string = "statblock.schema.json"): Promise<{ valid: boolean; errors: ErrorObject[] | null | undefined, data?: any }> {
