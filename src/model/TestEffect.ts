@@ -39,19 +39,6 @@ export class TestEffect extends Effect {
         return dto;
     }
 
-    public toXmlDTO() {
-        return {
-            '@_type': 'test',
-            name: this.name,
-            cost: this.cost,
-            effect: this.effect,
-            t1: this.t1,
-            t2: this.t2,
-            t3: this.t3,
-            crit: this.crit,
-        };
-    }
-
     effectType() {
         return "TestEffect";
     }

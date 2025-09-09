@@ -23,15 +23,4 @@ export class MundaneEffect extends Effect {
         if (this.cost !== undefined) dto.cost = this.cost;
         return dto;
     }
-
-    public toXmlDTO() {
-        const dto: any = {
-            '@_type': 'mundane',
-            '#text': this.effect,
-        };
-        if (this.name !== undefined) dto['@_name'] = this.name;
-        if (this.cost !== undefined) dto['@_cost'] = this.cost;
-
-        return dto;
-    }
-} 
+}
