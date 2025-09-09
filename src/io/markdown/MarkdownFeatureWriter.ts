@@ -147,6 +147,7 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
 
     private writeEffect(effect: Effect): string {
         const effectParts: string[] = [];
+
         let name;
         if (effect.name) {
             name = effect.name;
@@ -157,12 +158,15 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
             name = effect.cost;
         }
 
-        if (!effect.name && !effect.cost) {
+        if (!effect.name && !effect.cost && effect.effect) {
             effectParts.push(`${effect.effect.trim()}\n`);
-        } else {
+        } else if (name && effect.effect) {
             effectParts.push(`**${name}:** ${effect.effect.trim()}\n`);
         }
 
+        if (effect.roll) {
+            effectParts.push(`**${effect.roll.trim()}:**\n`);
+        }
         if (effect.t1) {
             effectParts.push(`- **≤11:** ${effect.t1.trim()}`);
         }
@@ -175,6 +179,6 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
         if (effect.crit) {
             effectParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
         }
-        return effectParts.join('\n');
+        return effectParts.join('\n').trim();
     }
 } 

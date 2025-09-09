@@ -44,7 +44,7 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
         return new Feature({
             ...dto,
             feature_type: ft,
-            effects: dto.effects.map(e => e.toDTO())
+            effects: dto.effects?.map(e => Effect.fromDTO(e))
         });
     }
 

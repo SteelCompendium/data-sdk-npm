@@ -3,7 +3,8 @@ import {IDataReader} from "../IDataReader";
 import * as yaml from 'js-yaml';
 
 export class MarkdownFeatureReader implements IDataReader<Feature> {
-    public constructor() { }
+    public constructor() {
+    }
 
     read(content: string): Feature {
         let lines = content.split('\n');
@@ -56,119 +57,117 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             partial.feature_type = FeatureType.Ability;
         }
 
-        const effects: Effect[] = [];
-
-        // Effects (and trigger)
-        // TODO - this AI slop is so bad.  It needs to be rewritten to avoid so much code duplication.
-        while (i < lines.length) {
-            const line = lines[i];
-
-            // Trigger
-            if (line.startsWith('**Trigger:**')) {
-                let triggerText = line.substring('**Trigger:**'.length).trim();
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**')) {
-                    triggerText += '\n' + lines[i];
-                    i++;
-                }
-                partial.trigger = triggerText.trim();
-                continue;
-            }
-
-            // Power Roll Effect
-            if (line.startsWith('**') && line.endsWith(':**')) {
-                let hasTiers = this.peekToCheckForTiers(i, lines);
-
-                if (hasTiers) {
-                    let tierEffect = new Effect({});
-                    if (line.includes("Power Roll") || line.includes("2d10")) {
-                        tierEffect.roll = line.replace(/\*\*|:/g, '').trim();
-                    } else {
-                        tierEffect.effect = line.replace(/\*\*|:/g, '').trim();
-                    }
-                    i++;
-                    i = this.parseTiers(i, lines, tierEffect);
-                    // TODO - I dont think I want to end parsing here
-                    effects.push(tierEffect);
-                    continue;
-                }
-            }
-
-            // Effects (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
-            const effectMatch = line.match(/^\*\*(.+?):?\*\* (.*)/);
-            if (effectMatch) {
-                const nameAndCost = effectMatch[1];
-                let effect = effectMatch[2];
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**') && !lines[i].startsWith('- **')) {
-                    effect += '\n' + lines[i];
-                    i++;
-                }
-
-                const effectProps: Partial<MundaneEffect> = {effect: effect.trim()};
-                this.parseNameAndCost(nameAndCost.trim(), effectProps);
-
-                // If we find tiers, rewrite the effect as Test Effect
-                let hasTiers = this.peekToCheckForTiers(i, lines);
-                if (hasTiers) {
-                    let tierEffect = new TestEffect({
-                        name: effectProps.name,
-                        cost: effectProps.cost,
-                        effect: effectProps.effect
-                    });
-                    i = this.parseTiers(i, lines, tierEffect);
-                    effects.push(tierEffect);
-                } else {
-                    effects.push(new MundaneEffect(effectProps as any));
-                }
-                continue;
-            }
-
-            // If we've reached here and the line is not empty, it must be an effect without a name/cost
-            if (line.trim()) {
-                let effect = line + '\n';
-                i++;
-                while (i < lines.length && !lines[i].startsWith('**') && !lines[i].startsWith('- **')) {
-                    effect += '\n' + lines[i];
-                    i++;
-                }
-
-                let hasTiers = this.peekToCheckForTiers(i, lines);
-                if (hasTiers) {
-                    let tierEffect = new TestEffect({effect: effect.trim()});
-                    i = this.parseTiers(i, lines, tierEffect);
-                    effects.push(tierEffect);
-                } else {
-                    effects.push(new MundaneEffect({effect: effect.trim()}));
-                }
-                continue;
-            }
-
-            i++;
-        }
-
-        const feature = new Feature(partial);
-        feature.effects = new Effects(effects);
-        return feature;
+        this.parseEffects(i, lines, [], partial);
+        return new Feature(partial);
     }
 
-    private parseNameAndCost(nameAndCost: string, effectProps: Partial<MundaneEffect>) {
+    private parseEffects(lineIdx: number, lines: string[], effects: Effect[], feature: Partial<Feature>) {
+        let partial: Partial<Effect> = {};
+        while (lineIdx < lines.length) {
+            // Special case for **Trigger:**
+            if (lines[lineIdx].startsWith('**Trigger:**')) {
+                let triggerText = lines[lineIdx].substring('**Trigger:**'.length).trim();
+                lineIdx++;
+                const __ret = this.readUntilNextEffectComponent(lineIdx, lines, triggerText);
+                lineIdx = __ret.lineIdx;
+                feature.trigger = __ret.effect;
+                continue;
+            }
+
+            // Check if we need to start a new effect
+            if (Object.keys(partial).length !== 0) {
+                // if there is an effect name or power roll OR if a mundane line and effect already exists on the partial effect
+                if (lines[lineIdx].startsWith('**') || (!lines[lineIdx].startsWith('- **') && partial.effect)) {
+                    effects.push(new Effect(partial));
+                    partial = {};
+                }
+            }
+
+            lineIdx = this.parseEffectSubblock(lineIdx, lines, partial)
+        }
+
+        // Close out our last non-empty partial
+        if (Object.keys(partial).length !== 0) {
+            effects.push(new Effect(partial));
+        }
+        feature.effects = effects;
+    }
+
+    private parseEffectSubblock(lineIdx: number, lines: string[], currentEffect: Partial<Effect>): number {
+        const line = lines[lineIdx];
+
+        // Roll
+        if (line.startsWith('**') && line.endsWith(':**')) {
+            if (line.includes("Power Roll") || line.includes("2d10")) {
+                currentEffect.roll = line.replace(/\*\*|:/g, '').trim()
+                lineIdx++;
+                return lineIdx;
+            }
+        }
+
+        // Named Effect (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
+        const effectMatch = line.match(/^\*\*(.+?):?\*\* (.*)/);
+        if (effectMatch) {
+            const nameAndCost = effectMatch[1];
+            let effect = effectMatch[2];
+            lineIdx++;
+            const __ret = this.readUntilNextEffectComponent(lineIdx, lines, effect);
+            lineIdx = __ret.lineIdx;
+            currentEffect.effect = __ret.effect;
+            this.parseNameAndCost(nameAndCost.trim(), currentEffect);
+            return lineIdx;
+        }
+
+        // Power Roll Tiers
+        let hasTiers = this.peekToCheckForTiers(lineIdx, lines);
+        if (hasTiers) {
+            return this.parseTiers(lineIdx, lines, currentEffect);
+        }
+
+        // If we've reached here and the line is not empty, it must be an effect without a name/cost
+        if (line.trim()) {
+            lineIdx++;
+            // im not sure I fully understand why this one needs en extra newline, so im calling it out
+            const __ret = this.readUntilNextEffectComponent(lineIdx, lines, line + '\n');
+            lineIdx = __ret.lineIdx;
+            currentEffect.effect = __ret.effect;
+            return lineIdx;
+        }
+
+        console.warn("Unexpected line in effect block, skipping:", line);
+        lineIdx++;
+        return lineIdx;
+    }
+
+    private readUntilNextEffectComponent(lineIdx: number, lines: string[], effect: string) {
+        while (lineIdx < lines.length && !lines[lineIdx].startsWith('**') && !lines[lineIdx].startsWith('- **')) {
+            if (lines[lineIdx].trim() === '') {
+                console.log(`adding empty line to unnamed effect ${effect}`);
+            }
+            effect += '\n' + lines[lineIdx];
+            lineIdx++;
+        }
+        effect = effect.trim();
+        return {lineIdx, effect};
+    }
+
+    private parseNameAndCost(nameAndCost: string, currEffect: Partial<Effect>) {
         // Just cost (ex: `1+ Piety`)
         if (nameAndCost.match(/^\d+\+*\s*\w+/) || nameAndCost.match(/^Spend \d+\+*\s*\w+/)) {
-            effectProps.cost = nameAndCost;
+            currEffect.cost = nameAndCost;
             return;
         }
 
         // Name and cost (ex: `Eat (1 Piety)`)
         const nameWithCost = nameAndCost.match(/^(.*)\s*\((.*)\)/);
         if (nameWithCost) {
-            effectProps.name = nameWithCost[1].trim();
-            effectProps.cost = nameWithCost[2].trim();
+            currEffect.name = nameWithCost[1].trim();
+            currEffect.cost = nameWithCost[2].trim();
             return;
         }
 
         // Just name (ex: `Eat`)
-        effectProps.name = nameAndCost;
+        currEffect.name = nameAndCost;
         return;
     }
 
@@ -196,19 +195,19 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
         const name = (m?.[1] ?? s).trim();
         const cost = m?.[2]?.trim();
 
-        return { icon: icon || undefined, name, cost: cost || undefined };
+        return {icon: icon || undefined, name, cost: cost || undefined};
     }
 
-    private parseTiers(i: number, lines: string[], effect: Effect) {
-        while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
-            const rollLine = lines[i].trim();
-            if (rollLine === '') {
+    private parseTiers(i: number, lines: string[], effect: Partial<Effect>) {
+        while (i < lines.length && (lines[i].trim().startsWith('- **') || lines[i].trim() === '')) {
+            const tierLine = lines[i].trim();
+            if (tierLine === '') {
                 i++;
                 continue;
             }
-            const separatorIndex = rollLine.indexOf(':');
-            const tier = rollLine.substring(0, separatorIndex);
-            const description = rollLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
+            const separatorIndex = tierLine.indexOf(':');
+            const tier = tierLine.substring(0, separatorIndex);
+            const description = tierLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
             if (tier.includes('≤11')) effect.t1 = description.trim();
             else if (tier.includes('12-16')) effect.t2 = description.trim();
             else if (tier.includes('17+')) effect.t3 = description.trim();
@@ -220,15 +219,9 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
     private peekToCheckForTiers(i: number, lines: string[]) {
         // Peek ahead to see if there are roll tiers
-        if (i + 1 < lines.length) {
-            const nextLine = lines[i + 1].trim();
-            if (nextLine.startsWith('- **') && nextLine.includes(':')) {
-                return true
-            }
-        }
-        if (i + 2 < lines.length) {
-            const nextLine = lines[i + 2].trim();
-            if (nextLine.startsWith('- **') && nextLine.includes(':')) {
+        if (i < lines.length) {
+            const line = lines[i].trim();
+            if (line.startsWith('- **') && line.includes(':')) {
                 return true
             }
         }
