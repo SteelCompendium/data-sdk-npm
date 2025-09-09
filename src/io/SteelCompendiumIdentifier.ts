@@ -219,8 +219,8 @@ export class SteelCompendiumIdentifier {
         if (text.includes("- **EV:**")) {
             return true;
         }
-        const hasBlockquote = /^> /;
-        if (hasBlockquote.test(text) && !this.isMarkdownStatblock(text)) {
+        // I have no idea why testing for `/^>/` doesnt work, but i dont feel like debugging.  Easy way out.
+        if (text.includes("> \n") && !this.isMarkdownStatblock(text)) {
             return true;
         }
         return false;
