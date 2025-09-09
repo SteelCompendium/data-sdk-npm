@@ -97,6 +97,13 @@
           "type": "string",
           "description": "Power Roll expression (e.g., \"2d10 + 3\")"
         },
+        "features": {
+          "type": "array",
+          "description": "List of features granted by the effect",
+          "items": {
+            "$ref": "feature.schema.json-2.0.0#"
+          }
+        },
         "tier1": { "type": "string"},
         "tier2": { "type": "string"},
         "tier3": { "type": "string"},

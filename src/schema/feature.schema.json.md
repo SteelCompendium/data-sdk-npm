@@ -22,41 +22,21 @@ The root object represents a complete feature with the following properties:
 | `flavor`       | string   | No       | Flavor text of the feature                                                  |
 | `metadata`     | object   | No       | Key-value pairs for additional data, often used for frontmatter in markdown |
 
-## Effect Types
-
-Abilities can have different types of effects, which are defined as follows:
-
-### Power Roll Effect
-
-A power roll effect represents a roll with different outcomes based on the result.
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `roll` | string | Yes | Power Roll expression (e.g., "2d10 + 3") |
-| `[tier]` | string | No | Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.) |
-
-Example:
-```json
-{
-  "roll": "2d10 + 3",
-  "11 or lower": "3 sonic damage; slide 1; shift 1",
-  "12-16": "6 sonic damage; slide 3; shift 3",
-  "17+": "8 sonic damage; slide 5; shift 5"
-}
-```
-
-### Test Effect
+### Effects
 
 A test effect represents a test against the targets with different outcomes based on the result.
 
-| Property | Type   | Required | Description                                                          |
-|----------|--------|----------|----------------------------------------------------------------------|
-| `name`   | string | Yes      | Name of the test effect                                              |
-| `cost`   | string | Yes      | Cost to trigger this test effect                                     |
-| `effect` | string | Yes      | Description of the test effect                                       |
-| `[tier]` | string | No       | Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.) |
+| Property   | Type      | Description                                                          |
+|------------|-----------|----------------------------------------------------------------------|
+| `name`     | string    | Name of the test effect                                              |
+| `cost`     | string    | Cost to trigger this test effect                                     |
+| `effect`   | string    | Description of the test effect                                       |
+| `roll`     | string    | Power Roll expression (e.g., "2d10 + 3")                             |
+| `[tier]`   | string    | Tier result (key can be '11 or lower', '12-16', '17+', 'crit', etc.) |
+| `features` | Feature[] | A list of Features granted from the effect.                          |
 
-Example:
+Example Test effect:
+
 ```json
 {
   "effect": "Targets make a Might test",
@@ -67,17 +47,8 @@ Example:
 }
 ```
 
-### Named Effect with Cost
+Example Effect with name and cost:
 
-An effect that has a name and requires a cost to trigger.
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | Yes | Name of the effect |
-| `cost` | string | Yes | Cost to trigger this effect |
-| `effect` | string | Yes | Description of what the effect does |
-
-Example:
 ```json
 {
   "name": "Malice Boost",
@@ -86,41 +57,15 @@ Example:
 }
 ```
 
-### Effect with Cost
+Example Effect without name, cost, etc:
 
-An effect that requires a cost to trigger.
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `cost` | string | Yes | Cost to trigger this effect |
-| `effect` | string | Yes | Description of what the effect does |
-
-Example:
 ```json
 {
-  "cost": "2 Malice",
-  "effect": "The maestro makes a free strike against the target."
-}
-```
-
-### Named or Nameless Effect
-
-An effect with an optional name, but no cost.
-
-| Property | Type | Required | Description |
-|----------|------|----------|-------------|
-| `name` | string | No | Name of the effect |
-| `effect` | string | Yes | Description of what the effect does |
-
-Example:
-```json
-{
-  "name": "Solo Performance",
   "effect": "Until the end of their next turn, the target halves incoming damage, deals an additional 4 damage on strikes, and their speed is doubled."
 }
 ```
 
-## Example
+## Full Example
 
 ```json
 {
@@ -144,9 +89,9 @@ Example:
     },
     {
       "roll": "Power Roll + Reason",
-      "t1": "The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.",
-      "t2": "The target falls into the hole.",
-      "t3": "The target falls into the hole and can’t reduce the height of the fall."
+      "tier1": "The target can shift 1 square from the edge of the hole to the nearest unoccupied space of their choice.",
+      "tier2": "The target falls into the hole.",
+      "tier3": "The target falls into the hole and can’t reduce the height of the fall."
     },
     {
       "effect": "At the start of your turn, you open another hole, making a power roll against each creature who could fall into the hole when it opens without spending essence.",
@@ -155,3 +100,4 @@ Example:
   ]
 }
 ``` 
+TODO - add Features[] to this example
