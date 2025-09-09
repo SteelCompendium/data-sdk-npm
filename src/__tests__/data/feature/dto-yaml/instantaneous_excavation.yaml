@@ -19,11 +19,11 @@ effects:
       ground above a hole and small enough to fall in. (You can’t score a
       critical hit with this ability because it uses a maneuver.)
   - roll: Power Roll + Reason
-    t1: The target can shift 1 square from the edge of the hole to the nearest
+    tier1: The target can shift 1 square from the edge of the hole to the nearest
       unoccupied space of their choice.
-    t2: The target falls into the hole.
-    t3: The target falls into the hole and can’t reduce the height of the fall.
-  - effect: At the start of your turn, you open another hole, making a power roll
+    tier2: The target falls into the hole.
+    tier3: The target falls into the hole and can’t reduce the height of the fall.
+  - name: Persistent 1
+    effect: At the start of your turn, you open another hole, making a power roll
       against each creature who could fall into the hole when it opens without
       spending essence.
-    name: Persistent 1

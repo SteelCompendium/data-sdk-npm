@@ -60,13 +60,13 @@
         },
         {
           "roll": "Power Roll + 2",
-          "t1": "6 damage",
-          "t2": "9 damage; A<1 prone",
-          "t3": "12 damage; A<2 prone can’t stand (EoT)"
+          "tier1": "6 damage",
+          "tier2": "9 damage; A<1 prone",
+          "tier3": "12 damage; A<2 prone can’t stand (EoT)"
         },
         {
-          "effect": "The wallmaster chooses an additional wall segment and target for every 3 malice spent.",
-          "cost": "3+ Malice"
+          "cost": "3+ Malice",
+          "effect": "The wallmaster chooses an additional wall segment and target for every 3 malice spent."
         }
       ]
     },
@@ -89,9 +89,9 @@
         },
         {
           "roll": "Power Roll + 2",
-          "t1": "Push 2",
-          "t2": "Push 4",
-          "t3": "Push 5"
+          "tier1": "Push 2",
+          "tier2": "Push 4",
+          "tier3": "Push 5"
         }
       ]
     },
@@ -109,8 +109,8 @@
       "target": "Self",
       "effects": [
         {
-          "effect": "The wallmaster teleports to a wall within distance and affixes itself to it.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The wallmaster teleports to a wall within distance and affixes itself to it."
         }
       ]
     },
@@ -128,8 +128,8 @@
       "trigger": "A creature damages the wall with a strike.",
       "effects": [
         {
-          "effect": "The wall redirects the strike to the target creature and isn’t targeted by the strike.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The wall redirects the strike to the target creature and isn’t targeted by the strike."
         }
       ]
     }

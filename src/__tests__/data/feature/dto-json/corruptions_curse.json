@@ -15,9 +15,9 @@
   "effects": [
     {
       "roll": "Power Roll + Intuition",
-      "t1": "3 + I corruption damage; M < weak, damage weakness 5 (save ends)",
-      "t2": "6 + I corruption damage; M < average, damage weakness 5 (save ends)",
-      "t3": "9 + I corruption damage; M < strong, damage weakness 5 (save ends)"
+      "tier1": "3 + I corruption damage; M < weak, damage weakness 5 (save ends)",
+      "tier2": "6 + I corruption damage; M < average, damage weakness 5 (save ends)",
+      "tier3": "9 + I corruption damage; M < strong, damage weakness 5 (save ends)"
     }
   ]
 }

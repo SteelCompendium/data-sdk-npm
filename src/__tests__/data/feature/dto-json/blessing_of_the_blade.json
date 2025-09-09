@@ -13,8 +13,8 @@
   "target": "Self and each ally in the area",
   "effects": [
     {
-      "effect": "At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges.",
-      "name": "Effect"
+      "name": "Effect",
+      "effect": "At the end of each of your turns until the end of the encounter or until you are dying, each target gains 3 surges."
     }
   ]
 }

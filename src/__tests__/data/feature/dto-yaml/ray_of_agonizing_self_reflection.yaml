@@ -12,6 +12,6 @@ distance: Ranged 10
 target: One creature or object
 effects:
   - roll: Power Roll + Reason
-    t1: 2 + R corruption damage; R < weak, slowed (save ends)
-    t2: 4 + R corruption damage; R < average, slowed (save ends)
-    t3: 6 + R corruption damage; R < strong, slowed (save ends)
+    tier1: 2 + R corruption damage; R < weak, slowed (save ends)
+    tier2: 4 + R corruption damage; R < average, slowed (save ends)
+    tier3: 6 + R corruption damage; R < strong, slowed (save ends)

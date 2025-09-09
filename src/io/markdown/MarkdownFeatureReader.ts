@@ -208,9 +208,9 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             const separatorIndex = tierLine.indexOf(':');
             const tier = tierLine.substring(0, separatorIndex);
             const description = tierLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
-            if (tier.includes('≤11')) effect.t1 = description.trim();
-            else if (tier.includes('12-16')) effect.t2 = description.trim();
-            else if (tier.includes('17+')) effect.t3 = description.trim();
+            if (tier.includes('≤11')) effect.tier1 = description.trim();
+            else if (tier.includes('12-16')) effect.tier2 = description.trim();
+            else if (tier.includes('17+')) effect.tier3 = description.trim();
             else if (tier.includes('19-20')) effect.crit = description.trim();
             i++;
         }

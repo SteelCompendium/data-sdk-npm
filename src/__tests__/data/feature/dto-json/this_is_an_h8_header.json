@@ -21,9 +21,9 @@
   "effects": [
     {
       "roll": "Power Roll + Agility",
-      "t1": "12 psychic damage; push 3",
-      "t2": "17 psychic damage; push 5",
-      "t3": "23 psychic damage; push 7"
+      "tier1": "12 psychic damage; push 3",
+      "tier2": "17 psychic damage; push 5",
+      "tier3": "23 psychic damage; push 7"
     }
   ]
 }

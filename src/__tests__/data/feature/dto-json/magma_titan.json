@@ -21,13 +21,13 @@
     },
     {
       "roll": "Power Roll + Reason",
-      "t1": "You teleport the target up to 4 squares.",
-      "t2": "You teleport the target up to 6 squares.",
-      "t3": "You teleport the target up to 8 squares."
+      "tier1": "You teleport the target up to 4 squares.",
+      "tier2": "You teleport the target up to 6 squares.",
+      "tier3": "You teleport the target up to 8 squares."
     },
     {
-      "effect": "The effect lasts until the start of your next turn. Additionally, at the start of your turn, the target can spend 2 Recoveries.",
-      "name": "Persistent 2"
+      "name": "Persistent 2",
+      "effect": "The effect lasts until the start of your next turn. Additionally, at the start of your turn, the target can spend 2 Recoveries."
     }
   ]
 }

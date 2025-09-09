@@ -50,9 +50,9 @@ features:
     target: Two creatures or objects
     effects:
       - roll: Power Roll + 2
-        t1: 7 damage; slide 1
-        t2: 10 damage; slide 2
-        t3: 13 damage; slide 3
+        tier1: 7 damage; slide 1
+        tier2: 10 damage; slide 2
+        tier3: 13 damage; slide 3
   - type: feature
     feature_type: ability
     name: The Earth Devours
@@ -67,12 +67,12 @@ features:
     target: All enemies in the cube
     effects:
       - roll: Power Roll + 2
-        t1: 3 damage
-        t2: 5 damage; restrained (EoT)
-        t3: 8 damage; restrained (save ends)
-      - effect: The affected area is difficult terrain for enemies. An enemy has acid
+        tier1: 3 damage
+        tier2: 5 damage; restrained (EoT)
+        tier3: 8 damage; restrained (save ends)
+      - name: Effect
+        effect: The affected area is difficult terrain for enemies. An enemy has acid
           weakness 2 while occupying an affected square.
-        name: Effect
   - type: feature
     feature_type: ability
     name: Jaws of the Void
@@ -85,6 +85,6 @@ features:
     target: Self
     trigger: Mara takes damage.
     effects:
-      - effect: Mara teleports 2 squares. Each creature adjacent to her original space
+      - name: Effect
+        effect: Mara teleports 2 squares. Each creature adjacent to her original space
           takes 2 corruption damage.
-        name: Effect

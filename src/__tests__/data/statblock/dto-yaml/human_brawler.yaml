@@ -51,11 +51,11 @@ features:
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 6 damage
-        t2: 9 damage
-        t3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
-      - effect: brawler deals an additional 2 damage if the target is already grabbed.
-        name: Effect
+        tier1: 6 damage
+        tier2: 9 damage
+        tier3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
+      - name: Effect
+        effect: brawler deals an additional 2 damage if the target is already grabbed.
   - type: feature
     feature_type: ability
     name: Throw
@@ -67,5 +67,5 @@ features:
     distance: Melee 1
     target: One creature grabbed by the brawler
     effects:
-      - effect: Push 5.
-        name: Effect
+      - name: Effect
+        effect: Push 5.

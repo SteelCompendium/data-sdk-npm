@@ -18,9 +18,9 @@
     },
     {
       "roll": "Power Roll + Intuition",
-      "t1": "5 fire damage",
-      "t2": "9 fire damage",
-      "t3": "12 fire damage"
+      "tier1": "5 fire damage",
+      "tier2": "9 fire damage",
+      "tier3": "12 fire damage"
     },
     {
       "name": "Effect",
@@ -28,9 +28,9 @@
     },
     {
       "roll": "Power Roll + Intuition",
-      "t1": "3 + I damage",
-      "t2": "5 + I damage",
-      "t3": "8 + I damage"
+      "tier1": "3 + I damage",
+      "tier2": "5 + I damage",
+      "tier3": "8 + I damage"
     }
   ]
 }

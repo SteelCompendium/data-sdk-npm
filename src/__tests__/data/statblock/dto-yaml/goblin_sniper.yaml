@@ -41,9 +41,9 @@ features:
     target: One creature or object per minion
     effects:
       - roll: Power Roll + 2
-        t1: 2 damage
-        t2: 4 damage
-        t3: 5 damage
-      - effect: If the sniper doesn’t use a move action this turn, the ability has an
+        tier1: 2 damage
+        tier2: 4 damage
+        tier3: 5 damage
+      - name: Effect
+        effect: If the sniper doesn’t use a move action this turn, the ability has an
           edge.
-        name: Effect

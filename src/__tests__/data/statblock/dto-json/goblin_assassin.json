@@ -62,13 +62,13 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "4 damage",
-          "t2": "6 damage",
-          "t3": "7 damage"
+          "tier1": "4 damage",
+          "tier2": "6 damage",
+          "tier3": "7 damage"
         },
         {
-          "effect": "This ability deals an additional 2 damage if the assassin has an edge on the power roll.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "This ability deals an additional 2 damage if the assassin has an edge on the power roll."
         }
       ]
     },
@@ -88,9 +88,9 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "2 corruption damage; A<0 restrained (save ends)",
-          "t2": "4 corruption damage; A<1 restrained (save ends)",
-          "t3": "5 corruption damage; A<2 restrained (save ends)"
+          "tier1": "2 corruption damage; A<0 restrained (save ends)",
+          "tier2": "4 corruption damage; A<1 restrained (save ends)",
+          "tier3": "5 corruption damage; A<2 restrained (save ends)"
         }
       ]
     }

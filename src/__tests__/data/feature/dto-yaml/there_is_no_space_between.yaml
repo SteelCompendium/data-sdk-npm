@@ -10,7 +10,8 @@ usage: Maneuver
 distance: Ranged 10
 target: Special
 effects:
-  - effect: >-
+  - name: Effect
+    effect: >-
       You open two size 1 portals in unoccupied spaces within distance, which
       last until you move beyond distance from any portal, end the effect as a
       maneuver, or are dying. Each portal must be placed at a height of no more
@@ -25,4 +26,3 @@ effects:
       present, you and your allies choose which portal to emerge from when
       entering a portal, and a creature who force moves an enemy into a portal
       chooses that enemy’s destination portal.
-    name: Effect

@@ -20,9 +20,9 @@
     },
     {
       "roll": "Power Roll + Reason",
-      "t1": "3 fire damage",
-      "t2": "5 fire damage",
-      "t3": "8 fire damage"
+      "tier1": "3 fire damage",
+      "tier2": "5 fire damage",
+      "tier3": "8 fire damage"
     }
   ]
 }

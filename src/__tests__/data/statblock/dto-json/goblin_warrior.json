@@ -52,9 +52,9 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "3 damage",
-          "t2": "4 damage",
-          "t3": "5 damage"
+          "tier1": "3 damage",
+          "tier2": "4 damage",
+          "tier3": "5 damage"
         }
       ]
     },
@@ -75,9 +75,9 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "5 damage; M<0 bleeding (save ends)",
-          "t2": "6 damage; M<1 bleeding (save ends)",
-          "t3": "7 damage; M<2 bleeding (save ends)"
+          "tier1": "5 damage; M<0 bleeding (save ends)",
+          "tier2": "6 damage; M<1 bleeding (save ends)",
+          "tier3": "7 damage; M<2 bleeding (save ends)"
         }
       ]
     }

@@ -15,9 +15,9 @@
   "effects": [
     {
       "roll": "Power Roll + Reason",
-      "t1": "2 + R fire damage; push 2",
-      "t2": "5 + R fire damage; push 3",
-      "t3": "7 + R fire damage; push 4"
+      "tier1": "2 + R fire damage; push 2",
+      "tier2": "5 + R fire damage; push 3",
+      "tier3": "7 + R fire damage; push 4"
     }
   ]
 }

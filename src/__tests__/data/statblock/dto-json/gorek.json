@@ -73,13 +73,13 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "7 damage; push 1",
-          "t2": "11 damage; push 2",
-          "t3": "14 damage; push 3"
+          "tier1": "7 damage; push 1",
+          "tier2": "11 damage; push 2",
+          "tier3": "14 damage; push 3"
         },
         {
-          "effect": "Each target is M<1 slowed (save ends).",
-          "cost": "2 Malice"
+          "cost": "2 Malice",
+          "effect": "Each target is M<1 slowed (save ends)."
         }
       ]
     },
@@ -100,13 +100,13 @@
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "8 damage; M<0 grabbed",
-          "t2": "13 damage; M<1 grabbed",
-          "t3": "16 damage; M<2 grabbed"
+          "tier1": "8 damage; M<0 grabbed",
+          "tier2": "13 damage; M<1 grabbed",
+          "tier3": "16 damage; M<2 grabbed"
         },
         {
-          "effect": "Gorek has an edge on strikes against a grabbed creature.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "Gorek has an edge on strikes against a grabbed creature."
         }
       ]
     }

@@ -9,9 +9,10 @@ usage: Maneuver
 distance: Ranged 10
 target: Self or one ally
 effects:
-  - effect: The target can spend a Recovery.
-    name: Effect
-  - effect: >-
+  - name: Effect
+    effect: The target can spend a Recovery.
+  - cost: Spend 1+ Piety
+    effect: >-
       For each piety spent, choose one of the following enhancements:
 
       • You can target one additional ally within distance.
@@ -22,4 +23,3 @@ effects:
       • A prone target can stand up.
 
       • A target can spend 1 additional Recovery.
-    cost: Spend 1+ Piety

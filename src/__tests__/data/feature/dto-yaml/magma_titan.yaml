@@ -33,9 +33,9 @@ effects:
       - They can use their highest characteristic instead of Might for Might
       power rolls.
   - roll: Power Roll + Reason
-    t1: You teleport the target up to 4 squares.
-    t2: You teleport the target up to 6 squares.
-    t3: You teleport the target up to 8 squares.
-  - effect: The effect lasts until the start of your next turn. Additionally, at the
+    tier1: You teleport the target up to 4 squares.
+    tier2: You teleport the target up to 6 squares.
+    tier3: You teleport the target up to 8 squares.
+  - name: Persistent 2
+    effect: The effect lasts until the start of your next turn. Additionally, at the
       start of your turn, the target can spend 2 Recoveries.
-    name: Persistent 2

@@ -51,9 +51,9 @@ features:
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 3 damage
-        t2: 4 damage
-        t3: 5 damage; M<2 bleeding (save ends)
+        tier1: 3 damage
+        tier2: 4 damage
+        tier3: 5 damage; M<2 bleeding (save ends)
   - type: feature
     feature_type: ability
     name: Leap
@@ -64,6 +64,6 @@ features:
     distance: Self
     target: Self
     effects:
-      - effect: The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is
+      - name: Effect
+        effect: The ghoul jumps 3 squares. If they land on a size 1 enemy, that enemy is
           knocked prone and the ghoul makes a free strike against them.
-        name: Effect

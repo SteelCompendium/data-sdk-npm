@@ -167,14 +167,14 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
         if (effect.roll) {
             effectParts.push(`**${effect.roll.trim()}:**\n`);
         }
-        if (effect.t1) {
-            effectParts.push(`- **≤11:** ${effect.t1.trim()}`);
+        if (effect.tier1) {
+            effectParts.push(`- **≤11:** ${effect.tier1.trim()}`);
         }
-        if (effect.t2) {
-            effectParts.push(`- **12-16:** ${effect.t2.trim()}`);
+        if (effect.tier2) {
+            effectParts.push(`- **12-16:** ${effect.tier2.trim()}`);
         }
-        if (effect.t3) {
-            effectParts.push(`- **17+:** ${effect.t3.trim()}`);
+        if (effect.tier3) {
+            effectParts.push(`- **17+:** ${effect.tier3.trim()}`);
         }
         if (effect.crit) {
             effectParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);

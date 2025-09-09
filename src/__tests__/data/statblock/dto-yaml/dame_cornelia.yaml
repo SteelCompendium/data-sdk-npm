@@ -48,13 +48,13 @@ features:
     target: All enemies in the burst
     effects:
       - roll: Power Roll + 3
-        t1: 3 damage; M<1 slowed (save ends)
-        t2: 6 damage; M<2 slowed (save ends)
-        t3: 8 damage; M<3 slowed (save ends)
-      - effect: An ally within 10 of Cornelia can make a free strike.
-        name: Effect
-      - effect: The ally can use their signature action instead.
-        cost: 1 Malice
+        tier1: 3 damage; M<1 slowed (save ends)
+        tier2: 6 damage; M<2 slowed (save ends)
+        tier3: 8 damage; M<3 slowed (save ends)
+      - name: Effect
+        effect: An ally within 10 of Cornelia can make a free strike.
+      - cost: 1 Malice
+        effect: The ally can use their signature action instead.
   - type: feature
     feature_type: ability
     name: You!
@@ -65,10 +65,10 @@ features:
     distance: Ranged 10
     target: One enemy
     effects:
-      - effect: The target is marked until the start of Cornelia’s next turn. Cornelia
+      - name: Effect
+        effect: The target is marked until the start of Cornelia’s next turn. Cornelia
           and each of her allies gain an edge on abilities used against targets
           marked by her.
-        name: Effect
   - type: feature
     feature_type: ability
     name: Parry!
@@ -81,8 +81,8 @@ features:
     trigger: A creature targets the blackguard or an ally adjacent to Cornelia with
       a strike.
     effects:
-      - effect: The damage is halved.
-        name: Effect
+      - name: Effect
+        effect: The damage is halved.
   - type: feature
     feature_type: ability
     name: Advance!
@@ -94,9 +94,9 @@ features:
     distance: Self
     target: Self
     effects:
-      - effect: Cornelia shifts up to her speed. During or after this movement, she can
+      - name: Effect
+        effect: Cornelia shifts up to her speed. During or after this movement, she can
           use Zweihander Swing twice.
-        name: Effect
   - type: feature
     feature_type: ability
     name: Back!
@@ -109,8 +109,8 @@ features:
     distance: 5 burst
     target: All enemies in the burst
     effects:
-      - effect: Slide 5.
-        name: Effect
+      - name: Effect
+        effect: Slide 5.
   - type: feature
     feature_type: ability
     name: I Can Throw My Blade and So Should You!
@@ -125,7 +125,7 @@ features:
     distance: 3 cube within 5
     target: Each enemy in the cube
     effects:
-      - effect: Cornelia uses Zweihander Swing against each target. Then, each ally
+      - name: Effect
+        effect: Cornelia uses Zweihander Swing against each target. Then, each ally
           within 5 of the area can make a free strike against a target (one
           target per ally).
-        name: Effect
