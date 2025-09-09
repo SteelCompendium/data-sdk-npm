@@ -5,10 +5,10 @@ import {Feature} from "../../../model";
 import {JsonReader} from "../../../io";
 import { parse } from 'yaml';
 
-describe("JsonAbilityReader", () => {
+describe("JsonFeatureReader", () => {
     const reader = new JsonReader(Feature.modelDTOAdapter);
-    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-yaml");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-json");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-yaml");
 
     const yamlFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".json"));
     const jsonFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".yaml"));

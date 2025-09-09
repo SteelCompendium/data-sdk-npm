@@ -170,7 +170,13 @@ export class SteelCompendiumIdentifier {
                 getReader: () => new MarkdownStatblockReader(),
             };
         }
-
+        if (this.isMarkdownFeatureblock(source)) {
+            return {
+                format: SteelCompendiumFormat.Markdown,
+                model: Featureblock,
+                getReader: () => new MarkdownFeatureblockReader(),
+            };
+        }
         if (this.isMarkdownFeature(source)) {
             return {
                 format: SteelCompendiumFormat.Markdown,
@@ -189,6 +195,14 @@ export class SteelCompendiumIdentifier {
     }
 
     private static identifyModelType(data: any): typeof Feature | typeof Statblock | typeof Featureblock | null {
+        switch (data.type) {
+            case 'feature':
+                return Feature;
+            case 'statblock':
+                return Statblock;
+            case 'featureblock':
+                return Featureblock;
+        }
         if ('featureblock_type' in data) {
             return Featureblock;
         }
@@ -199,6 +213,17 @@ export class SteelCompendiumIdentifier {
             return Feature;
         }
         return null;
+    }
+
+    private static isMarkdownFeatureblock(text: string): boolean {
+        if (text.includes("- **EV:**")) {
+            return true;
+        }
+        const hasBlockquote = /^> /;
+        if (hasBlockquote.test(text) && !this.isMarkdownStatblock(text)) {
+            return true;
+        }
+        return false;
     }
 
     private static isMarkdownFeature(text: string): boolean {

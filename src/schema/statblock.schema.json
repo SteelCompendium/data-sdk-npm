@@ -6,6 +6,7 @@
     "type": "object",
     "required": [
         "name",
+        "type",
         "roles",
         "ancestry",
         "ev",
@@ -25,6 +26,10 @@
         "name": {
             "type": "string",
             "description": "The name of the creature."
+        },
+        "type": {
+            "type": "string",
+            "description": "Must always be 'statblock'"
         },
         "level": {
             "type": "integer",
@@ -137,40 +142,13 @@
             "type": "string",
             "description": "Effect when a captain is present."
         },
-        "traits": {
-            "type": "array",
-            "items": {
-                "$ref": "#/definitions/trait"
-            },
-            "description": "Special traits of the creature.",
-            "default": []
-        },
         "abilities": {
             "type": "array",
             "items": {
-                "$ref": "ability.schema.json#"
+                "$ref": "feature.schema.json#"
             },
-            "description": "List of abilities (see Ability schema).",
+            "description": "List of features (see Feature schema).",
             "default": []
-        }
-    },
-    "definitions": {
-        "trait": {
-            "type": "object",
-            "required": [
-                "name",
-                "effects"
-            ],
-            "additionalProperties": false,
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name of the trait."
-                },
-                "effects": {
-                    "$ref": "ability.schema.json#/definitions/effectsArray"
-                }
-            }
         }
     }
 }

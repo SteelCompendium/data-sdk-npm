@@ -4,10 +4,10 @@ import path from "path";
 import {Feature, Statblock} from "../../../model";
 import {JsonReader, JsonWriter, YamlReader} from "../../../io";
 
-describe("JsonAbilityWriter", () => {
+describe("JsonFeatureWriter", () => {
     const writer = new JsonWriter();
-    const inputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-yaml");
-    const outputsDir = path.join(__dirname, "..", "..", "data", "ability", "dto-json");
+    const inputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-yaml");
+    const outputsDir = path.join(__dirname, "..", "..", "data", "feature", "dto-json");
 
     const yamlFiles = fs.readdirSync(inputsDir).filter(file => file.endsWith(".yaml"));
     const jsonFiles = fs.readdirSync(outputsDir).filter(file => file.endsWith(".json"));
@@ -22,8 +22,8 @@ describe("JsonAbilityWriter", () => {
             const inputText = fs.readFileSync(inputPath, "utf-8");
             const expectedOutput = fs.readFileSync(outputPath, "utf-8");
 
-            const ability = yamlReader.read(inputText);
-            const result = writer.write(ability);
+            const feature = yamlReader.read(inputText);
+            const result = writer.write(feature);
 
             expect(JSON.parse(result)).toEqual(JSON.parse(expectedOutput));
         });

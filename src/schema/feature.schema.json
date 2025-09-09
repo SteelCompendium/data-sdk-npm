@@ -1,35 +1,44 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Steel Compendium Ability",
+  "title": "Steel Compendium Feature",
   "type": "object",
   "required": [
     "name",
     "type",
+    "feature_type",
     "effects"
   ],
   "properties": {
     "name": {
       "type": "string",
-      "description": "The title or description of the ability"
+      "description": "The title or description of the feature"
     },
     "icon": {
       "type": "string",
-      "description": "The icon of the ability (ex: \"🏹\")"
+      "description": "The icon of the feature (ex: \"🏹\")"
     },
     "type": {
       "type": "string",
-      "description": "Ability type (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+      "description": "Must always be 'feature'"
+    },
+    "feature_type": {
+      "type": "string",
+      "description": "The type of the feature (ability or trait)"
+    },
+    "usage": {
+      "type": "string",
+      "description": "Usage (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
     },
     "cost": {
       "type": "string",
-      "description": "Cost to use the ability (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
+      "description": "Cost to use the feature (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
     },
     "keywords": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Keywords associated with the ability (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
+      "description": "Keywords associated with the feature (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
     },
     "distance": {
       "type": "string",
@@ -48,11 +57,11 @@
     },
     "flavor": {
       "type": "string",
-      "description": "Flavor text of the ability"
+      "description": "Flavor text of the feature"
     },
     "metadata": {
       "type": "object",
-      "description": "Metadata for the ability, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
+      "description": "Metadata for the feature, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
       "additionalProperties": true
     }
   },
