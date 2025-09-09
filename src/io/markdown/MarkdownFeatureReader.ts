@@ -1,8 +1,6 @@
-import {Effect, Feature, FeatureType, MundaneEffect, PowerRollEffect} from "../../model";
-import {Effects} from "../../model/Effects";
+import {Effect, Feature, FeatureType} from "../../model";
 import {IDataReader} from "../IDataReader";
 import * as yaml from 'js-yaml';
-import {TestEffect} from "../../model/TestEffect";
 
 export class MarkdownFeatureReader implements IDataReader<Feature> {
     public constructor() { }
@@ -60,30 +58,10 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
         const effects: Effect[] = [];
 
-        // Effects
+        // Effects (and trigger)
         // TODO - this AI slop is so bad.  It needs to be rewritten to avoid so much code duplication.
         while (i < lines.length) {
             const line = lines[i];
-
-            // Power Roll Effect
-            if (line.startsWith('**') && line.endsWith(':**')) {
-                let hasTiers = this.peekToCheckForTiers(i, lines);
-
-                if (hasTiers) {
-                    let tierEffect;
-                    if (line.includes("Power Roll") || line.includes("2d10")) {
-                        tierEffect = new PowerRollEffect({});
-                        tierEffect.roll = line.replace(/\*\*|:/g, '').trim();
-                    } else {
-                        tierEffect = new TestEffect({});
-                        tierEffect.effect = line.replace(/\*\*|:/g, '').trim();
-                    }
-                    i++;
-                    i = this.parseTiers(i, lines, tierEffect);
-                    effects.push(tierEffect);
-                    continue;
-                }
-            }
 
             // Trigger
             if (line.startsWith('**Trigger:**')) {
@@ -97,6 +75,25 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
                 continue;
             }
 
+            // Power Roll Effect
+            if (line.startsWith('**') && line.endsWith(':**')) {
+                let hasTiers = this.peekToCheckForTiers(i, lines);
+
+                if (hasTiers) {
+                    let tierEffect = new Effect({});
+                    if (line.includes("Power Roll") || line.includes("2d10")) {
+                        tierEffect.roll = line.replace(/\*\*|:/g, '').trim();
+                    } else {
+                        tierEffect.effect = line.replace(/\*\*|:/g, '').trim();
+                    }
+                    i++;
+                    i = this.parseTiers(i, lines, tierEffect);
+                    // TODO - I dont think I want to end parsing here
+                    effects.push(tierEffect);
+                    continue;
+                }
+            }
+
             // Effects (e.g., **Effect:**, **Persistent:**, **Effect (1 Malice):**)
             const effectMatch = line.match(/^\*\*(.+?):?\*\* (.*)/);
             if (effectMatch) {
@@ -108,7 +105,7 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
                     i++;
                 }
 
-                const effectProps: Partial<MundaneEffect> = { effect: effect.trim() };
+                const effectProps: Partial<MundaneEffect> = {effect: effect.trim()};
                 this.parseNameAndCost(nameAndCost.trim(), effectProps);
 
                 // If we find tiers, rewrite the effect as Test Effect
@@ -202,7 +199,7 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
         return { icon: icon || undefined, name, cost: cost || undefined };
     }
 
-    private parseTiers(i: number, lines: string[], tierEffect: TestEffect | PowerRollEffect) {
+    private parseTiers(i: number, lines: string[], effect: Effect) {
         while (i < lines.length && (lines[i].trim().startsWith('-') || lines[i].trim() === '')) {
             const rollLine = lines[i].trim();
             if (rollLine === '') {
@@ -212,10 +209,10 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             const separatorIndex = rollLine.indexOf(':');
             const tier = rollLine.substring(0, separatorIndex);
             const description = rollLine.substring(separatorIndex + 1).replace(/^\*\*\s*/, "").trim();
-            if (tier.includes('≤11')) tierEffect.t1 = description.trim();
-            else if (tier.includes('12-16')) tierEffect.t2 = description.trim();
-            else if (tier.includes('17+')) tierEffect.t3 = description.trim();
-            else if (tier.includes('19-20')) tierEffect.crit = description.trim();
+            if (tier.includes('≤11')) effect.t1 = description.trim();
+            else if (tier.includes('12-16')) effect.t2 = description.trim();
+            else if (tier.includes('17+')) effect.t3 = description.trim();
+            else if (tier.includes('19-20')) effect.crit = description.trim();
             i++;
         }
         return i;

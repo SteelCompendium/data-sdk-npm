@@ -1,10 +1,7 @@
 import {Feature} from "../../model";
 import {IDataWriter} from "../IDataWriter";
 import {Effect} from "../../model";
-import {MundaneEffect} from "../../model";
-import {PowerRollEffect} from "../../model";
 import * as yaml from 'js-yaml';
-import {TestEffect} from "../../model";
 
 export class MarkdownFeatureWriter implements IDataWriter<Feature> {
     write(data: Feature, blockquote_output: boolean = false): string {
@@ -87,24 +84,21 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
             parts.push(`**Trigger:** ${data.trigger}`);
         }
 
-        if (data.effects && (data.effects.effects || data.effects)) {
-            // TODO - this doesnt work... likely because there is confusion in serilaization with effects.effects?
-            // const effectParts = data.effects.effects?.map(e => this.writeEffect(e));
+        if (data.effects) {
+            const effectParts = data.effects.map(e => this.writeEffect(e));
 
-            const allEffects = (data.effects.effects || data.effects) as any[];
-
-            if (allEffects.length === 0) {
-                return parts.join('\n\n');
-            }
-
-            // TODO this should be something else...
-            const mappedEffects = allEffects.map(e => {
-                if (e instanceof Effect) return e;
-                if (e.roll) return new PowerRollEffect(e);
-                if (e.effect && e.t1) return new TestEffect(e);
-                return new MundaneEffect(e);
-            });
-            const effectParts = mappedEffects.map(e => this.writeEffect(e));
+            // if (data.effects.length === 0) {
+            //     return parts.join('\n\n');
+            // }
+            //
+            // // TODO this should be something else...
+            // const mappedEffects = data.effects.map(e => {
+            //     if (e instanceof Effect) return e;
+            //     if (e.roll) return new PowerRollEffect(e);
+            //     if (e.effect && e.t1) return new TestEffect(e);
+            //     return new MundaneEffect(e);
+            // });
+            // const effectParts = mappedEffects.map(e => this.writeEffect(e));
             parts.push(effectParts.join('\n\n'));
         }
 
@@ -152,17 +146,7 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
     }
 
     private writeEffect(effect: Effect): string {
-        if (effect instanceof MundaneEffect) {
-            return this.writeMundaneEffect(effect);
-        } else if (effect instanceof PowerRollEffect) {
-            return this.writePowerRollEffect(effect);
-        } else if (effect instanceof TestEffect) {
-            return this.writeTestEffect(effect);
-        }
-        return '';
-    }
-
-    private writeMundaneEffect(effect: MundaneEffect): string {
+        const effectParts: string[] = [];
         let name;
         if (effect.name) {
             name = effect.name;
@@ -174,61 +158,23 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
         }
 
         if (!effect.name && !effect.cost) {
-            return effect.effect.trim();
-        }
-        return `**${name}:** ${effect.effect.trim()}`
-    }
-
-    private writePowerRollEffect(effect: PowerRollEffect): string {
-        const rollParts: string[] = [];
-        if (effect.roll) {
-            rollParts.push(`**${effect.roll}:**\n`);
-        }
-        if (effect.t1) {
-            rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
-        }
-        if (effect.t2) {
-            rollParts.push(`- **12-16:** ${effect.t2.trim()}`);
-        }
-        if (effect.t3) {
-            rollParts.push(`- **17+:** ${effect.t3.trim()}`);
-        }
-        if (effect.crit) {
-            rollParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
-        }
-        return rollParts.join('\n');
-    }
-
-    private writeTestEffect(effect: TestEffect): string {
-        const rollParts: string[] = [];
-        let name;
-        if (effect.name) {
-            name = effect.name;
-            if (effect.cost) {
-                name += ` (${effect.cost})`;
-            }
-        } else if (effect.cost) {
-            name = effect.cost;
-        }
-
-        if (!effect.name && !effect.cost) {
-            rollParts.push(`${effect.effect.trim()}\n`);
+            effectParts.push(`${effect.effect.trim()}\n`);
         } else {
-            rollParts.push(`**${name}:** ${effect.effect.trim()}\n`);
+            effectParts.push(`**${name}:** ${effect.effect.trim()}\n`);
         }
 
         if (effect.t1) {
-            rollParts.push(`- **≤11:** ${effect.t1.trim()}`);
+            effectParts.push(`- **≤11:** ${effect.t1.trim()}`);
         }
         if (effect.t2) {
-            rollParts.push(`- **12-16:** ${effect.t2.trim()}`);
+            effectParts.push(`- **12-16:** ${effect.t2.trim()}`);
         }
         if (effect.t3) {
-            rollParts.push(`- **17+:** ${effect.t3.trim()}`);
+            effectParts.push(`- **17+:** ${effect.t3.trim()}`);
         }
         if (effect.crit) {
-            rollParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
+            effectParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
         }
-        return rollParts.join('\n');
+        return effectParts.join('\n');
     }
 } 

@@ -1,6 +1,6 @@
 import {FeatureDTO} from "../dto";
-import {Effects} from "./Effects";
 import {ModelDTOAdapter, SteelCompendiumModel} from "./SteelCompendiumModel";
+import {Effect} from "./Effect";
 
 export enum FeatureType {
     Ability = "ability",
@@ -21,13 +21,13 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
     distance?: string;
     target?: string;
     trigger?: string;
-    effects: Effects;
+    effects: Effect[];
     metadata?: Record<string, any>;
 
     public constructor(source: Partial<Feature>) {
         super();
         Object.assign(this, source);
-        this.effects = source.effects ?? new Effects([]);
+        this.effects = source.effects ?? [];
     }
 
     public static modelDTOAdapter: ModelDTOAdapter<Feature, FeatureDTO> = (source: Partial<FeatureDTO>) => new FeatureDTO(source).toModel();
@@ -44,7 +44,7 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
         return new Feature({
             ...dto,
             feature_type: ft,
-            effects: Effects.fromDTO(dto.effects),
+            effects: dto.effects.map(e => e.toDTO())
         });
     }
 

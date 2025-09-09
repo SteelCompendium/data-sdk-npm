@@ -1,6 +1,5 @@
 import { Feature } from '../model/Feature';
 import { SteelCompendiumDTO } from './SteelCompendiumDTO';
-import {Featureblock} from "../model";
 
 export class FeatureDTO extends SteelCompendiumDTO<Feature> {
     type = Feature.FEATURE_TYPE;
@@ -36,7 +35,7 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
         if (model.target !== undefined) dto.target = model.target;
         if (model.trigger !== undefined) dto.trigger = model.trigger;
         if (model.metadata !== undefined) dto.metadata = model.metadata;
-        dto.effects = model.effects.toDTO();
+        dto.effects = model.effects.map(e => e.toDTO());
         return dto;
     }
 
