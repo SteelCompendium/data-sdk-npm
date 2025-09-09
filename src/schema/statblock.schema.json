@@ -1,6 +1,7 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "statblock.schema.json",
+    "$version": "2.0.0",
     "title": "Draw Steel Statblock",
     "description": "A creature statblock for a Draw Steel.",
     "type": "object",
