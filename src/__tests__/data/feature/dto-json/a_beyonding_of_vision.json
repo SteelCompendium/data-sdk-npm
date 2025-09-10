@@ -11,6 +11,7 @@
           "feature_type": "ability",
           "name": "Shared Void Sense",
           "flavor": "You grant allies a taste of your unearthly vision.",
+          "icon": "🏹",
           "keywords": [
             "Magic",
             "Ranged",

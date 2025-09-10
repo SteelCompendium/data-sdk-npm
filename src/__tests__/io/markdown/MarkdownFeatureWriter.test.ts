@@ -14,14 +14,14 @@ describe("MarkdownFeatureWriter", () => {
     const testFiles = jsonFiles.filter(file => mdFiles.includes(file.replace('.json', '.md')));
 
     testFiles.forEach(file => {
-        it(`should correctly write ${file}`, () => {
+        it(`should correctly write markdown (using input ${file})`, () => {
             const inputPath = path.join(inputsDir, file);
             const outputPath = path.join(outputsDir, file.replace(".json", ".md"));
 
             const inputText = fs.readFileSync(inputPath, "utf-8");
             const expectedOutput = fs.readFileSync(outputPath, "utf-8");
 
-            const feature = new Feature(JSON.parse(inputText));
+            const feature = Feature.fromDTO(JSON.parse(inputText));
             const result = writer.write(feature);
 
             expect(result.trim()).toEqual(expectedOutput.trim());

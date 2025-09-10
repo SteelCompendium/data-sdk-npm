@@ -16,8 +16,7 @@ export class Effect {
         Object.assign(this, source);
     }
 
-    public static fromDTO(dto: any): Effect {
-        const data: any = dto;
+    public static fromDTO(data: any): Effect {
         let partial: Partial<Effect> = {
             name: data.name,
             cost: data.cost,
@@ -28,8 +27,8 @@ export class Effect {
             tier3: data.t3 ?? data["tier3"] ?? data["tier 3"] ?? data["17+"],
             crit: data.critical ?? data.crit ?? data["nat 19-20"],
         };
-        if (dto.features) {
-            partial.features = dto.features.map((f: FeatureDTO) => Feature.fromDTO(f));
+        if (data.features) {
+            partial.features = data.features.map((f: FeatureDTO) => Feature.fromDTO(f));
         }
         return new Effect(partial);
     }

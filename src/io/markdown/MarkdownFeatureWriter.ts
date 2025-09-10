@@ -179,6 +179,11 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
         if (effect.crit) {
             effectParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
         }
+        if (effect.features && effect.features.length > 0) {
+            let items = effect.features.map((f:Feature) => this.write(f, true));
+            effectParts.push(...items);
+        }
+
         return effectParts.join('\n').trim();
     }
 } 

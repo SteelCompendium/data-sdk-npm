@@ -58,6 +58,11 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
 
     // A trait is defined as a feature without keywords, usage, distance, and target
     public isTrait() {
-        return (!this.keywords || this.keywords?.length == 0) && !this.usage && !this.distance && !this.target;
+        return Feature.isTrait(this);
+    }
+
+    // Here for FeatureDTO (and used in writer?)
+    public static isTrait(data: any): boolean {
+        return (!data.keywords || data.keywords?.length == 0) && !data.usage && !data.distance && !data.target;
     }
 }
