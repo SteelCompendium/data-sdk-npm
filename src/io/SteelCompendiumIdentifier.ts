@@ -251,6 +251,6 @@ export class SteelCompendiumIdentifier {
     }
 
     private static isMarkdownStatblock(text: string): boolean {
-        return text.includes("<br>Might");
+        return text.includes("<br>Might") || text.includes("<br/> Might");
     }
 }

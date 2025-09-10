@@ -106,9 +106,8 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
 
         if (linePrefix) {
             // ^ start-of-line, gm = every line
-            md = md.replace(/^/gm, linePrefix);
+            md = md.replace(/^/gm, linePrefix).replace(/^> >/gm, '>>');
         }
-
         return md;
     }
 

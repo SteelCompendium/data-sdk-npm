@@ -34,7 +34,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
      * |  Ancestry  | Movement |    Level    | With Captain |     EV     |
      * |:----------:|:--------:|:-----------:|:------------:|:----------:|
      * | **Size**<br>Size      | **Speed**<br>Speed | **Stamina**<br>Stamina | **Stability**<br>Stability | **Free Strike**<br>Free Strike |
-     * | **Immunities**<br>Immunities | **Movement**<br>Movement |           | **With Captain**<br>WithCaptain | **Weaknesses**<br>Weaknesses |
+     * | **Immunities**<br>Immunities | **Movement**<br>Movement |           | **With Captain**<br>WithCaptain | **Weaknesses**<br>Weakness |
      * | **Might**<br>Might | **Agility**<br>Agility | **Reason**<br>Reason | **Intuition**<br>Intuition | **Presence**<br>Presence |
      */
     private createStatblockTable(data: Statblock): string {
