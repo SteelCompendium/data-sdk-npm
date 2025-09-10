@@ -216,14 +216,12 @@ export class SteelCompendiumIdentifier {
     }
 
     private static isMarkdownFeatureblock(text: string): boolean {
-        if (text.includes("- **EV:**")) {
-            return true;
-        }
-        // I have no idea why testing for `/^>/` doesnt work, but i dont feel like debugging.  Easy way out.
-        if (text.includes("> \n") && !this.isMarkdownStatblock(text)) {
-            return true;
-        }
-        return false;
+        return text.includes("- **EV:**")
+            || text.includes("- **Stamina:**")
+            || text.includes("- **Size:**")
+            || text.includes(" (Level ")
+            || text.includes(" Feature)")
+            || text.includes(" (Malice Features)");
     }
 
     private static isMarkdownFeature(text: string): boolean {
