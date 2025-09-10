@@ -38,11 +38,16 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
         let i = 0;
 
         // Title, icon, and Cost
-        const titleLine = lines[i++];
+        const titleLine = lines[i];
         const parsed = this.parseTitleLine(titleLine);
         if (parsed.icon) partial.icon = parsed.icon;
-        partial.name = parsed.name;
+        if (parsed.name) partial.name = parsed.name;
         if (parsed.cost) partial.cost = parsed.cost;
+
+        // Only increment the line if there is a title line
+        if (parsed.icon || partial.name || parsed.cost) {
+            i++
+        }
 
         // Flavor Text
         if (i < lines.length && lines[i].startsWith('*') && !lines[i].startsWith('**')) {
@@ -200,6 +205,11 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
     // Parse a single line into { icon?, name, cost? }
     private parseTitleLine(raw: string) {
+        // If the line looks like an effect or ability table, there is no title
+        if (raw.startsWith('|') || raw.match(/^\*\*\w:\*\*/u)) {
+            return {icon: undefined, name: undefined, cost: undefined};
+        }
+
         // 1) Trim and strip leading markdown header hashes
         let s = raw.trim().replace(/^#{1,9}\s*/, "");
 

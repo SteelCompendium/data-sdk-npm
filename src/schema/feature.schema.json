@@ -4,7 +4,6 @@
   "title": "Steel Compendium Feature",
   "type": "object",
   "required": [
-    "name",
     "type",
     "feature_type",
     "effects"

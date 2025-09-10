@@ -8,7 +8,7 @@ The root object represents a complete feature with the following properties:
 
 | Property       | Type     | Required | Description                                                                 |
 |----------------|----------|----------|-----------------------------------------------------------------------------|
-| `name`         | string   | Yes      | The title or description of the feature                                     |
+| `name`         | string   | No       | The title or description of the feature                                     |
 | `type`         | string   | Yes      | Static string "feature"                                                     |
 | `feature_type` | string   | Yes      | The type of feature ("ability" or "trait")                                  |
 | `icon`         | string   | No       | The icon of the feature (ex: "🏹")                                          |
