@@ -70,7 +70,7 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                     block.push(mainLines[i].replace(/^\s*>\s?/, ''));
                     i++;
                 }
-                const feature = this.featureReader.read(block.join('\n').trim());
+                let feature = this.featureReader.read(block.join('\n').trim());
                 feature.feature_type = feature.isTrait() ? FeatureType.Trait : FeatureType.Ability;
                 features.push(feature);
             } else {

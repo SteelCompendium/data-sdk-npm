@@ -40,3 +40,5 @@ export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
         return Featureblock.FEATUREBLOCK_TYPE;
     }
 }
+
+

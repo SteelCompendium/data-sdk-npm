@@ -1,3 +1,6 @@
+test:
+    npm run build && npm run test
+
 # features
 convert_test_features_from_md_to_json:
     rm -rf "./tmp"

@@ -8,7 +8,6 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
     read(content: string): Feature {
         let lines = content.split('\n');
-        lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
         const partial: Partial<Feature> = {};
 
         // Find the end of the frontmatter
@@ -29,6 +28,12 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             }
         }
 
+        // If the entire input is nested in a blockquote, strip the (first layer of) blockquote
+        if (lines[0].trim().startsWith('> ')) {
+            lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
+        }
+
+        // TODO - this might be the cause for needing the extra newline in the unnamed effect case
         lines = lines.filter(line => line.trim() !== '');
         let i = 0;
 
@@ -77,7 +82,7 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             // Check if we need to start a new effect
             if (Object.keys(partial).length !== 0) {
                 // if there is an effect name or power roll OR if a mundane line and effect already exists on the partial effect
-                if (lines[lineIdx].startsWith('**') || (!lines[lineIdx].startsWith('- **') && partial.effect)) {
+                if (lines[lineIdx].startsWith('**') || (!lines[lineIdx].startsWith('- **') && !lines[lineIdx].startsWith('> ') && partial.effect)) {
                     effects.push(new Effect(partial));
                     partial = {};
                 }
@@ -124,6 +129,22 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             return this.parseTiers(lineIdx, lines, currentEffect);
         }
 
+        // Nested Feature
+        if (line.startsWith('> ')) {
+            const block: string[] = [];
+            while (lineIdx < lines.length && lines[lineIdx].startsWith('>')) {
+                block.push(lines[lineIdx].replace(/^\s*>\s?/, ''));
+                lineIdx++;
+            }
+            let feature = this.read(block.join('\n').trim());
+            feature.feature_type = feature.isTrait() ? FeatureType.Trait : FeatureType.Ability;
+            if (!currentEffect.features) {
+                currentEffect.features = [];
+            }
+            currentEffect.features.push(feature);
+            return lineIdx;
+        }
+
         // If we've reached here and the line is not empty, it must be an effect without a name/cost
         if (line.trim()) {
             lineIdx++;
@@ -134,21 +155,27 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             return lineIdx;
         }
 
+        // TODO - figure out if we need to read in a nested feature
+
         console.warn("Unexpected line in effect block, skipping:", line);
         lineIdx++;
         return lineIdx;
     }
 
+    // Continues reading lines until the next effect component (effect name, power roll, tier, nested feature, etc)
+    // Returns the line index and the effect text
     private readUntilNextEffectComponent(lineIdx: number, lines: string[], effect: string) {
-        while (lineIdx < lines.length && !lines[lineIdx].startsWith('**') && !lines[lineIdx].startsWith('- **')) {
-            if (lines[lineIdx].trim() === '') {
-                console.log(`adding empty line to unnamed effect ${effect}`);
-            }
+        while (lineIdx < lines.length && !this.lineStartsNewEffectComponent(lines[lineIdx])) {
             effect += '\n' + lines[lineIdx];
             lineIdx++;
         }
         effect = effect.trim();
         return {lineIdx, effect};
+    }
+
+    // returns true if given line starts a new effect component (effect name, power roll, tier, nested feature, etc)
+    private lineStartsNewEffectComponent(line: string): boolean {
+        return line.startsWith('**') || line.startsWith('- **') || line.startsWith('> ');
     }
 
     private parseNameAndCost(nameAndCost: string, currEffect: Partial<Effect>) {
