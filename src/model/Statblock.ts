@@ -24,6 +24,7 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     withCaptain?: string;
     characteristics!: Characteristics;
     features!: Feature[];
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<Statblock>) {
         super();

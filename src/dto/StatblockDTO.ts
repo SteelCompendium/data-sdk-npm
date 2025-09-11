@@ -27,6 +27,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     weaknesses?: string[];
     with_captain?: string;
     features?: any[];
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<StatblockDTO>) {
         super(source, Statblock.STATBLOCK_TYPE);
@@ -59,6 +60,7 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
             if (model.characteristics.presence !== undefined) data.presence = model.characteristics.presence;
         }
         if (model.features !== undefined) data.features = model.features.map((f: Feature) => f.toDTO());
+        if (model.metadata !== undefined) data.metadata = model.metadata;
         return data;
     }
 

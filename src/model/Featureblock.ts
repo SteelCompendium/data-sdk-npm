@@ -15,6 +15,7 @@ export class Featureblock extends SteelCompendiumModel<FeatureblockDTO> {
     size!: string;
     stats?: FeatureStat[];
     features!: Feature[];
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<Featureblock>) {
         super();

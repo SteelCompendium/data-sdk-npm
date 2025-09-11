@@ -13,6 +13,7 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
     size?: string;
     stats?: any[];
     features!: any[];
+    metadata?: Record<string, any>;
 
     public constructor(source: Partial<FeatureblockDTO>) {
         super(source, Featureblock.FEATUREBLOCK_TYPE);
@@ -30,6 +31,7 @@ export class FeatureblockDTO extends SteelCompendiumDTO<Featureblock> {
         if (model.size !== undefined) data.size = model.size;
         if (model.stats !== undefined) data.stats = model.stats;
         if (model.features !== undefined) data.features = model.features.map(f => f.toDTO());
+        if (model.metadata !== undefined) data.metadata = model.metadata;
         return data;
     }
 
