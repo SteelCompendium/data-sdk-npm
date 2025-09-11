@@ -19,7 +19,7 @@
 - The Feature (previously Ability) model's `name` field is now optional (to support unnamed features nested under an Effect)
 - Fixes to the Identifier to function better
 - Schema updates to account for the above changes
-- TODO - The `metadata` field is added to all models
+- The `metadata` field is added to all models
 
 ## 0.0.43
 
