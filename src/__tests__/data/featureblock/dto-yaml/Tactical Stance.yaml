@@ -1,21 +1,27 @@
+type: featureblock
+featureblock_type: Ajax Feature
 name: Tactical Stance
-type: Ajax Feature
 flavor: "At the start of each round, Ajax chooses a new stance from one of the
   following options and gains its benefits:"
-stats: []
 features:
-  - name: Insurgent
+  - type: feature
+    feature_type: trait
+    name: Insurgent
     icon: ⭐️
     effects:
       - effect: Ajax automatically treats his initial power roll as a 17. He can still
           roll to determine if he scores a critical hit.
-  - name: Mastermind
+  - type: feature
+    feature_type: trait
+    name: Mastermind
     icon: ⭐️
     effects:
       - effect: Before he uses an ability, Ajax can either shift up to 2 squares, or can
           cause one creature within line of effect to slide up to 2 squares,
           ignoring stability.
-  - name: Vanguard
+  - type: feature
+    feature_type: trait
+    name: Vanguard
     icon: ⭐️
     effects:
       - effect: Ajax has damage immunity 5. Additionally, any enemy who makes a power

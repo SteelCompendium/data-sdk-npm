@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN STINKER",
   "level": 1,
   "roles": [
@@ -21,18 +22,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": 2,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The stinker doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "abilities": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Toxic Winds",
       "icon": "🔳",
       "cost": "Signature Ability",
@@ -41,23 +45,25 @@
         "Magic",
         "Ranged"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "3 cube within 15",
       "target": "Each enemy in the cube",
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "1 poison damage; slide 1",
-          "t2": "2 poison damage; slide 2",
-          "t3": "3 poison damage; slide 3"
+          "tier1": "1 poison damage; slide 1",
+          "tier2": "2 poison damage; slide 2",
+          "tier3": "3 poison damage; slide 3"
         },
         {
-          "effect": "Increase the slide for one target by 1 square for each malice spent.",
-          "cost": "1+ Malice"
+          "cost": "1+ Malice",
+          "effect": "Increase the slide for one target by 1 square for each malice spent."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Swamp Gas",
       "icon": "🔳",
       "keywords": [
@@ -65,13 +71,13 @@
         "Magic",
         "Ranged"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "3 cube within 10",
       "target": "Special",
       "effects": [
         {
-          "effect": "The area is filled with a green haze until the start of the stinker’s next turn or until the stinker is reduced to Stamina 0. The area is difficult terrain for non-goblin creatures, and each such creature who moves within the area takes 2 poison damage for each square moved. The haze can’t be dispersed by wind.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The area is filled with a green haze until the start of the stinker’s next turn or until the stinker is reduced to Stamina 0. The area is difficult terrain for non-goblin creatures, and each such creature who moves within the area takes 2 poison damage for each square moved. The haze can’t be dispersed by wind."
         }
       ]
     }

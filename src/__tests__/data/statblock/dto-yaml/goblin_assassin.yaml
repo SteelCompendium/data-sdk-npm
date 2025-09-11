@@ -1,3 +1,4 @@
+type: statblock
 name: GOBLIN ASSASSIN
 level: 1
 roles:
@@ -18,43 +19,52 @@ agility: 2
 reason: 0
 intuition: 0
 presence: -2
-traits:
-  - name: Crafty
+features:
+  - type: feature
+    feature_type: trait
+    name: Crafty
+    icon: ⭐️
     effects:
       - effect: The assassin doesn’t provoke opportunity attacks by moving.
-  - name: Slip Away
+  - type: feature
+    feature_type: trait
+    name: Slip Away
+    icon: ⭐️
     effects:
       - effect: The assassin can take the Hide maneuver even while observed.
-abilities:
-  - name: Sword Stab
+  - type: feature
+    feature_type: ability
+    name: Sword Stab
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 4 damage
-        t2: 6 damage
-        t3: 7 damage
-      - effect: This ability deals an additional 2 damage if the assassin has an edge on
+        tier1: 4 damage
+        tier2: 6 damage
+        tier3: 7 damage
+      - name: Effect
+        effect: This ability deals an additional 2 damage if the assassin has an edge on
           the power roll.
-        name: Effect
-  - name: Shadow Chains
+  - type: feature
+    feature_type: ability
+    name: Shadow Chains
     icon: 🏹
     cost: 3 Malice
     keywords:
       - Magic
       - Ranged
-    type: Main action
+    usage: Main action
     distance: Ranged 10
     target: Three creatures
     effects:
       - roll: Power Roll + 2
-        t1: 2 corruption damage; A<0 restrained (save ends)
-        t2: 4 corruption damage; A<1 restrained (save ends)
-        t3: 5 corruption damage; A<2 restrained (save ends)
+        tier1: 2 corruption damage; A<0 restrained (save ends)
+        tier2: 4 corruption damage; A<1 restrained (save ends)
+        tier3: 5 corruption damage; A<2 restrained (save ends)

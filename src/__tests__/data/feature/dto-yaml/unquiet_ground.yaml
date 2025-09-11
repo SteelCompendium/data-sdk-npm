@@ -1,0 +1,20 @@
+type: feature
+feature_type: ability
+name: UNQUIET GROUND
+flavor: A sudden storm of detritus assaults your foes and leaves them struggling
+  to move.
+keywords:
+  - Area
+  - Earth
+  - Magic
+  - Ranged
+usage: Main Action
+distance: 2 cube within 10
+target: Each enemy in the area
+effects:
+  - roll: Power Roll + Reason
+    tier1: 2 damage
+    tier2: 5 damage
+    tier3: 7 damage
+  - name: Effect
+    effect: The ground beneath the area is difficult terrain for enemies.

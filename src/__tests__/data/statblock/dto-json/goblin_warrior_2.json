@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN WARRIOR",
   "level": 1,
   "roles": [
@@ -21,18 +22,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": -1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The warrior doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "abilities": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Spear Charge",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -42,19 +46,21 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature or object",
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "3 damage",
-          "t2": "4 damage",
-          "t3": "5 damage"
+          "tier1": "3 damage",
+          "tier2": "4 damage",
+          "tier3": "5 damage"
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bury the Point",
       "icon": "🗡",
       "cost": "2 Malice",
@@ -63,15 +69,15 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "One creature",
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "5 damage; M<0 bleeding (save ends)",
-          "t2": "6 damage; M<1 bleeding (save ends)",
-          "t3": "7 damage; M<2 bleeding (save ends)"
+          "tier1": "5 damage; M<0 bleeding (save ends)",
+          "tier2": "6 damage; M<1 bleeding (save ends)",
+          "tier3": "7 damage; M<2 bleeding (save ends)"
         }
       ]
     }

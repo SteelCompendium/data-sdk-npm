@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "GOBLIN SNIPER",
   "level": 1,
   "roles": [
@@ -22,18 +23,21 @@
   "reason": 0,
   "intuition": 0,
   "presence": -1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Crafty",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The sniper doesn’t provoke opportunity attacks by moving."
         }
       ]
-    }
-  ],
-  "abilities": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Bow",
       "icon": "🏹",
       "cost": "Signature Ability",
@@ -42,19 +46,19 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Ranged 10",
       "target": "One creature or object per minion",
       "effects": [
         {
           "roll": "Power Roll + 2",
-          "t1": "2 damage",
-          "t2": "4 damage",
-          "t3": "5 damage"
+          "tier1": "2 damage",
+          "tier2": "4 damage",
+          "tier3": "5 damage"
         },
         {
-          "effect": "If the sniper doesn’t use a move action this turn, the ability has an edge.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "If the sniper doesn’t use a move action this turn, the ability has an edge."
         }
       ]
     }

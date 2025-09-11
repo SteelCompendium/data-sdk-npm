@@ -1,5 +1,5 @@
-export * from './MarkdownAbilityWriter';
-export * from './MarkdownAbilityReader';
+export * from './MarkdownFeatureWriter';
+export * from './MarkdownFeatureReader';
 export * from './MarkdownStatblockWriter';
 export * from './MarkdownStatblockReader';
 export * from './MarkdownFeatureblockWriter';

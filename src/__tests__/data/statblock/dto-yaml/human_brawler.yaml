@@ -1,3 +1,4 @@
+type: statblock
 name: HUMAN BRAWLER
 level: 1
 roles:
@@ -20,42 +21,51 @@ agility: 1
 reason: 0
 intuition: 0
 presence: 0
-traits:
-  - name: Shoot the Hostage
+features:
+  - type: feature
+    feature_type: trait
+    name: Shoot the Hostage
+    icon: ⭐️
     effects:
       - effect: The brawler takes half damage from strikes if they have a creature or
           object grabbed. The grabbed creature or object takes the other half of
           the damage.
-  - name: Supernatural Insight
+  - type: feature
+    feature_type: trait
+    name: Supernatural Insight
+    icon: ⭐️
     effects:
       - effect: The brawler ignores concealment if it’s granted by a supernatural
           effect, or the target is supernatural.
-abilities:
-  - name: Haymaker
+  - type: feature
+    feature_type: ability
+    name: Haymaker
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 6 damage
-        t2: 9 damage
-        t3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
-      - effect: brawler deals an additional 2 damage if the target is already grabbed.
-        name: Effect
-  - name: Throw
+        tier1: 6 damage
+        tier2: 9 damage
+        tier3: 12 damage; M<2 grabbed, target has a bane on escaping the grab
+      - name: Effect
+        effect: brawler deals an additional 2 damage if the target is already grabbed.
+  - type: feature
+    feature_type: ability
+    name: Throw
     icon: 🗡
     cost: 1 Malice
     keywords:
       - —
-    type: Maneuver
+    usage: Maneuver
     distance: Melee 1
     target: One creature grabbed by the brawler
     effects:
-      - effect: Push 5.
-        name: Effect
+      - name: Effect
+        effect: Push 5.

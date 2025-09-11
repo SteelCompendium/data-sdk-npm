@@ -1,0 +1,23 @@
+type: feature
+feature_type: ability
+name: This is an H8 Header
+cost: 8 Energy
+flavor: You warp reality to grow a header for just a moment and make a single
+  devastating attack.
+keywords:
+  - Area
+  - Psionic
+usage: Main action
+distance: Ranged 10
+target: One creature or object
+metadata:
+  class: introduction
+  cost: 8 Energy
+  level: 1
+  name: This Is An H8 Header
+  type: ability
+effects:
+  - roll: Power Roll + Agility
+    tier1: 12 psychic damage; push 3
+    tier2: 17 psychic damage; push 5
+    tier3: 23 psychic damage; push 7

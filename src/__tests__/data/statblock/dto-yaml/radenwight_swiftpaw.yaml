@@ -1,3 +1,4 @@
+type: statblock
 name: RADENWIGHT SWIFTPAW
 level: 1
 roles:
@@ -19,32 +20,35 @@ agility: 2
 reason: 1
 intuition: 0
 presence: -1
-traits: []
-abilities:
-  - name: Rapier Flunge
+features:
+  - type: feature
+    feature_type: ability
+    name: Rapier Flunge
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object per minion
     effects:
       - roll: Power Roll + 2
-        t1: 1 damage; slide 1; shift 1
-        t2: 2 damage; slide 2; shift 2
-        t3: 3 damage; slide 3; shift 3
-  - name: Ready Rodent
+        tier1: 1 damage; slide 1; shift 1
+        tier2: 2 damage; slide 2; shift 2
+        tier3: 3 damage; slide 3; shift 3
+  - type: feature
+    feature_type: ability
+    name: Ready Rodent
     icon: ❗️
     keywords:
       - Melee
       - Weapon
-    type: Triggered action
+    usage: Triggered action
     distance: Melee 1
     target: One creature
     trigger: An ally deals damage to the target.
     effects:
-      - effect: The swiftpaw makes a free strike against the target.
-        name: Effect
+      - name: Effect
+        effect: The swiftpaw makes a free strike against the target.

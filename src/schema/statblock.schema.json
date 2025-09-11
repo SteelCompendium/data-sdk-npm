@@ -1,11 +1,12 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "statblock.schema.json",
+    "$id": "statblock.schema.json-2.0.0",
     "title": "Draw Steel Statblock",
     "description": "A creature statblock for a Draw Steel.",
     "type": "object",
     "required": [
         "name",
+        "type",
         "roles",
         "ancestry",
         "ev",
@@ -25,6 +26,10 @@
         "name": {
             "type": "string",
             "description": "The name of the creature."
+        },
+        "type": {
+            "type": "string",
+            "description": "Must always be 'statblock'"
         },
         "level": {
             "type": "integer",
@@ -83,16 +88,6 @@
             "description": "Movement types of the creature (e.g., 'climb, fly, swim').",
             "default": ""
         },
-        "melee_distance": {
-            "type": "integer",
-            "description": "Melee distance of the creature.",
-            "default": 0
-        },
-        "ranged_distance": {
-            "type": "integer",
-            "description": "Ranged distance of the creature.",
-            "default": 0
-        },
         "size": {
             "type": "string",
             "description": "Size category (e.g., 1M for medium).",
@@ -137,40 +132,13 @@
             "type": "string",
             "description": "Effect when a captain is present."
         },
-        "traits": {
+        "features": {
             "type": "array",
             "items": {
-                "$ref": "#/definitions/trait"
+                "$ref": "feature.schema.json-2.0.0#"
             },
-            "description": "Special traits of the creature.",
+            "description": "List of features (see Feature schema).",
             "default": []
-        },
-        "abilities": {
-            "type": "array",
-            "items": {
-                "$ref": "ability.schema.json#"
-            },
-            "description": "List of abilities (see Ability schema).",
-            "default": []
-        }
-    },
-    "definitions": {
-        "trait": {
-            "type": "object",
-            "required": [
-                "name",
-                "effects"
-            ],
-            "additionalProperties": false,
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name of the trait."
-                },
-                "effects": {
-                    "$ref": "ability.schema.json#/definitions/effectsArray"
-                }
-            }
         }
     }
 }

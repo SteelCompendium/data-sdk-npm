@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { SteelCompendiumIdentifier, SteelCompendiumFormat, Ability, Statblock } from '../..';
+import { SteelCompendiumIdentifier, SteelCompendiumFormat, Featureblock, Feature, Statblock } from '../..';
 
 describe('SteelCompendiumIdentifier', () => {
     const dataDir = path.join(__dirname, '../../__tests__/data');
@@ -33,9 +33,12 @@ describe('SteelCompendiumIdentifier', () => {
         return SteelCompendiumFormat.Unknown;
     };
 
-    const getExpectedModel = (filePath: string): typeof Ability | typeof Statblock | null => {
-        if (filePath.includes('ability')) {
-            return Ability;
+    const getExpectedModel = (filePath: string): typeof Feature | typeof Featureblock | typeof Statblock | null => {
+        if (filePath.includes('featureblock')) {
+            return Featureblock;
+        }
+        if (filePath.includes('feature')) {
+            return Feature;
         }
         if (filePath.includes('statblock')) {
             return Statblock;

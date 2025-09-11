@@ -1,9 +1,9 @@
 import { Statblock } from "../../model/Statblock";
 import { IDataWriter } from "../IDataWriter";
-import { MarkdownAbilityWriter } from "./MarkdownAbilityWriter";
+import { MarkdownFeatureWriter } from "./MarkdownFeatureWriter";
 
 export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
-    private abilityWriter = new MarkdownAbilityWriter();
+    private featureWriter = new MarkdownFeatureWriter();
 
     write(data: Statblock): string {
         const parts: string[] = [];
@@ -11,42 +11,15 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // Create the main statblock table
         parts.push(this.createStatblockTable(data));
 
-        // Add traits
-        if (data.traits && data.traits.length > 0) {
-            for (const trait of data.traits) {
-                if (!trait.name) continue;
-
-                // Build the trait block, then prefix each line with "> "
-                const tLines: string[] = [];
-
-                tLines.push(`> ⭐️ **${trait.name}**`);
-
-                if (trait.effects && trait.effects.effects.length > 0) {
-                    const effectLines = trait.effects.effects
-                        .filter(e => e.effectType() === 'MundaneEffect')
-                        .map((e: any) => {
-                            const label = e.name ? `**${e.name.trim()}:** ` : '';
-                            return `${label}${e.effect.trim()}`;      // no leading \n
-                        });
-                    tLines.push(...effectLines);
-                }
-
-                // Insert a blank line before each trait block (outside the quote)
-                parts.push('');
-                // Quote-prefix every line of this trait
-                parts.push(tLines.join('\n> \n> '));
-            }
-        }
-
-        // Add abilities
-        if (data.abilities && data.abilities.length > 0) {
+        // Add features
+        if (data.features && data.features.length > 0) {
             parts.push(""); // Empty line for spacing
             // parts.push("---"); // Separator
             // parts.push(""); // Empty line for spacing
 
-            for (const ability of data.abilities) {
-                parts.push(this.abilityWriter.write(ability, true));
-                parts.push(""); // Empty line between abilities
+            for (const feature of data.features) {
+                parts.push(this.featureWriter.write(feature, true));
+                parts.push(""); // Empty line between features
             }
         }
 
@@ -61,7 +34,7 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
      * |  Ancestry  | Movement |    Level    | With Captain |     EV     |
      * |:----------:|:--------:|:-----------:|:------------:|:----------:|
      * | **Size**<br>Size      | **Speed**<br>Speed | **Stamina**<br>Stamina | **Stability**<br>Stability | **Free Strike**<br>Free Strike |
-     * | **Immunities**<br>Immunities | **Movement**<br>Movement |           | **With Captain**<br>WithCaptain | **Weaknesses**<br>Weaknesses |
+     * | **Immunities**<br>Immunities | **Movement**<br>Movement |           | **With Captain**<br>WithCaptain | **Weaknesses**<br>Weakness |
      * | **Might**<br>Might | **Agility**<br>Agility | **Reason**<br>Reason | **Intuition**<br>Intuition | **Presence**<br>Presence |
      */
     private createStatblockTable(data: Statblock): string {

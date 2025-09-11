@@ -25,6 +25,7 @@ export abstract class SteelCompendiumModel<D extends SteelCompendiumDTO<any>> im
     }
 
     public abstract toDTO(): Partial<D>;
+    public abstract modelType(): string;
 }
 
 // Pseudo Models are for objects that are not directly mapped to a DTO

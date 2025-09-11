@@ -4,6 +4,7 @@ import fs from "fs";
 import path from "path";
 
 describe("JSONValidator", () => {
+    // TODO - load other json files
     const dataDir = path.resolve(__dirname, "../data/statblock/dto-json");
     const filenames = fs.readdirSync(dataDir).filter(file => file.endsWith(".json"));
 

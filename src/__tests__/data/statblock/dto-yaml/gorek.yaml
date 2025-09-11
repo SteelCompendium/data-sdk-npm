@@ -1,3 +1,4 @@
+type: statblock
 name: GOREK
 level: 2
 roles:
@@ -18,52 +19,64 @@ agility: 1
 reason: 0
 intuition: 0
 presence: 0
-traits:
-  - name: Overwhelm
+features:
+  - type: feature
+    feature_type: trait
+    name: Overwhelm
+    icon: ⭐️
     effects:
       - effect: Once per turn, when Gorek force moves a target or shifts into a square
           adjacent to a creature or object, he can make a free strike against
           them.
-  - name: Great Fortitude
+  - type: feature
+    feature_type: trait
+    name: Great Fortitude
+    icon: ⭐️
     effects:
       - effect: Gorek can’t be weakened.
-  - name: Rivalry
+  - type: feature
+    feature_type: trait
+    name: Rivalry
+    icon: ⭐️
     effects:
       - effect: Gorek selects one creature within line of effect at the start of an
           encounter. Both Gorek and the creature can add a 1d3 to all power
           rolls made against each other.
-abilities:
-  - name: Brutal Impact
+  - type: feature
+    feature_type: ability
+    name: Brutal Impact
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: Two creatures or objects
     effects:
       - roll: Power Roll + 2
-        t1: 7 damage; push 1
-        t2: 11 damage; push 2
-        t3: 14 damage; push 3
-      - effect: Each target is M<1 slowed (save ends).
-        cost: 2 Malice
-  - name: Let’s Tussle
+        tier1: 7 damage; push 1
+        tier2: 11 damage; push 2
+        tier3: 14 damage; push 3
+      - cost: 2 Malice
+        effect: Each target is M<1 slowed (save ends).
+  - type: feature
+    feature_type: ability
+    name: Let’s Tussle
     icon: 🗡
     cost: 2 Malice
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature the fury’s size or smaller
     effects:
       - roll: Power Roll + 2
-        t1: 8 damage; M<0 grabbed
-        t2: 13 damage; M<1 grabbed
-        t3: 16 damage; M<2 grabbed
-      - effect: Gorek has an edge on strikes against a grabbed creature.
-        name: Effect
+        tier1: 8 damage; M<0 grabbed
+        tier2: 13 damage; M<1 grabbed
+        tier3: 16 damage; M<2 grabbed
+      - name: Effect
+        effect: Gorek has an edge on strikes against a grabbed creature.

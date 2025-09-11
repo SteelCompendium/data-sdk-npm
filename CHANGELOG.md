@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.0.0
+
+- [BREAKING] The `Ability` and `Trait` models have merged together into a `Feature` model.  Turns out an `Ability` is a superset of `Trait` and differentiating them in code isnt very useful and adds complexity.
+  - New `feature_type` field added to differentiate between a trait and ability 
+-  All models are getting a top-level `type` field that declares if its a `Feature`, `Featureblock`, or `Statblock`
+- [BREAKING] Models with an existing `type` field had it renamed.  
+  - Featureblock's `type` field renamed to `featureblock_type`
+  - Ability's `type` field (for `Main Action`, `Maneuver`, etc) has been renamed to `usage`
+- [BREAKING] The `traits` and `abilities` fields are replaced with a single `features` field
+- [BREAKING] The `PowerRollEffect`, `TestEffect`, `MundaneEffect`, etc models are all getting merged together.  After parsing all the abilities in the final pdf release, its clear that Effects can come in a ton of different permutations and differentiating them isnt useful and just adds complexity.  
+  - Now there is a single `Effect` class which supports any permutation of the effect fields
+- The `Effect` model supports the `features` field which will add support for Features that grant abilities
+- `t1`, `t2`, and `t3` are getting renamed to `tier1`, `tier2`, and `tier3`
+  - Reading in alternate forms (`t1`, `≤11`, etc) is still supported
+- [BREAKING] `meleeDistance` and `rangedDistance` are removed from the Statblock model.  These were cut from the final pdf.
+- [BREAKING] Support for xml has been removed across the board.  Juice to maintain it isnt worth the squeeze.
+- The Feature (previously Ability) model's `name` field is now optional (to support unnamed features nested under an Effect)
+- Fixes to the Identifier to function better
+- Schema updates to account for the above changes
+- The `metadata` field is added to all models
+
 ## 0.0.44
 
 - Adds bin dir to package files

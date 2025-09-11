@@ -1,3 +1,4 @@
+type: statblock
 name: GLASS SPIDER
 level: 1
 roles:
@@ -19,74 +20,83 @@ agility: 1
 reason: -4
 intuition: 0
 presence: -3
-traits: []
-abilities:
-  - name: Bite
+features:
+  - type: feature
+    feature_type: ability
+    name: Bite
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 7 damage
-        t2: 11 damage
-        t3: 14 damage; A<2 bleeding (save ends)
-      - effect: A<3 bleeding (save ends).
-        cost: 2 Malice
-  - name: Slashing Leg
+        tier1: 7 damage
+        tier2: 11 damage
+        tier3: 14 damage; A<2 bleeding (save ends)
+      - cost: 2 Malice
+        effect: A<3 bleeding (save ends).
+  - type: feature
+    feature_type: ability
+    name: Slashing Leg
     icon: 🗡
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: Two creatures or objects
     effects:
       - roll: Power Roll + 2
-        t1: 6 damage
-        t2: 9 damage
-        t3: 12 damage
-  - name: Trample
+        tier1: 6 damage
+        tier2: 9 damage
+        tier3: 12 damage
+  - type: feature
+    feature_type: ability
+    name: Trample
     icon: 👤
     cost: 5 Malice
     keywords:
       - —
-    type: Main action
+    usage: Main action
     distance: Self
     target: Self
     effects:
-      - effect: The spider shifts up to their speed and makes a Slashing Leg strike
+      - name: Effect
+        effect: The spider shifts up to their speed and makes a Slashing Leg strike
           against each creature who comes within 1 of the spider during the
           move. The spider makes one power roll against all targets.
-        name: Effect
-  - name: Web
+  - type: feature
+    feature_type: ability
+    name: Web
     icon: 🔳
     keywords:
       - Area
       - Weapon
-    type: Maneuver
+    usage: Maneuver
     distance: 3 cube within 1
     target: All creatures in the cube
     effects:
       - roll: Power Roll + 2
-        t1: A<0 r estrained (save ends)
-        t2: A<1 r estrained (save ends)
-        t3: A<2 r estrained (save ends)
-  - name: Skitter
+        tier1: A<0 r estrained (save ends)
+        tier2: A<1 r estrained (save ends)
+        tier3: A<2 r estrained (save ends)
+  - type: feature
+    feature_type: ability
+    name: Skitter
     icon: ❗️
     keywords:
       - —
-    type: Triggered action
+    usage: Triggered action
     distance: Self
     target: Self
     trigger: The spider takes damage.
     effects:
-      - effect: The spider halves the damage, and then shifts 2 squares after the
+      - name: Effect
+        effect: The spider halves the damage, and then shifts 2 squares after the
           triggering effect resolves.
-        name: Effect

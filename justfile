@@ -1,3 +1,15 @@
+test:
+    npm run build && npm run test
+
+# features
+convert_test_features_from_md_to_json:
+    rm -rf "./tmp"
+    just convert markdown json feature "src/__tests__/data/feature/sc-md" "./tmp"
+
+convert_test_features_from_md_to_yaml:
+    rm -rf "./tmp"
+    just convert markdown yaml feature "src/__tests__/data/feature/sc-md" "./tmp"
+
 # statblocks
 convert_statblocks_from_json_to_md:
     rm -rf "./tmp"

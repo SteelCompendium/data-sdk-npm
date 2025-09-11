@@ -1,3 +1,4 @@
+type: statblock
 name: GOBLIN BATTLEBORN
 level: 2
 roles:
@@ -19,15 +20,19 @@ agility: 1
 reason: 0
 intuition: 1
 presence: 0
-traits:
-  - name: Cunning
+features:
+  - type: feature
+    feature_type: trait
+    name: Cunning
+    icon: ⭐️
     effects:
       - effect: The battleborn doesn’t provoke opportunity attacks from enemies by
           moving. Whenever the battleborn is adjacent to an enemy and willingly
           moves to a space no longer adjacent to that enemy, the battleborn can
           make an opportunity attack against them as a triggered action.
-abilities:
-  - name: Spear Charge
+  - type: feature
+    feature_type: ability
+    name: Spear Charge
     icon: 🗡
     cost: Signature Ability
     keywords:
@@ -35,27 +40,29 @@ abilities:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1
     target: One creature or object
     effects:
       - roll: Power Roll + 2
-        t1: 5 damage
-        t2: 6 damage
-        t3: 8 damage; prone; the battleborn continues charging up to their speed or
+        tier1: 5 damage
+        tier2: 6 damage
+        tier3: 8 damage; prone; the battleborn continues charging up to their speed or
           until they can make a free strike against another creature or object
-  - name: Battle Flurry
+  - type: feature
+    feature_type: ability
+    name: Battle Flurry
     icon: ❇️
     cost: 3 Malice
     keywords:
       - Area
       - Melee
       - Weapon
-    type: Main action
+    usage: Main action
     distance: 1 Burst
     target: Each creature and object in the burst
     effects:
       - roll: Power Roll + 2
-        t1: 3 damage; M<0 bleeding (save ends)
-        t2: 4 damage; M<1 bleeding (save ends)
-        t3: 5 damage; M<2 bleeding (save ends)
+        tier1: 3 damage; M<0 bleeding (save ends)
+        tier2: 4 damage; M<1 bleeding (save ends)
+        tier3: 5 damage; M<2 bleeding (save ends)

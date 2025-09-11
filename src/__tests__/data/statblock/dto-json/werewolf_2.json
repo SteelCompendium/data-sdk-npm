@@ -1,4 +1,5 @@
 {
+  "type": "statblock",
   "name": "WEREWOLF",
   "level": 1,
   "roles": [
@@ -20,22 +21,28 @@
   "reason": -1,
   "intuition": 1,
   "presence": 1,
-  "traits": [
+  "features": [
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Solo Monster",
+      "icon": "⭐️",
       "effects": [
         {
-          "effect": "The werewolf takes up to two turns each round. They can’t take turns consecutively.",
-          "name": "Solo Turns"
+          "name": "Solo Turns",
+          "effect": "The werewolf takes up to two turns each round. They can’t take turns consecutively."
         },
         {
-          "effect": "At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way.",
-          "name": "End Effect"
+          "name": "End Effect",
+          "effect": "At the end of their turn, the werewolf can take 5 damage to end one save ends effect affecting them. This damage can’t be reduced in any way."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Shapeshifter",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf enters combat in their hybrid humanoid form. Their shape can’t change via any effects beyond their own ability."
@@ -43,7 +50,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Shared Ferocity",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The Director gains 1d3 malice the first time a creature uses an ability that costs ferocity while within line of effect of the werewolf."
@@ -51,7 +61,10 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Accursed Rage",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf’s ferocity is expressed through rage. Their abilities are capable of inflicting rage points on enemies (excluding stormwight furies). If a creature has 10 or more rage at the start of their turn, they expend all of their rage, shift up to their speed towards the nearest creature, and make a melee free strike against them. A creature that takes damage in this way gains 1 rage. All accumulated rage disappears after completing a respite."
@@ -59,16 +72,19 @@
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "trait",
       "name": "Vukenstep",
+      "icon": "⭐️",
       "effects": [
         {
           "effect": "The werewolf ignores difficult terrain."
         }
       ]
-    }
-  ],
-  "abilities": [
+    },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Accursed Bite",
       "icon": "🗡",
       "cost": "Signature Ability",
@@ -78,27 +94,29 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "1 creature or object",
       "effects": [
         {
           "roll": "Power Roll + 3",
-          "t1": "9 damage; 2 rage",
-          "t2": "13 damage; 4 rage",
-          "t3": "16 damage; 5 rage"
+          "tier1": "9 damage; 2 rage",
+          "tier2": "13 damage; 4 rage",
+          "tier3": "16 damage; 5 rage"
         },
         {
-          "effect": "The target has P<0 lycanthropy. The potency of this ability increases by 1 each time the werewolf forces the same target to resist it.",
-          "cost": "2 Malice"
+          "cost": "2 Malice",
+          "effect": "The target has P<0 lycanthropy. The potency of this ability increases by 1 each time the werewolf forces the same target to resist it."
         },
         {
-          "effect": "A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "A creature afflicted with lycanthropy accumulates 2 rage at the end of each of their turns whenever they’re in combat. Their rage does not disappear after completing a respite; they must complete the Find a Cure project to end this condition."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Ripping Claws",
       "icon": "🗡",
       "keywords": [
@@ -106,19 +124,21 @@
         "Strike",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "Melee 1",
       "target": "Two creatures or objects",
       "effects": [
         {
           "roll": "Power Roll + 3",
-          "t1": "8 damage; M<1 bleeding (save ends)",
-          "t2": "11 damage; 1 rage; M<2 bleeding (save ends)",
-          "t3": "14 damage; 3 rage; M<3 bleeding (save ends)"
+          "tier1": "8 damage; M<1 bleeding (save ends)",
+          "tier2": "11 damage; 1 rage; M<2 bleeding (save ends)",
+          "tier3": "14 damage; 3 rage; M<3 bleeding (save ends)"
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Berserker Slash",
       "icon": "❇️",
       "cost": "3 Malice",
@@ -127,98 +147,108 @@
         "Melee",
         "Weapon"
       ],
-      "type": "Main action",
+      "usage": "Main action",
       "distance": "1 burst",
       "target": "All enemies and objects in the burst",
       "effects": [
         {
           "roll": "Power Roll + 3",
-          "t1": "4 damage; push 2",
-          "t2": "6 damage; 1 rage; push 3",
-          "t3": "7 damage; 3 rage; slide 3"
+          "tier1": "4 damage; push 2",
+          "tier2": "6 damage; 1 rage; push 3",
+          "tier3": "7 damage; 3 rage; slide 3"
         },
         {
-          "effect": "The werewolf shifts up to their speed before using this ability.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The werewolf shifts up to their speed before using this ability."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Wall Leap",
       "icon": "👤",
       "keywords": [
         "—"
       ],
-      "type": "Maneuver",
+      "usage": "Maneuver",
       "distance": "Self",
       "target": "Self",
       "effects": [
         {
-          "effect": "The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The werewolf jumps 4 squares. If they end this movement at a wall, the werewolf jumps off the wall 4 squares and makes a melee free strike that M<2 knocks the target prone."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Facepalm and Head Slam",
       "icon": "❗️",
       "cost": "2 Malice",
       "keywords": [
         "—"
       ],
-      "type": "Triggered action",
+      "usage": "Triggered action",
       "distance": "Melee 1",
       "target": "1 creature",
       "trigger": "The target targets the werewolf with a melee ability after charging or moving 2 or more squares in a straight line towards them.",
       "effects": [
         {
-          "effect": "The target is knocked prone and takes 5 damage before executing the ability.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The target is knocked prone and takes 5 damage before executing the ability."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Howl",
       "icon": "☠️",
       "cost": "Villain Action 1",
       "keywords": [
         "Area"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "5 burst",
       "target": "All enemies in the burst",
       "effects": [
         {
           "name": "Effect",
           "effect": "Each target makes an Intuition test.",
-          "t1": "Target moves up to their speed away from the werewolf; frightened (save ends)",
-          "t2": "Frightened (EoT)",
-          "t3": "no effect"
+          "tier1": "Target moves up to their speed away from the werewolf; frightened (save ends)",
+          "tier2": "Frightened (EoT)",
+          "tier3": "no effect"
         },
         {
-          "effect": "Enemies that have 1 or more rage gain 4 rage and howl along with the werewolf.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "Enemies that have 1 or more rage gain 4 rage and howl along with the werewolf."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Full Wolf",
       "icon": "☠️",
       "cost": "Villain Action 2",
       "keywords": [
         "—"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "Self",
       "target": "Self",
       "effects": [
         {
-          "effect": "The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The werewolf changes into a massive wolf, pushing adjacent creatures out of their way and moving into a square that can accommodate their new size. Until they die or the end of the encounter, their Speed is 10, their Size is 3, and their Stability is 2. Each of the werewolf’s strikes deal an additional 2 damage and inflict an additional 1 rage. The potency of the werewolf’s Accursed Bite increases by 1."
         }
       ]
     },
     {
+      "type": "feature",
+      "feature_type": "ability",
       "name": "Rampage",
       "icon": "☠️",
       "cost": "Villain Action 3",
@@ -227,19 +257,19 @@
         "Melee",
         "Weapon"
       ],
-      "type": "-",
+      "usage": "-",
       "distance": "2 burst",
       "target": "All creatures in the burst",
       "effects": [
         {
           "roll": "Power Roll + 3",
-          "t1": "5 damage; 2 rage; M<1 bleeding (save ends)",
-          "t2": "8 damage; 4 rage; M<2 bleeding (save ends)",
-          "t3": "11 damage; 8 rage; M<3 bleeding (save ends)"
+          "tier1": "5 damage; 2 rage; M<1 bleeding (save ends)",
+          "tier2": "8 damage; 4 rage; M<2 bleeding (save ends)",
+          "tier3": "11 damage; 8 rage; M<3 bleeding (save ends)"
         },
         {
-          "effect": "The werewolf shifts up to their speed before and after using this ability.",
-          "name": "Effect"
+          "name": "Effect",
+          "effect": "The werewolf shifts up to their speed before and after using this ability."
         }
       ]
     }

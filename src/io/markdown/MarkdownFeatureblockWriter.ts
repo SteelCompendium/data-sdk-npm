@@ -1,9 +1,9 @@
 import {Featureblock} from "../../model/Featureblock";
 import {IDataWriter} from "../IDataWriter";
-import {MarkdownAbilityWriter} from "./MarkdownAbilityWriter";
+import {MarkdownFeatureWriter} from "./MarkdownFeatureWriter";
 
 export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
-    private abilityWriter = new MarkdownAbilityWriter();
+    private featureWriter = new MarkdownFeatureWriter();
 
     public write(data: Featureblock): string {
         const parts: string[] = [];
@@ -11,7 +11,7 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
         // 1) Title: "###### Name (Level X Type)" | "###### Name (Type)" | "###### Name"
         const meta: string[] = [];
         if (isFiniteNum(data.level)) meta.push(`Level ${data.level}`);
-        if (data.type && data.type.trim()) meta.push(data.type.trim());
+        if (data.featureblock_type && data.featureblock_type.trim()) meta.push(data.featureblock_type.trim());
         const title = meta.length ? `${data.name} (${meta.join(" ")})` : data.name;
         parts.push(`###### ${title}`);
 
@@ -66,10 +66,10 @@ export class MarkdownFeatureblockWriter extends IDataWriter<Featureblock> {
 
         // 4) Features (each as a contiguous blockquote group)
         if ((data.features ?? []).length) {
-            for (const ability of data.features) {
+            for (const feature of data.features) {
                 parts.push("");
                 parts.push("<!-- -->");
-                parts.push(this.abilityWriter.write(ability, true).trimEnd());
+                parts.push(this.featureWriter.write(feature, true).trimEnd());
             }
         }
 

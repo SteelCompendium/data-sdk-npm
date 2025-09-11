@@ -1,0 +1,126 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "feature.schema.json-2.0.0",
+  "title": "Steel Compendium Feature",
+  "type": "object",
+  "required": [
+    "type",
+    "feature_type",
+    "effects"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The title or description of the feature"
+    },
+    "icon": {
+      "type": "string",
+      "description": "The icon of the feature (ex: \"🏹\")"
+    },
+    "type": {
+      "type": "string",
+      "description": "Must always be 'feature'"
+    },
+    "feature_type": {
+      "type": "string",
+      "description": "The type of the feature (ability or trait)"
+    },
+    "usage": {
+      "type": "string",
+      "description": "Usage (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+    },
+    "cost": {
+      "type": "string",
+      "description": "Cost to use the feature (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Keywords associated with the feature (e.g., [\"Magic\",\"Earth\",\"Melee\"])"
+    },
+    "distance": {
+      "type": "string",
+      "description": "Distance or area (e.g., \"Ranged 5\", \"2 burst\", \"Melee 1\")"
+    },
+    "target": {
+      "type": "string",
+      "description": "Who or what is targeted (e.g., \"All enemies\", \"One creature\", \"Self\")"
+    },
+    "trigger": {
+      "type": "string",
+      "description": "Trigger condition for triggered actions"
+    },
+    "effects": {
+      "$ref": "#/definitions/effectsArray"
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Flavor text of the feature"
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Metadata for the feature, to be converted to frontmatter in markdown. This field contains key-value pairs that will be rendered as YAML frontmatter.",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false,
+  "definitions": {
+    "effectsArray": {
+      "type": "array",
+      "minItems": 1,
+      "description": "List of effects (flexible formats)",
+      "items": {
+        "$ref": "#/definitions/effect"
+      }
+    },
+    "effect": {
+      "type": "object",
+      "required": [
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Name of the effect"
+        },
+        "cost": {
+          "type": "string",
+          "description": "Cost to trigger this effect"
+        },
+        "effect": {
+          "type": "string",
+          "description": "Effect expression (e.g., \"All targets make a Might test.\")"
+        },
+        "roll": {
+          "type": "string",
+          "description": "Power Roll expression (e.g., \"2d10 + 3\")"
+        },
+        "features": {
+          "type": "array",
+          "description": "List of features granted by the effect",
+          "items": {
+            "$ref": "feature.schema.json-2.0.0#"
+          }
+        },
+        "tier1": { "type": "string"},
+        "tier2": { "type": "string"},
+        "tier3": { "type": "string"},
+        "t1": { "type": "string"},
+        "t2": { "type": "string"},
+        "t3": { "type": "string"},
+        "crit": { "type": "string"},
+        "11 or lower": { "type": "string"},
+        "12-16": { "type": "string"},
+        "17+": { "type": "string"},
+        "nat 19-20": { "type": "string"}
+      },
+      "anyOf": [
+        { "required": ["effect"] },
+        { "required": ["roll", "tier1", "tier2", "tier3"] },
+        { "required": ["roll", "t1", "t2", "t3"] },
+        { "required": ["roll", "11 or lower", "12-16", "17+"] }
+      ]
+    }
+  }
+}

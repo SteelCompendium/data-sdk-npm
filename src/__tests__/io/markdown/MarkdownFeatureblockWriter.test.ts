@@ -21,7 +21,7 @@ describe("MarkdownFeatureblockWriter", () => {
             const inputText = fs.readFileSync(inputPath, "utf-8");
             const expectedOutput = fs.readFileSync(outputPath, "utf-8");
 
-            const featureblock = new Featureblock(JSON.parse(inputText));
+            const featureblock = Featureblock.fromDTO(JSON.parse(inputText));
             const result = writer.write(featureblock);
 
             expect(result.trim()).toEqual(expectedOutput.trim());

@@ -1,3 +1,4 @@
+type: statblock
 name: WALLMASTER
 level: 1
 roles:
@@ -21,23 +22,27 @@ agility: -5
 reason: -3
 intuition: 2
 presence: -3
-traits:
-  - name: Living Labyrinth
+features:
+  - type: feature
+    feature_type: trait
+    name: Living Labyrinth
+    icon: ⭐️
     effects:
       - effect: The wallmaster starts combat affixed to a wall. At the start of each
           round of combat while affixed to a wall, the wallmaster creates a 20
           wall of stone within a distance of 10 squares. Any walls created by
           the wallmaster in the previous round are destroyed or replaced by the
           new walls.
-abilities:
-  - name: Wall Slam
+  - type: feature
+    feature_type: ability
+    name: Wall Slam
     icon: 🗡
     cost: Signature Ability
     keywords:
       - Melee
       - Strike
       - Weapon
-    type: Main action
+    usage: Main action
     distance: Melee 1 (Special)
     target: Two creatures or objects
     effects:
@@ -45,18 +50,20 @@ abilities:
         effect: The wallmaster chooses two wall segments within 10 squares. Each segment
           falls on a single target within distance, and is then destroyed.
       - roll: Power Roll + 2
-        t1: 6 damage
-        t2: 9 damage; A<1 prone
-        t3: 12 damage; A<2 prone can’t stand (EoT)
-      - effect: The wallmaster chooses an additional wall segment and target for every 3
+        tier1: 6 damage
+        tier2: 9 damage; A<1 prone
+        tier3: 12 damage; A<2 prone can’t stand (EoT)
+      - cost: 3+ Malice
+        effect: The wallmaster chooses an additional wall segment and target for every 3
           malice spent.
-        cost: 3+ Malice
-  - name: Dead End
+  - type: feature
+    feature_type: ability
+    name: Dead End
     icon: 🗡
     keywords:
       - Area
       - Weapon
-    type: Maneuver
+    usage: Maneuver
     distance: Melee 1 (Special)
     target: 1 creature or object
     effects:
@@ -65,30 +72,34 @@ abilities:
           pushes a target within distance, and shifts into each square they
           leave behind.
       - roll: Power Roll + 2
-        t1: Push 2
-        t2: Push 4
-        t3: Push 5
-  - name: The Wall Sees All
+        tier1: Push 2
+        tier2: Push 4
+        tier3: Push 5
+  - type: feature
+    feature_type: ability
+    name: The Wall Sees All
     icon: 🏹
     cost: 5 Malice
     keywords:
       - Magic
-    type: Maneuver
+    usage: Maneuver
     distance: Ranged 10
     target: Self
     effects:
-      - effect: The wallmaster teleports to a wall within distance and affixes itself to
+      - name: Effect
+        effect: The wallmaster teleports to a wall within distance and affixes itself to
           it.
-        name: Effect
-  - name: Wall Redirect
+  - type: feature
+    feature_type: ability
+    name: Wall Redirect
     icon: ❗️
     keywords:
       - —
-    type: Triggered action
+    usage: Triggered action
     distance: Melee 1
     target: 1 ally
     trigger: A creature damages the wall with a strike.
     effects:
-      - effect: The wall redirects the strike to the target creature and isn’t targeted
+      - name: Effect
+        effect: The wall redirects the strike to the target creature and isn’t targeted
           by the strike.
-        name: Effect

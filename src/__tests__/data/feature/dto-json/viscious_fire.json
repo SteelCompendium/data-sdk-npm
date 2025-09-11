@@ -1,0 +1,23 @@
+{
+  "type": "feature",
+  "feature_type": "ability",
+  "name": "VISCOUS FIRE",
+  "flavor": "A jet of heavy fire erupts where you strike.",
+  "keywords": [
+    "Fire",
+    "Magic",
+    "Ranged",
+    "Strike"
+  ],
+  "usage": "Main Action",
+  "distance": "Ranged 10",
+  "target": "One creature or object",
+  "effects": [
+    {
+      "roll": "Power Roll + Reason",
+      "tier1": "2 + R fire damage; push 2",
+      "tier2": "5 + R fire damage; push 3",
+      "tier3": "7 + R fire damage; push 4"
+    }
+  ]
+}

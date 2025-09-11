@@ -1,3 +1,4 @@
+type: statblock
 name: CIVILIAN
 level: 0
 roles: []
@@ -14,5 +15,4 @@ agility: 0
 reason: 0
 intuition: 0
 presence: 0
-traits: []
-abilities: []
+features: []

@@ -1,0 +1,23 @@
+{
+  "type": "feature",
+  "feature_type": "ability",
+  "name": "HEALING GRACE",
+  "flavor": "Your divine energy restores the righteous.",
+  "keywords": [
+    "Magic",
+    "Ranged"
+  ],
+  "usage": "Maneuver",
+  "distance": "Ranged 10",
+  "target": "Self or one ally",
+  "effects": [
+    {
+      "name": "Effect",
+      "effect": "The target can spend a Recovery."
+    },
+    {
+      "cost": "Spend 1+ Piety",
+      "effect": "For each piety spent, choose one of the following enhancements:\n• You can target one additional ally within distance.\n• You can end one condition or effect on a target that is ended by a saving throw or that ends at the end of their turn.\n• A prone target can stand up.\n• A target can spend 1 additional Recovery."
+    }
+  ]
+}

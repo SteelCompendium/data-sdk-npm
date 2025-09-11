@@ -1,0 +1,21 @@
+type: feature
+feature_type: ability
+name: TRANSLATED THROUGH FLAME
+cost: 5 ESSENCE
+flavor: Your ally disappears, then reappears in a burst of fire.
+keywords:
+  - Fire
+  - Magic
+  - Ranged
+  - Void
+usage: Main Action
+distance: Ranged 10
+target: Self or one ally
+effects:
+  - name: Effect
+    effect: The target is teleported to another space within distance. Make a power
+      roll that affects each enemy adjacent to the target’s new space.
+  - roll: Power Roll + Reason
+    tier1: 3 fire damage
+    tier2: 5 fire damage
+    tier3: 8 fire damage
