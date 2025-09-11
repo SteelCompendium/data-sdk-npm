@@ -88,16 +88,6 @@
             "description": "Movement types of the creature (e.g., 'climb, fly, swim').",
             "default": ""
         },
-        "melee_distance": {
-            "type": "integer",
-            "description": "Melee distance of the creature.",
-            "default": 0
-        },
-        "ranged_distance": {
-            "type": "integer",
-            "description": "Ranged distance of the creature.",
-            "default": 0
-        },
         "size": {
             "type": "string",
             "description": "Size category (e.g., 1M for medium).",
