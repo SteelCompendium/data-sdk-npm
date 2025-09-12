@@ -15,6 +15,7 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
     name?: string;
     icon?: string;
     cost?: string;
+    ability_type?: string;
     flavor?: string;
     keywords?: string[];
     usage?: string;
