@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.0
+
+- Adds `--version` flag to `sc-convert`
+
 ## 2.0.0
 
 - Adds `ability_type` to the Feature model (`Signature`, `Heroic`)

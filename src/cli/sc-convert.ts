@@ -11,8 +11,8 @@
  *   npm run build && npm link && sc-convert --from markdown --to json --type statblock ../data-gen/staging/monsters/8_formatted_md/Monsters/Angulotls/Statblocks/Angulotl\ Pollywog.md --output ./tmp
  */
 
-import {promises as fs} from 'fs';
-import {dirname, extname, join, basename} from 'path';
+import {promises as fs, readFileSync as rfs} from 'fs';
+import {dirname, extname, join, basename, resolve} from 'path';
 
 import {JsonWriter} from '../io/json/JsonWriter';
 import {YamlWriter} from '../io/yaml/YamlWriter';
@@ -28,6 +28,11 @@ interface CLIArgs {
     type?: string;
     output?: string;
     input: string;
+}
+
+function getPkg() {
+    const pkgPath = resolve(__dirname, "../../package.json");
+    return JSON.parse(rfs(pkgPath, "utf8"));
 }
 
 function parseArgs(): CLIArgs {
@@ -48,6 +53,10 @@ function parseArgs(): CLIArgs {
                 break;
             case '--output':
                 cli.output = args[++i];
+                break;
+            case '--version':
+                console.log(getPkg().version);
+                process.exit(0);
                 break;
             default:
                 if (args[i].startsWith('--')) {
