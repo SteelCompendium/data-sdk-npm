@@ -50,7 +50,7 @@
       "feature_type": "ability",
       "name": "The Writhing Green",
       "icon": "🏹",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Green",
         "Magic",

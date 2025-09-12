@@ -25,7 +25,7 @@ features:
     feature_type: ability
     name: Rapier Flunge
     icon: 🗡
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Melee
       - Strike

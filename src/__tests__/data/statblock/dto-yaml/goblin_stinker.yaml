@@ -30,7 +30,7 @@ features:
     feature_type: ability
     name: Toxic Winds
     icon: 🔳
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Area
       - Magic

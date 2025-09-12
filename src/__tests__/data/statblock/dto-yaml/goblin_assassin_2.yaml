@@ -36,7 +36,7 @@ features:
     feature_type: ability
     name: Sword Stab
     icon: 🗡
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Melee
       - Strike

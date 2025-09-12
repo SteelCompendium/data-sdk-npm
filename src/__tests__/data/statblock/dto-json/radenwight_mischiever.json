@@ -29,7 +29,7 @@
       "feature_type": "ability",
       "name": "Dagger Dance",
       "icon": "⚔️",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

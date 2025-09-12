@@ -41,7 +41,7 @@
       "feature_type": "ability",
       "name": "Clobber and Clutch",
       "icon": "🗡",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

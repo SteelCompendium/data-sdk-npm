@@ -30,7 +30,7 @@
       "feature_type": "ability",
       "name": "Bite",
       "icon": "🗡",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

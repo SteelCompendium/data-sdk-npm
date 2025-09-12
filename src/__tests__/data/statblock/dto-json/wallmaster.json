@@ -44,7 +44,7 @@
       "feature_type": "ability",
       "name": "Wall Slam",
       "icon": "🗡",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

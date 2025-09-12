@@ -51,7 +51,7 @@ features:
     feature_type: ability
     name: Sand Slam
     icon: 🗡
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Melee
       - Strike
@@ -136,7 +136,7 @@ features:
     feature_type: ability
     name: First Warning Quake
     icon: ☠️
-    cost: Villain Action 1
+    ability_type: Villain Action 1
     keywords:
       - Area
     usage: "-"
@@ -154,7 +154,7 @@ features:
     feature_type: ability
     name: Final Warning Fissure
     icon: ☠️
-    cost: Villain Action 2
+    ability_type: Villain Action 2
     keywords:
       - Area
     usage: "-"
@@ -174,7 +174,7 @@ features:
     feature_type: trait
     name: No Escape
     icon: ☠️
-    cost: Villain Action 3
+    ability_type: Villain Action 3
     effects:
       - name: Effect
         effect: The cryptic makes an initial power roll that calls down stone pillars

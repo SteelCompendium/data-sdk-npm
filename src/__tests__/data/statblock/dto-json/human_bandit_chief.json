@@ -52,7 +52,7 @@
       "feature_type": "ability",
       "name": "Whip & Magic Longsword",
       "icon": "🗡",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Magic",
         "Melee",
@@ -128,7 +128,7 @@
       "feature_type": "ability",
       "name": "Shoot!",
       "icon": "☠️",
-      "cost": "Villain Action 1",
+      "ability_type": "Villain Action 1",
       "keywords": [
         "Area"
       ],
@@ -147,7 +147,7 @@
       "feature_type": "ability",
       "name": "Form Up!",
       "icon": "☠️",
-      "cost": "Villain Action 2",
+      "ability_type": "Villain Action 2",
       "keywords": [
         "Area"
       ],
@@ -166,7 +166,7 @@
       "feature_type": "ability",
       "name": "Lead From the Front",
       "icon": "☠️",
-      "cost": "Villain Action 3",
+      "ability_type": "Villain Action 3",
       "keywords": [
         "—"
       ],

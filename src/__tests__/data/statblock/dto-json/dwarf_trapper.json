@@ -27,7 +27,7 @@
       "feature_type": "ability",
       "name": "Concussive Bolts",
       "icon": "⚔️",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Charge",
         "Melee",

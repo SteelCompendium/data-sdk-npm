@@ -1,8 +1,10 @@
 # Changelog
 
-## 1.1.0
+## 2.0.0
 
 - Adds `ability_type` to the Feature model (`Signature`, `Heroic`)
+- [BREAKING] Parsing Features with `cost` of `Signature Ability` or `Villain Acton *` now populate the `ability_type` field instead
+  - Unfortunately, this is technically a breaking change.  Sorry this didnt get bundled in the 1.0.0 release.
 
 ## 1.0.0
 

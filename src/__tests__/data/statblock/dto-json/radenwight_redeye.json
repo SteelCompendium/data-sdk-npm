@@ -29,7 +29,7 @@
       "feature_type": "ability",
       "name": "Eyes-On-Me Shot",
       "icon": "🏹",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Ranged",
         "Strike",

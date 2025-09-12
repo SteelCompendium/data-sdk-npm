@@ -31,7 +31,7 @@ features:
     feature_type: ability
     name: Bow
     icon: 🏹
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Ranged
       - Strike

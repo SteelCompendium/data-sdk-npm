@@ -51,7 +51,7 @@
       "feature_type": "ability",
       "name": "Zweihander Swing",
       "icon": "❇️",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Area",
         "Melee",
@@ -119,7 +119,7 @@
       "feature_type": "ability",
       "name": "Advance!",
       "icon": "☠️",
-      "cost": "Villain Action 1",
+      "ability_type": "Villain Action 1",
       "keywords": [
         "—"
       ],
@@ -138,7 +138,7 @@
       "feature_type": "ability",
       "name": "Back!",
       "icon": "☠️",
-      "cost": "Villain Action 2",
+      "ability_type": "Villain Action 2",
       "keywords": [
         "Area",
         "Magic"
@@ -158,7 +158,7 @@
       "feature_type": "ability",
       "name": "I Can Throw My Blade and So Should You!",
       "icon": "☠️",
-      "cost": "Villain Action 3",
+      "ability_type": "Villain Action 3",
       "keywords": [
         "Area",
         "Magic",

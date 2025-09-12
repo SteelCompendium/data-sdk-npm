@@ -43,6 +43,7 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
         if (parsed.icon) partial.icon = parsed.icon;
         if (parsed.name) partial.name = parsed.name;
         if (parsed.cost) partial.cost = parsed.cost;
+        if (parsed.ability_type) partial.ability_type = parsed.ability_type;
 
         // Only increment the line if there is a title line
         if (parsed.icon || partial.name || parsed.cost) {
@@ -230,9 +231,22 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
         //    Captures the final parenthesized chunk as cost if present.
         const m = s.match(/^(.*?)(?:\s*\(([^()]+)\))?$/);
         const name = (m?.[1] ?? s).trim();
-        const cost = m?.[2]?.trim();
+        const label = m?.[2]?.trim();
 
-        return {icon: icon || undefined, name, cost: cost || undefined};
+        let cost = undefined;
+        let ability_type = undefined;
+        if (label && label.match(/^\d/)) {
+            cost = label;
+        } else {
+            ability_type = label;
+        }
+
+        return {
+            icon: icon || undefined,
+            name,
+            cost: cost || undefined,
+            ability_type: ability_type || undefined
+        };
     }
 
     private parseTiers(i: number, lines: string[], effect: Partial<Effect>) {

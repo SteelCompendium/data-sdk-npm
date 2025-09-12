@@ -23,6 +23,9 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
             if (data.cost) {
                 title += ` (${data.cost})`;
             }
+            if (data.ability_type) {
+                title += ` (${data.ability_type})`;
+            }
             title += `${suffix}`;
             parts.push(title);
         }

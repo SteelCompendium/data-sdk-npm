@@ -53,7 +53,7 @@
       "feature_type": "ability",
       "name": "Haymaker",
       "icon": "🗡",
-      "cost": "Signature Ability",
+      "ability_type": "Signature Ability",
       "keywords": [
         "Melee",
         "Strike",

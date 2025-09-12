@@ -34,7 +34,7 @@ features:
     feature_type: ability
     name: Spear Charge
     icon: 🗡
-    cost: Signature Ability
+    ability_type: Signature Ability
     keywords:
       - Charge
       - Melee
