@@ -8,7 +8,6 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
     name!: string;
     icon?: string;
     cost?: string;
-    ability_type?: string;
     keywords?: string[];
     usage?: string;
     distance?: string;
@@ -29,7 +28,6 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
         if (model.name !== undefined) dto.name = model.name;
         if (model.icon !== undefined) dto.icon = model.icon;
         if (model.cost !== undefined) dto.cost = model.cost;
-        if (model.ability_type !== undefined) dto.ability_type = model.ability_type;
         if (model.flavor !== undefined) dto.flavor = model.flavor;
         if (model.keywords !== undefined) dto.keywords = model.keywords;
         if (model.usage !== undefined) dto.usage = model.usage;

@@ -14,7 +14,6 @@ The root object represents a complete feature with the following properties:
 | `icon`         | string   | No       | The icon of the feature (ex: "🏹")                                          |
 | `usage`        | string   | Yes      | Usage (e.g., "Action", "Maneuver", "Triggered Action", "Villain Action 1")  |
 | `cost`         | string   | No       | Cost to use the feature (e.g., "5 Essence", "Signature", "2 Malice")        |
-| `ability_type` | string   | No       | Type of the ability (Signature or Heroic)                                   |
 | `keywords`     | string[] | No       | Keywords associated with the feature (e.g., ["Magic", "Earth", "Melee"])    |
 | `distance`     | string   | No       | Distance or area (e.g., "Ranged 5", "2 burst", "Melee 1")                   |
 | `target`       | string   | No       | Who or what is targeted (e.g., "All enemies", "One creature", "Self")       |

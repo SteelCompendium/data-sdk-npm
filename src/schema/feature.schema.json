@@ -33,10 +33,6 @@
       "type": "string",
       "description": "Cost to use the feature (e.g., \"5 Essence\", \"Signature\", \"2 Malice\")"
     },
-    "ability_type": {
-      "type": "string",
-      "description": "Type of the ability (Signature or Heroic)"
-    },
     "keywords": {
       "type": "array",
       "items": {

@@ -1,9 +1,5 @@
 # Changelog
 
-## 1.1.0
-
-- Adds `ability_type` to the Feature model (`Signature`, `Heroic`)
-
 ## 1.0.0
 
 - [BREAKING] The `Ability` and `Trait` models have merged together into a `Feature` model.  Turns out an `Ability` is a superset of `Trait` and differentiating them in code isnt very useful and adds complexity.
