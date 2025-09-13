@@ -1,6 +1,6 @@
 {
   "name": "steel-compendium-sdk",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A Software Development Kit for Steel Compendium data.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
     "sc-convert": "dist/cli/sc-convert.js"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && mkdir -p dist/schema && cp src/schema/*.json dist/schema/",
     "test": "jest",
     "prepublishOnly": "npm run build"
   },

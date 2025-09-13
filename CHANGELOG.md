@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.1
+
+- Updates to publish the schemas
+
 ## 2.1.0
 
 - Adds `--version` flag to `sc-convert`
