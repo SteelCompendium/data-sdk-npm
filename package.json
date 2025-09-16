@@ -12,7 +12,7 @@
     ".": "./dist/index.js",
     "./model": "./dist/model/index.js",
     "./dto": "./dist/dto/index.js",
-    "./schema/": "./dist/schema/"
+    "./schema/": "./dist/schema/index.js"
   },
   "bin": {
     "sc-convert": "dist/cli/sc-convert.js"
