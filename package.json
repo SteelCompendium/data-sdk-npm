@@ -1,6 +1,6 @@
 {
   "name": "steel-compendium-sdk",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A Software Development Kit for Steel Compendium data.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -11,7 +11,8 @@
   "exports": {
     ".": "./dist/index.js",
     "./model": "./dist/model/index.js",
-    "./dto": "./dist/dto/index.js"
+    "./dto": "./dist/dto/index.js",
+    "./schema/": "./dist/schema/"
   },
   "bin": {
     "sc-convert": "dist/cli/sc-convert.js"
