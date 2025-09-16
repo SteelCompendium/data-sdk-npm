@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.1.2
+## 2.1.3
 
 - Updates to publish the schemas
 
