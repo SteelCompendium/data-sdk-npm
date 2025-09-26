@@ -33,8 +33,15 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             lines = lines.map(l => l.replace(/^\s*>\s?/, ''));
         }
 
+        // Only keep non-empty lines or empty lines where the next line starts a blockquote
+        lines = lines.filter((line, i, arr) => {
+            const notEmpty = line.trim() !== "";
+            const nextStartsBlockquote = arr[i + 1]?.startsWith(">") ?? false;
+            return notEmpty || nextStartsBlockquote;
+        });
+
         // TODO - this might be the cause for needing the extra newline in the unnamed effect case
-        lines = lines.filter(line => line.trim() !== '');
+        // lines = lines.filter(line => line.trim() !== '');
         let i = 0;
 
         // Title, icon, and Cost
@@ -87,8 +94,11 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
             // Check if we need to start a new effect
             if (Object.keys(partial).length !== 0) {
-                // if there is an effect name or power roll OR if a mundane line and effect already exists on the partial effect
-                if (lines[lineIdx].startsWith('**') || (!lines[lineIdx].startsWith('- **') && !lines[lineIdx].startsWith('> ') && partial.effect)) {
+                // Start a new effect if:
+                // - the line starts with a new effect component (is bold: power roll, effect name, etc) OR
+                // - the partial has an effect AND the line isnt a known continuation (tier, nested feature, empty line between nested features, etc)
+                if (lines[lineIdx].startsWith('**') ||
+                    (!lines[lineIdx].startsWith('- **') && !lines[lineIdx].startsWith('> ') && !lines[lineIdx].startsWith('<!-- -->') && lines[lineIdx].trim() !== '' && partial.effect)) {
                     effects.push(new Effect(partial));
                     partial = {};
                 }
@@ -106,6 +116,11 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
 
     private parseEffectSubblock(lineIdx: number, lines: string[], currentEffect: Partial<Effect>): number {
         const line = lines[lineIdx];
+
+        if (lines[lineIdx].startsWith('<!-- -->')){
+            lineIdx++;
+            return lineIdx;
+        }
 
         // Roll
         if (line.startsWith('**') && line.endsWith(':**')) {
@@ -161,7 +176,11 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             return lineIdx;
         }
 
-        // TODO - figure out if we need to read in a nested feature
+        // Empty line (likely between nested feature quoteblocks)
+        if (lines[lineIdx].trim() === '') {
+            lineIdx++;
+            return lineIdx;
+        }
 
         console.warn("Unexpected line in effect block, skipping:", line);
         lineIdx++;
@@ -175,7 +194,7 @@ export class MarkdownFeatureReader implements IDataReader<Feature> {
             effect += '\n' + lines[lineIdx];
             lineIdx++;
         }
-        effect = effect.trim();
+        effect = effect.replace(/^\s*<!--.*?-->\s*$/gm, "").trim();
         return {lineIdx, effect};
     }
 

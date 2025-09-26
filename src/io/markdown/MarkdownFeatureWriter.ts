@@ -8,7 +8,6 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
         const parts: string[] = [];
         const linePrefix = blockquote_output ? '> ' : '';
 
-
         if (data.metadata && Object.keys(data.metadata).length > 0) {
             const yamlString = yaml.dump(data.metadata);
             parts.push(`---\n${yamlString.trim()}\n---`);
@@ -182,7 +181,8 @@ export class MarkdownFeatureWriter implements IDataWriter<Feature> {
             effectParts.push(`- **Natural 19-20:** ${effect.crit.trim()}`);
         }
         if (effect.features && effect.features.length > 0) {
-            let items = effect.features.map((f:Feature) => this.write(f, true));
+            // let items = effect.features.map((f:Feature) => "<!-- -->\n" + this.write(f, true));
+            let items = effect.features.map((f:Feature) => this.write(f, true) + "\n");
             effectParts.push(...items);
         }
 

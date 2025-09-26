@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.1.5
+
+- Fixes parsing of Feature effects with nested features
+
 ## 2.1.4
 
 - Updates to publish the schemas
