@@ -22,8 +22,6 @@ The root object represents a complete statblock with the following properties:
 | `size`            | string    | Yes      | ""          | Size category (e.g., 1M for medium).                                 |
 | `stability`       | integer   | Yes      | 0           | Stability value of the creature.                                     |
 | `free_strike`     | integer   | Yes      | 0           | The free strike value.                                               |
-| `melee_distance`  | integer   | No       | 0           | The melee distance.                                                  |
-| `ranged_distance` | integer   | No       | 0           | The ranged distance.                                                 |
 | `might`           | integer   | Yes      | 0           | Might modifier.                                                      |
 | `agility`         | integer   | Yes      | 0           | Agility modifier.                                                    |
 | `reason`          | integer   | Yes      | 0           | Reason modifier.                                                     |
