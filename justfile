@@ -9,10 +9,10 @@ release version:
         echo "Cannot release: 'git status' is not clean.  Commit/push or stash changes first"
         exit 0
     fi
-	jq '.version = "{{version}}"' package.json > tmp && mv tmp package.json
-	git add .
-	git commit --allow-empty -am "Prepares for release '{{version}}'"
-	git push
+    jq '.version = "{{version}}"' package.json > tmp && mv tmp package.json
+    git add .
+    git commit --allow-empty -am "Prepares for release '{{version}}'"
+    git push
     npm publish
 
 # features
