@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.2.0
+
+- Adds support for subtrait
+
 ## 2.1.5
 
 - Fixes parsing of Feature effects with nested features

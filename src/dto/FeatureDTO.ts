@@ -25,6 +25,7 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
 
     public static partialFromModel(model: Feature): Partial<FeatureDTO> {
         const dto: Partial<FeatureDTO> = { type: model.modelType() };
+        // TODO - subtrait...?
         dto.feature_type = model.isTrait() ? "trait" : "ability";
         if (model.name !== undefined) dto.name = model.name;
         if (model.icon !== undefined) dto.icon = model.icon;

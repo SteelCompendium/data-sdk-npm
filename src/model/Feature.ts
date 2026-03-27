@@ -4,10 +4,11 @@ import {Effect} from "./Effect";
 
 export enum FeatureType {
     Ability = "ability",
-    Trait = "trait"
+    Trait = "trait",
+    Subtrait = "subtrait"
 }
 
-// Features are either an Ability and Trait...
+// Features are either an Ability, Trait, or Subtrait...
 export class Feature extends SteelCompendiumModel<FeatureDTO> {
     public static readonly FEATURE_TYPE = "feature";
 
@@ -39,6 +40,8 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
             ft = FeatureType.Ability;
         } else if (dto.feature_type === FeatureType.Trait) {
             ft = FeatureType.Trait;
+        } else if (dto.feature_type === FeatureType.Subtrait) {
+            ft = FeatureType.Subtrait;
         } else {
             ft = dto.isTrait() ? FeatureType.Trait : FeatureType.Ability;
         }
@@ -57,12 +60,13 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
         return Feature.FEATURE_TYPE;
     }
 
-    // A trait is defined as a feature without keywords, usage, distance, and target
     public isTrait() {
         return Feature.isTrait(this);
     }
 
     // Here for FeatureDTO (and used in writer?)
+    // A trait is defined as a feature without keywords, usage, distance, and target
+    // This is more accurately "isNotAbility"
     public static isTrait(data: any): boolean {
         return (!data.keywords || data.keywords?.length == 0) && !data.usage && !data.distance && !data.target;
     }

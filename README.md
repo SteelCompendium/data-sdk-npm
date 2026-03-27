@@ -23,8 +23,9 @@ Please use this [form to report bugs](https://docs.google.com/forms/d/e/1FAIpQLS
 - Test: `npm run test`
 - Publish version
   - Update `CHANGELOG.md` with release notes
-  - Update `pacakge.json` with new version
-  - `npm publish`
+  - run `just release <version>` Or...
+    - Update `package.json` with new version
+    - `npm publish`
 
 Run the `sc-convert` cli tool with:
 ```bash

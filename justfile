@@ -1,6 +1,20 @@
 test:
     npm run build && npm run test
 
+# Creates a release (make sure changelog is already setup)
+release version:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [[ `git status --porcelain` ]]; then
+        echo "Cannot release: 'git status' is not clean.  Commit/push or stash changes first"
+        exit 0
+    fi
+	jq '.version = "{{version}}"' package.json > tmp && mv tmp package.json
+	git add .
+	git commit --allow-empty -am "Prepares for release '{{version}}'"
+	git push
+    npm publish
+
 # features
 convert_test_features_from_md_to_json:
     rm -rf "./tmp"
