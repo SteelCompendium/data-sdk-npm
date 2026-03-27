@@ -2,6 +2,7 @@ test:
     npm run build && npm run test
 
 # Creates a release (make sure changelog is already setup)
+# if this 404s or 403s, you likely need to reauthenticate or regen a PAT (also see .npmrc)
 release version:
     #!/usr/bin/env bash
     set -euo pipefail
