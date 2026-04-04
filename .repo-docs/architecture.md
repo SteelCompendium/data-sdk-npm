@@ -45,7 +45,7 @@ Output (JSON/YAML/Markdown string)
 | Format | Reader | Writer | Notes |
 |--------|--------|--------|-------|
 | JSON | `JsonReader` (generic) | `JsonWriter` (generic) | Works for all model types via `ModelDTOAdapter` |
-| YAML | `YamlReader` (generic) | `YamlWriter` (generic) | Same adapter pattern as JSON |
+| YAML | `YamlReader` (generic) | `YamlWriter` (generic) | Same adapter pattern as JSON. Also used by the draw-steel-elements Obsidian plugin to deserialize YAML from markdown notes. |
 | Markdown | `MarkdownFeatureReader`, `MarkdownStatblockReader`, `MarkdownFeatureblockReader` | `MarkdownFeatureWriter`, `MarkdownStatblockWriter`, `MarkdownFeatureblockWriter` | Format-specific per model type |
 
 ### src/io/SteelCompendiumIdentifier.ts (Format Detection)

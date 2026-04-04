@@ -55,6 +55,7 @@ Markdown format specific to the Steel Compendium project.
 | Tool developers | Read/write Draw Steel data in their apps | npm package import |
 | Data pipeline operators | Convert between formats at scale | `sc-convert` CLI |
 | Web adapter | Serialize/deserialize for web UI | npm package import (steel-compendium-sdk) |
+| draw-steel-elements Obsidian plugin | Deserialize YAML in markdown notes into domain models for rendering | npm package import — uses `YamlReader` + `Feature`, `Statblock`, `Featureblock` models |
 | Content contributors | Validate authored content | JSON Schema validation |
 
 ## Feature Inventory

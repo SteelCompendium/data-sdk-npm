@@ -17,8 +17,11 @@ Markdown format. Published as the `steel-compendium-sdk` npm package and also
 provides the `sc-convert` CLI tool.
 
 **This repo is not:** a game application, a content repository, or a web frontend.
-It is a data serialization library. For the web adapter that uses this SDK, see
-[SteelCompendium/web-adapter](https://github.com/SteelCompendium/web-adapter).
+It is a data serialization library. Key consumers include the
+[web-adapter](https://github.com/SteelCompendium/web-adapter) and the
+[draw-steel-elements](https://github.com/SteelCompendium/draw-steel-elements)
+Obsidian plugin (which uses the SDK's YAML reader to marshal game data embedded
+in Obsidian markdown notes).
 
 ## Quick Reference
 

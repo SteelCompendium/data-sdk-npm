@@ -14,11 +14,12 @@
                     │   -sdk (this repo) │
                     └────────┬──────────┘
                              │ npm package
-                             ▼
-                    ┌───────────────────┐
-                    │   web-adapter     │
-                    │   (+ other tools)  │
-                    └───────────────────┘
+                     ┌───────┴────────┐
+                     ▼                ▼
+            ┌──────────────┐  ┌────────────────────┐
+            │ web-adapter  │  │ draw-steel-elements │
+            │              │  │ (Obsidian plugin)   │
+            └──────────────┘  └────────────────────┘
 ```
 
 ## Upstream Dependencies
@@ -33,6 +34,7 @@
 | Consumer | What they use | How they consume it | Coupling |
 |----------|--------------|---------------------|----------|
 | [web-adapter](https://github.com/SteelCompendium/web-adapter) | Models, readers/writers, schemas | npm import (`steel-compendium-sdk`) | tight |
+| [draw-steel-elements](https://github.com/SteelCompendium/draw-steel-elements) | `YamlReader`, `Feature`, `Statblock`, `Featureblock` models | npm import (`steel-compendium-sdk`) — marshals YAML embedded in Obsidian markdown notes into domain models for plugin rendering | tight |
 | Community tool developers | Models, IO, validation | npm import | loose |
 | Data pipeline scripts | `sc-convert` CLI | CLI invocation | loose |
 
