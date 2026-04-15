@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "complication.schema.json-1.0.0",
+  "title": "Draw Steel Complication",
+  "description": "A complication that can affect heroes in Draw Steel.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the complication."
+    },
+    "type": {
+      "const": "complication",
+      "description": "Must always be 'complication'."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body describing the complication."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

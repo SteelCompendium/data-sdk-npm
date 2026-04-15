@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "condition.schema.json-1.0.0",
+  "title": "Draw Steel Condition",
+  "description": "A condition that affects creatures in Draw Steel.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the condition (e.g., \"Dazed\", \"Frightened\", \"Grabbed\")."
+    },
+    "type": {
+      "const": "condition",
+      "description": "Must always be 'condition'."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body describing the condition's effects."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

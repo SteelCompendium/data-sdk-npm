@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "career.schema.json-1.0.0",
+  "title": "Draw Steel Career",
+  "description": "A career that defines a hero's background and starting benefits.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the career (e.g., \"Artisan\", \"Criminal\")."
+    },
+    "type": {
+      "const": "career",
+      "description": "Must always be 'career'."
+    },
+    "skill": {
+      "type": "string",
+      "description": "Skill granted by the career."
+    },
+    "language": {
+      "type": "string",
+      "description": "Language granted by the career."
+    },
+    "renown": {
+      "type": "string",
+      "description": "Renown bonus granted by the career."
+    },
+    "wealth": {
+      "type": "string",
+      "description": "Starting wealth granted by the career."
+    },
+    "project_points": {
+      "type": "string",
+      "description": "Project points granted by the career."
+    },
+    "perk": {
+      "type": "string",
+      "description": "Perk granted by the career."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the career description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

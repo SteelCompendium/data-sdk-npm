@@ -1,12 +1,13 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "statblock.schema.json-2.0.0",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "statblock.schema.json-3.0.0",
     "title": "Draw Steel Statblock",
-    "description": "A creature statblock for a Draw Steel.",
+    "description": "A creature statblock for Draw Steel.",
     "type": "object",
     "required": [
         "name",
         "type",
+        "level",
         "roles",
         "ancestry",
         "ev",
@@ -21,7 +22,7 @@
         "intuition",
         "presence"
     ],
-    "additionalProperties": false,
+    "unevaluatedProperties": false,
     "properties": {
         "name": {
             "type": "string",
@@ -135,10 +136,15 @@
         "features": {
             "type": "array",
             "items": {
-                "$ref": "feature.schema.json-2.0.0#"
+                "$ref": "feature.schema.json-3.0.0#"
             },
             "description": "List of features (see Feature schema).",
             "default": []
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Additional metadata (SCC, source, etc.).",
+            "additionalProperties": true
         }
     }
 }

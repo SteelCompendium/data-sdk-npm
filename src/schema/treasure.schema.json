@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "treasure.schema.json-1.0.0",
+  "title": "Draw Steel Treasure",
+  "description": "A treasure item (trinket, consumable, leveled item, or artifact).",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the treasure."
+    },
+    "type": {
+      "const": "treasure",
+      "description": "Must always be 'treasure'."
+    },
+    "treasure_type": {
+      "type": "string",
+      "description": "Category of treasure (e.g., \"Trinket\", \"Consumable\", \"Leveled\", \"Artifact\")."
+    },
+    "level": {
+      "type": "string",
+      "description": "The level of the treasure item."
+    },
+    "rarity": {
+      "type": "string",
+      "description": "The rarity of the treasure (e.g., \"Common\", \"Rare\", \"Legendary\")."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the treasure description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

@@ -58,10 +58,22 @@
 
 ### JSON Schemas
 
+All schemas use JSON Schema draft 2019-09 with `unevaluatedProperties: false` for composability.
+
 | Schema | File |
 |--------|------|
 | Feature | `dist/schema/feature.schema.json` |
 | Statblock | `dist/schema/statblock.schema.json` |
+| Ancestry | `dist/schema/ancestry.schema.json` |
+| Career | `dist/schema/career.schema.json` |
+| Class | `dist/schema/class.schema.json` |
+| Complication | `dist/schema/complication.schema.json` |
+| Condition | `dist/schema/condition.schema.json` |
+| Culture | `dist/schema/culture.schema.json` |
+| Kit | `dist/schema/kit.schema.json` |
+| Perk | `dist/schema/perk.schema.json` |
+| Title | `dist/schema/title.schema.json` |
+| Treasure | `dist/schema/treasure.schema.json` |
 
 ## Integration Testing
 
