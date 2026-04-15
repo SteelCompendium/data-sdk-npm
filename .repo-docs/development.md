@@ -64,11 +64,12 @@ sc-convert --version
 
 1. Create the model class in `src/model/` extending `SteelCompendiumModel`
 2. Create the DTO class in `src/dto/` extending `SteelCompendiumDTO`
-3. Create Markdown reader/writer in `src/io/markdown/`
-4. Register the new type in `SteelCompendiumIdentifier.parse()` for all three formats
-5. Export from the barrel files (`src/model/index.ts`, `src/dto/index.ts`, `src/io/markdown/index.ts`)
-6. Add test fixtures in `src/__tests__/data/{type}/` (dto-json, dto-yaml, sc-md)
-7. Add reader/writer tests in `src/__tests__/io/`
+3. If the type needs Markdown support, create reader/writer in `src/io/markdown/`. For content types (like Ancestry, Career, etc.), JSON/YAML support is automatic via `ModelDTOAdapter`.
+4. Register the new type in `SteelCompendiumIdentifier`: add to `CONTENT_TYPE_MAP` (for content types) or add explicit cases in `parse()` (for structured types like Feature/Statblock)
+5. Export from the barrel files (`src/model/index.ts`, `src/dto/index.ts`)
+6. Add a JSON Schema in `src/schema/` (draft 2019-09, `unevaluatedProperties: false`) and register it in `src/validation/validator.ts` and `src/schema/index.ts`
+7. Add test fixtures in `src/__tests__/data/{type}/` (dto-json, dto-yaml, sc-md if applicable)
+8. Add reader/writer tests in `src/__tests__/io/`
 
 ### Adding a New Field to an Existing Model
 

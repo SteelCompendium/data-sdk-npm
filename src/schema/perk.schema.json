@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "perk.schema.json-1.0.0",
+  "title": "Draw Steel Perk",
+  "description": "A perk that provides additional benefits to a hero.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the perk."
+    },
+    "type": {
+      "const": "perk",
+      "description": "Must always be 'perk'."
+    },
+    "prerequisites": {
+      "type": "string",
+      "description": "Prerequisites required to take this perk."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the perk description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

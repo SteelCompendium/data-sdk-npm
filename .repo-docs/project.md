@@ -13,9 +13,12 @@ format without reimplementing parsers.
 Draw Steel is a tabletop role-playing game. The game defines creatures via
 **statblocks** (stat sheets with attributes, features, and abilities) and
 character/creature capabilities via **features** (abilities, traits, and subtraits).
-Groups of features are bundled into **featureblocks**.
+Groups of features are bundled into **featureblocks**. Hero building involves
+choosing an **ancestry**, **culture**, **career**, **class**, and **kit**, and
+earning **titles**, **perks**, and **treasure**. The game also defines
+**conditions** and **complications** that affect characters.
 
-The SDK models these game entities and handles conversion between three
+The SDK models all of these game entities and handles conversion between three
 serialization formats: JSON (canonical), YAML (human-friendly), and a custom
 Markdown format specific to the Steel Compendium project.
 
@@ -26,6 +29,7 @@ Markdown format specific to the Steel Compendium project.
 - **Featureblock** -- A named group of features, often tied to a character class level or monster type. Has its own stats (EV, stamina, size) plus a feature list.
 - **Effect** -- Part of a feature. Can include power roll tiers (tier1/tier2/tier3/crit), named sub-effects, and nested features.
 - **Characteristics** -- The five core attributes: might, agility, reason, intuition, presence.
+- **Content types** -- 10 additional model types representing game content: Ancestry, Career, Class, Complication, Condition, Culture, Kit, Perk, Title, Treasure. These are simpler than features/statblocks — they have a name, type, optional content (raw markdown body), optional metadata, and type-specific fields.
 - **DTO (Data Transfer Object)** -- The serialization-layer representation. DTOs map 1:1 to JSON/YAML fields (snake_case). Models are the domain-layer representation (camelCase).
 - **Steel Compendium Markdown** -- A specific Markdown format using blockquotes, bold headers, and tables to represent features and statblocks. Not generic Markdown.
 
@@ -34,19 +38,30 @@ Markdown format specific to the Steel Compendium project.
 | Term | Definition |
 |------|-----------|
 | ability | A feature with keywords, usage, distance, and target fields |
+| ancestry | A hero's species/heritage (e.g., Human, Hakaan, Memonek) |
+| career | A hero's background defining starting benefits (skill, language, wealth, perk) |
 | characteristics | The five core attributes of a statblock (might, agility, reason, intuition, presence) |
+| class | A hero class defining abilities and heroic resource (e.g., Fury, Tactician) |
+| complication | A narrative complication that affects a hero |
+| condition | A game condition affecting creatures (e.g., Dazed, Frightened) |
+| culture | A hero's cultural upbringing (environment, organization, skill, language) |
 | DTO | Data Transfer Object -- flat serialization representation of a model |
 | effect | A sub-element of a feature containing the mechanical outcome, optionally with power roll tiers |
 | EV | Encounter Value -- a numeric difficulty rating for statblocks and featureblocks |
 | feature | The unified model for abilities, traits, and subtraits |
 | featureblock | A named collection of features with optional stats |
 | free strike | A specific game mechanic attribute on statblocks |
-| model | The domain-layer TypeScript class (Feature, Statblock, Featureblock) |
+| kit | Equipment and stat bonuses a hero selects (e.g., Cloak and Dagger, Shining Armor) |
+| model | The domain-layer TypeScript class (Feature, Statblock, Featureblock, + content types) |
+| perk | An additional benefit a hero can earn, often with prerequisites |
 | power roll | A dice mechanic producing tier1/tier2/tier3/crit outcomes |
 | sc-convert | The CLI tool bundled with this SDK |
+| SCC | Steel Compendium Classification -- hierarchical identifier for content |
 | statblock | A creature's complete game statistics |
 | subtrait | A feature nested under another trait |
+| title | An honorific earned at various echelons, granting benefits |
 | trait | A feature without keywords, usage, distance, or target |
+| treasure | An item (trinket, consumable, leveled, or artifact) with rarity and level |
 
 ## Audiences
 
@@ -62,20 +77,22 @@ Markdown format specific to the Steel Compendium project.
 
 ### Shipped
 
-- TypeScript domain models (Feature, Statblock, Featureblock, Effect, Characteristics)
+- TypeScript domain models: Feature, Statblock, Featureblock, Effect, Characteristics (v1.0.0+)
+- 10 content type models: Ancestry, Career, Class, Complication, Condition, Culture, Kit, Perk, Title, Treasure (v3.0.0)
 - JSON reader/writer (generic, works for all model types)
 - YAML reader/writer (generic, works for all model types)
-- Markdown reader/writer (format-specific per model type)
+- Markdown reader/writer (format-specific for Feature, Statblock, Featureblock)
 - Auto-detection of format and model type (`SteelCompendiumIdentifier`)
 - `sc-convert` CLI for batch format conversion
-- JSON Schema validation for features and statblocks (via Ajv)
+- JSON Schema validation for all 12 types (via Ajv, draft 2019-09) (v3.0.0)
+- Schema composability via `unevaluatedProperties` (v3.0.0)
 - Subtrait support (v2.2.0)
 
 ### Planned / Backlog
 
 - Update Markdown standard for final Draw Steel PDF format
 - YAML validator support
-- Additional model types (community-driven)
+- Markdown readers/writers for content types (currently JSON/YAML only)
 
 ## Constraints and Risks
 

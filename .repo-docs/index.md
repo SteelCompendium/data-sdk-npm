@@ -6,15 +6,16 @@ tech:
   - TypeScript
   - Jest
   - npm
-updated: 2026-04-04
+updated: 2026-04-14
 ---
 
 # data-sdk-npm
 
 A TypeScript SDK for reading, writing, and converting structured Draw Steel TTRPG
-data (statblocks, features, featureblocks) between JSON, YAML, and a custom
-Markdown format. Published as the `steel-compendium-sdk` npm package and also
-provides the `sc-convert` CLI tool.
+data between JSON, YAML, and a custom Markdown format. Supports 13 model types:
+Feature, Statblock, Featureblock, plus 10 content types (Ancestry, Career, Class,
+Complication, Condition, Culture, Kit, Perk, Title, Treasure). Published as the
+`steel-compendium-sdk` npm package and also provides the `sc-convert` CLI tool.
 
 **This repo is not:** a game application, a content repository, or a web frontend.
 It is a data serialization library. Key consumers include the
@@ -54,9 +55,9 @@ data-sdk-npm/
       markdown/           #   Steel Compendium Markdown reader/writer
       AutoDataReader.ts   #   Auto-detect format and read
       SteelCompendiumIdentifier.ts  # Format + model type detection
-    model/                # Domain models (Feature, Statblock, Featureblock, etc.)
-    schema/               # JSON Schemas for validation
-    validation/           # Ajv-based schema validator
+    model/                # Domain models (Feature, Statblock, Featureblock, + 10 content types)
+    schema/               # JSON Schemas for validation (12 schemas, draft 2019-09)
+    validation/           # Ajv-based schema validator (draft 2019-09)
     __tests__/            # Jest tests mirroring io/ structure
       data/               # Test fixtures (JSON, YAML, Markdown per model type)
       io/                 # Reader/writer tests
@@ -91,7 +92,7 @@ data-sdk-npm/
 ## Current Status
 
 - **Health:** active development
-- **Last significant change:** Added subtrait support (2026-03-27, v2.2.0)
+- **Last significant change:** v3.0.0 (2026-04-14) — added 10 content type schemas/models/DTOs, upgraded to JSON Schema draft 2019-09 with `unevaluatedProperties`
 - **Known blockers:** None
 
 ## Documents in This Directory

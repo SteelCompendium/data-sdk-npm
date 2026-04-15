@@ -3,7 +3,7 @@ import { IDataReader } from './IDataReader';
 import { JsonReader } from './json';
 import { YamlReader } from './yaml';
 import { MarkdownFeatureReader } from './markdown/MarkdownFeatureReader';
-import { Feature, Statblock } from '../model';
+import { Feature, Statblock, Ancestry, Career, Class, Complication, Condition, Culture, Kit, Perk, Title, Treasure } from '../model';
 import {MarkdownStatblockReader} from "./markdown";
 import { Featureblock } from '../model/Featureblock';
 import {MarkdownFeatureblockReader} from "./markdown/MarkdownFeatureblockReader";
@@ -15,13 +15,29 @@ export enum SteelCompendiumFormat {
     Unknown = "unknown",
 }
 
+type AnyModel = Feature | Statblock | Featureblock | Ancestry | Career | Class | Complication | Condition | Culture | Kit | Perk | Title | Treasure;
+type AnyModelClass = typeof Feature | typeof Statblock | typeof Featureblock | typeof Ancestry | typeof Career | typeof Class | typeof Complication | typeof Condition | typeof Culture | typeof Kit | typeof Perk | typeof Title | typeof Treasure;
+
 export interface IdentificationResult {
     format: SteelCompendiumFormat;
-    model: typeof Feature | typeof Statblock | typeof Featureblock | null;
-    getReader(): IDataReader<Feature | Statblock | Featureblock>;
+    model: AnyModelClass | null;
+    getReader(): IDataReader<AnyModel>;
 }
 
 export class SteelCompendiumIdentifier {
+    private static readonly CONTENT_TYPE_MAP: Record<string, { model: AnyModelClass; adapter: any }> = {
+        ancestry: { model: Ancestry, adapter: Ancestry.modelDTOAdapter },
+        career: { model: Career, adapter: Career.modelDTOAdapter },
+        class: { model: Class, adapter: Class.modelDTOAdapter },
+        complication: { model: Complication, adapter: Complication.modelDTOAdapter },
+        condition: { model: Condition, adapter: Condition.modelDTOAdapter },
+        culture: { model: Culture, adapter: Culture.modelDTOAdapter },
+        kit: { model: Kit, adapter: Kit.modelDTOAdapter },
+        perk: { model: Perk, adapter: Perk.modelDTOAdapter },
+        title: { model: Title, adapter: Title.modelDTOAdapter },
+        treasure: { model: Treasure, adapter: Treasure.modelDTOAdapter },
+    };
+
     public static parse(format: string, model: string): IdentificationResult {
         if (format === SteelCompendiumFormat.Markdown) {
             if (model === "feature") {
@@ -68,6 +84,14 @@ export class SteelCompendiumIdentifier {
                     getReader: () => new JsonReader(Featureblock.modelDTOAdapter),
                 }
             }
+            const contentType = this.CONTENT_TYPE_MAP[model];
+            if (contentType) {
+                return {
+                    format: SteelCompendiumFormat.Json,
+                    model: contentType.model,
+                    getReader: () => new JsonReader(contentType.adapter),
+                }
+            }
         }
         if (format === SteelCompendiumFormat.Yaml) {
             if (model === "feature") {
@@ -91,6 +115,14 @@ export class SteelCompendiumIdentifier {
                     getReader: () => new YamlReader(Featureblock.modelDTOAdapter),
                 }
             }
+            const contentType = this.CONTENT_TYPE_MAP[model];
+            if (contentType) {
+                return {
+                    format: SteelCompendiumFormat.Yaml,
+                    model: contentType.model,
+                    getReader: () => new YamlReader(contentType.adapter),
+                }
+            }
         }
         return {
             format: SteelCompendiumFormat.Unknown,
@@ -106,28 +138,8 @@ export class SteelCompendiumIdentifier {
         try {
             const data = JSON.parse(source);
             if (typeof data === 'object' && data !== null) {
-                const modelType = this.identifyModelType(data);
-                if (modelType === Feature) {
-                    return {
-                        format: SteelCompendiumFormat.Json,
-                        model: Feature,
-                        getReader: () => new JsonReader(Feature.modelDTOAdapter)
-                    };
-                }
-                if (modelType === Statblock) {
-                    return {
-                        format: SteelCompendiumFormat.Json,
-                        model: Statblock,
-                        getReader: () => new JsonReader(Statblock.modelDTOAdapter)
-                    };
-                }
-                if (modelType === Featureblock) {
-                    return {
-                        format: SteelCompendiumFormat.Json,
-                        model: Featureblock,
-                        getReader: () => new JsonReader(Featureblock.modelDTOAdapter)
-                    };
-                }
+                const result = this.identifyStructured(data, SteelCompendiumFormat.Json);
+                if (result) return result;
             }
         } catch (e) {
             // Not JSON
@@ -136,28 +148,8 @@ export class SteelCompendiumIdentifier {
         try {
             const data = parse(source);
             if (typeof data === 'object' && data !== null) {
-                const modelType = this.identifyModelType(data);
-                if (modelType === Feature) {
-                    return {
-                        format: SteelCompendiumFormat.Yaml,
-                        model: Feature,
-                        getReader: () => new YamlReader(Feature.modelDTOAdapter)
-                    };
-                }
-                if (modelType === Statblock) {
-                    return {
-                        format: SteelCompendiumFormat.Yaml,
-                        model: Statblock,
-                        getReader: () => new YamlReader(Statblock.modelDTOAdapter)
-                    };
-                }
-                if (modelType === Featureblock) {
-                    return {
-                        format: SteelCompendiumFormat.Yaml,
-                        model: Featureblock,
-                        getReader: () => new YamlReader(Featureblock.modelDTOAdapter)
-                    };
-                }
+                const result = this.identifyStructured(data, SteelCompendiumFormat.Yaml);
+                if (result) return result;
             }
         } catch (e) {
             // Not YAML
@@ -194,7 +186,31 @@ export class SteelCompendiumIdentifier {
         };
     }
 
-    private static identifyModelType(data: any): typeof Feature | typeof Statblock | typeof Featureblock | null {
+    private static identifyStructured(data: any, format: SteelCompendiumFormat.Json | SteelCompendiumFormat.Yaml): IdentificationResult | null {
+        const modelType = this.identifyModelType(data);
+        if (!modelType) return null;
+
+        const ReaderClass = format === SteelCompendiumFormat.Json ? JsonReader : YamlReader;
+
+        if (modelType === Feature) {
+            return { format, model: Feature, getReader: () => new ReaderClass(Feature.modelDTOAdapter) };
+        }
+        if (modelType === Statblock) {
+            return { format, model: Statblock, getReader: () => new ReaderClass(Statblock.modelDTOAdapter) };
+        }
+        if (modelType === Featureblock) {
+            return { format, model: Featureblock, getReader: () => new ReaderClass(Featureblock.modelDTOAdapter) };
+        }
+
+        const contentType = this.CONTENT_TYPE_MAP[data.type];
+        if (contentType) {
+            return { format, model: contentType.model, getReader: () => new ReaderClass(contentType.adapter) };
+        }
+
+        return null;
+    }
+
+    private static identifyModelType(data: any): AnyModelClass | null {
         switch (data.type) {
             case 'feature':
                 return Feature;
@@ -202,6 +218,10 @@ export class SteelCompendiumIdentifier {
                 return Statblock;
             case 'featureblock':
                 return Featureblock;
+        }
+        const contentType = this.CONTENT_TYPE_MAP[data.type];
+        if (contentType) {
+            return contentType.model;
         }
         if ('featureblock_type' in data) {
             return Featureblock;

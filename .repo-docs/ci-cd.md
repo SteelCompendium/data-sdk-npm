@@ -29,7 +29,7 @@ No CI pipeline detected in the repo. Build and test are run manually.
 
 ### Versioning
 
-- **Scheme:** semver (2.2.0)
+- **Scheme:** semver (3.0.0)
 - **Current version source:** `package.json` `version` field
 
 ### Creating a Release

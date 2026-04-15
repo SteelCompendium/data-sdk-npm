@@ -64,3 +64,4 @@ Check for these indicators:
 - **Statblock:** has `stamina` + `level` fields, or Markdown contains `<br>Might`
 - **Featureblock:** has `featureblock_type` field, or Markdown contains `- **EV:**`
 - **Feature:** has `effects`, `cost`, or `feature_type` fields
+- **Content types** (Ancestry, Career, Class, Complication, Condition, Culture, Kit, Perk, Title, Treasure): have a `type` field set to the type name (e.g., `"type": "class"`). Use `SteelCompendiumIdentifier.parse(format, type)` with the explicit type string for reliable detection.

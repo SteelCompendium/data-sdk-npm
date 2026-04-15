@@ -25,7 +25,7 @@ Output (JSON/YAML/Markdown string)
 - **Location:** `src/model/`
 - **Depends on:** `src/dto/` (for DTO conversion)
 - **Depended on by:** `src/io/`, `src/cli/`, consumers of the npm package
-- **Key classes:** `Feature`, `Statblock`, `Featureblock`, `Effect`, `Characteristics`, `FeatureStat`
+- **Key classes:** `Feature`, `Statblock`, `Featureblock`, `Effect`, `Characteristics`, `FeatureStat`, `Ancestry`, `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`, `Perk`, `Title`, `Treasure`
 
 ### src/dto/ (Data Transfer Objects)
 
@@ -33,7 +33,7 @@ Output (JSON/YAML/Markdown string)
 - **Location:** `src/dto/`
 - **Depends on:** `src/model/`
 - **Depended on by:** `src/io/`
-- **Key classes:** `FeatureDTO`, `StatblockDTO`, `FeatureblockDTO`, `SteelCompendiumDTO` (base)
+- **Key classes:** `FeatureDTO`, `StatblockDTO`, `FeatureblockDTO`, `SteelCompendiumDTO` (base), `AncestryDTO`, `CareerDTO`, `ClassDTO`, `ComplicationDTO`, `ConditionDTO`, `CultureDTO`, `KitDTO`, `PerkDTO`, `TitleDTO`, `TreasureDTO`
 
 ### src/io/ (Readers and Writers)
 
@@ -44,20 +44,20 @@ Output (JSON/YAML/Markdown string)
 
 | Format | Reader | Writer | Notes |
 |--------|--------|--------|-------|
-| JSON | `JsonReader` (generic) | `JsonWriter` (generic) | Works for all model types via `ModelDTOAdapter` |
+| JSON | `JsonReader` (generic) | `JsonWriter` (generic) | Works for all 13 model types via `ModelDTOAdapter` |
 | YAML | `YamlReader` (generic) | `YamlWriter` (generic) | Same adapter pattern as JSON. Also used by the draw-steel-elements Obsidian plugin to deserialize YAML from markdown notes. |
-| Markdown | `MarkdownFeatureReader`, `MarkdownStatblockReader`, `MarkdownFeatureblockReader` | `MarkdownFeatureWriter`, `MarkdownStatblockWriter`, `MarkdownFeatureblockWriter` | Format-specific per model type |
+| Markdown | `MarkdownFeatureReader`, `MarkdownStatblockReader`, `MarkdownFeatureblockReader` | `MarkdownFeatureWriter`, `MarkdownStatblockWriter`, `MarkdownFeatureblockWriter` | Format-specific; only for Feature, Statblock, Featureblock. Content types (Ancestry, Career, etc.) use JSON/YAML only. |
 
 ### src/io/SteelCompendiumIdentifier.ts (Format Detection)
 
-- **Responsibility:** Detect format (JSON/YAML/Markdown) and model type (Feature/Statblock/Featureblock) from input data. `parse()` uses explicit format + type. `identify()` auto-detects (unreliable).
+- **Responsibility:** Detect format (JSON/YAML/Markdown) and model type from input data. Supports all 13 types. `parse()` uses explicit format + type. `identify()` auto-detects (unreliable for ambiguous inputs). Uses a `CONTENT_TYPE_MAP` for the 10 content types.
 - **Location:** `src/io/SteelCompendiumIdentifier.ts`
-- **Depends on:** All reader classes
+- **Depends on:** All reader classes, all model classes
 - **Depended on by:** `src/cli/`, `AutoDataReader`
 
 ### src/schema/ (JSON Schemas)
 
-- **Responsibility:** JSON Schema definitions for Feature and Statblock. Exported as part of the npm package.
+- **Responsibility:** JSON Schema definitions for all 12 types (Feature, Statblock, + 10 content types). All schemas use draft 2019-09 with `unevaluatedProperties: false` for composability. Exported as part of the npm package.
 - **Location:** `src/schema/`
 - **Depends on:** nothing
 - **Depended on by:** `src/validation/`

@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "title.schema.json-1.0.0",
+  "title": "Draw Steel Title",
+  "description": "A title that can be earned by heroes at various echelons.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the title."
+    },
+    "type": {
+      "const": "title",
+      "description": "Must always be 'title'."
+    },
+    "echelon": {
+      "type": "string",
+      "description": "The echelon at which this title is available (e.g., \"1st\", \"2nd\")."
+    },
+    "benefits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Benefits granted by the title."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the title description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

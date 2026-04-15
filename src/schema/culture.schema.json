@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "culture.schema.json-1.0.0",
+  "title": "Draw Steel Culture",
+  "description": "A culture that shapes a hero's upbringing and skills.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the culture."
+    },
+    "type": {
+      "const": "culture",
+      "description": "Must always be 'culture'."
+    },
+    "environment": {
+      "type": "string",
+      "description": "The environment of the culture (e.g., \"Urban\", \"Wilderness\")."
+    },
+    "organization": {
+      "type": "string",
+      "description": "The organizational structure of the culture."
+    },
+    "upbringing": {
+      "type": "string",
+      "description": "The upbringing style of the culture."
+    },
+    "skill": {
+      "type": "string",
+      "description": "Skill granted by the culture."
+    },
+    "language": {
+      "type": "string",
+      "description": "Language granted by the culture."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the culture description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

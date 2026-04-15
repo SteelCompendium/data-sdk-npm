@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "kit.schema.json-1.0.0",
+  "title": "Draw Steel Kit",
+  "description": "A kit definition for Draw Steel, providing stat bonuses and equipment.",
+  "type": "object",
+  "required": ["name", "type"],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the kit (e.g., \"Cloak and Dagger\", \"Shining Armor\")."
+    },
+    "type": {
+      "const": "kit",
+      "description": "Must always be 'kit'."
+    },
+    "kit_type": {
+      "type": "string",
+      "description": "The category of kit (e.g., \"Martial\", \"Caster\", \"Stormwight\")."
+    },
+    "stat_bonuses": {
+      "type": "object",
+      "description": "Stat bonuses provided by the kit (e.g., {\"stamina\": \"+3\", \"speed\": \"+1\"}).",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "equipment": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Equipment granted by the kit."
+    },
+    "content": {
+      "type": "string",
+      "description": "Raw markdown body of the kit description."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    }
+  }
+}

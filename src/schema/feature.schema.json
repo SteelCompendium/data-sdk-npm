@@ -1,6 +1,6 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "feature.schema.json-2.0.0",
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "feature.schema.json-3.0.0",
   "title": "Steel Compendium Feature",
   "type": "object",
   "required": [
@@ -69,7 +69,7 @@
       "additionalProperties": true
     }
   },
-  "additionalProperties": false,
+  "unevaluatedProperties": false,
   "definitions": {
     "effectsArray": {
       "type": "array",
@@ -104,7 +104,7 @@
           "type": "array",
           "description": "List of features granted by the effect",
           "items": {
-            "$ref": "feature.schema.json-2.0.0#"
+            "$ref": "feature.schema.json-3.0.0#"
           }
         },
         "tier1": { "type": "string"},
