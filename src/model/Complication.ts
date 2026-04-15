@@ -5,6 +5,9 @@ export class Complication extends SteelCompendiumModel<ComplicationDTO> {
     public static readonly COMPLICATION_TYPE = 'complication';
 
     name!: string;
+    flavor?: string;
+    benefit?: string;
+    drawback?: string;
     content?: string;
     metadata?: Record<string, any>;
 

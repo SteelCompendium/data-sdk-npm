@@ -1,0 +1,39 @@
+{
+  "name": "Human",
+  "type": "ancestry",
+  "flavor": "Humans belong to the world in a way the other speaking peoples do not.",
+  "signature_trait_name": "Detect the Supernatural",
+  "signature_trait_description": "As a maneuver, you can open your awareness to detect supernatural creatures and phenomena. Until the end of your next turn, you know the location of any supernatural object, or any undead, construct, or creature from another world within 5 squares, even if you don't have line of effect to that object or creature. You know if you're detecting an item or a creature, and you know the nature of any creature you detect.",
+  "ancestry_points": 3,
+  "purchased_traits": [
+    {
+      "name": "Can't Take Hold",
+      "cost": 1,
+      "description": "Your connection to the natural world allows you to resist certain supernatural effects. You ignore temporary difficult terrain created by magic and psionic abilities. Additionally, when you are force moved by a magic or psionic ability, you can reduce the forced movement distance by 1."
+    },
+    {
+      "name": "Determination",
+      "cost": 2,
+      "description": "A tolerance for pain and distress allows you to push through difficult situations. If you are frightened, slowed, or weakened, you can use a maneuver to immediately end one of those conditions."
+    },
+    {
+      "name": "Perseverance",
+      "cost": 1,
+      "description": "Giving up is for other people. You gain an edge on tests made using the Endurance skill. Additionally, when you are slowed, your speed is reduced to 3 instead of 2."
+    },
+    {
+      "name": "Resist the Unnatural",
+      "cost": 1,
+      "description": "Your instinctive resilience protects you from injuries beyond the routine. Whenever you take damage that isn't untyped, you can use a triggered action to take half the damage."
+    },
+    {
+      "name": "Staying Power",
+      "cost": 2,
+      "description": "Your human physiology allows you to fight, run, and stay awake longer than others. You increase your number of Recoveries by 2."
+    }
+  ],
+  "metadata": {
+    "scc": ["mcdm.heroes.v1:ancestry:human"],
+    "source": "mcdm.heroes.v1"
+  }
+}

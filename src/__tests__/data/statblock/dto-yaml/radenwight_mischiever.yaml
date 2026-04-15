@@ -1,10 +1,9 @@
 type: statblock
 name: RADENWIGHT MISCHIEVER
 level: 1
-roles:
-  - MINION
-  - AMBUSHER
-ancestry:
+role: "AMBUSHER"
+organization: "MINION"
+keywords:
   - Humanoid
   - Radenwight
 ev: 3 for four minions

@@ -6,8 +6,9 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
     type = Statblock.STATBLOCK_TYPE;
 
     name!: string;
-    roles!: string[];
-    ancestry!: string[];
+    role!: string;
+    organization!: string;
+    keywords!: string[];
     ev!: string;
     stamina!: string;
     speed!: number;
@@ -38,8 +39,9 @@ export class StatblockDTO extends SteelCompendiumDTO<Statblock> {
         const data: Partial<StatblockDTO> = { type: model.modelType() }
         if (model.name !== undefined) data.name = model.name;
         if (model.level !== undefined) data.level = model.level;
-        if (model.roles !== undefined) data.roles = model.roles;
-        if (model.ancestry !== undefined) data.ancestry = model.ancestry;
+        if (model.role !== undefined) data.role = model.role;
+        if (model.organization !== undefined) data.organization = model.organization;
+        if (model.keywords !== undefined) data.keywords = model.keywords;
         if (model.ev !== undefined) data.ev = model.ev;
         if (model.stamina !== undefined) data.stamina = model.stamina;
         if (model.immunities !== undefined && model.immunities.length > 0) data.immunities = model.immunities;

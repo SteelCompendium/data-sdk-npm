@@ -1,19 +1,23 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "culture.schema.json-1.0.0",
+  "$id": "culture.schema.json-2.0.0",
   "title": "Draw Steel Culture",
-  "description": "A culture that shapes a hero's upbringing and skills.",
+  "description": "A culture benefit that shapes a hero's upbringing, environment, or organization.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the culture."
+      "description": "The name of the culture benefit (e.g., \"Urban\", \"Bureaucratic\", \"Academic\")."
     },
     "type": {
       "const": "culture",
       "description": "Must always be 'culture'."
+    },
+    "culture_benefit_type": {
+      "type": "string",
+      "description": "The dimension of culture this represents (e.g., \"Environment\", \"Organization\", \"Upbringing\")."
     },
     "environment": {
       "type": "string",
@@ -27,9 +31,14 @@
       "type": "string",
       "description": "The upbringing style of the culture."
     },
-    "skill": {
+    "skill_options": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Available skill choices (e.g., [\"interpersonal\", \"intrigue\"])."
+    },
+    "quick_build_skill": {
       "type": "string",
-      "description": "Skill granted by the culture."
+      "description": "Default skill for Quick Build (e.g., \"Alertness\")."
     },
     "language": {
       "type": "string",

@@ -5,6 +5,7 @@ export class Perk extends SteelCompendiumModel<PerkDTO> {
     public static readonly PERK_TYPE = 'perk';
 
     name!: string;
+    perk_group?: string;
     prerequisites?: string;
     content?: string;
     metadata?: Record<string, any>;

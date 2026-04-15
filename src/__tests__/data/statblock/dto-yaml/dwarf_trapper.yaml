@@ -1,10 +1,9 @@
 type: statblock
 name: DWARF TRAPPER
 level: 1
-roles:
-  - PLATOON
-  - HARRIER
-ancestry:
+role: "HARRIER"
+organization: "PLATOON"
+keywords:
   - Dwarf
   - Humanoid
 ev: "6"

@@ -1,10 +1,9 @@
 type: statblock
 name: GOBLIN BATTLEBORN
 level: 2
-roles:
-  - HORDE
-  - BRUTE
-ancestry:
+role: "BRUTE"
+organization: "HORDE"
+keywords:
   - Goblin
   - Humanoid
   - Mystic Goblin

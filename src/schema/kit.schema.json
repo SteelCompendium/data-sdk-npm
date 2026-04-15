@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "kit.schema.json-1.0.0",
+  "$id": "kit.schema.json-2.0.0",
   "title": "Draw Steel Kit",
-  "description": "A kit definition for Draw Steel, providing stat bonuses and equipment.",
+  "description": "A kit definition for Draw Steel, providing equipment, stat bonuses, and a signature ability.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -19,19 +19,59 @@
       "type": "string",
       "description": "The category of kit (e.g., \"Martial\", \"Caster\", \"Stormwight\")."
     },
-    "stat_bonuses": {
-      "type": "object",
-      "description": "Stat bonuses provided by the kit (e.g., {\"stamina\": \"+3\", \"speed\": \"+1\"}).",
-      "additionalProperties": {
-        "type": "string"
-      }
+    "flavor": {
+      "type": "string",
+      "description": "Narrative description of the kit."
     },
-    "equipment": {
+    "armor": {
       "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "description": "Equipment granted by the kit."
+      "items": { "type": "string" },
+      "description": "Armor categories granted by the kit (e.g., [\"Light Armor\"], [\"Heavy Armor\", \"Shield\"])."
+    },
+    "weapon": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Weapon types granted by the kit (e.g., [\"Light Weapon\"], [\"Medium Weapon\", \"Bow\"])."
+    },
+    "equipment_text": {
+      "type": "string",
+      "description": "Raw equipment description (e.g., \"You wear light armor and wield one or two light weapons.\")."
+    },
+    "stamina_bonus": {
+      "type": "string",
+      "description": "Stamina bonus (e.g., \"+3 per echelon\", \"+12 per echelon\")."
+    },
+    "speed_bonus": {
+      "type": "string",
+      "description": "Speed bonus (e.g., \"+1\", \"+2\")."
+    },
+    "stability_bonus": {
+      "type": "string",
+      "description": "Stability bonus (e.g., \"+1\")."
+    },
+    "melee_damage_bonus": {
+      "type": "string",
+      "description": "Melee damage bonus across three tiers (e.g., \"+2/+2/+2\")."
+    },
+    "ranged_damage_bonus": {
+      "type": "string",
+      "description": "Ranged damage bonus across three tiers (e.g., \"+0/+0/+4\")."
+    },
+    "melee_distance_bonus": {
+      "type": "string",
+      "description": "Melee distance bonus (e.g., \"+10\")."
+    },
+    "ranged_distance_bonus": {
+      "type": "string",
+      "description": "Ranged distance bonus (e.g., \"+5\", \"+10\")."
+    },
+    "disengage_bonus": {
+      "type": "string",
+      "description": "Disengage bonus (e.g., \"+1\")."
+    },
+    "signature_ability": {
+      "$ref": "feature.schema.json-3.0.0#",
+      "description": "The kit's signature ability as a full Feature object."
     },
     "content": {
       "type": "string",

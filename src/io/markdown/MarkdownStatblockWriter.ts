@@ -60,12 +60,13 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         // ---- build rows (same as before) ----
         const name = `###### ${data.name ?? 'Unnamed'}`;
 
-        const ancestry = data.ancestry?.length ? data.ancestry.join(', ') : '-';
+        const keywords = data.keywords?.length ? data.keywords.join(', ') : '-';
         const blankDash = '-';
         const levelCell = `Level ${data.level ?? 0}`;
-        const roles = data.roles?.length ? data.roles.join(', ') : '-';
+        const roleParts = [data.organization, data.role].filter(Boolean);
+        const rolesCell = roleParts.length ? roleParts.join(', ') : '-';
         const evCell = `EV ${data.ev ?? 0}`;
-        const row0 = [ancestry, blankDash, levelCell, roles, evCell];
+        const row0 = [keywords, blankDash, levelCell, rolesCell, evCell];
 
         const row1 = [
             cell(data.size ?? '-', 'Size'),

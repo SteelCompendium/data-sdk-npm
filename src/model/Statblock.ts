@@ -8,8 +8,9 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
 
     name!: string;
     level?: number;
-    roles!: string[];
-    ancestry!: string[];
+    role!: string;
+    organization!: string;
+    keywords!: string[];
     ev!: string;
     stamina!: string;
     immunities?: string[];

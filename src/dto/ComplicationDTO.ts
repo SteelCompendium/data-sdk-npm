@@ -5,6 +5,9 @@ export class ComplicationDTO extends SteelCompendiumDTO<Complication> {
     type = Complication.COMPLICATION_TYPE;
 
     name!: string;
+    flavor?: string;
+    benefit?: string;
+    drawback?: string;
     content?: string;
     metadata?: Record<string, any>;
 
@@ -15,6 +18,9 @@ export class ComplicationDTO extends SteelCompendiumDTO<Complication> {
     static partialFromModel(model: Complication): Partial<ComplicationDTO> {
         const data: Partial<ComplicationDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.flavor !== undefined) data.flavor = model.flavor;
+        if (model.benefit !== undefined) data.benefit = model.benefit;
+        if (model.drawback !== undefined) data.drawback = model.drawback;
         if (model.content !== undefined) data.content = model.content;
         if (model.metadata !== undefined) data.metadata = model.metadata;
         return data;

@@ -1,9 +1,9 @@
 type: statblock
 name: WEREWOLF
 level: 1
-roles:
-  - SOLO
-ancestry:
+role: ""
+organization: "SOLO"
+keywords:
   - Accursed
   - Humanoid
   - Werebeast

@@ -1,19 +1,31 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "complication.schema.json-1.0.0",
+  "$id": "complication.schema.json-2.0.0",
   "title": "Draw Steel Complication",
-  "description": "A complication that can affect heroes in Draw Steel.",
+  "description": "A complication that provides both a benefit and a drawback to a hero.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the complication."
+      "description": "The name of the complication (e.g., \"Amnesia\", \"Antihero\")."
     },
     "type": {
       "const": "complication",
       "description": "Must always be 'complication'."
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Narrative description of the complication."
+    },
+    "benefit": {
+      "type": "string",
+      "description": "The benefit granted by the complication."
+    },
+    "drawback": {
+      "type": "string",
+      "description": "The drawback imposed by the complication."
     },
     "content": {
       "type": "string",

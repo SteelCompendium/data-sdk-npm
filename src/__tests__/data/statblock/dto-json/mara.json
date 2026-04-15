@@ -2,11 +2,9 @@
   "type": "statblock",
   "name": "MARA",
   "level": 2,
-  "roles": [
-    "ELITE",
-    "CONTROLLER"
-  ],
-  "ancestry": [
+  "role": "CONTROLLER",
+  "organization": "ELITE",
+  "keywords": [
     "Humanoid",
     "Human",
     "Rival"

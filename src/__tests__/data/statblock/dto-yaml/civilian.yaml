@@ -1,8 +1,9 @@
 type: statblock
 name: CIVILIAN
 level: 0
-roles: []
-ancestry:
+role: ""
+organization: ""
+keywords:
   - Humanoid or Animal
 ev: "0"
 stamina: "8"

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "ancestry.schema.json-1.0.0",
+  "$id": "ancestry.schema.json-2.0.0",
   "title": "Draw Steel Ancestry",
-  "description": "A hero ancestry for Draw Steel.",
+  "description": "A hero ancestry for Draw Steel, including signature trait and purchasable traits.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -15,9 +15,27 @@
       "const": "ancestry",
       "description": "Must always be 'ancestry'."
     },
-    "signature_trait": {
+    "flavor": {
       "type": "string",
-      "description": "The signature trait of the ancestry."
+      "description": "Narrative description of the ancestry."
+    },
+    "signature_trait_name": {
+      "type": "string",
+      "description": "The name of the ancestry's signature trait (e.g., \"Detect the Supernatural\")."
+    },
+    "signature_trait_description": {
+      "type": "string",
+      "description": "Full text of the signature trait's effect."
+    },
+    "ancestry_points": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of ancestry points available to spend on purchased traits (3 in core rules)."
+    },
+    "purchased_traits": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/AncestryTrait" },
+      "description": "Traits available for purchase with ancestry points."
     },
     "content": {
       "type": "string",
@@ -27,6 +45,28 @@
       "type": "object",
       "description": "Additional metadata (SCC, source, etc.).",
       "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "AncestryTrait": {
+      "type": "object",
+      "required": ["name", "cost"],
+      "unevaluatedProperties": false,
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the trait (e.g., \"Perseverance\", \"Staying Power\")."
+        },
+        "cost": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Ancestry point cost (e.g., 1, 2, 3)."
+        },
+        "description": {
+          "type": "string",
+          "description": "Full text of the trait's effect."
+        }
+      }
     }
   }
 }

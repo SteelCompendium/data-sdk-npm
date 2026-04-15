@@ -1,11 +1,21 @@
 import { AncestryDTO } from '../dto/AncestryDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+export interface AncestryTrait {
+    name: string;
+    cost: number;
+    description?: string;
+}
+
 export class Ancestry extends SteelCompendiumModel<AncestryDTO> {
     public static readonly ANCESTRY_TYPE = 'ancestry';
 
     name!: string;
-    signature_trait?: string;
+    flavor?: string;
+    signature_trait_name?: string;
+    signature_trait_description?: string;
+    ancestry_points?: number;
+    purchased_traits?: AncestryTrait[];
     content?: string;
     metadata?: Record<string, any>;
 

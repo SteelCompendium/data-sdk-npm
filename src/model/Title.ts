@@ -6,6 +6,9 @@ export class Title extends SteelCompendiumModel<TitleDTO> {
 
     name!: string;
     echelon?: string;
+    flavor?: string;
+    prerequisite?: string;
+    effect?: string;
     benefits?: string[];
     content?: string;
     metadata?: Record<string, any>;

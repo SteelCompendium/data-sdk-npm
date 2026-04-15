@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "treasure.schema.json-1.0.0",
+  "$id": "treasure.schema.json-2.0.0",
   "title": "Draw Steel Treasure",
-  "description": "A treasure item (trinket, consumable, leveled item, or artifact).",
+  "description": "A treasure item (trinket, consumable, leveled item, or artifact) with keywords, project info, and effects.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -17,7 +17,7 @@
     },
     "treasure_type": {
       "type": "string",
-      "description": "Category of treasure (e.g., \"Trinket\", \"Consumable\", \"Leveled\", \"Artifact\")."
+      "description": "Category of treasure (e.g., \"Trinkets\", \"Consumable\", \"Leveled\", \"Treasure\" for artifacts)."
     },
     "level": {
       "type": "string",
@@ -26,6 +26,41 @@
     "rarity": {
       "type": "string",
       "description": "The rarity of the treasure (e.g., \"Common\", \"Rare\", \"Legendary\")."
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Italicized flavor text describing the treasure's appearance."
+    },
+    "keywords": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Keywords associated with the treasure (e.g., [\"Magic\", \"Neck\"], [\"Magic\", \"Medium Weapon\"])."
+    },
+    "item_prerequisite": {
+      "type": "string",
+      "description": "Materials required to craft the item (e.g., \"A ruby hardened in the fires of the City of Brass\")."
+    },
+    "project_source": {
+      "type": "string",
+      "description": "Where the crafting knowledge comes from (e.g., \"Licensing agreements in Anjali\")."
+    },
+    "project_roll_characteristic": {
+      "type": "string",
+      "description": "Characteristic used for the project roll (e.g., \"Reason or Intuition\")."
+    },
+    "project_goal": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Project point goal to complete crafting (e.g., 150, 450)."
+    },
+    "effect": {
+      "type": "string",
+      "description": "The main effect text of the treasure."
+    },
+    "level_effects": {
+      "type": "object",
+      "additionalProperties": { "type": "string" },
+      "description": "Level-keyed effects for leveled treasures (e.g., {\"1st\": \"...\", \"5th\": \"...\", \"9th\": \"...\"})."
     },
     "content": {
       "type": "string",

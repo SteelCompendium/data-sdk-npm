@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "class.schema.json-1.0.0",
+  "$id": "class.schema.json-2.0.0",
   "title": "Draw Steel Class",
-  "description": "A hero class definition for Draw Steel.",
+  "description": "A hero class definition for Draw Steel with base mechanical stats.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -15,9 +15,54 @@
       "const": "class",
       "description": "Must always be 'class'."
     },
+    "flavor": {
+      "type": "string",
+      "description": "Bold summary paragraph describing the class's playstyle."
+    },
     "heroic_resource": {
       "type": "string",
       "description": "The heroic resource used by the class (e.g., \"Rage\", \"Focus\")."
+    },
+    "primary_characteristics": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Starting characteristics that begin at 2 (e.g., [\"Might\", \"Agility\"])."
+    },
+    "weak_potency": {
+      "type": "string",
+      "description": "Weak potency formula (e.g., \"Might - 2\")."
+    },
+    "average_potency": {
+      "type": "string",
+      "description": "Average potency formula (e.g., \"Might - 1\")."
+    },
+    "strong_potency": {
+      "type": "string",
+      "description": "Strong potency formula (e.g., \"Might\")."
+    },
+    "starting_stamina": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Starting stamina at 1st level (e.g., 21)."
+    },
+    "stamina_per_level": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Stamina gained at 2nd and higher levels (e.g., 9)."
+    },
+    "recoveries": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of recoveries (e.g., 10)."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Starting skills granted by the class (e.g., [\"Nature\"])."
+    },
+    "skill_group": {
+      "type": "string",
+      "description": "Skill group constraint for additional skill choices (e.g., \"exploration or intrigue\")."
     },
     "content": {
       "type": "string",

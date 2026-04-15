@@ -115,22 +115,33 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
         while (row0.length < 5) row0.push('');
         const [ancestryCell, /*movementHdr*/, levelHdr, rolesHdr, evHdr] = row0;
 
-        // Name might have been read above; ancestry can be list or '-'
+        // Name might have been read above; keywords (formerly ancestry) can be list or '-'
         if (ancestryCell && ancestryCell !== '-') {
-            partial.ancestry = ancestryCell.split(',').map(s => s.trim()).filter(Boolean);
+            partial.keywords = ancestryCell.split(',').map(s => s.trim()).filter(Boolean);
         } else {
-            partial.ancestry = [];
+            partial.keywords = [];
         }
 
         // Level N
         const mLevel = (levelHdr || '').match(/Level\s+(\d+)/i);
         if (mLevel) partial.level = parseInt(mLevel[1], 10) || 0;
 
-        // Roles (we show '-' in the new layout; keep empty array for '-')
+        // Roles header contains "Organization, Role" or just "Organization" or '-'
         if (rolesHdr && rolesHdr !== '-') {
-            partial.roles = rolesHdr.split(',').map(s => s.trim()).filter(Boolean);
+            const parts = rolesHdr.split(',').map(s => s.trim()).filter(Boolean);
+            const organizations = new Set(['MINION', 'HORDE', 'PLATOON', 'ELITE', 'SOLO', 'LEADER']);
+            partial.organization = '';
+            partial.role = '';
+            for (const part of parts) {
+                if (organizations.has(part.toUpperCase())) {
+                    partial.organization = part;
+                } else {
+                    partial.role = part;
+                }
+            }
         } else {
-            partial.roles = [];
+            partial.organization = '';
+            partial.role = '';
         }
 
         // EV M

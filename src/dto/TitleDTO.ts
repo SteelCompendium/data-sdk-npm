@@ -6,6 +6,9 @@ export class TitleDTO extends SteelCompendiumDTO<Title> {
 
     name!: string;
     echelon?: string;
+    flavor?: string;
+    prerequisite?: string;
+    effect?: string;
     benefits?: string[];
     content?: string;
     metadata?: Record<string, any>;
@@ -18,6 +21,9 @@ export class TitleDTO extends SteelCompendiumDTO<Title> {
         const data: Partial<TitleDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
         if (model.echelon !== undefined) data.echelon = model.echelon;
+        if (model.flavor !== undefined) data.flavor = model.flavor;
+        if (model.prerequisite !== undefined) data.prerequisite = model.prerequisite;
+        if (model.effect !== undefined) data.effect = model.effect;
         if (model.benefits !== undefined) data.benefits = model.benefits;
         if (model.content !== undefined) data.content = model.content;
         if (model.metadata !== undefined) data.metadata = model.metadata;

@@ -11,7 +11,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "The title or description of the feature"
+      "description": "The title or description of the feature. Always present on top-level features; may be absent on anonymous sub-features nested within effects."
     },
     "icon": {
       "type": "string",
@@ -27,7 +27,7 @@
     },
     "usage": {
       "type": "string",
-      "description": "Usage (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Villain Action 1\")"
+      "description": "Usage (e.g., \"Action\", \"Maneuver\", \"Triggered Action\", \"Main action\")"
     },
     "cost": {
       "type": "string",

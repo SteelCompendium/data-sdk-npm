@@ -5,7 +5,7 @@ export class FeatureDTO extends SteelCompendiumDTO<Feature> {
     type = Feature.FEATURE_TYPE;
 
     feature_type!: string;
-    name!: string;
+    name?: string;
     icon?: string;
     cost?: string;
     ability_type?: string;

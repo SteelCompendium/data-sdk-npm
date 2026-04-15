@@ -8,8 +8,9 @@
         "name",
         "type",
         "level",
-        "roles",
-        "ancestry",
+        "role",
+        "organization",
+        "keywords",
         "ev",
         "stamina",
         "speed",
@@ -37,20 +38,22 @@
             "description": "The creature's level.",
             "default": 0
         },
-        "roles": {
-            "type": "array",
-            "items": {
-                "type": "string"
-            },
-            "description": "Roles assigned to the creature (e.g., Boss, Minion).",
-            "default": []
+        "role": {
+            "type": "string",
+            "description": "The creature's combat role (e.g., Ambusher, Artillery, Brute, Controller, Defender, Harrier, Skirmisher).",
+            "default": ""
         },
-        "ancestry": {
+        "organization": {
+            "type": "string",
+            "description": "The creature's organizational type (e.g., Minion, Horde, Platoon, Elite, Solo, Leader).",
+            "default": ""
+        },
+        "keywords": {
             "type": "array",
             "items": {
                 "type": "string"
             },
-            "description": "Ancestries or types the creature belongs to (e.g., Human, Humanoid).",
+            "description": "Keywords for the creature (e.g., Goblin, Humanoid, Undead, Elemental).",
             "default": []
         },
         "ev": {

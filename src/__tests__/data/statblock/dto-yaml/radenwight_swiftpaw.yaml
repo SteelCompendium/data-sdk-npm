@@ -1,10 +1,9 @@
 type: statblock
 name: RADENWIGHT SWIFTPAW
 level: 1
-roles:
-  - MINION
-  - HARRIER
-ancestry:
+role: "HARRIER"
+organization: "MINION"
+keywords:
   - Humanoid
   - Radenwight
 ev: 3 for four minions

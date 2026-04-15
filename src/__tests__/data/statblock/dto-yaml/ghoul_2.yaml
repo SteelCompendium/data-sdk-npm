@@ -1,10 +1,9 @@
 type: statblock
 name: GHOUL
 level: 1
-roles:
-  - HORDE
-  - HARRIER
-ancestry:
+role: "HARRIER"
+organization: "HORDE"
+keywords:
   - Undead
 ev: "3"
 stamina: "15"

@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "career.schema.json-1.0.0",
+  "$id": "career.schema.json-2.0.0",
   "title": "Draw Steel Career",
-  "description": "A career that defines a hero's background and starting benefits.",
+  "description": "A career that defines a hero's background, starting benefits, and inciting incident.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -15,16 +15,26 @@
       "const": "career",
       "description": "Must always be 'career'."
     },
-    "skill": {
+    "flavor": {
       "type": "string",
-      "description": "Skill granted by the career."
+      "description": "Narrative description and guiding questions for the career."
+    },
+    "skills": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Skills granted by the career (e.g., [\"Criminal Underworld\", \"Pick Lock\", \"Pick Pocket\"])."
+    },
+    "skill_group": {
+      "type": "string",
+      "description": "Skill group constraint for skill choices (e.g., \"intrigue\", \"exploration or intrigue\")."
     },
     "language": {
       "type": "string",
-      "description": "Language granted by the career."
+      "description": "Language granted by the career (e.g., \"One language\")."
     },
     "renown": {
-      "type": "string",
+      "type": "integer",
+      "minimum": 0,
       "description": "Renown bonus granted by the career."
     },
     "wealth": {
@@ -32,12 +42,22 @@
       "description": "Starting wealth granted by the career."
     },
     "project_points": {
-      "type": "string",
-      "description": "Project points granted by the career."
+      "type": "integer",
+      "minimum": 0,
+      "description": "Project points granted by the career (e.g., 120)."
     },
     "perk": {
       "type": "string",
-      "description": "Perk granted by the career."
+      "description": "Perk granted by the career (e.g., \"Criminal Contacts\")."
+    },
+    "perk_group": {
+      "type": "string",
+      "description": "Perk group constraint for perk choice (e.g., \"intrigue\", \"crafting\")."
+    },
+    "inciting_incidents": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/IncitingIncident" },
+      "description": "d6 table of inciting incidents for the career."
     },
     "content": {
       "type": "string",
@@ -47,6 +67,29 @@
       "type": "object",
       "description": "Additional metadata (SCC, source, etc.).",
       "additionalProperties": true
+    }
+  },
+  "$defs": {
+    "IncitingIncident": {
+      "type": "object",
+      "required": ["roll", "description"],
+      "unevaluatedProperties": false,
+      "properties": {
+        "roll": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 6,
+          "description": "The d6 roll value."
+        },
+        "name": {
+          "type": "string",
+          "description": "Short name of the incident (e.g., \"Atonement\", \"Simply Survival\")."
+        },
+        "description": {
+          "type": "string",
+          "description": "Full narrative description of the inciting incident."
+        }
+      }
     }
   }
 }

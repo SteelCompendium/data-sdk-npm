@@ -2,10 +2,9 @@
   "type": "statblock",
   "name": "Fossil Cryptic",
   "level": 2,
-  "roles": [
-    "Solo"
-  ],
-  "ancestry": [
+  "role": "",
+  "organization": "Solo",
+  "keywords": [
     "Elemental"
   ],
   "ev": "48",

@@ -5,10 +5,12 @@ export class Culture extends SteelCompendiumModel<CultureDTO> {
     public static readonly CULTURE_TYPE = 'culture';
 
     name!: string;
+    culture_benefit_type?: string;
     environment?: string;
     organization?: string;
     upbringing?: string;
-    skill?: string;
+    skill_options?: string[];
+    quick_build_skill?: string;
     language?: string;
     content?: string;
     metadata?: Record<string, any>;

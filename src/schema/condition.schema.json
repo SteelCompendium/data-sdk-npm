@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "condition.schema.json-1.0.0",
+  "$id": "condition.schema.json-2.0.0",
   "title": "Draw Steel Condition",
   "description": "A condition that affects creatures in Draw Steel.",
   "type": "object",

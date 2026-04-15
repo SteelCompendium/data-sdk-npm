@@ -1,9 +1,9 @@
 type: statblock
 name: DAME CORNELIA
 level: 1
-roles:
-  - LEADER
-ancestry:
+role: ""
+organization: "LEADER"
+keywords:
   - Undead
 ev: "12"
 stamina: "80"

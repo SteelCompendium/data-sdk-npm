@@ -5,7 +5,17 @@ export class Class extends SteelCompendiumModel<ClassDTO> {
     public static readonly CLASS_TYPE = 'class';
 
     name!: string;
+    flavor?: string;
     heroic_resource?: string;
+    primary_characteristics?: string[];
+    weak_potency?: string;
+    average_potency?: string;
+    strong_potency?: string;
+    starting_stamina?: number;
+    stamina_per_level?: number;
+    recoveries?: number;
+    skills?: string[];
+    skill_group?: string;
     content?: string;
     metadata?: Record<string, any>;
 

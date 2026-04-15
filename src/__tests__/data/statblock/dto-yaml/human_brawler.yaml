@@ -1,10 +1,9 @@
 type: statblock
 name: HUMAN BRAWLER
 level: 1
-roles:
-  - PLATOON
-  - BRUTE
-ancestry:
+role: "BRUTE"
+organization: "PLATOON"
+keywords:
   - Human
   - Humanoid
 ev: "6"

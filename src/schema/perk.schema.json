@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "perk.schema.json-1.0.0",
+  "$id": "perk.schema.json-2.0.0",
   "title": "Draw Steel Perk",
-  "description": "A perk that provides additional benefits to a hero.",
+  "description": "A perk that provides additional benefits to a hero, organized by skill group.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -14,6 +14,10 @@
     "type": {
       "const": "perk",
       "description": "Must always be 'perk'."
+    },
+    "perk_group": {
+      "type": "string",
+      "description": "The skill group this perk belongs to (e.g., \"Crafting\", \"Exploration\", \"Interpersonal\", \"Intrigue\", \"Lore\", \"Supernatural\")."
     },
     "prerequisites": {
       "type": "string",

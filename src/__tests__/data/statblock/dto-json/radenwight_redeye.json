@@ -2,11 +2,9 @@
   "type": "statblock",
   "name": "RADENWIGHT REDEYE",
   "level": 1,
-  "roles": [
-    "MINION",
-    "ARTILLERY"
-  ],
-  "ancestry": [
+  "role": "ARTILLERY",
+  "organization": "MINION",
+  "keywords": [
     "Humanoid",
     "Radenwight"
   ],

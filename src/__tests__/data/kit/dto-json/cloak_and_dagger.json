@@ -1,0 +1,38 @@
+{
+  "name": "Cloak and Dagger",
+  "type": "kit",
+  "kit_type": "Martial",
+  "flavor": "Providing throwable light weapons and light armor easily concealed by a cloak to confuse your enemies, the Cloak and Dagger kit makes you more mobile while increasing the effectiveness of your short-range strikes.",
+  "armor": ["Light Armor"],
+  "weapon": ["Light Weapon", "Light Weapon"],
+  "equipment_text": "You wear light armor and wield one or two light weapons.",
+  "stamina_bonus": "+3 per echelon",
+  "speed_bonus": "+2",
+  "melee_damage_bonus": "+1/+1/+1",
+  "ranged_damage_bonus": "+1/+1/+1",
+  "ranged_distance_bonus": "+5",
+  "disengage_bonus": "+1",
+  "signature_ability": {
+    "type": "feature",
+    "feature_type": "ability",
+    "name": "Fade",
+    "flavor": "A stab, and a few quick, careful steps back.",
+    "keywords": ["Melee", "Ranged", "Strike", "Weapon"],
+    "usage": "Main action",
+    "distance": "Melee 1 or ranged 10",
+    "target": "One creature",
+    "effects": [
+      {
+        "roll": "Power Roll + Might or Agility",
+        "tier1": "3 + M or A damage; you can shift 1 square",
+        "tier2": "6 + M or A damage; you can shift up to 2 squares",
+        "tier3": "8 + M or A damage; you can shift up to 3 squares"
+      }
+    ]
+  },
+  "content": "#### Cloak and Dagger\n\nProviding throwable light weapons...",
+  "metadata": {
+    "scc": ["mcdm.heroes.v1:kit:cloak-and-dagger"],
+    "source": "mcdm.heroes.v1"
+  }
+}

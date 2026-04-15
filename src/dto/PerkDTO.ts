@@ -5,6 +5,7 @@ export class PerkDTO extends SteelCompendiumDTO<Perk> {
     type = Perk.PERK_TYPE;
 
     name!: string;
+    perk_group?: string;
     prerequisites?: string;
     content?: string;
     metadata?: Record<string, any>;
@@ -16,6 +17,7 @@ export class PerkDTO extends SteelCompendiumDTO<Perk> {
     static partialFromModel(model: Perk): Partial<PerkDTO> {
         const data: Partial<PerkDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.perk_group !== undefined) data.perk_group = model.perk_group;
         if (model.prerequisites !== undefined) data.prerequisites = model.prerequisites;
         if (model.content !== undefined) data.content = model.content;
         if (model.metadata !== undefined) data.metadata = model.metadata;

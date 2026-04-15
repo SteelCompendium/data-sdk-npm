@@ -2,11 +2,9 @@
   "type": "statblock",
   "name": "GOREK",
   "level": 2,
-  "roles": [
-    "ELITE",
-    "BRUTE"
-  ],
-  "ancestry": [
+  "role": "BRUTE",
+  "organization": "ELITE",
+  "keywords": [
     "Humanoid",
     "Dwarf",
     "Rival"

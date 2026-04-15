@@ -1,9 +1,9 @@
 type: statblock
 name: Vampire Lord
 level: 7
-roles:
-  - Leader
-ancestry:
+role: ""
+organization: "Leader"
+keywords:
   - Undead
 ev: "36"
 stamina: "200"

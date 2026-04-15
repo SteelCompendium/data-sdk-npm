@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2019-09/schema",
-  "$id": "title.schema.json-1.0.0",
+  "$id": "title.schema.json-2.0.0",
   "title": "Draw Steel Title",
-  "description": "A title that can be earned by heroes at various echelons.",
+  "description": "A title that can be earned by heroes at various echelons, granting benefit choices.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,
@@ -17,14 +17,26 @@
     },
     "echelon": {
       "type": "string",
-      "description": "The echelon at which this title is available (e.g., \"1st\", \"2nd\")."
+      "description": "The echelon at which this title is available (e.g., \"1st\", \"2nd\", \"3rd\", \"4th\")."
+    },
+    "flavor": {
+      "type": "string",
+      "description": "Italicized flavor text for the title."
+    },
+    "prerequisite": {
+      "type": "string",
+      "description": "The prerequisite that must be met to earn this title."
+    },
+    "effect": {
+      "type": "string",
+      "description": "The main effect text describing what the title grants."
     },
     "benefits": {
       "type": "array",
       "items": {
         "type": "string"
       },
-      "description": "Benefits granted by the title."
+      "description": "Benefit choices granted by the title."
     },
     "content": {
       "type": "string",

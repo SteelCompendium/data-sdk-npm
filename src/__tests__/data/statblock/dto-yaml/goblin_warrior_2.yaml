@@ -1,10 +1,9 @@
 type: statblock
 name: GOBLIN WARRIOR
 level: 1
-roles:
-  - HORDE
-  - HARRIER
-ancestry:
+role: "HARRIER"
+organization: "HORDE"
+keywords:
   - Goblin
   - Humanoid
 ev: "3"

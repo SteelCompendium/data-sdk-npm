@@ -2,11 +2,9 @@
   "type": "statblock",
   "name": "GOBLIN SNIPER",
   "level": 1,
-  "roles": [
-    "MINION",
-    "ARTILLERY"
-  ],
-  "ancestry": [
+  "role": "ARTILLERY",
+  "organization": "MINION",
+  "keywords": [
     "Goblin",
     "Humanoid"
   ],
