@@ -15,6 +15,10 @@
       "const": "perk",
       "description": "Must always be 'perk'."
     },
+    "flavor": {
+      "type": "string",
+      "description": "Narrative flavor / lead descriptor for the perk (first prose paragraph)."
+    },
     "perk_group": {
       "type": "string",
       "description": "The skill group this perk belongs to (e.g., \"Crafting\", \"Exploration\", \"Interpersonal\", \"Intrigue\", \"Lore\", \"Supernatural\")."

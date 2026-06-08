@@ -15,6 +15,10 @@
       "const": "culture",
       "description": "Must always be 'culture'."
     },
+    "flavor": {
+      "type": "string",
+      "description": "Narrative flavor text describing the culture (first prose paragraph)."
+    },
     "culture_benefit_type": {
       "type": "string",
       "description": "The dimension of culture this represents (e.g., \"Environment\", \"Organization\", \"Upbringing\")."

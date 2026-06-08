@@ -23,6 +23,10 @@
       "type": "string",
       "description": "The level of the treasure item."
     },
+    "echelon": {
+      "type": "string",
+      "description": "Echelon tier the treasure belongs to (\"1\"–\"4\"), when applicable."
+    },
     "rarity": {
       "type": "string",
       "description": "The rarity of the treasure (e.g., \"Common\", \"Rare\", \"Legendary\")."
@@ -49,9 +53,8 @@
       "description": "Characteristic used for the project roll (e.g., \"Reason or Intuition\")."
     },
     "project_goal": {
-      "type": "integer",
-      "minimum": 1,
-      "description": "Project point goal to complete crafting (e.g., 150, 450)."
+      "type": ["integer", "string"],
+      "description": "Project point goal to complete crafting (e.g., 150, 450). May be a string when the source annotates the goal (e.g. \"45 (yields 1d3 darts)\")."
     },
     "effect": {
       "type": "string",
