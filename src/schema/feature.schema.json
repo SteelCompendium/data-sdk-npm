@@ -23,7 +23,8 @@
     },
     "feature_type": {
       "type": "string",
-      "description": "The type of the feature (ability or trait)"
+      "enum": ["ability", "trait", "feature"],
+      "description": "The kind of feature. 'ability' = a feature with combat rigor (keywords/usage/distance/target/power roll). 'trait' = a non-ability feature on an ancestry or monster statblock (the rulebook's 'trait'). 'feature' = any other non-ability feature (class/domain/college/kit/companion). Note: 'trait' was narrowed 2026-06-07 — it no longer covers class features."
     },
     "usage": {
       "type": "string",

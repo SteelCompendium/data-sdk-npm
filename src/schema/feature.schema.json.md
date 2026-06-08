@@ -10,7 +10,7 @@ The root object represents a complete feature with the following properties:
 |----------------|----------|----------|-----------------------------------------------------------------------------|
 | `name`         | string   | No       | The title or description of the feature                                     |
 | `type`         | string   | Yes      | Static string "feature"                                                     |
-| `feature_type` | string   | Yes      | The type of feature ("ability" or "trait")                                  |
+| `feature_type` | string   | Yes      | The kind of feature: `ability` (has combat rigor), `trait` (ancestry/monster non-ability feature), or `feature` (any other non-ability feature: class/domain/college/kit/companion). `trait` was narrowed 2026-06-07 and no longer covers class features. |
 | `icon`         | string   | No       | The icon of the feature (ex: "🏹")                                          |
 | `usage`        | string   | Yes      | Usage (e.g., "Action", "Maneuver", "Triggered Action", "Villain Action 1")  |
 | `cost`         | string   | No       | Cost to use the feature (e.g., "5 Essence", "Signature", "2 Malice")        |
