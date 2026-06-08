@@ -7,13 +7,14 @@ export class Treasure extends SteelCompendiumModel<TreasureDTO> {
     name!: string;
     treasure_type?: string;
     level?: string;
+    echelon?: string;
     rarity?: string;
     flavor?: string;
     keywords?: string[];
     item_prerequisite?: string;
     project_source?: string;
     project_roll_characteristic?: string;
-    project_goal?: number;
+    project_goal?: string | number;
     effect?: string;
     level_effects?: Record<string, string>;
     content?: string;

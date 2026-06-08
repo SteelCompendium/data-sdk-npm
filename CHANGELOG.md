@@ -1,5 +1,9 @@
 # Changelog
 
+## 3.1.0
+
+- Card-data field parity: add `flavor` to Culture and Perk; add `echelon` to Treasure; `Treasure.project_goal` now accepts a string or number (the ETL emits annotated goals like `"45 (yields 1d3 darts)"`).
+
 ## 2.2.0
 
 - Adds support for subtrait
