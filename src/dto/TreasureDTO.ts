@@ -7,13 +7,14 @@ export class TreasureDTO extends SteelCompendiumDTO<Treasure> {
     name!: string;
     treasure_type?: string;
     level?: string;
+    echelon?: string;
     rarity?: string;
     flavor?: string;
     keywords?: string[];
     item_prerequisite?: string;
     project_source?: string;
     project_roll_characteristic?: string;
-    project_goal?: number;
+    project_goal?: string | number;
     effect?: string;
     level_effects?: Record<string, string>;
     content?: string;
@@ -28,6 +29,7 @@ export class TreasureDTO extends SteelCompendiumDTO<Treasure> {
         if (model.name !== undefined) data.name = model.name;
         if (model.treasure_type !== undefined) data.treasure_type = model.treasure_type;
         if (model.level !== undefined) data.level = model.level;
+        if (model.echelon !== undefined) data.echelon = model.echelon;
         if (model.rarity !== undefined) data.rarity = model.rarity;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.keywords !== undefined) data.keywords = model.keywords;
