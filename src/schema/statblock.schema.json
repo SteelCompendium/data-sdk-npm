@@ -136,6 +136,15 @@
             "type": "string",
             "description": "Effect when a captain is present."
         },
+        "statblock_kind": {
+            "type": "string",
+            "enum": ["fixture"],
+            "description": "Marks non-creature statblock variants. Fixtures (Summoner book) use a loose 2-column stat header and render via the featureblock path."
+        },
+        "terrain_type": {
+            "type": "string",
+            "description": "Fixture classifier from the italic role line (e.g. 'Hazard' from 'Hazard Support')."
+        },
         "features": {
             "type": "array",
             "items": {

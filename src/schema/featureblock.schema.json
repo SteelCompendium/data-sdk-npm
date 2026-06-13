@@ -1,0 +1,126 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "featureblock.schema.json-3.0.0",
+    "title": "Draw Steel Featureblock",
+    "description": "A titled collection of features under a loose-stat header: malice blocks, named feature blocks (e.g. Tactical Stance), and dynamic terrain. Unlike a statblock's fixed grid, featureblock stats are loose name/value pairs.",
+    "type": "object",
+    "required": ["name", "type", "features"],
+    "unevaluatedProperties": false,
+    "properties": {
+        "name": {
+            "type": "string",
+            "description": "The featureblock's name (e.g. 'Basilisk Malice', 'Angry Beehive')."
+        },
+        "type": {
+            "type": "string",
+            "enum": ["featureblock", "dynamic-terrain"],
+            "description": "Routing type. Dynamic terrain is a featureblock at the schema level; it keeps its own SCC hierarchy."
+        },
+        "kind": {
+            "type": "string",
+            "enum": ["malice", "feature"],
+            "description": "Featureblock flavor (omitted for dynamic terrain): a malice block or a named feature block."
+        },
+        "level": {
+            "type": "integer",
+            "description": "Level qualifier ('Level 4+ Malice Features') or terrain level."
+        },
+        "flavor": {
+            "type": "string",
+            "description": "Intro/flavor prose (markdown-stripped first paragraph)."
+        },
+        "role": {
+            "type": "string",
+            "description": "Combat role for terrain (e.g. Hexer, Ambusher); drives the semantic accent color."
+        },
+        "terrain_type": {
+            "type": "string",
+            "description": "Terrain classifier (Hazard, Trap, Trigger, Siege Engine, Relic, Fortification)."
+        },
+        "stats": {
+            "type": "array",
+            "description": "Ordered loose header stats (e.g. EV / Stamina / Size). Values are free text ('1 per 10 x 10 thicket').",
+            "items": {
+                "type": "object",
+                "required": ["name", "value"],
+                "unevaluatedProperties": false,
+                "properties": {
+                    "name": { "type": "string" },
+                    "value": { "type": "string" }
+                }
+            },
+            "default": []
+        },
+        "features": {
+            "type": "array",
+            "description": "The block's features (non-lossy shape).",
+            "items": { "$ref": "#/$defs/richFeature" },
+            "default": []
+        },
+        "metadata": {
+            "type": "object",
+            "description": "Additional metadata (SCC, source, etc.).",
+            "additionalProperties": true
+        }
+    },
+    "$defs": {
+        "richFeature": {
+            "type": "object",
+            "required": ["name"],
+            "unevaluatedProperties": false,
+            "properties": {
+                "name": { "type": "string" },
+                "icon": { "type": "string", "description": "Source emoji prefix; drives the action accent for table-less features." },
+                "cost": { "type": "string", "description": "'7 Malice', 'Signature', 'Villain Action 1', …" },
+                "usage": { "type": "string", "description": "'Main action', 'Maneuver', 'Triggered action', …" },
+                "keywords": { "type": "array", "items": { "type": "string" } },
+                "distance": { "type": "string" },
+                "target": { "type": "string" },
+                "power_roll": {
+                    "type": "object",
+                    "required": ["tiers"],
+                    "unevaluatedProperties": false,
+                    "properties": {
+                        "formula": { "type": "string", "description": "'+ 2' or '2d10 + R'; absent for a bare test result." },
+                        "tiers": {
+                            "type": "object",
+                            "unevaluatedProperties": false,
+                            "properties": {
+                                "low": { "type": "string" },
+                                "mid": { "type": "string" },
+                                "high": { "type": "string" }
+                            }
+                        }
+                    }
+                },
+                "sections": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["label", "text"],
+                        "unevaluatedProperties": false,
+                        "properties": {
+                            "label": { "type": "string" },
+                            "text": { "type": "string" }
+                        }
+                    }
+                },
+                "enhancements": {
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "required": ["cost", "text"],
+                        "unevaluatedProperties": false,
+                        "properties": {
+                            "cost": { "type": "string" },
+                            "text": { "type": "string" }
+                        }
+                    }
+                },
+                "body": { "type": "string", "description": "Prose of a table-less (passive) feature." },
+                "trailing": { "type": "string", "description": "Prose after the structured parts of an ability." },
+                "level": { "type": "integer", "description": "Advancement group level (fixture/retainer advancement)." }
+            }
+        }
+    }
+}
