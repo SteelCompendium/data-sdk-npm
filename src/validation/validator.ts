@@ -1,6 +1,7 @@
 import Ajv from "ajv/dist/2019";
 import { ErrorObject } from "ajv";
 import statblockSchema from "../schema/statblock.schema.json";
+import featureblockSchema from "../schema/featureblock.schema.json";
 import featureSchema from "../schema/feature.schema.json";
 import ancestrySchema from "../schema/ancestry.schema.json";
 import careerSchema from "../schema/career.schema.json";
@@ -16,6 +17,7 @@ import treasureSchema from "../schema/treasure.schema.json";
 const ALL_SCHEMAS = [
     { key: "feature.schema.json", schema: featureSchema },
     { key: "statblock.schema.json", schema: statblockSchema },
+    { key: "featureblock.schema.json", schema: featureblockSchema },
     { key: "ancestry.schema.json", schema: ancestrySchema },
     { key: "career.schema.json", schema: careerSchema },
     { key: "class.schema.json", schema: classSchema },

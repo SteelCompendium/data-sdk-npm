@@ -207,4 +207,69 @@ describe("Enriched Schema Validation", () => {
             expect(result.valid).toBe(true);
         });
     });
+
+    describe("Featureblock schema", () => {
+        test("should validate malice featureblock with rich feature (power roll + sections + enhancement)", async () => {
+            const featureblockSample = {
+                name: "Basilisk Malice",
+                type: "featureblock",
+                kind: "malice",
+                flavor: "At the start of any basilisk's turn…",
+                features: [
+                    {
+                        name: "Upchuck",
+                        icon: "🔳",
+                        cost: "5 Malice",
+                        usage: "Main action",
+                        keywords: ["Area", "Weapon"],
+                        distance: "3 cube within 10",
+                        target: "Each enemy in the area",
+                        power_roll: { formula: "+ 2", tiers: { low: "4 damage", mid: "4 damage; prone", high: "5 damage" } },
+                        sections: [{ label: "Effect", text: "Spits a stone." }],
+                        enhancements: [{ cost: "2 Malice", text: "More." }],
+                    },
+                ],
+            };
+            const result = await validator.validateJSON(featureblockSample, "featureblock.schema.json");
+            if (!result.valid) {
+                const formattedErrors = validator.formatErrors(result.errors || []);
+                throw new Error(`Validation failed for featureblock sample:\n${formattedErrors}`);
+            }
+            expect(result.valid).toBe(true);
+        });
+
+        test("should validate dynamic-terrain featureblock with loose stats and passive feature", async () => {
+            const terrainSample = {
+                name: "Angry Beehive",
+                type: "dynamic-terrain",
+                level: 2,
+                terrain_type: "Hazard",
+                role: "Hexer",
+                stats: [
+                    { name: "EV", value: "2" },
+                    { name: "Stamina", value: "3" },
+                    { name: "Size", value: "1S" },
+                ],
+                features: [{ name: "Deactivate", icon: "🌀", body: "The beehive can't be deactivated." }],
+            };
+            const result = await validator.validateJSON(terrainSample, "featureblock.schema.json");
+            if (!result.valid) {
+                const formattedErrors = validator.formatErrors(result.errors || []);
+                throw new Error(`Validation failed for dynamic-terrain sample:\n${formattedErrors}`);
+            }
+            expect(result.valid).toBe(true);
+        });
+
+        test("should reject featureblock missing required features array", async () => {
+            const invalid = { name: "Bad Block", type: "featureblock" };
+            const result = await validator.validateJSON(invalid, "featureblock.schema.json");
+            expect(result.valid).toBe(false);
+        });
+
+        test("should reject featureblock with invalid type value", async () => {
+            const invalid = { name: "Bad Block", type: "statblock", features: [] };
+            const result = await validator.validateJSON(invalid, "featureblock.schema.json");
+            expect(result.valid).toBe(false);
+        });
+    });
 });

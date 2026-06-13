@@ -1,5 +1,6 @@
 import * as featureSchema from "./feature.schema.json"
 import * as statblockSchema from "./statblock.schema.json"
+import * as featureblockSchema from "./featureblock.schema.json"
 import * as ancestrySchema from "./ancestry.schema.json"
 import * as careerSchema from "./career.schema.json"
 import * as classSchema from "./class.schema.json"
@@ -14,6 +15,7 @@ import * as treasureSchema from "./treasure.schema.json"
 export {
     featureSchema,
     statblockSchema,
+    featureblockSchema,
     ancestrySchema,
     careerSchema,
     classSchema,
