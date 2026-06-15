@@ -117,6 +117,7 @@
                         }
                     }
                 },
+                "intro": { "type": "string", "description": "Lead-in prose before the power roll/table (e.g. 'As a maneuver, … make a Might test.'); renders above the power roll." },
                 "body": { "type": "string", "description": "Prose of a table-less (passive) feature." },
                 "trailing": { "type": "string", "description": "Prose after the structured parts of an ability." },
                 "level": { "type": "integer", "description": "Advancement group level (fixture/retainer advancement)." }

@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Featureblock schema: add `intro` to the `richFeature` shape — lead-in prose that precedes a feature's power roll/spec table (e.g. a test's "As a maneuver, … make a **Might test**." line), distinct from `body` (passive prose) and `trailing` (post-table notes).
+
 ## 3.1.0
 
 - Card-data field parity: add `flavor` to Culture and Perk; add `echelon` to Treasure; `Treasure.project_goal` now accepts a string or number (the ETL emits annotated goals like `"45 (yields 1d3 darts)"`).
