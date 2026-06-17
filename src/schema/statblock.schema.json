@@ -61,6 +61,10 @@
             "description": "Encounter Value (EV) of the creature.",
             "default": ""
         },
+        "cost": {
+            "type": "string",
+            "description": "In-play cost to summon/field the statblock at gametime by spending a resource, rather than buying it with Encounter Value (e.g. '3 essence for two minions', '2 Malice for two minions', '9 essence for one champion'). Distinct from `ev`. Introduced for the Summoner book."
+        },
         "stamina": {
             "type": "string",
             "description": "The creature's max stamina.",
