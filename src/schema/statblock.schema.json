@@ -33,6 +33,10 @@
             "type": "string",
             "description": "Must always be 'statblock'"
         },
+        "flavor": {
+            "type": "string",
+            "description": "The descriptive prose paragraph under the creature's heading, before the stat grid (e.g. a Summoner portfolio summon's description)."
+        },
         "level": {
             "type": "integer",
             "description": "The creature's level.",
