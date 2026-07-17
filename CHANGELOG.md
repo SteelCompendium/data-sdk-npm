@@ -2,11 +2,45 @@
 
 ## Unreleased
 
+## 3.2.0
+
+- Featureblock schema registered in the SDK exports and validator (it existed as a model since 1.0.0 but was missing from `./schema` and the validator registry).
 - Featureblock schema: add `intro` to the `richFeature` shape — lead-in prose that precedes a feature's power roll/spec table (e.g. a test's "As a maneuver, … make a **Might test**." line), distinct from `body` (passive prose) and `trailing` (post-table notes).
+- Statblock: add optional `cost` field (a summon's Essence cost, distinct from EV — Summoner book).
+- Statblock: add optional `flavor` field (read-aloud/flavor text).
+- Statblock: add fixture fields — `statblock_kind` (`"fixture"`; marks non-creature statblock variants that use the loose 2-column stat header and render via the featureblock path) and `terrain_type` (fixture classifier from the italic role line, e.g. `"Hazard"`).
+
+This release brings the published schemas/typed models up to parity with what the
+steel-etl pipeline already emits in `data-unified` (Summoner-book statblocks carry
+`cost:` today). Consumers pinned to 3.1.0 parse these fields untyped; 3.2.0 makes
+them schema-valid and typed.
 
 ## 3.1.0
 
 - Card-data field parity: add `flavor` to Culture and Perk; add `echelon` to Treasure; `Treasure.project_goal` now accepts a string or number (the ETL emits annotated goals like `"45 (yields 1d3 darts)"`).
+
+## 3.0.0
+
+*(Backfilled — this release shipped without a changelog entry. Changes enumerated
+from the source diff, `f632a8e..59c552e`.)*
+
+- [BREAKING] Statblock field rename: `roles: string[]` and `ancestry: string[]` are
+  removed, replaced by `role: string`, `organization: string`, and
+  `keywords: string[]`. Schema `$id` bumped to `statblock.schema.json-3.0.0`;
+  `required` grew to include `level`, `role`, `organization`, `keywords`.
+- [BREAKING] Statblock schema moved from draft-07 to **2019-09**, and
+  `additionalProperties: false` became `unevaluatedProperties: false`. The SDK's
+  validator now instantiates Ajv from `ajv/dist/2019` — external validation against
+  SDK schemas needs a 2019-09-capable Ajv.
+- [BREAKING] `FeatureDTO.name` is now optional (`name!: string` → `name?: string`),
+  matching the model (optional since 1.0.0). Type-level break for DTO consumers
+  reading `.name` unguarded.
+- Ten new model families, each with DTO + JSON schema + validator registration:
+  `Ancestry`, `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`,
+  `Perk`, `Title`, `Treasure`.
+- `MarkdownStatblockReader` / `SteelCompendiumIdentifier` rework: the sc-md reader
+  derives `organization`/`role` from the header row against the fixed organization
+  set (MINION/HORDE/PLATOON/ELITE/SOLO/LEADER).
 
 ## 2.2.0
 
