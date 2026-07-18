@@ -5,6 +5,7 @@ export class Class extends SteelCompendiumModel<ClassDTO> {
     public static readonly CLASS_TYPE = 'class';
 
     name!: string;
+    scc?: string;
     flavor?: string;
     heroic_resource?: string;
     primary_characteristics?: string[];

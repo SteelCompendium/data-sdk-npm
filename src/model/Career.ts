@@ -11,6 +11,7 @@ export class Career extends SteelCompendiumModel<CareerDTO> {
     public static readonly CAREER_TYPE = 'career';
 
     name!: string;
+    scc?: string;
     flavor?: string;
     skills?: string[];
     skill_group?: string;

@@ -5,6 +5,7 @@ export class Treasure extends SteelCompendiumModel<TreasureDTO> {
     public static readonly TREASURE_TYPE = 'treasure';
 
     name!: string;
+    scc?: string;
     treasure_type?: string;
     level?: string;
     echelon?: string;

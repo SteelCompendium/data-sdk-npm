@@ -15,6 +15,10 @@
       "const": "culture",
       "description": "Must always be 'culture'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "flavor": {
       "type": "string",
       "description": "Narrative flavor text describing the culture (first prose paragraph)."

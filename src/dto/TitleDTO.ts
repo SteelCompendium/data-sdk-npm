@@ -5,6 +5,7 @@ export class TitleDTO extends SteelCompendiumDTO<Title> {
     type = Title.TITLE_TYPE;
 
     name!: string;
+    scc?: string;
     echelon?: string;
     flavor?: string;
     prerequisite?: string;
@@ -20,6 +21,7 @@ export class TitleDTO extends SteelCompendiumDTO<Title> {
     static partialFromModel(model: Title): Partial<TitleDTO> {
         const data: Partial<TitleDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.echelon !== undefined) data.echelon = model.echelon;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.prerequisite !== undefined) data.prerequisite = model.prerequisite;

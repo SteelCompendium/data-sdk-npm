@@ -6,6 +6,7 @@ export class Kit extends SteelCompendiumModel<KitDTO> {
     public static readonly KIT_TYPE = 'kit';
 
     name!: string;
+    scc?: string;
     kit_type?: string;
     flavor?: string;
     armor?: string[];

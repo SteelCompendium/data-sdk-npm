@@ -5,6 +5,7 @@ export class CareerDTO extends SteelCompendiumDTO<Career> {
     type = Career.CAREER_TYPE;
 
     name!: string;
+    scc?: string;
     flavor?: string;
     skills?: string[];
     skill_group?: string;
@@ -25,6 +26,7 @@ export class CareerDTO extends SteelCompendiumDTO<Career> {
     static partialFromModel(model: Career): Partial<CareerDTO> {
         const data: Partial<CareerDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.skills !== undefined) data.skills = model.skills;
         if (model.skill_group !== undefined) data.skill_group = model.skill_group;

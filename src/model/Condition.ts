@@ -5,6 +5,7 @@ export class Condition extends SteelCompendiumModel<ConditionDTO> {
     public static readonly CONDITION_TYPE = 'condition';
 
     name!: string;
+    scc?: string;
     content?: string;
     metadata?: Record<string, any>;
 

@@ -15,6 +15,10 @@
       "const": "ancestry",
       "description": "Must always be 'ancestry'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "flavor": {
       "type": "string",
       "description": "Narrative description of the ancestry."

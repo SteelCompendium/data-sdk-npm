@@ -70,6 +70,12 @@ describe("Enriched Schema Validation", () => {
             const result = await validator.validateJSON(invalidAncestry, "ancestry.schema.json");
             expect(result.valid).toBe(false);
         });
+
+        test("should validate ancestry with top-level scc code (data-sdk-npm#13)", async () => {
+            const ancestry = { name: "Orc", type: "ancestry", scc: "mcdm.heroes.v1/ancestry/orc" };
+            const result = await validator.validateJSON(ancestry, "ancestry.schema.json");
+            expect(result.valid).toBe(true);
+        });
     });
 
     describe("Complication schema", () => {
@@ -163,6 +169,14 @@ describe("Enriched Schema Validation", () => {
             const result = await validator.validateJSON(treasure, "treasure.schema.json");
             expect(result.valid).toBe(true);
         });
+
+        test("should validate treasure with top-level scc code, and without one (data-sdk-npm#13)", async () => {
+            const withScc = { name: "Encepter", type: "treasure", scc: "mcdm.heroes.v1/treasure.artifact/encepter" };
+            expect((await validator.validateJSON(withScc, "treasure.schema.json")).valid).toBe(true);
+
+            const withoutScc = { name: "Homebrew Trinket", type: "treasure" };
+            expect((await validator.validateJSON(withoutScc, "treasure.schema.json")).valid).toBe(true);
+        });
     });
 
     describe("Perk schema", () => {
@@ -172,6 +186,16 @@ describe("Enriched Schema Validation", () => {
                 type: "perk",
                 perk_group: "Crafting",
                 content: "Choose one skill you already have from the crafting skill group."
+            };
+            const result = await validator.validateJSON(perk, "perk.schema.json");
+            expect(result.valid).toBe(true);
+        });
+
+        test("should validate perk with top-level scc code (data-sdk-npm#13)", async () => {
+            const perk = {
+                name: "Area of Expertise",
+                type: "perk",
+                scc: "mcdm.heroes.v1/perk.crafting/area-of-expertise"
             };
             const result = await validator.validateJSON(perk, "perk.schema.json");
             expect(result.valid).toBe(true);

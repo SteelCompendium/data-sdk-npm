@@ -6,6 +6,7 @@ export class KitDTO extends SteelCompendiumDTO<Kit> {
     type = Kit.KIT_TYPE;
 
     name!: string;
+    scc?: string;
     kit_type?: string;
     flavor?: string;
     armor?: string[];
@@ -30,6 +31,7 @@ export class KitDTO extends SteelCompendiumDTO<Kit> {
     static partialFromModel(model: Kit): Partial<KitDTO> {
         const data: Partial<KitDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.kit_type !== undefined) data.kit_type = model.kit_type;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.armor !== undefined) data.armor = model.armor;

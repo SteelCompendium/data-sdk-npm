@@ -5,6 +5,7 @@ export class Title extends SteelCompendiumModel<TitleDTO> {
     public static readonly TITLE_TYPE = 'title';
 
     name!: string;
+    scc?: string;
     echelon?: string;
     flavor?: string;
     prerequisite?: string;

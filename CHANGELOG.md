@@ -4,6 +4,7 @@
 
 ## 3.2.0
 
+- Fix: declare the top-level `scc` key (optional `string`) on the ten schemas/DTOs/models where steel-etl emits it at the entity root — `Ancestry`, `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`, `Perk`, `Title`, `Treasure`. Previously undeclared, so every strict (`unevaluatedProperties: false`) validation of a real generated file failed on its own SCC code (data-sdk-npm#13). `Feature`/`Featureblock`/`Statblock` are unaffected — they already carry `scc` inside the untyped `metadata` object.
 - Featureblock schema registered in the SDK exports and validator (it existed as a model since 1.0.0 but was missing from `./schema` and the validator registry).
 - Featureblock schema: add `intro` to the `richFeature` shape — lead-in prose that precedes a feature's power roll/spec table (e.g. a test's "As a maneuver, … make a **Might test**." line), distinct from `body` (passive prose) and `trailing` (post-table notes).
 - Statblock: add optional `cost` field (a summon's Essence cost, distinct from EV — Summoner book).

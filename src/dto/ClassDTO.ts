@@ -5,6 +5,7 @@ export class ClassDTO extends SteelCompendiumDTO<Class> {
     type = Class.CLASS_TYPE;
 
     name!: string;
+    scc?: string;
     flavor?: string;
     heroic_resource?: string;
     primary_characteristics?: string[];
@@ -26,6 +27,7 @@ export class ClassDTO extends SteelCompendiumDTO<Class> {
     static partialFromModel(model: Class): Partial<ClassDTO> {
         const data: Partial<ClassDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.heroic_resource !== undefined) data.heroic_resource = model.heroic_resource;
         if (model.primary_characteristics !== undefined) data.primary_characteristics = model.primary_characteristics;

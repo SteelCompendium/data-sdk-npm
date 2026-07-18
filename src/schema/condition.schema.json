@@ -15,6 +15,10 @@
       "const": "condition",
       "description": "Must always be 'condition'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "content": {
       "type": "string",
       "description": "Raw markdown body describing the condition's effects."

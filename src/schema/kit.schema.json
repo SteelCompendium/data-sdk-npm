@@ -15,6 +15,10 @@
       "const": "kit",
       "description": "Must always be 'kit'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "kit_type": {
       "type": "string",
       "description": "The category of kit (e.g., \"Martial\", \"Caster\", \"Stormwight\")."

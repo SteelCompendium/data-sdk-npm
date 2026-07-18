@@ -5,6 +5,7 @@ export class Culture extends SteelCompendiumModel<CultureDTO> {
     public static readonly CULTURE_TYPE = 'culture';
 
     name!: string;
+    scc?: string;
     flavor?: string;
     culture_benefit_type?: string;
     environment?: string;

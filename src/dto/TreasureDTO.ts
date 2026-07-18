@@ -5,6 +5,7 @@ export class TreasureDTO extends SteelCompendiumDTO<Treasure> {
     type = Treasure.TREASURE_TYPE;
 
     name!: string;
+    scc?: string;
     treasure_type?: string;
     level?: string;
     echelon?: string;
@@ -27,6 +28,7 @@ export class TreasureDTO extends SteelCompendiumDTO<Treasure> {
     static partialFromModel(model: Treasure): Partial<TreasureDTO> {
         const data: Partial<TreasureDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.treasure_type !== undefined) data.treasure_type = model.treasure_type;
         if (model.level !== undefined) data.level = model.level;
         if (model.echelon !== undefined) data.echelon = model.echelon;

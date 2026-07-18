@@ -5,6 +5,7 @@ export class CultureDTO extends SteelCompendiumDTO<Culture> {
     type = Culture.CULTURE_TYPE;
 
     name!: string;
+    scc?: string;
     flavor?: string;
     culture_benefit_type?: string;
     environment?: string;
@@ -23,6 +24,7 @@ export class CultureDTO extends SteelCompendiumDTO<Culture> {
     static partialFromModel(model: Culture): Partial<CultureDTO> {
         const data: Partial<CultureDTO> = { type: model.modelType() };
         if (model.name !== undefined) data.name = model.name;
+        if (model.scc !== undefined) data.scc = model.scc;
         if (model.flavor !== undefined) data.flavor = model.flavor;
         if (model.culture_benefit_type !== undefined) data.culture_benefit_type = model.culture_benefit_type;
         if (model.environment !== undefined) data.environment = model.environment;

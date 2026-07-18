@@ -15,6 +15,10 @@
       "const": "treasure",
       "description": "Must always be 'treasure'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "treasure_type": {
       "type": "string",
       "description": "Category of treasure (e.g., \"Trinkets\", \"Consumable\", \"Leveled\", \"Treasure\" for artifacts)."

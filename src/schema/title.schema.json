@@ -15,6 +15,10 @@
       "const": "title",
       "description": "Must always be 'title'."
     },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
     "echelon": {
       "type": "string",
       "description": "The echelon at which this title is available (e.g., \"1st\", \"2nd\", \"3rd\", \"4th\")."

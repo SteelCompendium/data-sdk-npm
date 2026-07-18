@@ -11,6 +11,7 @@ export class Ancestry extends SteelCompendiumModel<AncestryDTO> {
     public static readonly ANCESTRY_TYPE = 'ancestry';
 
     name!: string;
+    scc?: string;
     flavor?: string;
     signature_trait_name?: string;
     signature_trait_description?: string;
