@@ -136,6 +136,17 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                 if (organizations.has(part.toUpperCase())) {
                     partial.organization = part;
                 } else {
+                    // A statblock is expected to carry a single role. If a second
+                    // non-organization token appears, the header is malformed (or an
+                    // organization is missing from the known set) — keep the last and
+                    // warn rather than silently dropping the earlier value.
+                    if (partial.role) {
+                        console.warn(
+                            `MarkdownStatblockReader: role cell "${rolesHdr}" has multiple ` +
+                            `non-organization tokens; keeping "${part}" and dropping "${partial.role}". ` +
+                            `A statblock is expected to have exactly one role.`
+                        );
+                    }
                     partial.role = part;
                 }
             }

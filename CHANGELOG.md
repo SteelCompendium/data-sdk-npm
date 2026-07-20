@@ -2,43 +2,75 @@
 
 ## Unreleased
 
-## 3.2.0
-
-- Fix: declare the top-level `scc` key (optional `string`) on the ten schemas/DTOs/models where steel-etl emits it at the entity root — `Ancestry`, `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`, `Perk`, `Title`, `Treasure`. Previously undeclared, so every strict (`unevaluatedProperties: false`) validation of a real generated file failed on its own SCC code (data-sdk-npm#13). `Feature`/`Featureblock`/`Statblock` are unaffected — they already carry `scc` inside the untyped `metadata` object.
-- Featureblock schema registered in the SDK exports and validator (it existed as a model since 1.0.0 but was missing from `./schema` and the validator registry).
-- Featureblock schema: add `intro` to the `richFeature` shape — lead-in prose that precedes a feature's power roll/spec table (e.g. a test's "As a maneuver, … make a **Might test**." line), distinct from `body` (passive prose) and `trailing` (post-table notes).
-- Statblock: add optional `cost` field (a summon's Essence cost, distinct from EV — Summoner book).
-- Statblock: add optional `flavor` field (read-aloud/flavor text).
-- Statblock: add fixture fields — `statblock_kind` (`"fixture"`; marks non-creature statblock variants that use the loose 2-column stat header and render via the featureblock path) and `terrain_type` (fixture classifier from the italic role line, e.g. `"Hazard"`).
-
-This release brings the published schemas/typed models up to parity with what the
-steel-etl pipeline already emits in `data-unified` (Summoner-book statblocks carry
-`cost:` today). Consumers pinned to 3.1.0 parse these fields untyped; 3.2.0 makes
-them schema-valid and typed.
-
-## 3.1.0
-
-- Card-data field parity: add `flavor` to Culture and Perk; add `echelon` to Treasure; `Treasure.project_goal` now accepts a string or number (the ETL emits annotated goals like `"45 (yields 1d3 darts)"`).
-
 ## 3.0.0
 
-*(Backfilled — this release shipped without a changelog entry. Changes enumerated
-from the source diff, `f632a8e..59c552e`.)*
+First **3.x** release. Versions 3.0.0, 3.1.0, and 3.2.0 were developed but never
+published to npm (the published `latest` was 2.2.0), so their changes are
+consolidated here into this single 3.0.0 entry.
 
-- [BREAKING] Statblock field rename: `roles: string[]` and `ancestry: string[]` are
-  removed, replaced by `role: string`, `organization: string`, and
-  `keywords: string[]`. Schema `$id` bumped to `statblock.schema.json-3.0.0`;
-  `required` grew to include `level`, `role`, `organization`, `keywords`.
-- [BREAKING] Statblock schema moved from draft-07 to **2019-09**, and
+**For existing consumers:** this is a major (breaking) bump from 2.2.0. If you depend
+on a released version — a caret/tilde range (`^2.2.0`, `~2.2.0`), an exact pin, or a
+dist-tag — you are **not** affected until you deliberately upgrade to `3.x`; npm will
+not pull a new major into a `2.x` range. (Only a floating `*`/`latest` dependency, or
+depending on the git branch directly, would pick this up automatically.) Read the
+BREAKING items below before upgrading.
+
+### Breaking
+
+- Statblock field rename: `roles: string[]` and `ancestry: string[]` are **removed**,
+  replaced by `role: string`, `organization: string`, and `keywords: string[]`. A
+  Draw Steel statblock has exactly one combat role (Ambusher, Artillery, Brute,
+  Controller, Defender, Harrier, Hexer, Mount, Support) and one organization tier
+  (Minion, Horde, Platoon, Elite, Solo, Leader); the old `roles` array conflated those
+  two single-valued axes, so this split is a normalization. `keywords` remains an array
+  (creatures genuinely carry multiple keywords, e.g. "Human, Humanoid"). Schema `$id`
+  bumped to `statblock.schema.json-3.0.0`; `required` grew to include `level`, `role`,
+  `organization`, `keywords`.
+- Statblock schema moved from JSON Schema **draft-07 to 2019-09**, and
   `additionalProperties: false` became `unevaluatedProperties: false`. The SDK's
-  validator now instantiates Ajv from `ajv/dist/2019` — external validation against
-  SDK schemas needs a 2019-09-capable Ajv.
-- [BREAKING] `FeatureDTO.name` is now optional (`name!: string` → `name?: string`),
-  matching the model (optional since 1.0.0). Type-level break for DTO consumers
-  reading `.name` unguarded.
+  validator now instantiates Ajv from `ajv/dist/2019` — external validation against SDK
+  schemas needs a 2019-09-capable Ajv.
+- `FeatureDTO.name` is now optional (`name!: string` → `name?: string`), matching the
+  model (optional since 1.0.0). Type-level break for DTO consumers reading `.name`
+  unguarded.
+
+### New models & schemas
+
 - Ten new model families, each with DTO + JSON schema + validator registration:
   `Ancestry`, `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`,
   `Perk`, `Title`, `Treasure`.
+- Featureblock schema registered in the SDK exports and validator (the model existed
+  since 1.0.0 but was missing from `./schema` and the validator registry).
+
+### Field additions (parity with what the steel-etl pipeline already emits)
+
+- Statblock: optional `cost` (a summon's Essence cost, distinct from EV — Summoner
+  book), optional `flavor` (read-aloud text), and fixture fields `statblock_kind`
+  (`"fixture"`; non-creature variants that use the loose 2-column stat header and render
+  via the featureblock path) and `terrain_type` (fixture classifier from the italic
+  role line, e.g. `"Hazard"`).
+- Featureblock: `intro` on the `richFeature` shape — lead-in prose before a feature's
+  power roll/spec table (e.g. "As a maneuver, … make a **Might test**."), distinct from
+  `body` (passive prose) and `trailing` (post-table notes).
+- Card-data parity: `flavor` on Culture and Perk; `echelon` on Treasure;
+  `Treasure.project_goal` now accepts a string or number (the ETL emits annotated goals
+  like `"45 (yields 1d3 darts)"`).
+
+### Fixes
+
+- Declare the top-level `scc` key (optional `string`) on the ten entity
+  schemas/DTOs/models where steel-etl emits it at the entity root — `Ancestry`,
+  `Career`, `Class`, `Complication`, `Condition`, `Culture`, `Kit`, `Perk`, `Title`,
+  `Treasure`. Previously undeclared, so every strict (`unevaluatedProperties: false`)
+  validation of a real generated file failed on its own SCC code (data-sdk-npm#13).
+  `Feature`/`Featureblock`/`Statblock` are unaffected — they already carry `scc` inside
+  the untyped `metadata` object.
+- `MarkdownStatblockReader` now warns (instead of silently dropping) when a statblock's
+  organization/role cell contains more than one non-organization token, since a
+  statblock is expected to have exactly one role.
+
+### Internal
+
 - `MarkdownStatblockReader` / `SteelCompendiumIdentifier` rework: the sc-md reader
   derives `organization`/`role` from the header row against the fixed organization
   set (MINION/HORDE/PLATOON/ELITE/SOLO/LEADER).
