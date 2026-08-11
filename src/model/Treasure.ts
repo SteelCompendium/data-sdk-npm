@@ -1,6 +1,7 @@
 import { TreasureDTO } from '../dto/TreasureDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Treasure extends SteelCompendiumModel<TreasureDTO> {
     public static readonly TREASURE_TYPE = 'treasure';
 

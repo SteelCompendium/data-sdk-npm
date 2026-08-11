@@ -2,6 +2,7 @@ import { KitDTO } from '../dto/KitDTO';
 import { Feature } from './Feature';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Kit extends SteelCompendiumModel<KitDTO> {
     public static readonly KIT_TYPE = 'kit';
 

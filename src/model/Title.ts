@@ -1,6 +1,7 @@
 import { TitleDTO } from '../dto/TitleDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Title extends SteelCompendiumModel<TitleDTO> {
     public static readonly TITLE_TYPE = 'title';
 

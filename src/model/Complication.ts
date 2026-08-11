@@ -1,6 +1,7 @@
 import { ComplicationDTO } from '../dto/ComplicationDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Complication extends SteelCompendiumModel<ComplicationDTO> {
     public static readonly COMPLICATION_TYPE = 'complication';
 

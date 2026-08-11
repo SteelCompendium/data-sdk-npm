@@ -44,10 +44,10 @@
 
 | Export path | What it provides | Stability |
 |-------------|-----------------|-----------|
-| `steel-compendium-sdk` (main) | All models, IO, DTOs, schemas, validator | stable |
-| `steel-compendium-sdk/model` | Domain models only | stable |
-| `steel-compendium-sdk/dto` | DTOs only | stable |
-| `steel-compendium-sdk/schema` | JSON Schema files | stable |
+| `steel-compendium-sdk` (main) | All models, IO, DTOs, schemas, validator | stable (Feature/Statblock/Featureblock); beta for the 10 content-type models/schemas — see below |
+| `steel-compendium-sdk/model` | Domain models only | stable (Feature/Statblock/Featureblock); beta for the 10 content-type models — see below |
+| `steel-compendium-sdk/dto` | DTOs only | stable (Feature/Statblock/Featureblock); beta for the 10 content-type DTOs — see below |
+| `steel-compendium-sdk/schema` | JSON Schema files | stable (Feature/Statblock/Featureblock); beta for the 10 content-type schemas — see below |
 
 ### CLI
 
@@ -60,20 +60,24 @@
 
 All schemas use JSON Schema draft 2019-09 with `unevaluatedProperties: false` for composability.
 
-| Schema | File |
-|--------|------|
-| Feature | `dist/schema/feature.schema.json` |
-| Statblock | `dist/schema/statblock.schema.json` |
-| Ancestry | `dist/schema/ancestry.schema.json` |
-| Career | `dist/schema/career.schema.json` |
-| Class | `dist/schema/class.schema.json` |
-| Complication | `dist/schema/complication.schema.json` |
-| Condition | `dist/schema/condition.schema.json` |
-| Culture | `dist/schema/culture.schema.json` |
-| Kit | `dist/schema/kit.schema.json` |
-| Perk | `dist/schema/perk.schema.json` |
-| Title | `dist/schema/title.schema.json` |
-| Treasure | `dist/schema/treasure.schema.json` |
+**Stability:** Feature/Statblock/Featureblock (+ shared sub-schemas) are stable. The 10
+content-type schemas (Ancestry through Treasure) are **beta — subject to change without
+notice**; see README.md § Schema stability for rationale.
+
+| Schema | File | Stability |
+|--------|------|-----------|
+| Feature | `dist/schema/feature.schema.json` | stable |
+| Statblock | `dist/schema/statblock.schema.json` | stable |
+| Ancestry | `dist/schema/ancestry.schema.json` | beta |
+| Career | `dist/schema/career.schema.json` | beta |
+| Class | `dist/schema/class.schema.json` | beta |
+| Complication | `dist/schema/complication.schema.json` | beta |
+| Condition | `dist/schema/condition.schema.json` | beta |
+| Culture | `dist/schema/culture.schema.json` | beta |
+| Kit | `dist/schema/kit.schema.json` | beta |
+| Perk | `dist/schema/perk.schema.json` | beta |
+| Title | `dist/schema/title.schema.json` | beta |
+| Treasure | `dist/schema/treasure.schema.json` | beta |
 
 ## Integration Testing
 

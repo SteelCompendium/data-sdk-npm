@@ -1,3 +1,7 @@
+// Schema stability: feature/statblock/featureblock (+ shared sub-schemas) are stable.
+// The 10 content-type schemas below (ancestry, career, class, complication, condition,
+// culture, kit, perk, title, treasure) are BETA — subject to change without notice.
+// See README.md § Schema stability.
 import * as featureSchema from "./feature.schema.json"
 import * as statblockSchema from "./statblock.schema.json"
 import * as featureblockSchema from "./featureblock.schema.json"

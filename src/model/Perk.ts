@@ -1,6 +1,7 @@
 import { PerkDTO } from '../dto/PerkDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Perk extends SteelCompendiumModel<PerkDTO> {
     public static readonly PERK_TYPE = 'perk';
 

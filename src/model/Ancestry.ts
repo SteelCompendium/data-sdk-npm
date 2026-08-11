@@ -7,6 +7,7 @@ export interface AncestryTrait {
     description?: string;
 }
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Ancestry extends SteelCompendiumModel<AncestryDTO> {
     public static readonly ANCESTRY_TYPE = 'ancestry';
 

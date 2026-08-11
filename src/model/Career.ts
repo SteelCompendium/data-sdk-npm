@@ -7,6 +7,7 @@ export interface IncitingIncident {
     description: string;
 }
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Career extends SteelCompendiumModel<CareerDTO> {
     public static readonly CAREER_TYPE = 'career';
 

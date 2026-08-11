@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "treasure.schema.json-2.0.0",
   "title": "Draw Steel Treasure",
-  "description": "A treasure item (trinket, consumable, leveled item, or artifact) with keywords, project info, and effects.",
+  "description": "BETA — subject to change without notice. A treasure item (trinket, consumable, leveled item, or artifact) with keywords, project info, and effects.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,

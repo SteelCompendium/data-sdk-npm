@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "career.schema.json-2.0.0",
   "title": "Draw Steel Career",
-  "description": "A career that defines a hero's background, starting benefits, and inciting incident.",
+  "description": "BETA — subject to change without notice. A career that defines a hero's background, starting benefits, and inciting incident.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,

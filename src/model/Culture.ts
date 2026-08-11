@@ -1,6 +1,7 @@
 import { CultureDTO } from '../dto/CultureDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Culture extends SteelCompendiumModel<CultureDTO> {
     public static readonly CULTURE_TYPE = 'culture';
 

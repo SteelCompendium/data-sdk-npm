@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2019-09/schema",
   "$id": "class.schema.json-2.0.0",
   "title": "Draw Steel Class",
-  "description": "A hero class definition for Draw Steel with base mechanical stats.",
+  "description": "BETA — subject to change without notice. A hero class definition for Draw Steel with base mechanical stats.",
   "type": "object",
   "required": ["name", "type"],
   "unevaluatedProperties": false,

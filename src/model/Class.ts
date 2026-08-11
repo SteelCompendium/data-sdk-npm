@@ -1,6 +1,7 @@
 import { ClassDTO } from '../dto/ClassDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Class extends SteelCompendiumModel<ClassDTO> {
     public static readonly CLASS_TYPE = 'class';
 

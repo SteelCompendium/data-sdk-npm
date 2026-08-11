@@ -39,6 +39,29 @@ A TypeScript SDK for reading, writing, and converting structured Draw Steel TTRP
 | Title | [title.schema.json](src/schema/title.schema.json) |
 | Treasure | [treasure.schema.json](src/schema/treasure.schema.json) |
 
+## Schema stability
+
+| Stable | Beta — subject to change without notice |
+|--------|-------------------------------------------|
+| Feature | Ancestry |
+| Statblock | Career |
+| Featureblock | Class |
+| | Complication |
+| | Condition |
+| | Culture |
+| | Kit |
+| | Perk |
+| | Title |
+| | Treasure |
+
+The 10 beta schemas/models are transport shapes for book content — much of their
+structure lives in freeform markdown `content` fields rather than typed properties.
+They will be redesigned as structured authoring/character-management schemas mature.
+Do not build on them as a stable contract; breaking changes may ship in any release
+without a major version bump. `Feature`, `Statblock`, and `Featureblock` (and their
+shared sub-schemas, e.g. characteristics/effect/feature-stat) are mature, long-shipped
+authoring surfaces and are not affected by this notice.
+
 ## Development
 
 ### Quick Start

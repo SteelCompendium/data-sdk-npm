@@ -1,6 +1,7 @@
 import { ConditionDTO } from '../dto/ConditionDTO';
 import { ModelDTOAdapter, SteelCompendiumModel } from './SteelCompendiumModel';
 
+// BETA — subject to change without notice. See README.md § Schema stability.
 export class Condition extends SteelCompendiumModel<ConditionDTO> {
     public static readonly CONDITION_TYPE = 'condition';
 
