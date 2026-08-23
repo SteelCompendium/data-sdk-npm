@@ -43,7 +43,16 @@ export class Feature extends SteelCompendiumModel<FeatureDTO> {
         } else if (dto.feature_type === FeatureType.Subtrait) {
             ft = FeatureType.Subtrait;
         } else {
-            ft = dto.isTrait() ? FeatureType.Trait : FeatureType.Ability;
+            // `dto` is not guaranteed to be a real FeatureDTO instance here: every real
+            // deserialization path (YamlReader/JsonReader/AutoDataReader, and
+            // Featureblock.fromDTO's dto.features.map(...)) hands this plain parsed
+            // JSON/YAML objects — FeatureblockDTO.features is `any[]` and is never
+            // wrapped in `new FeatureDTO(...)` before Feature.fromDTO sees it. Calling
+            // the instance method `dto.isTrait()` throws `TypeError: dto.isTrait is not
+            // a function` on those plain objects (SC-155). The static `Feature.isTrait`
+            // takes `data: any` and works identically on both plain objects and real
+            // FeatureDTO/Feature instances, so use it instead.
+            ft = Feature.isTrait(dto) ? FeatureType.Trait : FeatureType.Ability;
         }
         return new Feature({
             ...dto,
