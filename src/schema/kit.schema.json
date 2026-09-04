@@ -21,7 +21,7 @@
     },
     "kit_type": {
       "type": "string",
-      "description": "The category of kit (e.g., \"Martial\", \"Caster\", \"Stormwight\")."
+      "description": "The category of kit (e.g., \"Martial\", \"Magic\", \"Psionic\")."
     },
     "flavor": {
       "type": "string",
