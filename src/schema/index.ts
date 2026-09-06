@@ -16,7 +16,10 @@ import * as perkSchema from "./perk.schema.json"
 import * as titleSchema from "./title.schema.json"
 import * as treasureSchema from "./treasure.schema.json"
 
+import * as projectSchema from "./project.schema.json"
+
 export {
+    projectSchema,
     featureSchema,
     statblockSchema,
     featureblockSchema,

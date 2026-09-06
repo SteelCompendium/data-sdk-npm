@@ -13,8 +13,10 @@ import kitSchema from "../schema/kit.schema.json";
 import perkSchema from "../schema/perk.schema.json";
 import titleSchema from "../schema/title.schema.json";
 import treasureSchema from "../schema/treasure.schema.json";
+import projectSchema from "../schema/project.schema.json";
 
 const ALL_SCHEMAS = [
+    { key: "project.schema.json", schema: projectSchema },
     { key: "feature.schema.json", schema: featureSchema },
     { key: "statblock.schema.json", schema: statblockSchema },
     { key: "featureblock.schema.json", schema: featureblockSchema },

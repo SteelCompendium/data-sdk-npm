@@ -22,12 +22,13 @@ A TypeScript SDK for reading, writing, and converting structured Draw Steel TTRP
 
 ## Schemas
 
-12 JSON Schemas (draft 2019-09 with `unevaluatedProperties: false` for composability):
+14 JSON Schemas (draft 2019-09 with `unevaluatedProperties: false` for composability):
 
 | Schema | File |
 |--------|------|
 | Feature | [feature.schema.json](src/schema/feature.schema.json) |
 | Statblock | [statblock.schema.json](src/schema/statblock.schema.json) |
+| Featureblock | [featureblock.schema.json](src/schema/featureblock.schema.json) |
 | Ancestry | [ancestry.schema.json](src/schema/ancestry.schema.json) |
 | Career | [career.schema.json](src/schema/career.schema.json) |
 | Class | [class.schema.json](src/schema/class.schema.json) |
@@ -36,8 +37,15 @@ A TypeScript SDK for reading, writing, and converting structured Draw Steel TTRP
 | Culture | [culture.schema.json](src/schema/culture.schema.json) |
 | Kit | [kit.schema.json](src/schema/kit.schema.json) |
 | Perk | [perk.schema.json](src/schema/perk.schema.json) |
+| Downtime Project (schema only) | [project.schema.json](src/schema/project.schema.json) |
 | Title | [title.schema.json](src/schema/title.schema.json) |
 | Treasure | [treasure.schema.json](src/schema/treasure.schema.json) |
+
+Projects expose optional string fields `item_prerequisite`, `project_source`,
+`project_roll_characteristic`, and `project_goal`. Strings preserve links and goal
+qualifiers such as “per mile”; delegating projects may omit these fields.
+The project schema is exported and registered with the validator; projects do not
+yet have a typed model or format-specific reader/writer.
 
 ## Schema stability
 
@@ -51,10 +59,11 @@ A TypeScript SDK for reading, writing, and converting structured Draw Steel TTRP
 | | Culture |
 | | Kit |
 | | Perk |
+| | Downtime Project (schema only) |
 | | Title |
 | | Treasure |
 
-The 10 beta schemas/models are transport shapes for book content — much of their
+The 11 beta schemas (10 with typed models) are transport shapes for book content — much of their
 structure lives in freeform markdown `content` fields rather than typed properties.
 They will be redesigned as structured authoring/character-management schemas mature.
 Do not build on them as a stable contract; breaking changes may ship in any release

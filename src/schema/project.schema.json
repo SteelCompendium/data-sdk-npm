@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2019-09/schema",
+  "$id": "project.schema.json-2.0.0",
+  "title": "Draw Steel Downtime Project",
+  "description": "BETA — subject to change without notice. A downtime project and its crafting or research requirements.",
+  "type": "object",
+  "required": [
+    "name",
+    "type"
+  ],
+  "unevaluatedProperties": false,
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The project name."
+    },
+    "type": {
+      "const": "project"
+    },
+    "scc": {
+      "type": "string",
+      "description": "Steel Compendium Classification (SCC) code — the API key and site permalink for this entity (see the SCC scheme spec). Omitted on hand-authored homebrew content that hasn't been classified."
+    },
+    "content": {
+      "type": "string",
+      "description": "Project markdown, including unclassified project subsections."
+    },
+    "metadata": {
+      "type": "object",
+      "description": "Additional metadata (SCC, source, etc.).",
+      "additionalProperties": true
+    },
+    "item_prerequisite": {
+      "type": "string",
+      "description": "Items required before beginning the project."
+    },
+    "project_source": {
+      "type": "string",
+      "description": "Required texts, lore, or other sources."
+    },
+    "project_roll_characteristic": {
+      "type": "string",
+      "description": "Characteristics used for the project roll."
+    },
+    "project_goal": {
+      "type": "string",
+      "description": "Project point goal; kept as text to preserve qualifiers."
+    }
+  }
+}
