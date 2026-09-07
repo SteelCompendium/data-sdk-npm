@@ -82,6 +82,7 @@
                     "unevaluatedProperties": false,
                     "properties": {
                         "formula": { "type": "string", "description": "'+ 2' or '2d10 + R'; absent for a bare test result." },
+                        "label": { "type": "string", "description": "Head text for a header-less roll derived from a preceding '**<Characteristic> test**' phrase (e.g. 'Agility Test'); absent renders bare. Set only when the feature has more than one tier list (SC-308)." },
                         "tiers": {
                             "type": "object",
                             "unevaluatedProperties": false,
@@ -89,6 +90,53 @@
                                 "low": { "type": "string" },
                                 "mid": { "type": "string" },
                                 "high": { "type": "string" }
+                            }
+                        }
+                    }
+                },
+                "post": {
+                    "type": "array",
+                    "description": "SC-308: everything after a multi-roll feature's first tier list, in document order — sections/enhancements/prose paragraphs/later rolls interleaved exactly as in the source (sections/enhancements above still carry the same entries, unordered relative to each other). Present only when the feature has more than one tier list. Each item holds exactly one of section/enhancement/prose/roll.",
+                    "items": {
+                        "type": "object",
+                        "unevaluatedProperties": false,
+                        "properties": {
+                            "section": {
+                                "type": "object",
+                                "required": ["label", "text"],
+                                "unevaluatedProperties": false,
+                                "properties": {
+                                    "label": { "type": "string" },
+                                    "text": { "type": "string" }
+                                }
+                            },
+                            "enhancement": {
+                                "type": "object",
+                                "required": ["cost", "text"],
+                                "unevaluatedProperties": false,
+                                "properties": {
+                                    "cost": { "type": "string" },
+                                    "text": { "type": "string" }
+                                }
+                            },
+                            "prose": { "type": "string" },
+                            "roll": {
+                                "type": "object",
+                                "required": ["tiers"],
+                                "unevaluatedProperties": false,
+                                "properties": {
+                                    "formula": { "type": "string", "description": "'+ 2'; absent for a bare or label-derived test result." },
+                                    "label": { "type": "string", "description": "Head text derived from a preceding '**<Characteristic> test**' phrase (e.g. 'Agility Test'); absent renders bare." },
+                                    "tiers": {
+                                        "type": "object",
+                                        "unevaluatedProperties": false,
+                                        "properties": {
+                                            "low": { "type": "string" },
+                                            "mid": { "type": "string" },
+                                            "high": { "type": "string" }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
