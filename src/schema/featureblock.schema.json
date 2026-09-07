@@ -96,7 +96,7 @@
                 },
                 "post": {
                     "type": "array",
-                    "description": "SC-308: everything after a multi-roll feature's first tier list, in document order — sections/enhancements/prose paragraphs/later rolls interleaved exactly as in the source (sections/enhancements above still carry the same entries, unordered relative to each other). Present only when the feature has more than one tier list. Each item holds exactly one of section/enhancement/prose/roll.",
+                    "description": "SC-308: everything after a multi-roll feature's first tier list, in document order — sections/enhancements/prose paragraphs/later rolls interleaved exactly as in the source (sections/enhancements above still carry the same entries, unordered relative to each other). Present only when the feature has more than one tier list. Each item holds exactly one of section/enhancement/prose/roll. When present, `post` is the authoritative render order for everything after the first tier list; `sections`/`enhancements` are the same entries repeated for consumers that only need the flat lists — render one or the other, never both.",
                     "items": {
                         "type": "object",
                         "unevaluatedProperties": false,
@@ -167,7 +167,7 @@
                 },
                 "intro": { "type": "string", "description": "Lead-in prose before the power roll/table (e.g. 'As a maneuver, … make a Might test.'); renders above the power roll." },
                 "body": { "type": "string", "description": "Prose of a table-less (passive) feature." },
-                "trailing": { "type": "string", "description": "Prose after the structured parts of an ability." },
+                "trailing": { "type": "string", "description": "Prose after the structured parts of an ability; empty when `post` is present — the trailing prose is carried as `post[].prose` entries instead." },
                 "level": { "type": "integer", "description": "Advancement group level (fixture/retainer advancement)." }
             }
         }
