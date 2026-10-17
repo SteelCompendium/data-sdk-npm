@@ -1,5 +1,6 @@
 import { describe, it, expect } from "@jest/globals";
 import { TreasureDTO, CultureDTO, PerkDTO, StatblockDTO } from "../../dto";
+import { Statblock } from "../../model";
 
 // Round-trip tests for the card-data field-parity additions:
 //   treasure: echelon + string project_goal
@@ -58,5 +59,20 @@ describe("DTO field parity round-trips", () => {
         const back = StatblockDTO.fromModel(dto.toModel());
         expect(back.free_strike).toBe(2);
         expect(back.skills).toBeUndefined();
+    });
+
+    it("loads a companion statblock from a plain object with a feature_type 'feature' member (DSE readYaml path)", () => {
+        const sb = Statblock.modelDTOAdapter({
+            name: "Panther", type: "statblock", organization: "Companion", stamina: "= yours",
+            free_strike: "1 + M", skills: ["Sneak"],
+            features: [
+                { type: "feature", feature_type: "ability", name: "Pounce", ability_type: "Signature Ability",
+                  usage: "Maneuver", keywords: ["Melee"], distance: "Melee 1", target: "One enemy", effects: [{ effect: "x" }] },
+                { type: "feature", feature_type: "feature", name: "Mighty Spring", effects: [{ effect: "y" }] },
+            ],
+        } as any);
+        expect(sb.features.map(f => f.feature_type)).toEqual(["ability", "trait"]);
+        expect(sb.freeStrike).toBe("1 + M");
+        expect(sb.skills).toEqual(["Sneak"]);
     });
 });
