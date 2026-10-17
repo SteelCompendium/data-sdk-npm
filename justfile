@@ -2,9 +2,10 @@ test:
     npm run build && npm run test
 
 # Checks: NPM_PAT is set (.npmrc reads the token from it), npm accepts it, and its user
-# has read-write access to this package. `release` runs this before it touches git, so a
-# bad token can't leave a pushed release commit with nothing published. Can't detect a
-# read-only granular token or a publish-time 2FA prompt short of publishing.
+# has read-write access to this package. `release` runs this first, so the common auth
+# failures stop before any git change. Can't detect a read-only granular token or a
+# publish-time 2FA prompt short of publishing; `release` handles those by publishing
+# before it pushes.
 #
 # Verifies npm auth can publish this package (run automatically by `release`)
 check-auth:
@@ -36,11 +37,30 @@ release version: check-auth
         echo "Cannot release: 'git status' is not clean.  Commit/push or stash changes first"
         exit 1
     fi
+    # The push runs AFTER the publish, so it must not be able to fail on a stale branch.
+    if ! git rev-parse --abbrev-ref '@{u}' >/dev/null 2>&1; then
+        echo >&2 "Cannot release: branch '$(git branch --show-current)' has no upstream to push to."
+        exit 1
+    fi
+    git fetch --quiet
+    if [[ "$(git rev-list --count 'HEAD..@{u}')" != 0 ]]; then
+        echo >&2 "Cannot release: branch is behind its upstream. Pull first."
+        exit 1
+    fi
     jq '.version = "{{version}}"' package.json > tmp.json && mv tmp.json package.json
     git add .
     git commit --allow-empty -am "Prepares for release '{{version}}'"
-    git push
-    npm publish
+    # Publish BEFORE pushing: if npm refuses (403, 2FA, version already taken), drop the
+    # local release commit so nothing half-released reaches origin.
+    if ! npm publish; then
+        git reset --keep HEAD~1
+        echo >&2 "npm publish failed; dropped the local release commit. Nothing was pushed."
+        exit 1
+    fi
+    if ! git push; then
+        echo >&2 "Published {{version}} to npm, but git push failed. Push the release commit by hand."
+        exit 1
+    fi
 
 # features
 convert_test_features_from_md_to_json:

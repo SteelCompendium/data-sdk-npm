@@ -46,19 +46,22 @@ Prerequisites: `NPM_PAT` environment variable must be set (see `.npmrc`). Run
    This does:
    - Runs `just check-auth`: `NPM_PAT` is set, npm accepts it (`npm whoami`), and that
      user has read-write access to the package. Any failure stops here, before git is
-     touched — so a bad token can't leave a pushed release commit with nothing published
+     touched
+   - Checks the branch has an upstream and isn't behind it (the push comes last, so it
+     must not fail)
    - Updates version in `package.json`
-   - Commits: `Prepares for release '<version>'`
+   - Commits locally: `Prepares for release '<version>'`
+   - Runs `npm publish`. If it fails, the local release commit is dropped and nothing
+     is pushed
    - Pushes to origin
-   - Runs `npm publish`
 
 ### Manual Release (without just)
 
 1. Update version in `package.json`
 2. Update `CHANGELOG.md`
 3. `git add . && git commit -m "Prepares for release '<version>'"`
-4. `git push`
-5. `npm publish`
+4. `npm publish` (if it fails: `git reset --keep HEAD~1`, fix, retry)
+5. `git push`
 
 ### Rollback
 

@@ -14,11 +14,9 @@
 **Cause:** The `NPM_PAT` environment variable is missing, expired, or doesn't have publish permissions.
 `just release` runs `just check-auth` first and stops before any git changes. Two cases it
 can't catch, which still surface only at `npm publish`: a read-only granular token, and an
-account that demands a 2FA code at publish time.
-
-**If a publish failed after the release commit was pushed** (version bumped on the branch
-but not on npm): fix the token, then re-run `just release <same version>`. The version
-bump is a no-op, so it adds one empty release commit, pushes, and publishes.
+account that demands a 2FA code at publish time. `release` publishes before it pushes, so
+when `npm publish` fails it drops the local release commit and nothing reaches origin. Fix
+the token and re-run `just release <version>`.
 
 **Fix:**
 ```sh
