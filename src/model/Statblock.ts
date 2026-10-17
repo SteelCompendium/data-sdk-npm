@@ -15,11 +15,12 @@ export class Statblock extends SteelCompendiumModel<StatblockDTO> {
     stamina!: string;
     immunities?: string[];
     weaknesses?: string[];
+    skills?: string[];
     speed!: number;
     movement!: string;
     size!: string;
     stability!: number;
-    freeStrike!: number;
+    freeStrike!: number | string;
     meleeDistance?: number
     rangedDistance?: number
     withCaptain?: string;

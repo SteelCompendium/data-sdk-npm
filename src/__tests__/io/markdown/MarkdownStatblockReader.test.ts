@@ -52,6 +52,19 @@ describe("MarkdownStatblockReader", () => {
         });
     });
 
+    describe("free strike", () => {
+        const withFreeStrike = (cell: string) =>
+            statblockWith("HORDE, HARRIER").replace("**1**<br>Free Strike", `**${cell}**<br>Free Strike`);
+
+        it("keeps an integer free strike numeric", () => {
+            expect(reader.read(withFreeStrike("2")).toDTO().free_strike).toBe(2);
+        });
+
+        it("keeps a formula free strike such as a companion's '1 + M' as text", () => {
+            expect(reader.read(withFreeStrike("1 + M")).toDTO().free_strike).toBe("1 + M");
+        });
+    });
+
     describe("organization / role split", () => {
         afterEach(() => { jest.restoreAllMocks(); });
 

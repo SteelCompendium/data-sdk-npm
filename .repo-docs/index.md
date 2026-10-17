@@ -92,7 +92,7 @@ data-sdk-npm/
 ## Current Status
 
 - **Health:** active development
-- **Last significant change:** v3.0.0 (2026-04-14) — added 10 content type schemas/models/DTOs, upgraded to JSON Schema draft 2019-09 with `unevaluatedProperties`
+- **Last significant change:** v3.1.0 (2026-10-17) — statblock `free_strike` is `number | string`, optional `skills[]` (beastheart companions). Previous: v3.0.0 (2026-04-14) — added 10 content type schemas/models/DTOs, upgraded to JSON Schema draft 2019-09 with `unevaluatedProperties`
 - **Known blockers:** None
 
 ## Documents in This Directory

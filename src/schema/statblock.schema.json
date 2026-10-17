@@ -90,6 +90,13 @@
             "description": "List of weaknesses (e.g., acid 3, holy 1).",
             "default": []
         },
+        "skills": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Skills the creature is trained in (e.g., a beastheart companion's Sneak). Omitted when the creature has none."
+        },
         "speed": {
             "type": "integer",
             "description": "Movement speed of the creature (e.g., 5).",
@@ -111,8 +118,11 @@
             "default": 0
         },
         "free_strike": {
-            "type": "integer",
-            "description": "The free strike value.",
+            "type": [
+                "integer",
+                "string"
+            ],
+            "description": "The free strike value. An integer for monsters; a string for formula values such as a beastheart companion's '1 + M'.",
             "default": 0
         },
         "might": {

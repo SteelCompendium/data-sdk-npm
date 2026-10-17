@@ -296,4 +296,31 @@ describe("Enriched Schema Validation", () => {
             expect(result.valid).toBe(false);
         });
     });
+
+    describe("Statblock schema (beastheart companion)", () => {
+        const companion = {
+            name: "Panther", type: "statblock", level: 1, role: "", organization: "Companion",
+            keywords: ["Animal", "Companion"], ev: "", stamina: "= yours", speed: 7, size: "1M",
+            stability: 1, free_strike: "1 + M", movement: "Climb", skills: ["Sneak"],
+            might: 2, agility: 2, reason: -1, intuition: 2, presence: 1, features: [],
+        };
+
+        test("accepts a text free_strike and a skills list", async () => {
+            const result = await validator.validateJSON(companion, "statblock.schema.json");
+            if (!result.valid) {
+                throw new Error(`Validation failed:\n${validator.formatErrors(result.errors || [])}`);
+            }
+            expect(result.valid).toBe(true);
+        });
+
+        test("still accepts an integer free_strike", async () => {
+            const result = await validator.validateJSON({ ...companion, free_strike: 2 }, "statblock.schema.json");
+            expect(result.valid).toBe(true);
+        });
+
+        test("rejects a non-string skills entry", async () => {
+            const result = await validator.validateJSON({ ...companion, skills: [1] }, "statblock.schema.json");
+            expect(result.valid).toBe(false);
+        });
+    });
 });

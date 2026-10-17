@@ -2,6 +2,25 @@
 
 ## Unreleased
 
+## 3.1.0
+
+Additive, backward-compatible statblock widening so beastheart companions can be
+`type: statblock` (steel-etl / Draw Steel Elements SC-390). Existing statblock data and
+code keep working; only a type widening may need a TypeScript tweak for code that reads
+`freeStrike` and assumes a number.
+
+- Statblock `free_strike` accepts an integer **or a string** (`integer | string` in
+  `statblock.schema.json`; `number | string` on `StatblockDTO.free_strike` and
+  `Statblock.freeStrike`). Companions' Free Strike is the formula `1 + M`. The sc-md
+  statblock reader keeps a non-integer Free Strike cell as text instead of coercing it
+  to a number (integers still read as numbers).
+- Statblock gains an optional `skills: string[]` (schema, `StatblockDTO.skills`,
+  `Statblock.skills`; omitted when empty). The sc-md statblock format has no Skills cell,
+  so skills round-trip through JSON/YAML only.
+- `stamina` already allowed free text; companions use `= yours`.
+
+## 3.0.1
+
 ### Fixed
 
 - `Featureblock.fromDTO` / `Feature.fromDTO` no longer throw

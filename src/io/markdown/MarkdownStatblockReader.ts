@@ -196,7 +196,11 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                         break;
 
                     case 'free strike':
-                        if (valueRaw && valueRaw !== '-') partial.freeStrike = parseInt(valueRaw, 10) || 0;
+                        // An integer for monsters; formula text ("1 + M") for beastheart
+                        // companions is kept verbatim (schema: integer | string).
+                        if (valueRaw && valueRaw !== '-') {
+                            partial.freeStrike = /^[+-]?\d+$/.test(valueRaw) ? parseInt(valueRaw, 10) : valueRaw;
+                        }
                         break;
 
                     case 'immunities':
