@@ -82,7 +82,8 @@ export class MarkdownStatblockWriter implements IDataWriter<Statblock> {
         const row2 = [
             cell(immunities, 'Immunity'),
             cell(data.movement ?? '-', 'Movement'),
-            '-', // center blank
+            // centre cell: Skills (beastheart companions), blank otherwise
+            data.skills?.length ? cell(data.skills.join(', '), 'Skills') : '-',
             cell(withCaptain, 'With Captain'),
             cell(weaknesses, 'Weakness'),
         ];

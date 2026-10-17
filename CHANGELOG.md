@@ -15,8 +15,8 @@ code keep working; only a type widening may need a TypeScript tweak for code tha
   statblock reader keeps a non-integer Free Strike cell as text instead of coercing it
   to a number (integers still read as numbers).
 - Statblock gains an optional `skills: string[]` (schema, `StatblockDTO.skills`,
-  `Statblock.skills`; omitted when empty). The sc-md statblock format has no Skills cell,
-  so skills round-trip through JSON/YAML only.
+  `Statblock.skills`; omitted when empty). The sc-md statblock reader/writer carry it as
+  a `Skills` cell in the centre of the third stat row, so it round-trips through sc-md too.
 - `stamina` already allowed free text; companions use `= yours`.
 
 ## 3.0.1

@@ -2,6 +2,8 @@ import { describe, it, expect, jest, afterEach } from "@jest/globals";
 import fs from "fs";
 import path from "path";
 import { MarkdownStatblockReader } from "../../../io/markdown/MarkdownStatblockReader";
+import { MarkdownStatblockWriter } from "../../../io/markdown/MarkdownStatblockWriter";
+import { Statblock } from "../../../model";
 
 // Builds a minimal but valid 5-column statblock whose organization/role cell
 // (formerly "Roles") is `rolesCell`, so the reader's organization-vs-role split
@@ -62,6 +64,31 @@ describe("MarkdownStatblockReader", () => {
 
         it("keeps a formula free strike such as a companion's '1 + M' as text", () => {
             expect(reader.read(withFreeStrike("1 + M")).toDTO().free_strike).toBe("1 + M");
+        });
+    });
+
+    describe("companion round trip (skills + text free strike)", () => {
+        const companion = () => new Statblock({
+            name: "Panther", level: 1, role: "", organization: "", keywords: ["Animal", "Companion"],
+            ev: "", stamina: "= yours", speed: 7, movement: "Climb", size: "1M", stability: 1,
+            freeStrike: "1 + M", skills: ["Sneak", "Hide"],
+        });
+
+        it("writes a Skills cell and reads it back with the text free strike", () => {
+            const md = new MarkdownStatblockWriter().write(companion());
+            expect(md).toContain("**Sneak, Hide**<br>Skills");
+            const back = reader.read(md).toDTO();
+            expect(back.skills).toEqual(["Sneak", "Hide"]);
+            expect(back.free_strike).toBe("1 + M");
+            expect(back.stamina).toBe("= yours");
+        });
+
+        it("writes no Skills cell when there are none", () => {
+            const sb = companion();
+            sb.skills = undefined;
+            const md = new MarkdownStatblockWriter().write(sb);
+            expect(md).not.toContain("Skills");
+            expect(reader.read(md).toDTO().skills).toBeUndefined();
         });
     });
 

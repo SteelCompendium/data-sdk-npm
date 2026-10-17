@@ -214,6 +214,11 @@ export class MarkdownStatblockReader implements IDataReader<Statblock> {
                         if (valueRaw !== '-') partial.movement = valueRaw;
                         break;
 
+                    case 'skills':
+                        // Beastheart companions (centre cell of the third row); a lone '-' is none.
+                        partial.skills = setList(valueRaw);
+                        break;
+
                     case 'with captain':
                         if (valueRaw !== '-') partial.withCaptain = valueRaw;
                         break;
