@@ -9,9 +9,16 @@
 
 ## Common Errors
 
-### `npm publish` returns 403 or 404
+### `Auth check failed: …` or `npm publish` returns 401, 403 or 404
 
 **Cause:** The `NPM_PAT` environment variable is missing, expired, or doesn't have publish permissions.
+`just release` runs `just check-auth` first and stops before any git changes. Two cases it
+can't catch, which still surface only at `npm publish`: a read-only granular token, and an
+account that demands a 2FA code at publish time.
+
+**If a publish failed after the release commit was pushed** (version bumped on the branch
+but not on npm): fix the token, then re-run `just release <same version>`. The version
+bump is a no-op, so it adds one empty release commit, pushes, and publishes.
 
 **Fix:**
 ```sh
@@ -19,6 +26,7 @@
 # Then set it:
 export NPM_PAT=<your-token>
 # The .npmrc file reads this variable automatically
+just check-auth   # confirm before releasing
 ```
 
 ### `Cannot release: 'git status' is not clean`

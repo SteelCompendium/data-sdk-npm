@@ -34,7 +34,8 @@ No CI pipeline detected in the repo. Build and test are run manually.
 
 ### Creating a Release
 
-Prerequisites: `NPM_PAT` environment variable must be set (see `.npmrc`).
+Prerequisites: `NPM_PAT` environment variable must be set (see `.npmrc`). Run
+`just check-auth` to verify it can publish before you start.
 
 1. Ensure `git status` is clean (no uncommitted changes)
 2. Update `CHANGELOG.md` with release notes
@@ -43,6 +44,9 @@ Prerequisites: `NPM_PAT` environment variable must be set (see `.npmrc`).
    just release <version>
    ```
    This does:
+   - Runs `just check-auth`: `NPM_PAT` is set, npm accepts it (`npm whoami`), and that
+     user has read-write access to the package. Any failure stops here, before git is
+     touched — so a bad token can't leave a pushed release commit with nothing published
    - Updates version in `package.json`
    - Commits: `Prepares for release '<version>'`
    - Pushes to origin

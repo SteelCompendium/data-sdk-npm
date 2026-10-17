@@ -1,14 +1,40 @@
 test:
     npm run build && npm run test
 
+# Checks: NPM_PAT is set (.npmrc reads the token from it), npm accepts it, and its user
+# has read-write access to this package. `release` runs this before it touches git, so a
+# bad token can't leave a pushed release commit with nothing published. Can't detect a
+# read-only granular token or a publish-time 2FA prompt short of publishing.
+#
+# Verifies npm auth can publish this package (run automatically by `release`)
+check-auth:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    pkg="$(jq -r .name package.json)"
+    if [[ -z "${NPM_PAT:-}" ]]; then
+        echo >&2 "Auth check failed: NPM_PAT is not set (.npmrc reads the publish token from it)."
+        echo >&2 "  Create a token at https://www.npmjs.com/settings/~/tokens, then: export NPM_PAT=<token>"
+        exit 1
+    fi
+    if ! user="$(npm whoami 2>/dev/null)"; then
+        echo >&2 "Auth check failed: npm rejected NPM_PAT (expired or revoked?)."
+        echo >&2 "  Regenerate it at https://www.npmjs.com/settings/~/tokens, then: export NPM_PAT=<token>"
+        exit 1
+    fi
+    access="$(npm access list collaborators "$pkg" "$user" --json 2>/dev/null | jq -r --arg u "$user" '.[$u] // empty')"
+    if [[ "$access" != "read-write" ]]; then
+        echo >&2 "Auth check failed: npm user '$user' has '${access:-no}' access to $pkg; publishing needs read-write."
+        exit 1
+    fi
+    echo >&2 "npm auth OK: $user can publish $pkg"
+
 # Creates a release (make sure changelog is already setup)
-# if this 404s or 403s, you likely need to reauthenticate or regen a PAT (also see .npmrc)
-release version:
+release version: check-auth
     #!/usr/bin/env bash
     set -euo pipefail
     if [[ `git status --porcelain` ]]; then
         echo "Cannot release: 'git status' is not clean.  Commit/push or stash changes first"
-        exit 0
+        exit 1
     fi
     jq '.version = "{{version}}"' package.json > tmp.json && mv tmp.json package.json
     git add .
