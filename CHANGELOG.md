@@ -2,6 +2,16 @@
 
 ## Unreleased
 
+### Fixed
+
+- `Featureblock.fromDTO` / `Feature.fromDTO` no longer throw
+  `TypeError: dto.isTrait is not a function` on entries without `feature_type`. Every
+  real reader (`YamlReader`, `JsonReader`, `AutoDataReader`) hands `fromDTO` plain parsed
+  objects, and steel-etl's featureblock entries (the schema's `richFeature` shape) never
+  carry `feature_type`, so every corpus featureblock and dynamic-terrain file failed to
+  load. Trait-ness is now derived with the static, duck-typed `Feature.isTrait(dto)`.
+  (SC-155)
+
 ## 3.0.0
 
 First **3.x** release. Versions 3.0.0, 3.1.0, and 3.2.0 were developed but never
